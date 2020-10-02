@@ -1,4 +1,4 @@
-package io.swisschain.services;
+package io.swisschain.crypto.asymmetric;
 
 public class AsymmetricEncryptionKeyPair {
   private final String privateKey;

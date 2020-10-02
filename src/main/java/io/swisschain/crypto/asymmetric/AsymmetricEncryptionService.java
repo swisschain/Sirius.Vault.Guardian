@@ -1,17 +1,17 @@
-package io.swisschain.services;
+package io.swisschain.crypto.asymmetric;
 
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.digests.SHA256Digest;
+import org.bouncycastle.crypto.encodings.PKCS1Encoding;
 import org.bouncycastle.crypto.engines.RSAEngine;
 import org.bouncycastle.crypto.generators.RSAKeyPairGenerator;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import org.bouncycastle.crypto.signers.RSADigestSigner;
+import org.bouncycastle.crypto.util.PrivateKeyFactory;
 import org.bouncycastle.crypto.util.PrivateKeyInfoFactory;
 import org.bouncycastle.crypto.util.SubjectPublicKeyInfoFactory;
 import org.bouncycastle.util.io.pem.PemObject;
@@ -50,14 +50,14 @@ public class AsymmetricEncryptionService {
     return signer.verifySignature(signature);
   }
 
-  public byte[] encrypt(byte[] data, String publicKey) throws IOException {
-    var cipher = new RSAEngine();
+  public byte[] encrypt(byte[] data, String publicKey) throws IOException, InvalidCipherTextException {
+    var cipher = new PKCS1Encoding(new RSAEngine());
     cipher.init(true, getPublicKeyParameters(publicKey));
     return cipher.processBlock(data, 0, data.length);
   }
 
-  public byte[] decrypt(byte[] data, String privateKey) throws IOException {
-    var cipher = new RSAEngine();
+  public byte[] decrypt(byte[] data, String privateKey) throws IOException, InvalidCipherTextException {
+    var cipher = new PKCS1Encoding(new RSAEngine());
     cipher.init(false, getPrivateKeyParameters(privateKey));
     return cipher.processBlock(data, 0, data.length);
   }
@@ -91,32 +91,19 @@ public class AsymmetricEncryptionService {
   }
 
   private String exportPrivateKey(AsymmetricKeyParameter privateKeyParameter) throws IOException {
-    PrivateKeyInfo privateKeyInfo = PrivateKeyInfoFactory.createPrivateKeyInfo(privateKeyParameter);
-    var encodedKey = privateKeyInfo.parsePrivateKey().toASN1Primitive().getEncoded();
-
+    var privateKeyInfo = PrivateKeyInfoFactory.createPrivateKeyInfo(privateKeyParameter);
     try (var writer = new StringWriter();
         var pemWriter = new PemWriter(writer)) {
-      pemWriter.writeObject(new PemObject(PrivateKeyType, encodedKey));
+      pemWriter.writeObject(new PemObject(PrivateKeyType, privateKeyInfo.getEncoded()));
       pemWriter.flush();
       return writer.toString();
     }
   }
 
-  private RSAPrivateCrtKeyParameters getPrivateKeyParameters(String privateKey) throws IOException {
+  private AsymmetricKeyParameter getPrivateKeyParameters(String privateKey) throws IOException {
     try (var reader = new StringReader(privateKey);
         var pemReader = new PemReader(reader)) {
-      var asn1 = ASN1Sequence.fromByteArray(pemReader.readPemObject().getContent());
-      var key = org.bouncycastle.asn1.pkcs.RSAPrivateKey.getInstance(asn1);
-
-      return new RSAPrivateCrtKeyParameters(
-          key.getModulus(),
-          key.getPublicExponent(),
-          key.getPrivateExponent(),
-          key.getPrime1(),
-          key.getPrime2(),
-          key.getExponent1(),
-          key.getExponent2(),
-          key.getCoefficient());
+      return PrivateKeyFactory.createKey(pemReader.readPemObject().getContent());
     }
   }
 

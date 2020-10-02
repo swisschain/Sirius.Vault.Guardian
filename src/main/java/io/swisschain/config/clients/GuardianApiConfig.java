@@ -1,4 +1,4 @@
-package io.swisschain.config;
+package io.swisschain.config.clients;
 
 public class GuardianApiConfig {
   public String host;

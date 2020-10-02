@@ -1,4 +1,4 @@
-package io.swisschain.services;
+package io.swisschain.crypto;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +15,7 @@ public class HashServiceTests {
   }
 
   @Test
-  public void compute_valid_hash_from_key_keeper_public_key() {
+  public void compute_valid_hash_from_public_key() {
 
     // arrange
 

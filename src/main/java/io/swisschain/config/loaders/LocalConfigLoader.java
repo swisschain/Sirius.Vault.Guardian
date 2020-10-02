@@ -1,6 +1,7 @@
-package io.swisschain.config;
+package io.swisschain.config.loaders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swisschain.config.AppConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,18 +14,18 @@ public class LocalConfigLoader {
   private static final String DEFAULT_LOCAL_FILE_NAME = "settings.json";
   private static final Logger logger = LogManager.getLogger();
 
-  public static Config loadConfig(String url) {
+  public static AppConfig loadConfig(String url) {
     final var mapper = new ObjectMapper();
     try {
       if (url.equals("local")) {
         logger.info("Loading default config from resources");
         final var inputStream =
             LocalConfigLoader.class.getClassLoader().getResourceAsStream(DEFAULT_LOCAL_FILE_NAME);
-        return mapper.readValue(inputStream, Config.class);
+        return mapper.readValue(inputStream, AppConfig.class);
       } else {
         logger.info("Loading local config from " + url);
         final var inputStream = new BufferedReader(new InputStreamReader(new FileInputStream(url)));
-        return mapper.readValue(inputStream, Config.class);
+        return mapper.readValue(inputStream, AppConfig.class);
       }
     } catch (IOException e) {
       logger.error("Unable to load local config file due to " + e.getMessage(), e);

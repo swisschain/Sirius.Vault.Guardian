@@ -1,4 +1,4 @@
-package io.swisschain.services;
+package io.swisschain.crypto;
 
 import org.bouncycastle.crypto.digests.SHA256Digest;
 
@@ -11,8 +11,9 @@ public class HashService {
     if (value == null || value.isEmpty())
       throw new IllegalArgumentException("Value cannot be null or empty. Parameter name: value.");
 
-    byte[] data = value.getBytes(StandardCharsets.UTF_8);
-    byte[] hash = computeHash(data);
+    var data = value.getBytes(StandardCharsets.UTF_8);
+    var hash = computeHash(data);
+
     return Base64.getEncoder().encodeToString(hash);
   }
 
@@ -20,10 +21,11 @@ public class HashService {
     if (data == null || data.length == 0)
       throw new IllegalArgumentException("Value cannot be null or empty. Parameter name: data.");
 
-    SHA256Digest digest = new SHA256Digest();
+    var digest = new SHA256Digest();
     digest.update(data, 0, data.length);
-    byte[] result = new byte[digest.getDigestSize()];
+    var result = new byte[digest.getDigestSize()];
     digest.doFinal(result, 0);
+
     return result;
   }
 }

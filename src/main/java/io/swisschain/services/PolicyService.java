@@ -17,8 +17,13 @@ public class PolicyService {
   }
 
   public PolicyOutput apply(TransferValidationRequest transferValidationRequest) {
-    for (Policy policy : policies) {}
+    var sourceAddressGroup = transferValidationRequest.getDetails().getSourceAddress().getGroup();
+    var destinationAddressGroup = transferValidationRequest.getDetails().getDestinationAddress().getGroup();
 
-    return null;
+    if(sourceAddressGroup != null && sourceAddressGroup.equals(destinationAddressGroup)){
+      return PolicyOutput.createEmpty();
+    }
+
+    return PolicyOutput.createApprove();
   }
 }

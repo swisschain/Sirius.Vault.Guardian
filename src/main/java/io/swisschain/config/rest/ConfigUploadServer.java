@@ -2,7 +2,7 @@ package io.swisschain.config.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fi.iki.elonen.NanoHTTPD;
-import io.swisschain.config.Config;
+import io.swisschain.config.AppConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,11 +13,11 @@ public class ConfigUploadServer extends NanoHTTPD {
   private static final Logger logger = LogManager.getLogger();
 
   private final ObjectMapper mapper = new ObjectMapper();
-  private final BlockingQueue<Config> configQueue;
+  private final BlockingQueue<AppConfig> appConfigQueue;
 
-  public ConfigUploadServer(int port, BlockingQueue<Config> configQueue) {
+  public ConfigUploadServer(int port, BlockingQueue<AppConfig> appConfigQueue) {
     super(port);
-    this.configQueue = configQueue;
+    this.appConfigQueue = appConfigQueue;
   }
 
   @Override
@@ -33,8 +33,8 @@ public class ConfigUploadServer extends NanoHTTPD {
     final String msg;
     if ("setConfig".equals(command)) {
       try {
-        final var config = mapper.readValue(session.getInputStream(), Config.class);
-        configQueue.put(config);
+        final var config = mapper.readValue(session.getInputStream(), AppConfig.class);
+        appConfigQueue.put(config);
         return newFixedLengthResponse("{'success':true}");
       } catch (IOException | InterruptedException e) {
         logger.error("Unable to load config : " + e.getMessage(), e);

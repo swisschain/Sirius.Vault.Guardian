@@ -1,4 +1,4 @@
-package io.swisschain.services;
+package io.swisschain.crypto;
 
 import java.util.Random;
 

@@ -28,4 +28,12 @@ public class PolicyOutput {
   public void setApprovers(List<String> approvers) {
     this.approvers = approvers;
   }
+
+  public static PolicyOutput createEmpty(){
+    return new PolicyOutput(PolicyOutputAction.None, null);
+  }
+
+  public static PolicyOutput createApprove(){
+    return new PolicyOutput(PolicyOutputAction.Approve, null);
+  }
 }

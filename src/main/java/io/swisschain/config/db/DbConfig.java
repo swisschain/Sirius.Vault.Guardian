@@ -1,4 +1,4 @@
-package io.swisschain.config;
+package io.swisschain.config.db;
 
 public class DbConfig {
   public String url;

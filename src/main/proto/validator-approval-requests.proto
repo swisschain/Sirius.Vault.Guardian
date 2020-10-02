@@ -25,8 +25,9 @@ message CreateApprovalRequestRequest {
   message ValidatorRequest {
 
     string validaditorId = 1;
-    bytes secretEnc = 2;
-    bytes messageEnc = 3;
+    string transactionDetailsEncBase64 = 2; // json with transaction details encrupted by AES algorithm with 'Secret' as key and IV as nonce. Formar: base64
+    string secretEncBase64 = 3; // Secret used for encrypt transaction detail. Secret encrypted by RSA algorithm with validator public key. Formar: base64
+    string ivNonce = 4; // IV used for encrypt transaction detail. Formar: base64
 
   }
 }
@@ -51,9 +52,8 @@ message GetApprovalResponse {
 
     string validatorId = 1; // Id of validator. ID = PublicKeyBytes.Sha256().ToBase64()
     string transferSigningRequestId = 2; // Id of transaction verification process
-    ResolutionStatus resolution = 3; // resolution from validator
-    string resolutionMessage = 4; // validator message
-    string signature = 5; // signature from validator private key (TransferSigningRequestId, Resolution, ResolutionMessage, TransactionDetail) encoded in base64
+    string resolutionDocumentEncBase64 = 3; // Document with transactionDetail, resolution and resolution message.string Document encrupted by AES algorithm with 'Secret' as key and IV from ValidatorRequest.
+    string signature = 4; // signature from validator private key (TransferSigningRequestId, Resolution, ResolutionMessage, TransactionDetail) encoded in base64
 
   }
 
@@ -92,4 +92,6 @@ message ValidatorsApiError {
 
   ErrorCodes code = 1; // error code
   string message = 2;  // error message in english
+
+
 }

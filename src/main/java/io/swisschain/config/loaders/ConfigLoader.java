@@ -1,9 +1,10 @@
-package io.swisschain.config;
+package io.swisschain.config.loaders;
 
+import io.swisschain.config.AppConfig;
 import io.swisschain.config.rest.RestConfigLoader;
 
 public class ConfigLoader {
-  public static Config loadConfig() {
+  public static AppConfig loadConfig() {
     final var configLocation = System.getenv("VAULT_CONFIG");
     if (configLocation == null || configLocation.isEmpty() || configLocation.equals("secure")) {
       return RestConfigLoader.loadConfig();

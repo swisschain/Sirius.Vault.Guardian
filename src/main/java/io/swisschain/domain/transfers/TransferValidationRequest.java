@@ -110,4 +110,16 @@ public class TransferValidationRequest {
   public void setUpdatedAt(Instant updatedAt) {
     this.updatedAt = updatedAt;
   }
+
+  public void validate(){
+    status = TransferValidationRequestStatus.Processing;
+  }
+
+  public void approve(){
+    status = TransferValidationRequestStatus.Approved;
+  }
+
+  public void reject(){
+    status = TransferValidationRequestStatus.Rejected;
+  }
 }
