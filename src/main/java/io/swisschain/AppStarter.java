@@ -109,7 +109,7 @@ public class AppStarter {
 
         initShutdownHook();
 
-        new IsAliveService(5001).start();
+        new IsAliveService(5000).start();
 
         while (true) {
             Thread.sleep(10000);
