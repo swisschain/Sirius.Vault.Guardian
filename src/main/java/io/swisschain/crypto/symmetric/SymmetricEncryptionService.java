@@ -12,6 +12,7 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.jetbrains.annotations.Nullable;
 
 import java.security.SecureRandom;
+import java.util.Arrays;
 
 public class SymmetricEncryptionService {
   private final int KeyBitSize = 256;
@@ -70,21 +71,18 @@ public class SymmetricEncryptionService {
     }
 
     var cipher = new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESEngine()), new PKCS7Padding());
-    //var cipher = new GCMBlockCipher(new AESEngine());
 
-    //var parameters = new AEADParameters(new KeyParameter(key), MacBitSize, nonce);
     var parameters = new ParametersWithIV(new KeyParameter(key), nonce);
     cipher.init(encrypt, parameters);
 
-    var out = new byte[cipher.getOutputSize(data.length)];
-    var length = cipher.processBytes(data, 0, data.length, out, 0);
+    var buffer = new byte[cipher.getOutputSize(data.length)];
+    var length = cipher.processBytes(data, 0, data.length, buffer, 0);
 
     try {
-      cipher.doFinal(out, length);
+      length+=cipher.doFinal(buffer, length);
     } catch (InvalidCipherTextException e) {
       return null;
     }
-
-    return out;
+    return Arrays.copyOfRange(buffer, 0, length);
   }
 }
