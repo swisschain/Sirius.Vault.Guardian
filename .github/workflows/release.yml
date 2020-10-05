@@ -1,9 +1,8 @@
-name: CI dev build
+name: Release Service
 
 on:
   push:
-    branches:
-      - dev-*
+    tags: "service-*"
 
 jobs:
   build:
@@ -38,9 +37,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           # snapshot: true # use snapshot to push an additional image, which is tagged with {YEAR}{MONTH}{DAY}{HOUR}{MINUTE}{SECOND}{first 6 digits of the git sha}
           tag_names: true
-      - name: Restart Sirius.Vault.Guardian
-        uses: swisschain/kube-restart-pods@master
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          NAMESPACE: sirius
-          POD: vault-guardian
+          tag_name_skip: service-
