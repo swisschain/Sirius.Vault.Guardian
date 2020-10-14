@@ -1,8 +1,8 @@
 name: Release Service
 
-on: [push]
-#  push:
-#    tags: "service-*"
+on:
+  push:
+    tags: "service-*"
 
 jobs:
   build:
