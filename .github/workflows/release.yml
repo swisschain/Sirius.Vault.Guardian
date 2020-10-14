@@ -1,8 +1,8 @@
 name: Release Service
 
-on:
-  push:
-    tags: "service-*"
+on: [push]
+#  push:
+#    tags: "service-*"
 
 jobs:
   build:
@@ -38,3 +38,24 @@ jobs:
           # snapshot: true # use snapshot to push an additional image, which is tagged with {YEAR}{MONTH}{DAY}{HOUR}{MINUTE}{SECOND}{first 6 digits of the git sha}
           tag_names: true
           tag_name_skip: service-
+      - name: copy file via scp
+        uses: appleboy/scp-action@master
+        env:
+           HOST: ${{ secrets.HOST }}
+           USERNAME: ${{ secrets.USERNAME }}
+#           PORT: ${{ secrets.PORT }}
+           KEY: ${{ secrets.SSHKEY }}
+        with:
+          source: "scripts/build.sh,scripts/deploy.sh"
+          target: "/root/"
+      - name: build docker
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          KEY: ${{ secrets.SSHKEY }}
+#          port: ${{ secrets.PORT }}
+          script: |
+              export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME }}"
+              export DOCKER_PASSWORD="${{ secrets.DOCKER_PASSWORD }}"
+              /root/scripts/build.sh
