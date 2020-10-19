@@ -1,7 +1,7 @@
 package io.swisschain.domain.transfers;
 
 public enum TransferValidationRequestStatus {
-  Pending,
+  New,
   Processing,
   Approved,
   Rejected,

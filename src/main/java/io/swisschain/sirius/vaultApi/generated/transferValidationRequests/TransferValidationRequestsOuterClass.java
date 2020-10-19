@@ -24,9 +24,9 @@ public final class TransferValidationRequestsOuterClass {
      */
     OTHER(0),
     /**
-     * <code>REJECTED_POLICY = 1;</code>
+     * <code>REJECTED_BY_POLICY = 1;</code>
      */
-    REJECTED_POLICY(1),
+    REJECTED_BY_POLICY(1),
     UNRECOGNIZED(-1),
     ;
 
@@ -35,9 +35,9 @@ public final class TransferValidationRequestsOuterClass {
      */
     public static final int OTHER_VALUE = 0;
     /**
-     * <code>REJECTED_POLICY = 1;</code>
+     * <code>REJECTED_BY_POLICY = 1;</code>
      */
-    public static final int REJECTED_POLICY_VALUE = 1;
+    public static final int REJECTED_BY_POLICY_VALUE = 1;
 
 
     public final int getNumber() {
@@ -65,7 +65,7 @@ public final class TransferValidationRequestsOuterClass {
     public static TransferValidationRequestRejectionReason forNumber(int value) {
       switch (value) {
         case 0: return OTHER;
-        case 1: return REJECTED_POLICY;
+        case 1: return REJECTED_BY_POLICY;
         default: return null;
       }
     }
@@ -3074,71 +3074,158 @@ public final class TransferValidationRequestsOuterClass {
     long getId();
 
     /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
-     * @return Whether the details field is set.
+     * <code>int64 operation_id = 2;</code>
+     * @return The operationId.
      */
-    boolean hasDetails();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
-     * @return The details.
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails getDetails();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetailsOrBuilder getDetailsOrBuilder();
+    long getOperationId();
 
     /**
-     * <code>string customer_signature = 3;</code>
-     * @return The customerSignature.
+     * <code>.google.protobuf.StringValue tenant_id = 3;</code>
+     * @return Whether the tenantId field is set.
      */
-    java.lang.String getCustomerSignature();
+    boolean hasTenantId();
     /**
-     * <code>string customer_signature = 3;</code>
-     * @return The bytes for customerSignature.
+     * <code>.google.protobuf.StringValue tenant_id = 3;</code>
+     * @return The tenantId.
      */
-    com.google.protobuf.ByteString
-        getCustomerSignatureBytes();
+    com.google.protobuf.StringValue getTenantId();
+    /**
+     * <code>.google.protobuf.StringValue tenant_id = 3;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getTenantIdOrBuilder();
 
     /**
-     * <code>string sirius_signature = 4;</code>
-     * @return The siriusSignature.
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+     * @return Whether the blockchain field is set.
      */
-    java.lang.String getSiriusSignature();
+    boolean hasBlockchain();
     /**
-     * <code>string sirius_signature = 4;</code>
-     * @return The bytes for siriusSignature.
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+     * @return The blockchain.
      */
-    com.google.protobuf.ByteString
-        getSiriusSignatureBytes();
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain getBlockchain();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder getBlockchainOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp created_at = 5;</code>
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+     * @return Whether the asset field is set.
+     */
+    boolean hasAsset();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+     * @return The asset.
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset getAsset();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder getAssetOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+     * @return Whether the sourceAddress field is set.
+     */
+    boolean hasSourceAddress();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+     * @return The sourceAddress.
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress getSourceAddress();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder getSourceAddressOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+     * @return Whether the destinationAddress field is set.
+     */
+    boolean hasDestinationAddress();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+     * @return The destinationAddress.
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress getDestinationAddress();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder getDestinationAddressOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+     * @return Whether the amount field is set.
+     */
+    boolean hasAmount();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+     * @return The amount.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getAmountOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+     * @return Whether the feeLimit field is set.
+     */
+    boolean hasFeeLimit();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+     * @return The feeLimit.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getFeeLimit();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getFeeLimitOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+     * @return Whether the transferContext field is set.
+     */
+    boolean hasTransferContext();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+     * @return The transferContext.
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext getTransferContext();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContextOrBuilder getTransferContextOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp created_at = 11;</code>
      * @return Whether the createdAt field is set.
      */
     boolean hasCreatedAt();
     /**
-     * <code>.google.protobuf.Timestamp created_at = 5;</code>
+     * <code>.google.protobuf.Timestamp created_at = 11;</code>
      * @return The createdAt.
      */
     com.google.protobuf.Timestamp getCreatedAt();
     /**
-     * <code>.google.protobuf.Timestamp created_at = 5;</code>
+     * <code>.google.protobuf.Timestamp created_at = 11;</code>
      */
     com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 12;</code>
      * @return Whether the updatedAt field is set.
      */
     boolean hasUpdatedAt();
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 12;</code>
      * @return The updatedAt.
      */
     com.google.protobuf.Timestamp getUpdatedAt();
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 12;</code>
      */
     com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
   }
@@ -3155,8 +3242,6 @@ public final class TransferValidationRequestsOuterClass {
       super(builder);
     }
     private TransferValidationRequest() {
-      customerSignature_ = "";
-      siriusSignature_ = "";
     }
 
     @java.lang.Override
@@ -3194,32 +3279,116 @@ public final class TransferValidationRequestsOuterClass {
               id_ = input.readInt64();
               break;
             }
-            case 18: {
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.Builder subBuilder = null;
-              if (details_ != null) {
-                subBuilder = details_.toBuilder();
-              }
-              details_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(details_);
-                details_ = subBuilder.buildPartial();
-              }
+            case 16: {
 
+              operationId_ = input.readInt64();
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (tenantId_ != null) {
+                subBuilder = tenantId_.toBuilder();
+              }
+              tenantId_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tenantId_);
+                tenantId_ = subBuilder.buildPartial();
+              }
 
-              customerSignature_ = s;
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder subBuilder = null;
+              if (blockchain_ != null) {
+                subBuilder = blockchain_.toBuilder();
+              }
+              blockchain_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(blockchain_);
+                blockchain_ = subBuilder.buildPartial();
+              }
 
-              siriusSignature_ = s;
               break;
             }
             case 42: {
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder subBuilder = null;
+              if (asset_ != null) {
+                subBuilder = asset_.toBuilder();
+              }
+              asset_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(asset_);
+                asset_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder subBuilder = null;
+              if (sourceAddress_ != null) {
+                subBuilder = sourceAddress_.toBuilder();
+              }
+              sourceAddress_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(sourceAddress_);
+                sourceAddress_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder subBuilder = null;
+              if (destinationAddress_ != null) {
+                subBuilder = destinationAddress_.toBuilder();
+              }
+              destinationAddress_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(destinationAddress_);
+                destinationAddress_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 66: {
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder subBuilder = null;
+              if (amount_ != null) {
+                subBuilder = amount_.toBuilder();
+              }
+              amount_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(amount_);
+                amount_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 74: {
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder subBuilder = null;
+              if (feeLimit_ != null) {
+                subBuilder = feeLimit_.toBuilder();
+              }
+              feeLimit_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(feeLimit_);
+                feeLimit_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 82: {
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.Builder subBuilder = null;
+              if (transferContext_ != null) {
+                subBuilder = transferContext_.toBuilder();
+              }
+              transferContext_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(transferContext_);
+                transferContext_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 90: {
               com.google.protobuf.Timestamp.Builder subBuilder = null;
               if (createdAt_ != null) {
                 subBuilder = createdAt_.toBuilder();
@@ -3232,7 +3401,7 @@ public final class TransferValidationRequestsOuterClass {
 
               break;
             }
-            case 50: {
+            case 98: {
               com.google.protobuf.Timestamp.Builder subBuilder = null;
               if (updatedAt_ != null) {
                 subBuilder = updatedAt_.toBuilder();
@@ -3288,112 +3457,229 @@ public final class TransferValidationRequestsOuterClass {
       return id_;
     }
 
-    public static final int DETAILS_FIELD_NUMBER = 2;
-    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails details_;
+    public static final int OPERATION_ID_FIELD_NUMBER = 2;
+    private long operationId_;
     /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
-     * @return Whether the details field is set.
+     * <code>int64 operation_id = 2;</code>
+     * @return The operationId.
      */
     @java.lang.Override
-    public boolean hasDetails() {
-      return details_ != null;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
-     * @return The details.
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails getDetails() {
-      return details_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.getDefaultInstance() : details_;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetailsOrBuilder getDetailsOrBuilder() {
-      return getDetails();
+    public long getOperationId() {
+      return operationId_;
     }
 
-    public static final int CUSTOMER_SIGNATURE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object customerSignature_;
+    public static final int TENANT_ID_FIELD_NUMBER = 3;
+    private com.google.protobuf.StringValue tenantId_;
     /**
-     * <code>string customer_signature = 3;</code>
-     * @return The customerSignature.
+     * <code>.google.protobuf.StringValue tenant_id = 3;</code>
+     * @return Whether the tenantId field is set.
      */
     @java.lang.Override
-    public java.lang.String getCustomerSignature() {
-      java.lang.Object ref = customerSignature_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        customerSignature_ = s;
-        return s;
-      }
+    public boolean hasTenantId() {
+      return tenantId_ != null;
     }
     /**
-     * <code>string customer_signature = 3;</code>
-     * @return The bytes for customerSignature.
+     * <code>.google.protobuf.StringValue tenant_id = 3;</code>
+     * @return The tenantId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCustomerSignatureBytes() {
-      java.lang.Object ref = customerSignature_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        customerSignature_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.StringValue getTenantId() {
+      return tenantId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : tenantId_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue tenant_id = 3;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getTenantIdOrBuilder() {
+      return getTenantId();
     }
 
-    public static final int SIRIUS_SIGNATURE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object siriusSignature_;
+    public static final int BLOCKCHAIN_FIELD_NUMBER = 4;
+    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain blockchain_;
     /**
-     * <code>string sirius_signature = 4;</code>
-     * @return The siriusSignature.
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+     * @return Whether the blockchain field is set.
      */
     @java.lang.Override
-    public java.lang.String getSiriusSignature() {
-      java.lang.Object ref = siriusSignature_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        siriusSignature_ = s;
-        return s;
-      }
+    public boolean hasBlockchain() {
+      return blockchain_ != null;
     }
     /**
-     * <code>string sirius_signature = 4;</code>
-     * @return The bytes for siriusSignature.
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+     * @return The blockchain.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSiriusSignatureBytes() {
-      java.lang.Object ref = siriusSignature_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        siriusSignature_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain getBlockchain() {
+      return blockchain_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.getDefaultInstance() : blockchain_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder getBlockchainOrBuilder() {
+      return getBlockchain();
     }
 
-    public static final int CREATED_AT_FIELD_NUMBER = 5;
+    public static final int ASSET_FIELD_NUMBER = 5;
+    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset asset_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+     * @return Whether the asset field is set.
+     */
+    @java.lang.Override
+    public boolean hasAsset() {
+      return asset_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+     * @return The asset.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset getAsset() {
+      return asset_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.getDefaultInstance() : asset_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder getAssetOrBuilder() {
+      return getAsset();
+    }
+
+    public static final int SOURCE_ADDRESS_FIELD_NUMBER = 6;
+    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress sourceAddress_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+     * @return Whether the sourceAddress field is set.
+     */
+    @java.lang.Override
+    public boolean hasSourceAddress() {
+      return sourceAddress_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+     * @return The sourceAddress.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress getSourceAddress() {
+      return sourceAddress_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.getDefaultInstance() : sourceAddress_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder getSourceAddressOrBuilder() {
+      return getSourceAddress();
+    }
+
+    public static final int DESTINATION_ADDRESS_FIELD_NUMBER = 7;
+    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress destinationAddress_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+     * @return Whether the destinationAddress field is set.
+     */
+    @java.lang.Override
+    public boolean hasDestinationAddress() {
+      return destinationAddress_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+     * @return The destinationAddress.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress getDestinationAddress() {
+      return destinationAddress_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.getDefaultInstance() : destinationAddress_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder getDestinationAddressOrBuilder() {
+      return getDestinationAddress();
+    }
+
+    public static final int AMOUNT_FIELD_NUMBER = 8;
+    private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal amount_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+     * @return Whether the amount field is set.
+     */
+    @java.lang.Override
+    public boolean hasAmount() {
+      return amount_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+     * @return The amount.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount() {
+      return amount_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : amount_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getAmountOrBuilder() {
+      return getAmount();
+    }
+
+    public static final int FEE_LIMIT_FIELD_NUMBER = 9;
+    private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal feeLimit_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+     * @return Whether the feeLimit field is set.
+     */
+    @java.lang.Override
+    public boolean hasFeeLimit() {
+      return feeLimit_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+     * @return The feeLimit.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getFeeLimit() {
+      return feeLimit_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : feeLimit_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getFeeLimitOrBuilder() {
+      return getFeeLimit();
+    }
+
+    public static final int TRANSFER_CONTEXT_FIELD_NUMBER = 10;
+    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext transferContext_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+     * @return Whether the transferContext field is set.
+     */
+    @java.lang.Override
+    public boolean hasTransferContext() {
+      return transferContext_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+     * @return The transferContext.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext getTransferContext() {
+      return transferContext_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.getDefaultInstance() : transferContext_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContextOrBuilder getTransferContextOrBuilder() {
+      return getTransferContext();
+    }
+
+    public static final int CREATED_AT_FIELD_NUMBER = 11;
     private com.google.protobuf.Timestamp createdAt_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 5;</code>
+     * <code>.google.protobuf.Timestamp created_at = 11;</code>
      * @return Whether the createdAt field is set.
      */
     @java.lang.Override
@@ -3401,7 +3687,7 @@ public final class TransferValidationRequestsOuterClass {
       return createdAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 5;</code>
+     * <code>.google.protobuf.Timestamp created_at = 11;</code>
      * @return The createdAt.
      */
     @java.lang.Override
@@ -3409,17 +3695,17 @@ public final class TransferValidationRequestsOuterClass {
       return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 5;</code>
+     * <code>.google.protobuf.Timestamp created_at = 11;</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       return getCreatedAt();
     }
 
-    public static final int UPDATED_AT_FIELD_NUMBER = 6;
+    public static final int UPDATED_AT_FIELD_NUMBER = 12;
     private com.google.protobuf.Timestamp updatedAt_;
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 12;</code>
      * @return Whether the updatedAt field is set.
      */
     @java.lang.Override
@@ -3427,7 +3713,7 @@ public final class TransferValidationRequestsOuterClass {
       return updatedAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 12;</code>
      * @return The updatedAt.
      */
     @java.lang.Override
@@ -3435,7 +3721,7 @@ public final class TransferValidationRequestsOuterClass {
       return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 12;</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
@@ -3459,20 +3745,38 @@ public final class TransferValidationRequestsOuterClass {
       if (id_ != 0L) {
         output.writeInt64(1, id_);
       }
-      if (details_ != null) {
-        output.writeMessage(2, getDetails());
+      if (operationId_ != 0L) {
+        output.writeInt64(2, operationId_);
       }
-      if (!getCustomerSignatureBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, customerSignature_);
+      if (tenantId_ != null) {
+        output.writeMessage(3, getTenantId());
       }
-      if (!getSiriusSignatureBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, siriusSignature_);
+      if (blockchain_ != null) {
+        output.writeMessage(4, getBlockchain());
+      }
+      if (asset_ != null) {
+        output.writeMessage(5, getAsset());
+      }
+      if (sourceAddress_ != null) {
+        output.writeMessage(6, getSourceAddress());
+      }
+      if (destinationAddress_ != null) {
+        output.writeMessage(7, getDestinationAddress());
+      }
+      if (amount_ != null) {
+        output.writeMessage(8, getAmount());
+      }
+      if (feeLimit_ != null) {
+        output.writeMessage(9, getFeeLimit());
+      }
+      if (transferContext_ != null) {
+        output.writeMessage(10, getTransferContext());
       }
       if (createdAt_ != null) {
-        output.writeMessage(5, getCreatedAt());
+        output.writeMessage(11, getCreatedAt());
       }
       if (updatedAt_ != null) {
-        output.writeMessage(6, getUpdatedAt());
+        output.writeMessage(12, getUpdatedAt());
       }
       unknownFields.writeTo(output);
     }
@@ -3487,23 +3791,49 @@ public final class TransferValidationRequestsOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, id_);
       }
-      if (details_ != null) {
+      if (operationId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getDetails());
+          .computeInt64Size(2, operationId_);
       }
-      if (!getCustomerSignatureBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, customerSignature_);
+      if (tenantId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getTenantId());
       }
-      if (!getSiriusSignatureBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, siriusSignature_);
+      if (blockchain_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getBlockchain());
+      }
+      if (asset_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getAsset());
+      }
+      if (sourceAddress_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getSourceAddress());
+      }
+      if (destinationAddress_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getDestinationAddress());
+      }
+      if (amount_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getAmount());
+      }
+      if (feeLimit_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getFeeLimit());
+      }
+      if (transferContext_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getTransferContext());
       }
       if (createdAt_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getCreatedAt());
+          .computeMessageSize(11, getCreatedAt());
       }
       if (updatedAt_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getUpdatedAt());
+          .computeMessageSize(12, getUpdatedAt());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3522,15 +3852,48 @@ public final class TransferValidationRequestsOuterClass {
 
       if (getId()
           != other.getId()) return false;
-      if (hasDetails() != other.hasDetails()) return false;
-      if (hasDetails()) {
-        if (!getDetails()
-            .equals(other.getDetails())) return false;
+      if (getOperationId()
+          != other.getOperationId()) return false;
+      if (hasTenantId() != other.hasTenantId()) return false;
+      if (hasTenantId()) {
+        if (!getTenantId()
+            .equals(other.getTenantId())) return false;
       }
-      if (!getCustomerSignature()
-          .equals(other.getCustomerSignature())) return false;
-      if (!getSiriusSignature()
-          .equals(other.getSiriusSignature())) return false;
+      if (hasBlockchain() != other.hasBlockchain()) return false;
+      if (hasBlockchain()) {
+        if (!getBlockchain()
+            .equals(other.getBlockchain())) return false;
+      }
+      if (hasAsset() != other.hasAsset()) return false;
+      if (hasAsset()) {
+        if (!getAsset()
+            .equals(other.getAsset())) return false;
+      }
+      if (hasSourceAddress() != other.hasSourceAddress()) return false;
+      if (hasSourceAddress()) {
+        if (!getSourceAddress()
+            .equals(other.getSourceAddress())) return false;
+      }
+      if (hasDestinationAddress() != other.hasDestinationAddress()) return false;
+      if (hasDestinationAddress()) {
+        if (!getDestinationAddress()
+            .equals(other.getDestinationAddress())) return false;
+      }
+      if (hasAmount() != other.hasAmount()) return false;
+      if (hasAmount()) {
+        if (!getAmount()
+            .equals(other.getAmount())) return false;
+      }
+      if (hasFeeLimit() != other.hasFeeLimit()) return false;
+      if (hasFeeLimit()) {
+        if (!getFeeLimit()
+            .equals(other.getFeeLimit())) return false;
+      }
+      if (hasTransferContext() != other.hasTransferContext()) return false;
+      if (hasTransferContext()) {
+        if (!getTransferContext()
+            .equals(other.getTransferContext())) return false;
+      }
       if (hasCreatedAt() != other.hasCreatedAt()) return false;
       if (hasCreatedAt()) {
         if (!getCreatedAt()
@@ -3555,14 +3918,41 @@ public final class TransferValidationRequestsOuterClass {
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getId());
-      if (hasDetails()) {
-        hash = (37 * hash) + DETAILS_FIELD_NUMBER;
-        hash = (53 * hash) + getDetails().hashCode();
+      hash = (37 * hash) + OPERATION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getOperationId());
+      if (hasTenantId()) {
+        hash = (37 * hash) + TENANT_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTenantId().hashCode();
       }
-      hash = (37 * hash) + CUSTOMER_SIGNATURE_FIELD_NUMBER;
-      hash = (53 * hash) + getCustomerSignature().hashCode();
-      hash = (37 * hash) + SIRIUS_SIGNATURE_FIELD_NUMBER;
-      hash = (53 * hash) + getSiriusSignature().hashCode();
+      if (hasBlockchain()) {
+        hash = (37 * hash) + BLOCKCHAIN_FIELD_NUMBER;
+        hash = (53 * hash) + getBlockchain().hashCode();
+      }
+      if (hasAsset()) {
+        hash = (37 * hash) + ASSET_FIELD_NUMBER;
+        hash = (53 * hash) + getAsset().hashCode();
+      }
+      if (hasSourceAddress()) {
+        hash = (37 * hash) + SOURCE_ADDRESS_FIELD_NUMBER;
+        hash = (53 * hash) + getSourceAddress().hashCode();
+      }
+      if (hasDestinationAddress()) {
+        hash = (37 * hash) + DESTINATION_ADDRESS_FIELD_NUMBER;
+        hash = (53 * hash) + getDestinationAddress().hashCode();
+      }
+      if (hasAmount()) {
+        hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getAmount().hashCode();
+      }
+      if (hasFeeLimit()) {
+        hash = (37 * hash) + FEE_LIMIT_FIELD_NUMBER;
+        hash = (53 * hash) + getFeeLimit().hashCode();
+      }
+      if (hasTransferContext()) {
+        hash = (37 * hash) + TRANSFER_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getTransferContext().hashCode();
+      }
       if (hasCreatedAt()) {
         hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
         hash = (53 * hash) + getCreatedAt().hashCode();
@@ -3706,16 +4096,56 @@ public final class TransferValidationRequestsOuterClass {
         super.clear();
         id_ = 0L;
 
-        if (detailsBuilder_ == null) {
-          details_ = null;
+        operationId_ = 0L;
+
+        if (tenantIdBuilder_ == null) {
+          tenantId_ = null;
         } else {
-          details_ = null;
-          detailsBuilder_ = null;
+          tenantId_ = null;
+          tenantIdBuilder_ = null;
         }
-        customerSignature_ = "";
-
-        siriusSignature_ = "";
-
+        if (blockchainBuilder_ == null) {
+          blockchain_ = null;
+        } else {
+          blockchain_ = null;
+          blockchainBuilder_ = null;
+        }
+        if (assetBuilder_ == null) {
+          asset_ = null;
+        } else {
+          asset_ = null;
+          assetBuilder_ = null;
+        }
+        if (sourceAddressBuilder_ == null) {
+          sourceAddress_ = null;
+        } else {
+          sourceAddress_ = null;
+          sourceAddressBuilder_ = null;
+        }
+        if (destinationAddressBuilder_ == null) {
+          destinationAddress_ = null;
+        } else {
+          destinationAddress_ = null;
+          destinationAddressBuilder_ = null;
+        }
+        if (amountBuilder_ == null) {
+          amount_ = null;
+        } else {
+          amount_ = null;
+          amountBuilder_ = null;
+        }
+        if (feeLimitBuilder_ == null) {
+          feeLimit_ = null;
+        } else {
+          feeLimit_ = null;
+          feeLimitBuilder_ = null;
+        }
+        if (transferContextBuilder_ == null) {
+          transferContext_ = null;
+        } else {
+          transferContext_ = null;
+          transferContextBuilder_ = null;
+        }
         if (createdAtBuilder_ == null) {
           createdAt_ = null;
         } else {
@@ -3755,13 +4185,47 @@ public final class TransferValidationRequestsOuterClass {
       public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequest buildPartial() {
         io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequest result = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequest(this);
         result.id_ = id_;
-        if (detailsBuilder_ == null) {
-          result.details_ = details_;
+        result.operationId_ = operationId_;
+        if (tenantIdBuilder_ == null) {
+          result.tenantId_ = tenantId_;
         } else {
-          result.details_ = detailsBuilder_.build();
+          result.tenantId_ = tenantIdBuilder_.build();
         }
-        result.customerSignature_ = customerSignature_;
-        result.siriusSignature_ = siriusSignature_;
+        if (blockchainBuilder_ == null) {
+          result.blockchain_ = blockchain_;
+        } else {
+          result.blockchain_ = blockchainBuilder_.build();
+        }
+        if (assetBuilder_ == null) {
+          result.asset_ = asset_;
+        } else {
+          result.asset_ = assetBuilder_.build();
+        }
+        if (sourceAddressBuilder_ == null) {
+          result.sourceAddress_ = sourceAddress_;
+        } else {
+          result.sourceAddress_ = sourceAddressBuilder_.build();
+        }
+        if (destinationAddressBuilder_ == null) {
+          result.destinationAddress_ = destinationAddress_;
+        } else {
+          result.destinationAddress_ = destinationAddressBuilder_.build();
+        }
+        if (amountBuilder_ == null) {
+          result.amount_ = amount_;
+        } else {
+          result.amount_ = amountBuilder_.build();
+        }
+        if (feeLimitBuilder_ == null) {
+          result.feeLimit_ = feeLimit_;
+        } else {
+          result.feeLimit_ = feeLimitBuilder_.build();
+        }
+        if (transferContextBuilder_ == null) {
+          result.transferContext_ = transferContext_;
+        } else {
+          result.transferContext_ = transferContextBuilder_.build();
+        }
         if (createdAtBuilder_ == null) {
           result.createdAt_ = createdAt_;
         } else {
@@ -3823,16 +4287,32 @@ public final class TransferValidationRequestsOuterClass {
         if (other.getId() != 0L) {
           setId(other.getId());
         }
-        if (other.hasDetails()) {
-          mergeDetails(other.getDetails());
+        if (other.getOperationId() != 0L) {
+          setOperationId(other.getOperationId());
         }
-        if (!other.getCustomerSignature().isEmpty()) {
-          customerSignature_ = other.customerSignature_;
-          onChanged();
+        if (other.hasTenantId()) {
+          mergeTenantId(other.getTenantId());
         }
-        if (!other.getSiriusSignature().isEmpty()) {
-          siriusSignature_ = other.siriusSignature_;
-          onChanged();
+        if (other.hasBlockchain()) {
+          mergeBlockchain(other.getBlockchain());
+        }
+        if (other.hasAsset()) {
+          mergeAsset(other.getAsset());
+        }
+        if (other.hasSourceAddress()) {
+          mergeSourceAddress(other.getSourceAddress());
+        }
+        if (other.hasDestinationAddress()) {
+          mergeDestinationAddress(other.getDestinationAddress());
+        }
+        if (other.hasAmount()) {
+          mergeAmount(other.getAmount());
+        }
+        if (other.hasFeeLimit()) {
+          mergeFeeLimit(other.getFeeLimit());
+        }
+        if (other.hasTransferContext()) {
+          mergeTransferContext(other.getTransferContext());
         }
         if (other.hasCreatedAt()) {
           mergeCreatedAt(other.getCreatedAt());
@@ -3900,289 +4380,1001 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
 
-      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails details_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetailsOrBuilder> detailsBuilder_;
+      private long operationId_ ;
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
-       * @return Whether the details field is set.
+       * <code>int64 operation_id = 2;</code>
+       * @return The operationId.
        */
-      public boolean hasDetails() {
-        return detailsBuilder_ != null || details_ != null;
+      @java.lang.Override
+      public long getOperationId() {
+        return operationId_;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
-       * @return The details.
+       * <code>int64 operation_id = 2;</code>
+       * @param value The operationId to set.
+       * @return This builder for chaining.
        */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails getDetails() {
-        if (detailsBuilder_ == null) {
-          return details_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.getDefaultInstance() : details_;
+      public Builder setOperationId(long value) {
+        
+        operationId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 operation_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOperationId() {
+        
+        operationId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.StringValue tenantId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> tenantIdBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
+       * @return Whether the tenantId field is set.
+       */
+      public boolean hasTenantId() {
+        return tenantIdBuilder_ != null || tenantId_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
+       * @return The tenantId.
+       */
+      public com.google.protobuf.StringValue getTenantId() {
+        if (tenantIdBuilder_ == null) {
+          return tenantId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : tenantId_;
         } else {
-          return detailsBuilder_.getMessage();
+          return tenantIdBuilder_.getMessage();
         }
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
        */
-      public Builder setDetails(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails value) {
-        if (detailsBuilder_ == null) {
+      public Builder setTenantId(com.google.protobuf.StringValue value) {
+        if (tenantIdBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          details_ = value;
+          tenantId_ = value;
           onChanged();
         } else {
-          detailsBuilder_.setMessage(value);
+          tenantIdBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
        */
-      public Builder setDetails(
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.Builder builderForValue) {
-        if (detailsBuilder_ == null) {
-          details_ = builderForValue.build();
+      public Builder setTenantId(
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (tenantIdBuilder_ == null) {
+          tenantId_ = builderForValue.build();
           onChanged();
         } else {
-          detailsBuilder_.setMessage(builderForValue.build());
+          tenantIdBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
        */
-      public Builder mergeDetails(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails value) {
-        if (detailsBuilder_ == null) {
-          if (details_ != null) {
-            details_ =
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.newBuilder(details_).mergeFrom(value).buildPartial();
+      public Builder mergeTenantId(com.google.protobuf.StringValue value) {
+        if (tenantIdBuilder_ == null) {
+          if (tenantId_ != null) {
+            tenantId_ =
+              com.google.protobuf.StringValue.newBuilder(tenantId_).mergeFrom(value).buildPartial();
           } else {
-            details_ = value;
+            tenantId_ = value;
           }
           onChanged();
         } else {
-          detailsBuilder_.mergeFrom(value);
+          tenantIdBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
        */
-      public Builder clearDetails() {
-        if (detailsBuilder_ == null) {
-          details_ = null;
+      public Builder clearTenantId() {
+        if (tenantIdBuilder_ == null) {
+          tenantId_ = null;
           onChanged();
         } else {
-          details_ = null;
-          detailsBuilder_ = null;
+          tenantId_ = null;
+          tenantIdBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
        */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.Builder getDetailsBuilder() {
+      public com.google.protobuf.StringValue.Builder getTenantIdBuilder() {
         
         onChanged();
-        return getDetailsFieldBuilder().getBuilder();
+        return getTenantIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
        */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetailsOrBuilder getDetailsOrBuilder() {
-        if (detailsBuilder_ != null) {
-          return detailsBuilder_.getMessageOrBuilder();
+      public com.google.protobuf.StringValueOrBuilder getTenantIdOrBuilder() {
+        if (tenantIdBuilder_ != null) {
+          return tenantIdBuilder_.getMessageOrBuilder();
         } else {
-          return details_ == null ?
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.getDefaultInstance() : details_;
+          return tenantId_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : tenantId_;
         }
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails details = 2;</code>
+       * <code>.google.protobuf.StringValue tenant_id = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetailsOrBuilder> 
-          getDetailsFieldBuilder() {
-        if (detailsBuilder_ == null) {
-          detailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetailsOrBuilder>(
-                  getDetails(),
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getTenantIdFieldBuilder() {
+        if (tenantIdBuilder_ == null) {
+          tenantIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getTenantId(),
                   getParentForChildren(),
                   isClean());
-          details_ = null;
+          tenantId_ = null;
         }
-        return detailsBuilder_;
+        return tenantIdBuilder_;
       }
 
-      private java.lang.Object customerSignature_ = "";
+      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain blockchain_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder> blockchainBuilder_;
       /**
-       * <code>string customer_signature = 3;</code>
-       * @return The customerSignature.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+       * @return Whether the blockchain field is set.
        */
-      public java.lang.String getCustomerSignature() {
-        java.lang.Object ref = customerSignature_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          customerSignature_ = s;
-          return s;
+      public boolean hasBlockchain() {
+        return blockchainBuilder_ != null || blockchain_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+       * @return The blockchain.
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain getBlockchain() {
+        if (blockchainBuilder_ == null) {
+          return blockchain_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.getDefaultInstance() : blockchain_;
         } else {
-          return (java.lang.String) ref;
+          return blockchainBuilder_.getMessage();
         }
       }
       /**
-       * <code>string customer_signature = 3;</code>
-       * @return The bytes for customerSignature.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
        */
-      public com.google.protobuf.ByteString
-          getCustomerSignatureBytes() {
-        java.lang.Object ref = customerSignature_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          customerSignature_ = b;
-          return b;
+      public Builder setBlockchain(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain value) {
+        if (blockchainBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          blockchain_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          blockchainBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+       */
+      public Builder setBlockchain(
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder builderForValue) {
+        if (blockchainBuilder_ == null) {
+          blockchain_ = builderForValue.build();
+          onChanged();
+        } else {
+          blockchainBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+       */
+      public Builder mergeBlockchain(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain value) {
+        if (blockchainBuilder_ == null) {
+          if (blockchain_ != null) {
+            blockchain_ =
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.newBuilder(blockchain_).mergeFrom(value).buildPartial();
+          } else {
+            blockchain_ = value;
+          }
+          onChanged();
+        } else {
+          blockchainBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+       */
+      public Builder clearBlockchain() {
+        if (blockchainBuilder_ == null) {
+          blockchain_ = null;
+          onChanged();
+        } else {
+          blockchain_ = null;
+          blockchainBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder getBlockchainBuilder() {
+        
+        onChanged();
+        return getBlockchainFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder getBlockchainOrBuilder() {
+        if (blockchainBuilder_ != null) {
+          return blockchainBuilder_.getMessageOrBuilder();
+        } else {
+          return blockchain_ == null ?
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.getDefaultInstance() : blockchain_;
         }
       }
       /**
-       * <code>string customer_signature = 3;</code>
-       * @param value The customerSignature to set.
-       * @return This builder for chaining.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 4;</code>
        */
-      public Builder setCustomerSignature(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        customerSignature_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string customer_signature = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCustomerSignature() {
-        
-        customerSignature_ = getDefaultInstance().getCustomerSignature();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string customer_signature = 3;</code>
-       * @param value The bytes for customerSignature to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCustomerSignatureBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        customerSignature_ = value;
-        onChanged();
-        return this;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder> 
+          getBlockchainFieldBuilder() {
+        if (blockchainBuilder_ == null) {
+          blockchainBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder>(
+                  getBlockchain(),
+                  getParentForChildren(),
+                  isClean());
+          blockchain_ = null;
+        }
+        return blockchainBuilder_;
       }
 
-      private java.lang.Object siriusSignature_ = "";
+      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset asset_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder> assetBuilder_;
       /**
-       * <code>string sirius_signature = 4;</code>
-       * @return The siriusSignature.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+       * @return Whether the asset field is set.
        */
-      public java.lang.String getSiriusSignature() {
-        java.lang.Object ref = siriusSignature_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          siriusSignature_ = s;
-          return s;
+      public boolean hasAsset() {
+        return assetBuilder_ != null || asset_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+       * @return The asset.
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset getAsset() {
+        if (assetBuilder_ == null) {
+          return asset_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.getDefaultInstance() : asset_;
         } else {
-          return (java.lang.String) ref;
+          return assetBuilder_.getMessage();
         }
       }
       /**
-       * <code>string sirius_signature = 4;</code>
-       * @return The bytes for siriusSignature.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
        */
-      public com.google.protobuf.ByteString
-          getSiriusSignatureBytes() {
-        java.lang.Object ref = siriusSignature_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          siriusSignature_ = b;
-          return b;
+      public Builder setAsset(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset value) {
+        if (assetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          asset_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          assetBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+       */
+      public Builder setAsset(
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder builderForValue) {
+        if (assetBuilder_ == null) {
+          asset_ = builderForValue.build();
+          onChanged();
+        } else {
+          assetBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+       */
+      public Builder mergeAsset(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset value) {
+        if (assetBuilder_ == null) {
+          if (asset_ != null) {
+            asset_ =
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.newBuilder(asset_).mergeFrom(value).buildPartial();
+          } else {
+            asset_ = value;
+          }
+          onChanged();
+        } else {
+          assetBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+       */
+      public Builder clearAsset() {
+        if (assetBuilder_ == null) {
+          asset_ = null;
+          onChanged();
+        } else {
+          asset_ = null;
+          assetBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder getAssetBuilder() {
+        
+        onChanged();
+        return getAssetFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder getAssetOrBuilder() {
+        if (assetBuilder_ != null) {
+          return assetBuilder_.getMessageOrBuilder();
+        } else {
+          return asset_ == null ?
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.getDefaultInstance() : asset_;
         }
       }
       /**
-       * <code>string sirius_signature = 4;</code>
-       * @param value The siriusSignature to set.
-       * @return This builder for chaining.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 5;</code>
        */
-      public Builder setSiriusSignature(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        siriusSignature_ = value;
-        onChanged();
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder> 
+          getAssetFieldBuilder() {
+        if (assetBuilder_ == null) {
+          assetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder>(
+                  getAsset(),
+                  getParentForChildren(),
+                  isClean());
+          asset_ = null;
+        }
+        return assetBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress sourceAddress_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder> sourceAddressBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+       * @return Whether the sourceAddress field is set.
+       */
+      public boolean hasSourceAddress() {
+        return sourceAddressBuilder_ != null || sourceAddress_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+       * @return The sourceAddress.
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress getSourceAddress() {
+        if (sourceAddressBuilder_ == null) {
+          return sourceAddress_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.getDefaultInstance() : sourceAddress_;
+        } else {
+          return sourceAddressBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+       */
+      public Builder setSourceAddress(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress value) {
+        if (sourceAddressBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sourceAddress_ = value;
+          onChanged();
+        } else {
+          sourceAddressBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>string sirius_signature = 4;</code>
-       * @return This builder for chaining.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
        */
-      public Builder clearSiriusSignature() {
-        
-        siriusSignature_ = getDefaultInstance().getSiriusSignature();
-        onChanged();
+      public Builder setSourceAddress(
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder builderForValue) {
+        if (sourceAddressBuilder_ == null) {
+          sourceAddress_ = builderForValue.build();
+          onChanged();
+        } else {
+          sourceAddressBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>string sirius_signature = 4;</code>
-       * @param value The bytes for siriusSignature to set.
-       * @return This builder for chaining.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
        */
-      public Builder setSiriusSignatureBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        siriusSignature_ = value;
-        onChanged();
+      public Builder mergeSourceAddress(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress value) {
+        if (sourceAddressBuilder_ == null) {
+          if (sourceAddress_ != null) {
+            sourceAddress_ =
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.newBuilder(sourceAddress_).mergeFrom(value).buildPartial();
+          } else {
+            sourceAddress_ = value;
+          }
+          onChanged();
+        } else {
+          sourceAddressBuilder_.mergeFrom(value);
+        }
+
         return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+       */
+      public Builder clearSourceAddress() {
+        if (sourceAddressBuilder_ == null) {
+          sourceAddress_ = null;
+          onChanged();
+        } else {
+          sourceAddress_ = null;
+          sourceAddressBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder getSourceAddressBuilder() {
+        
+        onChanged();
+        return getSourceAddressFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder getSourceAddressOrBuilder() {
+        if (sourceAddressBuilder_ != null) {
+          return sourceAddressBuilder_.getMessageOrBuilder();
+        } else {
+          return sourceAddress_ == null ?
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.getDefaultInstance() : sourceAddress_;
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder> 
+          getSourceAddressFieldBuilder() {
+        if (sourceAddressBuilder_ == null) {
+          sourceAddressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder>(
+                  getSourceAddress(),
+                  getParentForChildren(),
+                  isClean());
+          sourceAddress_ = null;
+        }
+        return sourceAddressBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress destinationAddress_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder> destinationAddressBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       * @return Whether the destinationAddress field is set.
+       */
+      public boolean hasDestinationAddress() {
+        return destinationAddressBuilder_ != null || destinationAddress_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       * @return The destinationAddress.
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress getDestinationAddress() {
+        if (destinationAddressBuilder_ == null) {
+          return destinationAddress_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.getDefaultInstance() : destinationAddress_;
+        } else {
+          return destinationAddressBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       */
+      public Builder setDestinationAddress(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress value) {
+        if (destinationAddressBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          destinationAddress_ = value;
+          onChanged();
+        } else {
+          destinationAddressBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       */
+      public Builder setDestinationAddress(
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder builderForValue) {
+        if (destinationAddressBuilder_ == null) {
+          destinationAddress_ = builderForValue.build();
+          onChanged();
+        } else {
+          destinationAddressBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       */
+      public Builder mergeDestinationAddress(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress value) {
+        if (destinationAddressBuilder_ == null) {
+          if (destinationAddress_ != null) {
+            destinationAddress_ =
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.newBuilder(destinationAddress_).mergeFrom(value).buildPartial();
+          } else {
+            destinationAddress_ = value;
+          }
+          onChanged();
+        } else {
+          destinationAddressBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       */
+      public Builder clearDestinationAddress() {
+        if (destinationAddressBuilder_ == null) {
+          destinationAddress_ = null;
+          onChanged();
+        } else {
+          destinationAddress_ = null;
+          destinationAddressBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder getDestinationAddressBuilder() {
+        
+        onChanged();
+        return getDestinationAddressFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder getDestinationAddressOrBuilder() {
+        if (destinationAddressBuilder_ != null) {
+          return destinationAddressBuilder_.getMessageOrBuilder();
+        } else {
+          return destinationAddress_ == null ?
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.getDefaultInstance() : destinationAddress_;
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder> 
+          getDestinationAddressFieldBuilder() {
+        if (destinationAddressBuilder_ == null) {
+          destinationAddressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder>(
+                  getDestinationAddress(),
+                  getParentForChildren(),
+                  isClean());
+          destinationAddress_ = null;
+        }
+        return destinationAddressBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal amount_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder> amountBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       * @return Whether the amount field is set.
+       */
+      public boolean hasAmount() {
+        return amountBuilder_ != null || amount_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       * @return The amount.
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount() {
+        if (amountBuilder_ == null) {
+          return amount_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : amount_;
+        } else {
+          return amountBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       */
+      public Builder setAmount(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
+        if (amountBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          amount_ = value;
+          onChanged();
+        } else {
+          amountBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       */
+      public Builder setAmount(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder builderForValue) {
+        if (amountBuilder_ == null) {
+          amount_ = builderForValue.build();
+          onChanged();
+        } else {
+          amountBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       */
+      public Builder mergeAmount(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
+        if (amountBuilder_ == null) {
+          if (amount_ != null) {
+            amount_ =
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.newBuilder(amount_).mergeFrom(value).buildPartial();
+          } else {
+            amount_ = value;
+          }
+          onChanged();
+        } else {
+          amountBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       */
+      public Builder clearAmount() {
+        if (amountBuilder_ == null) {
+          amount_ = null;
+          onChanged();
+        } else {
+          amount_ = null;
+          amountBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder getAmountBuilder() {
+        
+        onChanged();
+        return getAmountFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getAmountOrBuilder() {
+        if (amountBuilder_ != null) {
+          return amountBuilder_.getMessageOrBuilder();
+        } else {
+          return amount_ == null ?
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : amount_;
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder> 
+          getAmountFieldBuilder() {
+        if (amountBuilder_ == null) {
+          amountBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>(
+                  getAmount(),
+                  getParentForChildren(),
+                  isClean());
+          amount_ = null;
+        }
+        return amountBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal feeLimit_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder> feeLimitBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       * @return Whether the feeLimit field is set.
+       */
+      public boolean hasFeeLimit() {
+        return feeLimitBuilder_ != null || feeLimit_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       * @return The feeLimit.
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getFeeLimit() {
+        if (feeLimitBuilder_ == null) {
+          return feeLimit_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : feeLimit_;
+        } else {
+          return feeLimitBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       */
+      public Builder setFeeLimit(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
+        if (feeLimitBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          feeLimit_ = value;
+          onChanged();
+        } else {
+          feeLimitBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       */
+      public Builder setFeeLimit(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder builderForValue) {
+        if (feeLimitBuilder_ == null) {
+          feeLimit_ = builderForValue.build();
+          onChanged();
+        } else {
+          feeLimitBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       */
+      public Builder mergeFeeLimit(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
+        if (feeLimitBuilder_ == null) {
+          if (feeLimit_ != null) {
+            feeLimit_ =
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.newBuilder(feeLimit_).mergeFrom(value).buildPartial();
+          } else {
+            feeLimit_ = value;
+          }
+          onChanged();
+        } else {
+          feeLimitBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       */
+      public Builder clearFeeLimit() {
+        if (feeLimitBuilder_ == null) {
+          feeLimit_ = null;
+          onChanged();
+        } else {
+          feeLimit_ = null;
+          feeLimitBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder getFeeLimitBuilder() {
+        
+        onChanged();
+        return getFeeLimitFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getFeeLimitOrBuilder() {
+        if (feeLimitBuilder_ != null) {
+          return feeLimitBuilder_.getMessageOrBuilder();
+        } else {
+          return feeLimit_ == null ?
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : feeLimit_;
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder> 
+          getFeeLimitFieldBuilder() {
+        if (feeLimitBuilder_ == null) {
+          feeLimitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>(
+                  getFeeLimit(),
+                  getParentForChildren(),
+                  isClean());
+          feeLimit_ = null;
+        }
+        return feeLimitBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext transferContext_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContextOrBuilder> transferContextBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       * @return Whether the transferContext field is set.
+       */
+      public boolean hasTransferContext() {
+        return transferContextBuilder_ != null || transferContext_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       * @return The transferContext.
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext getTransferContext() {
+        if (transferContextBuilder_ == null) {
+          return transferContext_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.getDefaultInstance() : transferContext_;
+        } else {
+          return transferContextBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       */
+      public Builder setTransferContext(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext value) {
+        if (transferContextBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          transferContext_ = value;
+          onChanged();
+        } else {
+          transferContextBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       */
+      public Builder setTransferContext(
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.Builder builderForValue) {
+        if (transferContextBuilder_ == null) {
+          transferContext_ = builderForValue.build();
+          onChanged();
+        } else {
+          transferContextBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       */
+      public Builder mergeTransferContext(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext value) {
+        if (transferContextBuilder_ == null) {
+          if (transferContext_ != null) {
+            transferContext_ =
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.newBuilder(transferContext_).mergeFrom(value).buildPartial();
+          } else {
+            transferContext_ = value;
+          }
+          onChanged();
+        } else {
+          transferContextBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       */
+      public Builder clearTransferContext() {
+        if (transferContextBuilder_ == null) {
+          transferContext_ = null;
+          onChanged();
+        } else {
+          transferContext_ = null;
+          transferContextBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.Builder getTransferContextBuilder() {
+        
+        onChanged();
+        return getTransferContextFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContextOrBuilder getTransferContextOrBuilder() {
+        if (transferContextBuilder_ != null) {
+          return transferContextBuilder_.getMessageOrBuilder();
+        } else {
+          return transferContext_ == null ?
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.getDefaultInstance() : transferContext_;
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferContext transfer_context = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContextOrBuilder> 
+          getTransferContextFieldBuilder() {
+        if (transferContextBuilder_ == null) {
+          transferContextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContextOrBuilder>(
+                  getTransferContext(),
+                  getParentForChildren(),
+                  isClean());
+          transferContext_ = null;
+        }
+        return transferContextBuilder_;
       }
 
       private com.google.protobuf.Timestamp createdAt_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        * @return Whether the createdAt field is set.
        */
       public boolean hasCreatedAt() {
         return createdAtBuilder_ != null || createdAt_ != null;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        * @return The createdAt.
        */
       public com.google.protobuf.Timestamp getCreatedAt() {
@@ -4193,7 +5385,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        */
       public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
         if (createdAtBuilder_ == null) {
@@ -4209,7 +5401,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        */
       public Builder setCreatedAt(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -4223,7 +5415,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        */
       public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
         if (createdAtBuilder_ == null) {
@@ -4241,7 +5433,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        */
       public Builder clearCreatedAt() {
         if (createdAtBuilder_ == null) {
@@ -4255,7 +5447,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
         
@@ -4263,7 +5455,7 @@ public final class TransferValidationRequestsOuterClass {
         return getCreatedAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        */
       public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
         if (createdAtBuilder_ != null) {
@@ -4274,7 +5466,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 5;</code>
+       * <code>.google.protobuf.Timestamp created_at = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -4294,14 +5486,14 @@ public final class TransferValidationRequestsOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        * @return Whether the updatedAt field is set.
        */
       public boolean hasUpdatedAt() {
         return updatedAtBuilder_ != null || updatedAt_ != null;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        * @return The updatedAt.
        */
       public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -4312,7 +5504,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        */
       public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
         if (updatedAtBuilder_ == null) {
@@ -4328,7 +5520,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        */
       public Builder setUpdatedAt(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -4342,7 +5534,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        */
       public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
         if (updatedAtBuilder_ == null) {
@@ -4360,7 +5552,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        */
       public Builder clearUpdatedAt() {
         if (updatedAtBuilder_ == null) {
@@ -4374,7 +5566,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
         
@@ -4382,7 +5574,7 @@ public final class TransferValidationRequestsOuterClass {
         return getUpdatedAtFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        */
       public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
         if (updatedAtBuilder_ != null) {
@@ -4393,7 +5585,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 12;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -4456,1916 +5648,6 @@ public final class TransferValidationRequestsOuterClass {
 
     @java.lang.Override
     public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface TransferDetailsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int64 operation_id = 1;</code>
-     * @return The operationId.
-     */
-    long getOperationId();
-
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-     * @return Whether the blockchain field is set.
-     */
-    boolean hasBlockchain();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-     * @return The blockchain.
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain getBlockchain();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder getBlockchainOrBuilder();
-
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-     * @return Whether the asset field is set.
-     */
-    boolean hasAsset();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-     * @return The asset.
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset getAsset();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder getAssetOrBuilder();
-
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-     * @return Whether the sourceAddress field is set.
-     */
-    boolean hasSourceAddress();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-     * @return The sourceAddress.
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress getSourceAddress();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder getSourceAddressOrBuilder();
-
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-     * @return Whether the destinationAddress field is set.
-     */
-    boolean hasDestinationAddress();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-     * @return The destinationAddress.
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress getDestinationAddress();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder getDestinationAddressOrBuilder();
-
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-     * @return Whether the amount field is set.
-     */
-    boolean hasAmount();
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-     * @return The amount.
-     */
-    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount();
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-     */
-    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getAmountOrBuilder();
-
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-     * @return Whether the feeLimit field is set.
-     */
-    boolean hasFeeLimit();
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-     * @return The feeLimit.
-     */
-    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getFeeLimit();
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-     */
-    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getFeeLimitOrBuilder();
-
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-     * @return Whether the clientContext field is set.
-     */
-    boolean hasClientContext();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-     * @return The clientContext.
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext getClientContext();
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-     */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContextOrBuilder getClientContextOrBuilder();
-  }
-  /**
-   * Protobuf type {@code swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails}
-   */
-  public static final class TransferDetails extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails)
-      TransferDetailsOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use TransferDetails.newBuilder() to construct.
-    private TransferDetails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private TransferDetails() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new TransferDetails();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TransferDetails(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              operationId_ = input.readInt64();
-              break;
-            }
-            case 18: {
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder subBuilder = null;
-              if (blockchain_ != null) {
-                subBuilder = blockchain_.toBuilder();
-              }
-              blockchain_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(blockchain_);
-                blockchain_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder subBuilder = null;
-              if (asset_ != null) {
-                subBuilder = asset_.toBuilder();
-              }
-              asset_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(asset_);
-                asset_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder subBuilder = null;
-              if (sourceAddress_ != null) {
-                subBuilder = sourceAddress_.toBuilder();
-              }
-              sourceAddress_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(sourceAddress_);
-                sourceAddress_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder subBuilder = null;
-              if (destinationAddress_ != null) {
-                subBuilder = destinationAddress_.toBuilder();
-              }
-              destinationAddress_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(destinationAddress_);
-                destinationAddress_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder subBuilder = null;
-              if (amount_ != null) {
-                subBuilder = amount_.toBuilder();
-              }
-              amount_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(amount_);
-                amount_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 58: {
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder subBuilder = null;
-              if (feeLimit_ != null) {
-                subBuilder = feeLimit_.toBuilder();
-              }
-              feeLimit_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(feeLimit_);
-                feeLimit_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.Builder subBuilder = null;
-              if (clientContext_ != null) {
-                subBuilder = clientContext_.toBuilder();
-              }
-              clientContext_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(clientContext_);
-                clientContext_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.class, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.Builder.class);
-    }
-
-    public static final int OPERATION_ID_FIELD_NUMBER = 1;
-    private long operationId_;
-    /**
-     * <code>int64 operation_id = 1;</code>
-     * @return The operationId.
-     */
-    @java.lang.Override
-    public long getOperationId() {
-      return operationId_;
-    }
-
-    public static final int BLOCKCHAIN_FIELD_NUMBER = 2;
-    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain blockchain_;
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-     * @return Whether the blockchain field is set.
-     */
-    @java.lang.Override
-    public boolean hasBlockchain() {
-      return blockchain_ != null;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-     * @return The blockchain.
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain getBlockchain() {
-      return blockchain_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.getDefaultInstance() : blockchain_;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder getBlockchainOrBuilder() {
-      return getBlockchain();
-    }
-
-    public static final int ASSET_FIELD_NUMBER = 3;
-    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset asset_;
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-     * @return Whether the asset field is set.
-     */
-    @java.lang.Override
-    public boolean hasAsset() {
-      return asset_ != null;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-     * @return The asset.
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset getAsset() {
-      return asset_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.getDefaultInstance() : asset_;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder getAssetOrBuilder() {
-      return getAsset();
-    }
-
-    public static final int SOURCE_ADDRESS_FIELD_NUMBER = 4;
-    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress sourceAddress_;
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-     * @return Whether the sourceAddress field is set.
-     */
-    @java.lang.Override
-    public boolean hasSourceAddress() {
-      return sourceAddress_ != null;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-     * @return The sourceAddress.
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress getSourceAddress() {
-      return sourceAddress_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.getDefaultInstance() : sourceAddress_;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder getSourceAddressOrBuilder() {
-      return getSourceAddress();
-    }
-
-    public static final int DESTINATION_ADDRESS_FIELD_NUMBER = 5;
-    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress destinationAddress_;
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-     * @return Whether the destinationAddress field is set.
-     */
-    @java.lang.Override
-    public boolean hasDestinationAddress() {
-      return destinationAddress_ != null;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-     * @return The destinationAddress.
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress getDestinationAddress() {
-      return destinationAddress_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.getDefaultInstance() : destinationAddress_;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder getDestinationAddressOrBuilder() {
-      return getDestinationAddress();
-    }
-
-    public static final int AMOUNT_FIELD_NUMBER = 6;
-    private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal amount_;
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-     * @return Whether the amount field is set.
-     */
-    @java.lang.Override
-    public boolean hasAmount() {
-      return amount_ != null;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-     * @return The amount.
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount() {
-      return amount_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : amount_;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getAmountOrBuilder() {
-      return getAmount();
-    }
-
-    public static final int FEE_LIMIT_FIELD_NUMBER = 7;
-    private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal feeLimit_;
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-     * @return Whether the feeLimit field is set.
-     */
-    @java.lang.Override
-    public boolean hasFeeLimit() {
-      return feeLimit_ != null;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-     * @return The feeLimit.
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getFeeLimit() {
-      return feeLimit_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : feeLimit_;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getFeeLimitOrBuilder() {
-      return getFeeLimit();
-    }
-
-    public static final int CLIENT_CONTEXT_FIELD_NUMBER = 8;
-    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext clientContext_;
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-     * @return Whether the clientContext field is set.
-     */
-    @java.lang.Override
-    public boolean hasClientContext() {
-      return clientContext_ != null;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-     * @return The clientContext.
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext getClientContext() {
-      return clientContext_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.getDefaultInstance() : clientContext_;
-    }
-    /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-     */
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContextOrBuilder getClientContextOrBuilder() {
-      return getClientContext();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (operationId_ != 0L) {
-        output.writeInt64(1, operationId_);
-      }
-      if (blockchain_ != null) {
-        output.writeMessage(2, getBlockchain());
-      }
-      if (asset_ != null) {
-        output.writeMessage(3, getAsset());
-      }
-      if (sourceAddress_ != null) {
-        output.writeMessage(4, getSourceAddress());
-      }
-      if (destinationAddress_ != null) {
-        output.writeMessage(5, getDestinationAddress());
-      }
-      if (amount_ != null) {
-        output.writeMessage(6, getAmount());
-      }
-      if (feeLimit_ != null) {
-        output.writeMessage(7, getFeeLimit());
-      }
-      if (clientContext_ != null) {
-        output.writeMessage(8, getClientContext());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (operationId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, operationId_);
-      }
-      if (blockchain_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getBlockchain());
-      }
-      if (asset_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getAsset());
-      }
-      if (sourceAddress_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getSourceAddress());
-      }
-      if (destinationAddress_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getDestinationAddress());
-      }
-      if (amount_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getAmount());
-      }
-      if (feeLimit_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, getFeeLimit());
-      }
-      if (clientContext_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, getClientContext());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails)) {
-        return super.equals(obj);
-      }
-      io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails other = (io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails) obj;
-
-      if (getOperationId()
-          != other.getOperationId()) return false;
-      if (hasBlockchain() != other.hasBlockchain()) return false;
-      if (hasBlockchain()) {
-        if (!getBlockchain()
-            .equals(other.getBlockchain())) return false;
-      }
-      if (hasAsset() != other.hasAsset()) return false;
-      if (hasAsset()) {
-        if (!getAsset()
-            .equals(other.getAsset())) return false;
-      }
-      if (hasSourceAddress() != other.hasSourceAddress()) return false;
-      if (hasSourceAddress()) {
-        if (!getSourceAddress()
-            .equals(other.getSourceAddress())) return false;
-      }
-      if (hasDestinationAddress() != other.hasDestinationAddress()) return false;
-      if (hasDestinationAddress()) {
-        if (!getDestinationAddress()
-            .equals(other.getDestinationAddress())) return false;
-      }
-      if (hasAmount() != other.hasAmount()) return false;
-      if (hasAmount()) {
-        if (!getAmount()
-            .equals(other.getAmount())) return false;
-      }
-      if (hasFeeLimit() != other.hasFeeLimit()) return false;
-      if (hasFeeLimit()) {
-        if (!getFeeLimit()
-            .equals(other.getFeeLimit())) return false;
-      }
-      if (hasClientContext() != other.hasClientContext()) return false;
-      if (hasClientContext()) {
-        if (!getClientContext()
-            .equals(other.getClientContext())) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + OPERATION_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getOperationId());
-      if (hasBlockchain()) {
-        hash = (37 * hash) + BLOCKCHAIN_FIELD_NUMBER;
-        hash = (53 * hash) + getBlockchain().hashCode();
-      }
-      if (hasAsset()) {
-        hash = (37 * hash) + ASSET_FIELD_NUMBER;
-        hash = (53 * hash) + getAsset().hashCode();
-      }
-      if (hasSourceAddress()) {
-        hash = (37 * hash) + SOURCE_ADDRESS_FIELD_NUMBER;
-        hash = (53 * hash) + getSourceAddress().hashCode();
-      }
-      if (hasDestinationAddress()) {
-        hash = (37 * hash) + DESTINATION_ADDRESS_FIELD_NUMBER;
-        hash = (53 * hash) + getDestinationAddress().hashCode();
-      }
-      if (hasAmount()) {
-        hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
-        hash = (53 * hash) + getAmount().hashCode();
-      }
-      if (hasFeeLimit()) {
-        hash = (37 * hash) + FEE_LIMIT_FIELD_NUMBER;
-        hash = (53 * hash) + getFeeLimit().hashCode();
-      }
-      if (hasClientContext()) {
-        hash = (37 * hash) + CLIENT_CONTEXT_FIELD_NUMBER;
-        hash = (53 * hash) + getClientContext().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails)
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetailsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.class, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.Builder.class);
-      }
-
-      // Construct using io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        operationId_ = 0L;
-
-        if (blockchainBuilder_ == null) {
-          blockchain_ = null;
-        } else {
-          blockchain_ = null;
-          blockchainBuilder_ = null;
-        }
-        if (assetBuilder_ == null) {
-          asset_ = null;
-        } else {
-          asset_ = null;
-          assetBuilder_ = null;
-        }
-        if (sourceAddressBuilder_ == null) {
-          sourceAddress_ = null;
-        } else {
-          sourceAddress_ = null;
-          sourceAddressBuilder_ = null;
-        }
-        if (destinationAddressBuilder_ == null) {
-          destinationAddress_ = null;
-        } else {
-          destinationAddress_ = null;
-          destinationAddressBuilder_ = null;
-        }
-        if (amountBuilder_ == null) {
-          amount_ = null;
-        } else {
-          amount_ = null;
-          amountBuilder_ = null;
-        }
-        if (feeLimitBuilder_ == null) {
-          feeLimit_ = null;
-        } else {
-          feeLimit_ = null;
-          feeLimitBuilder_ = null;
-        }
-        if (clientContextBuilder_ == null) {
-          clientContext_ = null;
-        } else {
-          clientContext_ = null;
-          clientContextBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_descriptor;
-      }
-
-      @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails getDefaultInstanceForType() {
-        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails build() {
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails buildPartial() {
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails result = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails(this);
-        result.operationId_ = operationId_;
-        if (blockchainBuilder_ == null) {
-          result.blockchain_ = blockchain_;
-        } else {
-          result.blockchain_ = blockchainBuilder_.build();
-        }
-        if (assetBuilder_ == null) {
-          result.asset_ = asset_;
-        } else {
-          result.asset_ = assetBuilder_.build();
-        }
-        if (sourceAddressBuilder_ == null) {
-          result.sourceAddress_ = sourceAddress_;
-        } else {
-          result.sourceAddress_ = sourceAddressBuilder_.build();
-        }
-        if (destinationAddressBuilder_ == null) {
-          result.destinationAddress_ = destinationAddress_;
-        } else {
-          result.destinationAddress_ = destinationAddressBuilder_.build();
-        }
-        if (amountBuilder_ == null) {
-          result.amount_ = amount_;
-        } else {
-          result.amount_ = amountBuilder_.build();
-        }
-        if (feeLimitBuilder_ == null) {
-          result.feeLimit_ = feeLimit_;
-        } else {
-          result.feeLimit_ = feeLimitBuilder_.build();
-        }
-        if (clientContextBuilder_ == null) {
-          result.clientContext_ = clientContext_;
-        } else {
-          result.clientContext_ = clientContextBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails) {
-          return mergeFrom((io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails other) {
-        if (other == io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails.getDefaultInstance()) return this;
-        if (other.getOperationId() != 0L) {
-          setOperationId(other.getOperationId());
-        }
-        if (other.hasBlockchain()) {
-          mergeBlockchain(other.getBlockchain());
-        }
-        if (other.hasAsset()) {
-          mergeAsset(other.getAsset());
-        }
-        if (other.hasSourceAddress()) {
-          mergeSourceAddress(other.getSourceAddress());
-        }
-        if (other.hasDestinationAddress()) {
-          mergeDestinationAddress(other.getDestinationAddress());
-        }
-        if (other.hasAmount()) {
-          mergeAmount(other.getAmount());
-        }
-        if (other.hasFeeLimit()) {
-          mergeFeeLimit(other.getFeeLimit());
-        }
-        if (other.hasClientContext()) {
-          mergeClientContext(other.getClientContext());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private long operationId_ ;
-      /**
-       * <code>int64 operation_id = 1;</code>
-       * @return The operationId.
-       */
-      @java.lang.Override
-      public long getOperationId() {
-        return operationId_;
-      }
-      /**
-       * <code>int64 operation_id = 1;</code>
-       * @param value The operationId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setOperationId(long value) {
-        
-        operationId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 operation_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearOperationId() {
-        
-        operationId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain blockchain_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder> blockchainBuilder_;
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       * @return Whether the blockchain field is set.
-       */
-      public boolean hasBlockchain() {
-        return blockchainBuilder_ != null || blockchain_ != null;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       * @return The blockchain.
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain getBlockchain() {
-        if (blockchainBuilder_ == null) {
-          return blockchain_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.getDefaultInstance() : blockchain_;
-        } else {
-          return blockchainBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       */
-      public Builder setBlockchain(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain value) {
-        if (blockchainBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          blockchain_ = value;
-          onChanged();
-        } else {
-          blockchainBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       */
-      public Builder setBlockchain(
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder builderForValue) {
-        if (blockchainBuilder_ == null) {
-          blockchain_ = builderForValue.build();
-          onChanged();
-        } else {
-          blockchainBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       */
-      public Builder mergeBlockchain(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain value) {
-        if (blockchainBuilder_ == null) {
-          if (blockchain_ != null) {
-            blockchain_ =
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.newBuilder(blockchain_).mergeFrom(value).buildPartial();
-          } else {
-            blockchain_ = value;
-          }
-          onChanged();
-        } else {
-          blockchainBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       */
-      public Builder clearBlockchain() {
-        if (blockchainBuilder_ == null) {
-          blockchain_ = null;
-          onChanged();
-        } else {
-          blockchain_ = null;
-          blockchainBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder getBlockchainBuilder() {
-        
-        onChanged();
-        return getBlockchainFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder getBlockchainOrBuilder() {
-        if (blockchainBuilder_ != null) {
-          return blockchainBuilder_.getMessageOrBuilder();
-        } else {
-          return blockchain_ == null ?
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.getDefaultInstance() : blockchain_;
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Blockchain blockchain = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder> 
-          getBlockchainFieldBuilder() {
-        if (blockchainBuilder_ == null) {
-          blockchainBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Blockchain.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.BlockchainOrBuilder>(
-                  getBlockchain(),
-                  getParentForChildren(),
-                  isClean());
-          blockchain_ = null;
-        }
-        return blockchainBuilder_;
-      }
-
-      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset asset_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder> assetBuilder_;
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       * @return Whether the asset field is set.
-       */
-      public boolean hasAsset() {
-        return assetBuilder_ != null || asset_ != null;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       * @return The asset.
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset getAsset() {
-        if (assetBuilder_ == null) {
-          return asset_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.getDefaultInstance() : asset_;
-        } else {
-          return assetBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       */
-      public Builder setAsset(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset value) {
-        if (assetBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          asset_ = value;
-          onChanged();
-        } else {
-          assetBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       */
-      public Builder setAsset(
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder builderForValue) {
-        if (assetBuilder_ == null) {
-          asset_ = builderForValue.build();
-          onChanged();
-        } else {
-          assetBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       */
-      public Builder mergeAsset(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset value) {
-        if (assetBuilder_ == null) {
-          if (asset_ != null) {
-            asset_ =
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.newBuilder(asset_).mergeFrom(value).buildPartial();
-          } else {
-            asset_ = value;
-          }
-          onChanged();
-        } else {
-          assetBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       */
-      public Builder clearAsset() {
-        if (assetBuilder_ == null) {
-          asset_ = null;
-          onChanged();
-        } else {
-          asset_ = null;
-          assetBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder getAssetBuilder() {
-        
-        onChanged();
-        return getAssetFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder getAssetOrBuilder() {
-        if (assetBuilder_ != null) {
-          return assetBuilder_.getMessageOrBuilder();
-        } else {
-          return asset_ == null ?
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.getDefaultInstance() : asset_;
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Asset asset = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder> 
-          getAssetFieldBuilder() {
-        if (assetBuilder_ == null) {
-          assetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.Asset.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.AssetOrBuilder>(
-                  getAsset(),
-                  getParentForChildren(),
-                  isClean());
-          asset_ = null;
-        }
-        return assetBuilder_;
-      }
-
-      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress sourceAddress_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder> sourceAddressBuilder_;
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       * @return Whether the sourceAddress field is set.
-       */
-      public boolean hasSourceAddress() {
-        return sourceAddressBuilder_ != null || sourceAddress_ != null;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       * @return The sourceAddress.
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress getSourceAddress() {
-        if (sourceAddressBuilder_ == null) {
-          return sourceAddress_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.getDefaultInstance() : sourceAddress_;
-        } else {
-          return sourceAddressBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       */
-      public Builder setSourceAddress(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress value) {
-        if (sourceAddressBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          sourceAddress_ = value;
-          onChanged();
-        } else {
-          sourceAddressBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       */
-      public Builder setSourceAddress(
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder builderForValue) {
-        if (sourceAddressBuilder_ == null) {
-          sourceAddress_ = builderForValue.build();
-          onChanged();
-        } else {
-          sourceAddressBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       */
-      public Builder mergeSourceAddress(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress value) {
-        if (sourceAddressBuilder_ == null) {
-          if (sourceAddress_ != null) {
-            sourceAddress_ =
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.newBuilder(sourceAddress_).mergeFrom(value).buildPartial();
-          } else {
-            sourceAddress_ = value;
-          }
-          onChanged();
-        } else {
-          sourceAddressBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       */
-      public Builder clearSourceAddress() {
-        if (sourceAddressBuilder_ == null) {
-          sourceAddress_ = null;
-          onChanged();
-        } else {
-          sourceAddress_ = null;
-          sourceAddressBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder getSourceAddressBuilder() {
-        
-        onChanged();
-        return getSourceAddressFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder getSourceAddressOrBuilder() {
-        if (sourceAddressBuilder_ != null) {
-          return sourceAddressBuilder_.getMessageOrBuilder();
-        } else {
-          return sourceAddress_ == null ?
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.getDefaultInstance() : sourceAddress_;
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.SourceAddress source_address = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder> 
-          getSourceAddressFieldBuilder() {
-        if (sourceAddressBuilder_ == null) {
-          sourceAddressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.SourceAddressOrBuilder>(
-                  getSourceAddress(),
-                  getParentForChildren(),
-                  isClean());
-          sourceAddress_ = null;
-        }
-        return sourceAddressBuilder_;
-      }
-
-      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress destinationAddress_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder> destinationAddressBuilder_;
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       * @return Whether the destinationAddress field is set.
-       */
-      public boolean hasDestinationAddress() {
-        return destinationAddressBuilder_ != null || destinationAddress_ != null;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       * @return The destinationAddress.
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress getDestinationAddress() {
-        if (destinationAddressBuilder_ == null) {
-          return destinationAddress_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.getDefaultInstance() : destinationAddress_;
-        } else {
-          return destinationAddressBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       */
-      public Builder setDestinationAddress(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress value) {
-        if (destinationAddressBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          destinationAddress_ = value;
-          onChanged();
-        } else {
-          destinationAddressBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       */
-      public Builder setDestinationAddress(
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder builderForValue) {
-        if (destinationAddressBuilder_ == null) {
-          destinationAddress_ = builderForValue.build();
-          onChanged();
-        } else {
-          destinationAddressBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       */
-      public Builder mergeDestinationAddress(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress value) {
-        if (destinationAddressBuilder_ == null) {
-          if (destinationAddress_ != null) {
-            destinationAddress_ =
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.newBuilder(destinationAddress_).mergeFrom(value).buildPartial();
-          } else {
-            destinationAddress_ = value;
-          }
-          onChanged();
-        } else {
-          destinationAddressBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       */
-      public Builder clearDestinationAddress() {
-        if (destinationAddressBuilder_ == null) {
-          destinationAddress_ = null;
-          onChanged();
-        } else {
-          destinationAddress_ = null;
-          destinationAddressBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder getDestinationAddressBuilder() {
-        
-        onChanged();
-        return getDestinationAddressFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder getDestinationAddressOrBuilder() {
-        if (destinationAddressBuilder_ != null) {
-          return destinationAddressBuilder_.getMessageOrBuilder();
-        } else {
-          return destinationAddress_ == null ?
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.getDefaultInstance() : destinationAddress_;
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.DestinationAddress destination_address = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder> 
-          getDestinationAddressFieldBuilder() {
-        if (destinationAddressBuilder_ == null) {
-          destinationAddressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddress.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.DestinationAddressOrBuilder>(
-                  getDestinationAddress(),
-                  getParentForChildren(),
-                  isClean());
-          destinationAddress_ = null;
-        }
-        return destinationAddressBuilder_;
-      }
-
-      private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal amount_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder> amountBuilder_;
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       * @return Whether the amount field is set.
-       */
-      public boolean hasAmount() {
-        return amountBuilder_ != null || amount_ != null;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       * @return The amount.
-       */
-      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount() {
-        if (amountBuilder_ == null) {
-          return amount_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : amount_;
-        } else {
-          return amountBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       */
-      public Builder setAmount(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
-        if (amountBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          amount_ = value;
-          onChanged();
-        } else {
-          amountBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       */
-      public Builder setAmount(
-          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder builderForValue) {
-        if (amountBuilder_ == null) {
-          amount_ = builderForValue.build();
-          onChanged();
-        } else {
-          amountBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       */
-      public Builder mergeAmount(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
-        if (amountBuilder_ == null) {
-          if (amount_ != null) {
-            amount_ =
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.newBuilder(amount_).mergeFrom(value).buildPartial();
-          } else {
-            amount_ = value;
-          }
-          onChanged();
-        } else {
-          amountBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       */
-      public Builder clearAmount() {
-        if (amountBuilder_ == null) {
-          amount_ = null;
-          onChanged();
-        } else {
-          amount_ = null;
-          amountBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder getAmountBuilder() {
-        
-        onChanged();
-        return getAmountFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getAmountOrBuilder() {
-        if (amountBuilder_ != null) {
-          return amountBuilder_.getMessageOrBuilder();
-        } else {
-          return amount_ == null ?
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : amount_;
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 6;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder> 
-          getAmountFieldBuilder() {
-        if (amountBuilder_ == null) {
-          amountBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>(
-                  getAmount(),
-                  getParentForChildren(),
-                  isClean());
-          amount_ = null;
-        }
-        return amountBuilder_;
-      }
-
-      private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal feeLimit_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder> feeLimitBuilder_;
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       * @return Whether the feeLimit field is set.
-       */
-      public boolean hasFeeLimit() {
-        return feeLimitBuilder_ != null || feeLimit_ != null;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       * @return The feeLimit.
-       */
-      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getFeeLimit() {
-        if (feeLimitBuilder_ == null) {
-          return feeLimit_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : feeLimit_;
-        } else {
-          return feeLimitBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       */
-      public Builder setFeeLimit(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
-        if (feeLimitBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          feeLimit_ = value;
-          onChanged();
-        } else {
-          feeLimitBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       */
-      public Builder setFeeLimit(
-          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder builderForValue) {
-        if (feeLimitBuilder_ == null) {
-          feeLimit_ = builderForValue.build();
-          onChanged();
-        } else {
-          feeLimitBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       */
-      public Builder mergeFeeLimit(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
-        if (feeLimitBuilder_ == null) {
-          if (feeLimit_ != null) {
-            feeLimit_ =
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.newBuilder(feeLimit_).mergeFrom(value).buildPartial();
-          } else {
-            feeLimit_ = value;
-          }
-          onChanged();
-        } else {
-          feeLimitBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       */
-      public Builder clearFeeLimit() {
-        if (feeLimitBuilder_ == null) {
-          feeLimit_ = null;
-          onChanged();
-        } else {
-          feeLimit_ = null;
-          feeLimitBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder getFeeLimitBuilder() {
-        
-        onChanged();
-        return getFeeLimitFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getFeeLimitOrBuilder() {
-        if (feeLimitBuilder_ != null) {
-          return feeLimitBuilder_.getMessageOrBuilder();
-        } else {
-          return feeLimit_ == null ?
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance() : feeLimit_;
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.common.BigDecimal fee_limit = 7;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder> 
-          getFeeLimitFieldBuilder() {
-        if (feeLimitBuilder_ == null) {
-          feeLimitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>(
-                  getFeeLimit(),
-                  getParentForChildren(),
-                  isClean());
-          feeLimit_ = null;
-        }
-        return feeLimitBuilder_;
-      }
-
-      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext clientContext_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContextOrBuilder> clientContextBuilder_;
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       * @return Whether the clientContext field is set.
-       */
-      public boolean hasClientContext() {
-        return clientContextBuilder_ != null || clientContext_ != null;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       * @return The clientContext.
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext getClientContext() {
-        if (clientContextBuilder_ == null) {
-          return clientContext_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.getDefaultInstance() : clientContext_;
-        } else {
-          return clientContextBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       */
-      public Builder setClientContext(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext value) {
-        if (clientContextBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          clientContext_ = value;
-          onChanged();
-        } else {
-          clientContextBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       */
-      public Builder setClientContext(
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.Builder builderForValue) {
-        if (clientContextBuilder_ == null) {
-          clientContext_ = builderForValue.build();
-          onChanged();
-        } else {
-          clientContextBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       */
-      public Builder mergeClientContext(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext value) {
-        if (clientContextBuilder_ == null) {
-          if (clientContext_ != null) {
-            clientContext_ =
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.newBuilder(clientContext_).mergeFrom(value).buildPartial();
-          } else {
-            clientContext_ = value;
-          }
-          onChanged();
-        } else {
-          clientContextBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       */
-      public Builder clearClientContext() {
-        if (clientContextBuilder_ == null) {
-          clientContext_ = null;
-          onChanged();
-        } else {
-          clientContext_ = null;
-          clientContextBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.Builder getClientContextBuilder() {
-        
-        onChanged();
-        return getClientContextFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       */
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContextOrBuilder getClientContextOrBuilder() {
-        if (clientContextBuilder_ != null) {
-          return clientContextBuilder_.getMessageOrBuilder();
-        } else {
-          return clientContext_ == null ?
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.getDefaultInstance() : clientContext_;
-        }
-      }
-      /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.ClientContext client_context = 8;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContextOrBuilder> 
-          getClientContextFieldBuilder() {
-        if (clientContextBuilder_ == null) {
-          clientContextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContextOrBuilder>(
-                  getClientContext(),
-                  getParentForChildren(),
-                  isClean());
-          clientContext_ = null;
-        }
-        return clientContextBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails)
-    }
-
-    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.transferValidationRequests.TransferDetails)
-    private static final io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails();
-    }
-
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<TransferDetails>
-        PARSER = new com.google.protobuf.AbstractParser<TransferDetails>() {
-      @java.lang.Override
-      public TransferDetails parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TransferDetails(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<TransferDetails> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TransferDetails> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferDetails getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10392,39 +9674,39 @@ public final class TransferValidationRequestsOuterClass {
 
   }
 
-  public interface ClientContextOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.transferValidationRequests.ClientContext)
+  public interface TransferContextOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.transferValidationRequests.TransferContext)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.google.protobuf.StringValue user_id = 1;</code>
-     * @return Whether the userId field is set.
+     * <code>.google.protobuf.StringValue document = 1;</code>
+     * @return Whether the document field is set.
      */
-    boolean hasUserId();
+    boolean hasDocument();
     /**
-     * <code>.google.protobuf.StringValue user_id = 1;</code>
-     * @return The userId.
+     * <code>.google.protobuf.StringValue document = 1;</code>
+     * @return The document.
      */
-    com.google.protobuf.StringValue getUserId();
+    com.google.protobuf.StringValue getDocument();
     /**
-     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     * <code>.google.protobuf.StringValue document = 1;</code>
      */
-    com.google.protobuf.StringValueOrBuilder getUserIdOrBuilder();
+    com.google.protobuf.StringValueOrBuilder getDocumentOrBuilder();
 
     /**
-     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
-     * @return Whether the apiKeyId field is set.
+     * <code>.google.protobuf.StringValue signature = 2;</code>
+     * @return Whether the signature field is set.
      */
-    boolean hasApiKeyId();
+    boolean hasSignature();
     /**
-     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
-     * @return The apiKeyId.
+     * <code>.google.protobuf.StringValue signature = 2;</code>
+     * @return The signature.
      */
-    com.google.protobuf.StringValue getApiKeyId();
+    com.google.protobuf.StringValue getSignature();
     /**
-     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     * <code>.google.protobuf.StringValue signature = 2;</code>
      */
-    com.google.protobuf.StringValueOrBuilder getApiKeyIdOrBuilder();
+    com.google.protobuf.StringValueOrBuilder getSignatureOrBuilder();
 
     /**
      * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
@@ -10457,55 +9739,96 @@ public final class TransferValidationRequestsOuterClass {
     com.google.protobuf.StringValueOrBuilder getWithdrawalReferenceIdOrBuilder();
 
     /**
-     * <code>.google.protobuf.StringValue ip = 5;</code>
-     * @return Whether the ip field is set.
+     * <code>string component = 5;</code>
+     * @return The component.
      */
-    boolean hasIp();
+    java.lang.String getComponent();
     /**
-     * <code>.google.protobuf.StringValue ip = 5;</code>
-     * @return The ip.
+     * <code>string component = 5;</code>
+     * @return The bytes for component.
      */
-    com.google.protobuf.StringValue getIp();
-    /**
-     * <code>.google.protobuf.StringValue ip = 5;</code>
-     */
-    com.google.protobuf.StringValueOrBuilder getIpOrBuilder();
+    com.google.protobuf.ByteString
+        getComponentBytes();
 
     /**
-     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
-     * @return Whether the timestamp field is set.
+     * <code>string operation_type = 6;</code>
+     * @return The operationType.
      */
-    boolean hasTimestamp();
+    java.lang.String getOperationType();
     /**
-     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
-     * @return The timestamp.
+     * <code>string operation_type = 6;</code>
+     * @return The bytes for operationType.
      */
-    io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp getTimestamp();
+    com.google.protobuf.ByteString
+        getOperationTypeBytes();
+
     /**
-     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+     * <code>.google.protobuf.StringValue source_group = 7;</code>
+     * @return Whether the sourceGroup field is set.
      */
-    io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestampOrBuilder getTimestampOrBuilder();
+    boolean hasSourceGroup();
+    /**
+     * <code>.google.protobuf.StringValue source_group = 7;</code>
+     * @return The sourceGroup.
+     */
+    com.google.protobuf.StringValue getSourceGroup();
+    /**
+     * <code>.google.protobuf.StringValue source_group = 7;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getSourceGroupOrBuilder();
+
+    /**
+     * <code>.google.protobuf.StringValue destination_group = 8;</code>
+     * @return Whether the destinationGroup field is set.
+     */
+    boolean hasDestinationGroup();
+    /**
+     * <code>.google.protobuf.StringValue destination_group = 8;</code>
+     * @return The destinationGroup.
+     */
+    com.google.protobuf.StringValue getDestinationGroup();
+    /**
+     * <code>.google.protobuf.StringValue destination_group = 8;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getDestinationGroupOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+     * @return Whether the requestContext field is set.
+     */
+    boolean hasRequestContext();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+     * @return The requestContext.
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext getRequestContext();
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContextOrBuilder getRequestContextOrBuilder();
   }
   /**
-   * Protobuf type {@code swisschain.sirius.vaultApi.transferValidationRequests.ClientContext}
+   * Protobuf type {@code swisschain.sirius.vaultApi.transferValidationRequests.TransferContext}
    */
-  public static final class ClientContext extends
+  public static final class TransferContext extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.transferValidationRequests.ClientContext)
-      ClientContextOrBuilder {
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.transferValidationRequests.TransferContext)
+      TransferContextOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ClientContext.newBuilder() to construct.
-    private ClientContext(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use TransferContext.newBuilder() to construct.
+    private TransferContext(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ClientContext() {
+    private TransferContext() {
+      component_ = "";
+      operationType_ = "";
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ClientContext();
+      return new TransferContext();
     }
 
     @java.lang.Override
@@ -10513,7 +9836,7 @@ public final class TransferValidationRequestsOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClientContext(
+    private TransferContext(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10533,26 +9856,26 @@ public final class TransferValidationRequestsOuterClass {
               break;
             case 10: {
               com.google.protobuf.StringValue.Builder subBuilder = null;
-              if (userId_ != null) {
-                subBuilder = userId_.toBuilder();
+              if (document_ != null) {
+                subBuilder = document_.toBuilder();
               }
-              userId_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              document_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(userId_);
-                userId_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(document_);
+                document_ = subBuilder.buildPartial();
               }
 
               break;
             }
             case 18: {
               com.google.protobuf.StringValue.Builder subBuilder = null;
-              if (apiKeyId_ != null) {
-                subBuilder = apiKeyId_.toBuilder();
+              if (signature_ != null) {
+                subBuilder = signature_.toBuilder();
               }
-              apiKeyId_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              signature_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(apiKeyId_);
-                apiKeyId_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(signature_);
+                signature_ = subBuilder.buildPartial();
               }
 
               break;
@@ -10584,27 +9907,52 @@ public final class TransferValidationRequestsOuterClass {
               break;
             }
             case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              component_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              operationType_ = s;
+              break;
+            }
+            case 58: {
               com.google.protobuf.StringValue.Builder subBuilder = null;
-              if (ip_ != null) {
-                subBuilder = ip_.toBuilder();
+              if (sourceGroup_ != null) {
+                subBuilder = sourceGroup_.toBuilder();
               }
-              ip_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              sourceGroup_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(ip_);
-                ip_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(sourceGroup_);
+                sourceGroup_ = subBuilder.buildPartial();
               }
 
               break;
             }
-            case 50: {
-              io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.Builder subBuilder = null;
-              if (timestamp_ != null) {
-                subBuilder = timestamp_.toBuilder();
+            case 66: {
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (destinationGroup_ != null) {
+                subBuilder = destinationGroup_.toBuilder();
               }
-              timestamp_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.parser(), extensionRegistry);
+              destinationGroup_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(timestamp_);
-                timestamp_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(destinationGroup_);
+                destinationGroup_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 74: {
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.Builder subBuilder = null;
+              if (requestContext_ != null) {
+                subBuilder = requestContext_.toBuilder();
+              }
+              requestContext_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(requestContext_);
+                requestContext_ = subBuilder.buildPartial();
               }
 
               break;
@@ -10630,67 +9978,67 @@ public final class TransferValidationRequestsOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_descriptor;
+      return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_fieldAccessorTable
+      return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.class, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.Builder.class);
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.class, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.Builder.class);
     }
 
-    public static final int USER_ID_FIELD_NUMBER = 1;
-    private com.google.protobuf.StringValue userId_;
+    public static final int DOCUMENT_FIELD_NUMBER = 1;
+    private com.google.protobuf.StringValue document_;
     /**
-     * <code>.google.protobuf.StringValue user_id = 1;</code>
-     * @return Whether the userId field is set.
+     * <code>.google.protobuf.StringValue document = 1;</code>
+     * @return Whether the document field is set.
      */
     @java.lang.Override
-    public boolean hasUserId() {
-      return userId_ != null;
+    public boolean hasDocument() {
+      return document_ != null;
     }
     /**
-     * <code>.google.protobuf.StringValue user_id = 1;</code>
-     * @return The userId.
+     * <code>.google.protobuf.StringValue document = 1;</code>
+     * @return The document.
      */
     @java.lang.Override
-    public com.google.protobuf.StringValue getUserId() {
-      return userId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : userId_;
+    public com.google.protobuf.StringValue getDocument() {
+      return document_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : document_;
     }
     /**
-     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     * <code>.google.protobuf.StringValue document = 1;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.StringValueOrBuilder getUserIdOrBuilder() {
-      return getUserId();
+    public com.google.protobuf.StringValueOrBuilder getDocumentOrBuilder() {
+      return getDocument();
     }
 
-    public static final int API_KEY_ID_FIELD_NUMBER = 2;
-    private com.google.protobuf.StringValue apiKeyId_;
+    public static final int SIGNATURE_FIELD_NUMBER = 2;
+    private com.google.protobuf.StringValue signature_;
     /**
-     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
-     * @return Whether the apiKeyId field is set.
+     * <code>.google.protobuf.StringValue signature = 2;</code>
+     * @return Whether the signature field is set.
      */
     @java.lang.Override
-    public boolean hasApiKeyId() {
-      return apiKeyId_ != null;
+    public boolean hasSignature() {
+      return signature_ != null;
     }
     /**
-     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
-     * @return The apiKeyId.
+     * <code>.google.protobuf.StringValue signature = 2;</code>
+     * @return The signature.
      */
     @java.lang.Override
-    public com.google.protobuf.StringValue getApiKeyId() {
-      return apiKeyId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : apiKeyId_;
+    public com.google.protobuf.StringValue getSignature() {
+      return signature_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : signature_;
     }
     /**
-     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     * <code>.google.protobuf.StringValue signature = 2;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.StringValueOrBuilder getApiKeyIdOrBuilder() {
-      return getApiKeyId();
+    public com.google.protobuf.StringValueOrBuilder getSignatureOrBuilder() {
+      return getSignature();
     }
 
     public static final int ACCOUNT_REFERENCE_ID_FIELD_NUMBER = 3;
@@ -10745,10 +10093,1975 @@ public final class TransferValidationRequestsOuterClass {
       return getWithdrawalReferenceId();
     }
 
-    public static final int IP_FIELD_NUMBER = 5;
+    public static final int COMPONENT_FIELD_NUMBER = 5;
+    private volatile java.lang.Object component_;
+    /**
+     * <code>string component = 5;</code>
+     * @return The component.
+     */
+    @java.lang.Override
+    public java.lang.String getComponent() {
+      java.lang.Object ref = component_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        component_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string component = 5;</code>
+     * @return The bytes for component.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getComponentBytes() {
+      java.lang.Object ref = component_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        component_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OPERATION_TYPE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object operationType_;
+    /**
+     * <code>string operation_type = 6;</code>
+     * @return The operationType.
+     */
+    @java.lang.Override
+    public java.lang.String getOperationType() {
+      java.lang.Object ref = operationType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        operationType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string operation_type = 6;</code>
+     * @return The bytes for operationType.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOperationTypeBytes() {
+      java.lang.Object ref = operationType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        operationType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SOURCE_GROUP_FIELD_NUMBER = 7;
+    private com.google.protobuf.StringValue sourceGroup_;
+    /**
+     * <code>.google.protobuf.StringValue source_group = 7;</code>
+     * @return Whether the sourceGroup field is set.
+     */
+    @java.lang.Override
+    public boolean hasSourceGroup() {
+      return sourceGroup_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue source_group = 7;</code>
+     * @return The sourceGroup.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getSourceGroup() {
+      return sourceGroup_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : sourceGroup_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue source_group = 7;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getSourceGroupOrBuilder() {
+      return getSourceGroup();
+    }
+
+    public static final int DESTINATION_GROUP_FIELD_NUMBER = 8;
+    private com.google.protobuf.StringValue destinationGroup_;
+    /**
+     * <code>.google.protobuf.StringValue destination_group = 8;</code>
+     * @return Whether the destinationGroup field is set.
+     */
+    @java.lang.Override
+    public boolean hasDestinationGroup() {
+      return destinationGroup_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue destination_group = 8;</code>
+     * @return The destinationGroup.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getDestinationGroup() {
+      return destinationGroup_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : destinationGroup_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue destination_group = 8;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getDestinationGroupOrBuilder() {
+      return getDestinationGroup();
+    }
+
+    public static final int REQUEST_CONTEXT_FIELD_NUMBER = 9;
+    private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext requestContext_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+     * @return Whether the requestContext field is set.
+     */
+    @java.lang.Override
+    public boolean hasRequestContext() {
+      return requestContext_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+     * @return The requestContext.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext getRequestContext() {
+      return requestContext_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.getDefaultInstance() : requestContext_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContextOrBuilder getRequestContextOrBuilder() {
+      return getRequestContext();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (document_ != null) {
+        output.writeMessage(1, getDocument());
+      }
+      if (signature_ != null) {
+        output.writeMessage(2, getSignature());
+      }
+      if (accountReferenceId_ != null) {
+        output.writeMessage(3, getAccountReferenceId());
+      }
+      if (withdrawalReferenceId_ != null) {
+        output.writeMessage(4, getWithdrawalReferenceId());
+      }
+      if (!getComponentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, component_);
+      }
+      if (!getOperationTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, operationType_);
+      }
+      if (sourceGroup_ != null) {
+        output.writeMessage(7, getSourceGroup());
+      }
+      if (destinationGroup_ != null) {
+        output.writeMessage(8, getDestinationGroup());
+      }
+      if (requestContext_ != null) {
+        output.writeMessage(9, getRequestContext());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (document_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getDocument());
+      }
+      if (signature_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSignature());
+      }
+      if (accountReferenceId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAccountReferenceId());
+      }
+      if (withdrawalReferenceId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getWithdrawalReferenceId());
+      }
+      if (!getComponentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, component_);
+      }
+      if (!getOperationTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, operationType_);
+      }
+      if (sourceGroup_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getSourceGroup());
+      }
+      if (destinationGroup_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getDestinationGroup());
+      }
+      if (requestContext_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getRequestContext());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext other = (io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext) obj;
+
+      if (hasDocument() != other.hasDocument()) return false;
+      if (hasDocument()) {
+        if (!getDocument()
+            .equals(other.getDocument())) return false;
+      }
+      if (hasSignature() != other.hasSignature()) return false;
+      if (hasSignature()) {
+        if (!getSignature()
+            .equals(other.getSignature())) return false;
+      }
+      if (hasAccountReferenceId() != other.hasAccountReferenceId()) return false;
+      if (hasAccountReferenceId()) {
+        if (!getAccountReferenceId()
+            .equals(other.getAccountReferenceId())) return false;
+      }
+      if (hasWithdrawalReferenceId() != other.hasWithdrawalReferenceId()) return false;
+      if (hasWithdrawalReferenceId()) {
+        if (!getWithdrawalReferenceId()
+            .equals(other.getWithdrawalReferenceId())) return false;
+      }
+      if (!getComponent()
+          .equals(other.getComponent())) return false;
+      if (!getOperationType()
+          .equals(other.getOperationType())) return false;
+      if (hasSourceGroup() != other.hasSourceGroup()) return false;
+      if (hasSourceGroup()) {
+        if (!getSourceGroup()
+            .equals(other.getSourceGroup())) return false;
+      }
+      if (hasDestinationGroup() != other.hasDestinationGroup()) return false;
+      if (hasDestinationGroup()) {
+        if (!getDestinationGroup()
+            .equals(other.getDestinationGroup())) return false;
+      }
+      if (hasRequestContext() != other.hasRequestContext()) return false;
+      if (hasRequestContext()) {
+        if (!getRequestContext()
+            .equals(other.getRequestContext())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasDocument()) {
+        hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
+        hash = (53 * hash) + getDocument().hashCode();
+      }
+      if (hasSignature()) {
+        hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
+        hash = (53 * hash) + getSignature().hashCode();
+      }
+      if (hasAccountReferenceId()) {
+        hash = (37 * hash) + ACCOUNT_REFERENCE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getAccountReferenceId().hashCode();
+      }
+      if (hasWithdrawalReferenceId()) {
+        hash = (37 * hash) + WITHDRAWAL_REFERENCE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getWithdrawalReferenceId().hashCode();
+      }
+      hash = (37 * hash) + COMPONENT_FIELD_NUMBER;
+      hash = (53 * hash) + getComponent().hashCode();
+      hash = (37 * hash) + OPERATION_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getOperationType().hashCode();
+      if (hasSourceGroup()) {
+        hash = (37 * hash) + SOURCE_GROUP_FIELD_NUMBER;
+        hash = (53 * hash) + getSourceGroup().hashCode();
+      }
+      if (hasDestinationGroup()) {
+        hash = (37 * hash) + DESTINATION_GROUP_FIELD_NUMBER;
+        hash = (53 * hash) + getDestinationGroup().hashCode();
+      }
+      if (hasRequestContext()) {
+        hash = (37 * hash) + REQUEST_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getRequestContext().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code swisschain.sirius.vaultApi.transferValidationRequests.TransferContext}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.transferValidationRequests.TransferContext)
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContextOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.class, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.Builder.class);
+      }
+
+      // Construct using io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (documentBuilder_ == null) {
+          document_ = null;
+        } else {
+          document_ = null;
+          documentBuilder_ = null;
+        }
+        if (signatureBuilder_ == null) {
+          signature_ = null;
+        } else {
+          signature_ = null;
+          signatureBuilder_ = null;
+        }
+        if (accountReferenceIdBuilder_ == null) {
+          accountReferenceId_ = null;
+        } else {
+          accountReferenceId_ = null;
+          accountReferenceIdBuilder_ = null;
+        }
+        if (withdrawalReferenceIdBuilder_ == null) {
+          withdrawalReferenceId_ = null;
+        } else {
+          withdrawalReferenceId_ = null;
+          withdrawalReferenceIdBuilder_ = null;
+        }
+        component_ = "";
+
+        operationType_ = "";
+
+        if (sourceGroupBuilder_ == null) {
+          sourceGroup_ = null;
+        } else {
+          sourceGroup_ = null;
+          sourceGroupBuilder_ = null;
+        }
+        if (destinationGroupBuilder_ == null) {
+          destinationGroup_ = null;
+        } else {
+          destinationGroup_ = null;
+          destinationGroupBuilder_ = null;
+        }
+        if (requestContextBuilder_ == null) {
+          requestContext_ = null;
+        } else {
+          requestContext_ = null;
+          requestContextBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext build() {
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext result = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext(this);
+        if (documentBuilder_ == null) {
+          result.document_ = document_;
+        } else {
+          result.document_ = documentBuilder_.build();
+        }
+        if (signatureBuilder_ == null) {
+          result.signature_ = signature_;
+        } else {
+          result.signature_ = signatureBuilder_.build();
+        }
+        if (accountReferenceIdBuilder_ == null) {
+          result.accountReferenceId_ = accountReferenceId_;
+        } else {
+          result.accountReferenceId_ = accountReferenceIdBuilder_.build();
+        }
+        if (withdrawalReferenceIdBuilder_ == null) {
+          result.withdrawalReferenceId_ = withdrawalReferenceId_;
+        } else {
+          result.withdrawalReferenceId_ = withdrawalReferenceIdBuilder_.build();
+        }
+        result.component_ = component_;
+        result.operationType_ = operationType_;
+        if (sourceGroupBuilder_ == null) {
+          result.sourceGroup_ = sourceGroup_;
+        } else {
+          result.sourceGroup_ = sourceGroupBuilder_.build();
+        }
+        if (destinationGroupBuilder_ == null) {
+          result.destinationGroup_ = destinationGroup_;
+        } else {
+          result.destinationGroup_ = destinationGroupBuilder_.build();
+        }
+        if (requestContextBuilder_ == null) {
+          result.requestContext_ = requestContext_;
+        } else {
+          result.requestContext_ = requestContextBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext) {
+          return mergeFrom((io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext other) {
+        if (other == io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext.getDefaultInstance()) return this;
+        if (other.hasDocument()) {
+          mergeDocument(other.getDocument());
+        }
+        if (other.hasSignature()) {
+          mergeSignature(other.getSignature());
+        }
+        if (other.hasAccountReferenceId()) {
+          mergeAccountReferenceId(other.getAccountReferenceId());
+        }
+        if (other.hasWithdrawalReferenceId()) {
+          mergeWithdrawalReferenceId(other.getWithdrawalReferenceId());
+        }
+        if (!other.getComponent().isEmpty()) {
+          component_ = other.component_;
+          onChanged();
+        }
+        if (!other.getOperationType().isEmpty()) {
+          operationType_ = other.operationType_;
+          onChanged();
+        }
+        if (other.hasSourceGroup()) {
+          mergeSourceGroup(other.getSourceGroup());
+        }
+        if (other.hasDestinationGroup()) {
+          mergeDestinationGroup(other.getDestinationGroup());
+        }
+        if (other.hasRequestContext()) {
+          mergeRequestContext(other.getRequestContext());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.StringValue document_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> documentBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       * @return Whether the document field is set.
+       */
+      public boolean hasDocument() {
+        return documentBuilder_ != null || document_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       * @return The document.
+       */
+      public com.google.protobuf.StringValue getDocument() {
+        if (documentBuilder_ == null) {
+          return document_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : document_;
+        } else {
+          return documentBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       */
+      public Builder setDocument(com.google.protobuf.StringValue value) {
+        if (documentBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          document_ = value;
+          onChanged();
+        } else {
+          documentBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       */
+      public Builder setDocument(
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (documentBuilder_ == null) {
+          document_ = builderForValue.build();
+          onChanged();
+        } else {
+          documentBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       */
+      public Builder mergeDocument(com.google.protobuf.StringValue value) {
+        if (documentBuilder_ == null) {
+          if (document_ != null) {
+            document_ =
+              com.google.protobuf.StringValue.newBuilder(document_).mergeFrom(value).buildPartial();
+          } else {
+            document_ = value;
+          }
+          onChanged();
+        } else {
+          documentBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       */
+      public Builder clearDocument() {
+        if (documentBuilder_ == null) {
+          document_ = null;
+          onChanged();
+        } else {
+          document_ = null;
+          documentBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       */
+      public com.google.protobuf.StringValue.Builder getDocumentBuilder() {
+        
+        onChanged();
+        return getDocumentFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getDocumentOrBuilder() {
+        if (documentBuilder_ != null) {
+          return documentBuilder_.getMessageOrBuilder();
+        } else {
+          return document_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : document_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue document = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getDocumentFieldBuilder() {
+        if (documentBuilder_ == null) {
+          documentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getDocument(),
+                  getParentForChildren(),
+                  isClean());
+          document_ = null;
+        }
+        return documentBuilder_;
+      }
+
+      private com.google.protobuf.StringValue signature_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> signatureBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       * @return Whether the signature field is set.
+       */
+      public boolean hasSignature() {
+        return signatureBuilder_ != null || signature_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       * @return The signature.
+       */
+      public com.google.protobuf.StringValue getSignature() {
+        if (signatureBuilder_ == null) {
+          return signature_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : signature_;
+        } else {
+          return signatureBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       */
+      public Builder setSignature(com.google.protobuf.StringValue value) {
+        if (signatureBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          signature_ = value;
+          onChanged();
+        } else {
+          signatureBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       */
+      public Builder setSignature(
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (signatureBuilder_ == null) {
+          signature_ = builderForValue.build();
+          onChanged();
+        } else {
+          signatureBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       */
+      public Builder mergeSignature(com.google.protobuf.StringValue value) {
+        if (signatureBuilder_ == null) {
+          if (signature_ != null) {
+            signature_ =
+              com.google.protobuf.StringValue.newBuilder(signature_).mergeFrom(value).buildPartial();
+          } else {
+            signature_ = value;
+          }
+          onChanged();
+        } else {
+          signatureBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       */
+      public Builder clearSignature() {
+        if (signatureBuilder_ == null) {
+          signature_ = null;
+          onChanged();
+        } else {
+          signature_ = null;
+          signatureBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       */
+      public com.google.protobuf.StringValue.Builder getSignatureBuilder() {
+        
+        onChanged();
+        return getSignatureFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getSignatureOrBuilder() {
+        if (signatureBuilder_ != null) {
+          return signatureBuilder_.getMessageOrBuilder();
+        } else {
+          return signature_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : signature_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue signature = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getSignatureFieldBuilder() {
+        if (signatureBuilder_ == null) {
+          signatureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getSignature(),
+                  getParentForChildren(),
+                  isClean());
+          signature_ = null;
+        }
+        return signatureBuilder_;
+      }
+
+      private com.google.protobuf.StringValue accountReferenceId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> accountReferenceIdBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       * @return Whether the accountReferenceId field is set.
+       */
+      public boolean hasAccountReferenceId() {
+        return accountReferenceIdBuilder_ != null || accountReferenceId_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       * @return The accountReferenceId.
+       */
+      public com.google.protobuf.StringValue getAccountReferenceId() {
+        if (accountReferenceIdBuilder_ == null) {
+          return accountReferenceId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : accountReferenceId_;
+        } else {
+          return accountReferenceIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       */
+      public Builder setAccountReferenceId(com.google.protobuf.StringValue value) {
+        if (accountReferenceIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          accountReferenceId_ = value;
+          onChanged();
+        } else {
+          accountReferenceIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       */
+      public Builder setAccountReferenceId(
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (accountReferenceIdBuilder_ == null) {
+          accountReferenceId_ = builderForValue.build();
+          onChanged();
+        } else {
+          accountReferenceIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       */
+      public Builder mergeAccountReferenceId(com.google.protobuf.StringValue value) {
+        if (accountReferenceIdBuilder_ == null) {
+          if (accountReferenceId_ != null) {
+            accountReferenceId_ =
+              com.google.protobuf.StringValue.newBuilder(accountReferenceId_).mergeFrom(value).buildPartial();
+          } else {
+            accountReferenceId_ = value;
+          }
+          onChanged();
+        } else {
+          accountReferenceIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       */
+      public Builder clearAccountReferenceId() {
+        if (accountReferenceIdBuilder_ == null) {
+          accountReferenceId_ = null;
+          onChanged();
+        } else {
+          accountReferenceId_ = null;
+          accountReferenceIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       */
+      public com.google.protobuf.StringValue.Builder getAccountReferenceIdBuilder() {
+        
+        onChanged();
+        return getAccountReferenceIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getAccountReferenceIdOrBuilder() {
+        if (accountReferenceIdBuilder_ != null) {
+          return accountReferenceIdBuilder_.getMessageOrBuilder();
+        } else {
+          return accountReferenceId_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : accountReferenceId_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getAccountReferenceIdFieldBuilder() {
+        if (accountReferenceIdBuilder_ == null) {
+          accountReferenceIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getAccountReferenceId(),
+                  getParentForChildren(),
+                  isClean());
+          accountReferenceId_ = null;
+        }
+        return accountReferenceIdBuilder_;
+      }
+
+      private com.google.protobuf.StringValue withdrawalReferenceId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> withdrawalReferenceIdBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       * @return Whether the withdrawalReferenceId field is set.
+       */
+      public boolean hasWithdrawalReferenceId() {
+        return withdrawalReferenceIdBuilder_ != null || withdrawalReferenceId_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       * @return The withdrawalReferenceId.
+       */
+      public com.google.protobuf.StringValue getWithdrawalReferenceId() {
+        if (withdrawalReferenceIdBuilder_ == null) {
+          return withdrawalReferenceId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : withdrawalReferenceId_;
+        } else {
+          return withdrawalReferenceIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       */
+      public Builder setWithdrawalReferenceId(com.google.protobuf.StringValue value) {
+        if (withdrawalReferenceIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          withdrawalReferenceId_ = value;
+          onChanged();
+        } else {
+          withdrawalReferenceIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       */
+      public Builder setWithdrawalReferenceId(
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (withdrawalReferenceIdBuilder_ == null) {
+          withdrawalReferenceId_ = builderForValue.build();
+          onChanged();
+        } else {
+          withdrawalReferenceIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       */
+      public Builder mergeWithdrawalReferenceId(com.google.protobuf.StringValue value) {
+        if (withdrawalReferenceIdBuilder_ == null) {
+          if (withdrawalReferenceId_ != null) {
+            withdrawalReferenceId_ =
+              com.google.protobuf.StringValue.newBuilder(withdrawalReferenceId_).mergeFrom(value).buildPartial();
+          } else {
+            withdrawalReferenceId_ = value;
+          }
+          onChanged();
+        } else {
+          withdrawalReferenceIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       */
+      public Builder clearWithdrawalReferenceId() {
+        if (withdrawalReferenceIdBuilder_ == null) {
+          withdrawalReferenceId_ = null;
+          onChanged();
+        } else {
+          withdrawalReferenceId_ = null;
+          withdrawalReferenceIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       */
+      public com.google.protobuf.StringValue.Builder getWithdrawalReferenceIdBuilder() {
+        
+        onChanged();
+        return getWithdrawalReferenceIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getWithdrawalReferenceIdOrBuilder() {
+        if (withdrawalReferenceIdBuilder_ != null) {
+          return withdrawalReferenceIdBuilder_.getMessageOrBuilder();
+        } else {
+          return withdrawalReferenceId_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : withdrawalReferenceId_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getWithdrawalReferenceIdFieldBuilder() {
+        if (withdrawalReferenceIdBuilder_ == null) {
+          withdrawalReferenceIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getWithdrawalReferenceId(),
+                  getParentForChildren(),
+                  isClean());
+          withdrawalReferenceId_ = null;
+        }
+        return withdrawalReferenceIdBuilder_;
+      }
+
+      private java.lang.Object component_ = "";
+      /**
+       * <code>string component = 5;</code>
+       * @return The component.
+       */
+      public java.lang.String getComponent() {
+        java.lang.Object ref = component_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          component_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string component = 5;</code>
+       * @return The bytes for component.
+       */
+      public com.google.protobuf.ByteString
+          getComponentBytes() {
+        java.lang.Object ref = component_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          component_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string component = 5;</code>
+       * @param value The component to set.
+       * @return This builder for chaining.
+       */
+      public Builder setComponent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        component_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string component = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearComponent() {
+        
+        component_ = getDefaultInstance().getComponent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string component = 5;</code>
+       * @param value The bytes for component to set.
+       * @return This builder for chaining.
+       */
+      public Builder setComponentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        component_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object operationType_ = "";
+      /**
+       * <code>string operation_type = 6;</code>
+       * @return The operationType.
+       */
+      public java.lang.String getOperationType() {
+        java.lang.Object ref = operationType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          operationType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string operation_type = 6;</code>
+       * @return The bytes for operationType.
+       */
+      public com.google.protobuf.ByteString
+          getOperationTypeBytes() {
+        java.lang.Object ref = operationType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          operationType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string operation_type = 6;</code>
+       * @param value The operationType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOperationType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        operationType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string operation_type = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOperationType() {
+        
+        operationType_ = getDefaultInstance().getOperationType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string operation_type = 6;</code>
+       * @param value The bytes for operationType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOperationTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        operationType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.StringValue sourceGroup_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> sourceGroupBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       * @return Whether the sourceGroup field is set.
+       */
+      public boolean hasSourceGroup() {
+        return sourceGroupBuilder_ != null || sourceGroup_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       * @return The sourceGroup.
+       */
+      public com.google.protobuf.StringValue getSourceGroup() {
+        if (sourceGroupBuilder_ == null) {
+          return sourceGroup_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : sourceGroup_;
+        } else {
+          return sourceGroupBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       */
+      public Builder setSourceGroup(com.google.protobuf.StringValue value) {
+        if (sourceGroupBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sourceGroup_ = value;
+          onChanged();
+        } else {
+          sourceGroupBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       */
+      public Builder setSourceGroup(
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (sourceGroupBuilder_ == null) {
+          sourceGroup_ = builderForValue.build();
+          onChanged();
+        } else {
+          sourceGroupBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       */
+      public Builder mergeSourceGroup(com.google.protobuf.StringValue value) {
+        if (sourceGroupBuilder_ == null) {
+          if (sourceGroup_ != null) {
+            sourceGroup_ =
+              com.google.protobuf.StringValue.newBuilder(sourceGroup_).mergeFrom(value).buildPartial();
+          } else {
+            sourceGroup_ = value;
+          }
+          onChanged();
+        } else {
+          sourceGroupBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       */
+      public Builder clearSourceGroup() {
+        if (sourceGroupBuilder_ == null) {
+          sourceGroup_ = null;
+          onChanged();
+        } else {
+          sourceGroup_ = null;
+          sourceGroupBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       */
+      public com.google.protobuf.StringValue.Builder getSourceGroupBuilder() {
+        
+        onChanged();
+        return getSourceGroupFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getSourceGroupOrBuilder() {
+        if (sourceGroupBuilder_ != null) {
+          return sourceGroupBuilder_.getMessageOrBuilder();
+        } else {
+          return sourceGroup_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : sourceGroup_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue source_group = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getSourceGroupFieldBuilder() {
+        if (sourceGroupBuilder_ == null) {
+          sourceGroupBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getSourceGroup(),
+                  getParentForChildren(),
+                  isClean());
+          sourceGroup_ = null;
+        }
+        return sourceGroupBuilder_;
+      }
+
+      private com.google.protobuf.StringValue destinationGroup_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> destinationGroupBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       * @return Whether the destinationGroup field is set.
+       */
+      public boolean hasDestinationGroup() {
+        return destinationGroupBuilder_ != null || destinationGroup_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       * @return The destinationGroup.
+       */
+      public com.google.protobuf.StringValue getDestinationGroup() {
+        if (destinationGroupBuilder_ == null) {
+          return destinationGroup_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : destinationGroup_;
+        } else {
+          return destinationGroupBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       */
+      public Builder setDestinationGroup(com.google.protobuf.StringValue value) {
+        if (destinationGroupBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          destinationGroup_ = value;
+          onChanged();
+        } else {
+          destinationGroupBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       */
+      public Builder setDestinationGroup(
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (destinationGroupBuilder_ == null) {
+          destinationGroup_ = builderForValue.build();
+          onChanged();
+        } else {
+          destinationGroupBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       */
+      public Builder mergeDestinationGroup(com.google.protobuf.StringValue value) {
+        if (destinationGroupBuilder_ == null) {
+          if (destinationGroup_ != null) {
+            destinationGroup_ =
+              com.google.protobuf.StringValue.newBuilder(destinationGroup_).mergeFrom(value).buildPartial();
+          } else {
+            destinationGroup_ = value;
+          }
+          onChanged();
+        } else {
+          destinationGroupBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       */
+      public Builder clearDestinationGroup() {
+        if (destinationGroupBuilder_ == null) {
+          destinationGroup_ = null;
+          onChanged();
+        } else {
+          destinationGroup_ = null;
+          destinationGroupBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       */
+      public com.google.protobuf.StringValue.Builder getDestinationGroupBuilder() {
+        
+        onChanged();
+        return getDestinationGroupFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getDestinationGroupOrBuilder() {
+        if (destinationGroupBuilder_ != null) {
+          return destinationGroupBuilder_.getMessageOrBuilder();
+        } else {
+          return destinationGroup_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : destinationGroup_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue destination_group = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getDestinationGroupFieldBuilder() {
+        if (destinationGroupBuilder_ == null) {
+          destinationGroupBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getDestinationGroup(),
+                  getParentForChildren(),
+                  isClean());
+          destinationGroup_ = null;
+        }
+        return destinationGroupBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext requestContext_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContextOrBuilder> requestContextBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       * @return Whether the requestContext field is set.
+       */
+      public boolean hasRequestContext() {
+        return requestContextBuilder_ != null || requestContext_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       * @return The requestContext.
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext getRequestContext() {
+        if (requestContextBuilder_ == null) {
+          return requestContext_ == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.getDefaultInstance() : requestContext_;
+        } else {
+          return requestContextBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       */
+      public Builder setRequestContext(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext value) {
+        if (requestContextBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          requestContext_ = value;
+          onChanged();
+        } else {
+          requestContextBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       */
+      public Builder setRequestContext(
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.Builder builderForValue) {
+        if (requestContextBuilder_ == null) {
+          requestContext_ = builderForValue.build();
+          onChanged();
+        } else {
+          requestContextBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       */
+      public Builder mergeRequestContext(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext value) {
+        if (requestContextBuilder_ == null) {
+          if (requestContext_ != null) {
+            requestContext_ =
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.newBuilder(requestContext_).mergeFrom(value).buildPartial();
+          } else {
+            requestContext_ = value;
+          }
+          onChanged();
+        } else {
+          requestContextBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       */
+      public Builder clearRequestContext() {
+        if (requestContextBuilder_ == null) {
+          requestContext_ = null;
+          onChanged();
+        } else {
+          requestContext_ = null;
+          requestContextBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.Builder getRequestContextBuilder() {
+        
+        onChanged();
+        return getRequestContextFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       */
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContextOrBuilder getRequestContextOrBuilder() {
+        if (requestContextBuilder_ != null) {
+          return requestContextBuilder_.getMessageOrBuilder();
+        } else {
+          return requestContext_ == null ?
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.getDefaultInstance() : requestContext_;
+        }
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.RequestContext request_context = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContextOrBuilder> 
+          getRequestContextFieldBuilder() {
+        if (requestContextBuilder_ == null) {
+          requestContextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.Builder, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContextOrBuilder>(
+                  getRequestContext(),
+                  getParentForChildren(),
+                  isClean());
+          requestContext_ = null;
+        }
+        return requestContextBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.transferValidationRequests.TransferContext)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.transferValidationRequests.TransferContext)
+    private static final io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TransferContext>
+        PARSER = new com.google.protobuf.AbstractParser<TransferContext>() {
+      @java.lang.Override
+      public TransferContext parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TransferContext(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TransferContext> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TransferContext> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferContext getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RequestContextOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.transferValidationRequests.RequestContext)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     * @return Whether the userId field is set.
+     */
+    boolean hasUserId();
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     * @return The userId.
+     */
+    com.google.protobuf.StringValue getUserId();
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getUserIdOrBuilder();
+
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     * @return Whether the apiKeyId field is set.
+     */
+    boolean hasApiKeyId();
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     * @return The apiKeyId.
+     */
+    com.google.protobuf.StringValue getApiKeyId();
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getApiKeyIdOrBuilder();
+
+    /**
+     * <code>.google.protobuf.StringValue ip = 3;</code>
+     * @return Whether the ip field is set.
+     */
+    boolean hasIp();
+    /**
+     * <code>.google.protobuf.StringValue ip = 3;</code>
+     * @return The ip.
+     */
+    com.google.protobuf.StringValue getIp();
+    /**
+     * <code>.google.protobuf.StringValue ip = 3;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getIpOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
+     * @return The timestamp.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp getTimestamp();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestampOrBuilder getTimestampOrBuilder();
+  }
+  /**
+   * Protobuf type {@code swisschain.sirius.vaultApi.transferValidationRequests.RequestContext}
+   */
+  public static final class RequestContext extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.transferValidationRequests.RequestContext)
+      RequestContextOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RequestContext.newBuilder() to construct.
+    private RequestContext(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RequestContext() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RequestContext();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RequestContext(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (userId_ != null) {
+                subBuilder = userId_.toBuilder();
+              }
+              userId_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(userId_);
+                userId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (apiKeyId_ != null) {
+                subBuilder = apiKeyId_.toBuilder();
+              }
+              apiKeyId_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(apiKeyId_);
+                apiKeyId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (ip_ != null) {
+                subBuilder = ip_.toBuilder();
+              }
+              ip_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(ip_);
+                ip_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.Builder subBuilder = null;
+              if (timestamp_ != null) {
+                subBuilder = timestamp_.toBuilder();
+              }
+              timestamp_ = input.readMessage(io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timestamp_);
+                timestamp_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.class, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.Builder.class);
+    }
+
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private com.google.protobuf.StringValue userId_;
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     * @return Whether the userId field is set.
+     */
+    @java.lang.Override
+    public boolean hasUserId() {
+      return userId_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getUserId() {
+      return userId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : userId_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getUserIdOrBuilder() {
+      return getUserId();
+    }
+
+    public static final int API_KEY_ID_FIELD_NUMBER = 2;
+    private com.google.protobuf.StringValue apiKeyId_;
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     * @return Whether the apiKeyId field is set.
+     */
+    @java.lang.Override
+    public boolean hasApiKeyId() {
+      return apiKeyId_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     * @return The apiKeyId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getApiKeyId() {
+      return apiKeyId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : apiKeyId_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getApiKeyIdOrBuilder() {
+      return getApiKeyId();
+    }
+
+    public static final int IP_FIELD_NUMBER = 3;
     private com.google.protobuf.StringValue ip_;
     /**
-     * <code>.google.protobuf.StringValue ip = 5;</code>
+     * <code>.google.protobuf.StringValue ip = 3;</code>
      * @return Whether the ip field is set.
      */
     @java.lang.Override
@@ -10756,7 +12069,7 @@ public final class TransferValidationRequestsOuterClass {
       return ip_ != null;
     }
     /**
-     * <code>.google.protobuf.StringValue ip = 5;</code>
+     * <code>.google.protobuf.StringValue ip = 3;</code>
      * @return The ip.
      */
     @java.lang.Override
@@ -10764,17 +12077,17 @@ public final class TransferValidationRequestsOuterClass {
       return ip_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : ip_;
     }
     /**
-     * <code>.google.protobuf.StringValue ip = 5;</code>
+     * <code>.google.protobuf.StringValue ip = 3;</code>
      */
     @java.lang.Override
     public com.google.protobuf.StringValueOrBuilder getIpOrBuilder() {
       return getIp();
     }
 
-    public static final int TIMESTAMP_FIELD_NUMBER = 6;
+    public static final int TIMESTAMP_FIELD_NUMBER = 4;
     private io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp timestamp_;
     /**
-     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
      * @return Whether the timestamp field is set.
      */
     @java.lang.Override
@@ -10782,7 +12095,7 @@ public final class TransferValidationRequestsOuterClass {
       return timestamp_ != null;
     }
     /**
-     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
      * @return The timestamp.
      */
     @java.lang.Override
@@ -10790,7 +12103,7 @@ public final class TransferValidationRequestsOuterClass {
       return timestamp_ == null ? io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.getDefaultInstance() : timestamp_;
     }
     /**
-     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+     * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
      */
     @java.lang.Override
     public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestampOrBuilder getTimestampOrBuilder() {
@@ -10817,17 +12130,11 @@ public final class TransferValidationRequestsOuterClass {
       if (apiKeyId_ != null) {
         output.writeMessage(2, getApiKeyId());
       }
-      if (accountReferenceId_ != null) {
-        output.writeMessage(3, getAccountReferenceId());
-      }
-      if (withdrawalReferenceId_ != null) {
-        output.writeMessage(4, getWithdrawalReferenceId());
-      }
       if (ip_ != null) {
-        output.writeMessage(5, getIp());
+        output.writeMessage(3, getIp());
       }
       if (timestamp_ != null) {
-        output.writeMessage(6, getTimestamp());
+        output.writeMessage(4, getTimestamp());
       }
       unknownFields.writeTo(output);
     }
@@ -10846,21 +12153,13 @@ public final class TransferValidationRequestsOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getApiKeyId());
       }
-      if (accountReferenceId_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getAccountReferenceId());
-      }
-      if (withdrawalReferenceId_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getWithdrawalReferenceId());
-      }
       if (ip_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getIp());
+          .computeMessageSize(3, getIp());
       }
       if (timestamp_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getTimestamp());
+          .computeMessageSize(4, getTimestamp());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10872,10 +12171,10 @@ public final class TransferValidationRequestsOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext)) {
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext)) {
         return super.equals(obj);
       }
-      io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext other = (io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext) obj;
+      io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext other = (io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext) obj;
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
@@ -10886,16 +12185,6 @@ public final class TransferValidationRequestsOuterClass {
       if (hasApiKeyId()) {
         if (!getApiKeyId()
             .equals(other.getApiKeyId())) return false;
-      }
-      if (hasAccountReferenceId() != other.hasAccountReferenceId()) return false;
-      if (hasAccountReferenceId()) {
-        if (!getAccountReferenceId()
-            .equals(other.getAccountReferenceId())) return false;
-      }
-      if (hasWithdrawalReferenceId() != other.hasWithdrawalReferenceId()) return false;
-      if (hasWithdrawalReferenceId()) {
-        if (!getWithdrawalReferenceId()
-            .equals(other.getWithdrawalReferenceId())) return false;
       }
       if (hasIp() != other.hasIp()) return false;
       if (hasIp()) {
@@ -10926,14 +12215,6 @@ public final class TransferValidationRequestsOuterClass {
         hash = (37 * hash) + API_KEY_ID_FIELD_NUMBER;
         hash = (53 * hash) + getApiKeyId().hashCode();
       }
-      if (hasAccountReferenceId()) {
-        hash = (37 * hash) + ACCOUNT_REFERENCE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getAccountReferenceId().hashCode();
-      }
-      if (hasWithdrawalReferenceId()) {
-        hash = (37 * hash) + WITHDRAWAL_REFERENCE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getWithdrawalReferenceId().hashCode();
-      }
       if (hasIp()) {
         hash = (37 * hash) + IP_FIELD_NUMBER;
         hash = (53 * hash) + getIp().hashCode();
@@ -10947,69 +12228,69 @@ public final class TransferValidationRequestsOuterClass {
       return hash;
     }
 
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(byte[] data)
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(java.io.InputStream input)
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseDelimitedFrom(java.io.InputStream input)
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseDelimitedFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parseFrom(
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11022,7 +12303,7 @@ public final class TransferValidationRequestsOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext prototype) {
+    public static Builder newBuilder(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -11038,26 +12319,26 @@ public final class TransferValidationRequestsOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code swisschain.sirius.vaultApi.transferValidationRequests.ClientContext}
+     * Protobuf type {@code swisschain.sirius.vaultApi.transferValidationRequests.RequestContext}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.transferValidationRequests.ClientContext)
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContextOrBuilder {
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.transferValidationRequests.RequestContext)
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContextOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_descriptor;
+        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_fieldAccessorTable
+        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.class, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.Builder.class);
+                io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.class, io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.Builder.class);
       }
 
-      // Construct using io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.newBuilder()
+      // Construct using io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11087,18 +12368,6 @@ public final class TransferValidationRequestsOuterClass {
           apiKeyId_ = null;
           apiKeyIdBuilder_ = null;
         }
-        if (accountReferenceIdBuilder_ == null) {
-          accountReferenceId_ = null;
-        } else {
-          accountReferenceId_ = null;
-          accountReferenceIdBuilder_ = null;
-        }
-        if (withdrawalReferenceIdBuilder_ == null) {
-          withdrawalReferenceId_ = null;
-        } else {
-          withdrawalReferenceId_ = null;
-          withdrawalReferenceIdBuilder_ = null;
-        }
         if (ipBuilder_ == null) {
           ip_ = null;
         } else {
@@ -11117,17 +12386,17 @@ public final class TransferValidationRequestsOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_descriptor;
+        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_descriptor;
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext getDefaultInstanceForType() {
-        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.getDefaultInstance();
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext build() {
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext result = buildPartial();
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext build() {
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -11135,8 +12404,8 @@ public final class TransferValidationRequestsOuterClass {
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext buildPartial() {
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext result = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext(this);
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext result = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext(this);
         if (userIdBuilder_ == null) {
           result.userId_ = userId_;
         } else {
@@ -11146,16 +12415,6 @@ public final class TransferValidationRequestsOuterClass {
           result.apiKeyId_ = apiKeyId_;
         } else {
           result.apiKeyId_ = apiKeyIdBuilder_.build();
-        }
-        if (accountReferenceIdBuilder_ == null) {
-          result.accountReferenceId_ = accountReferenceId_;
-        } else {
-          result.accountReferenceId_ = accountReferenceIdBuilder_.build();
-        }
-        if (withdrawalReferenceIdBuilder_ == null) {
-          result.withdrawalReferenceId_ = withdrawalReferenceId_;
-        } else {
-          result.withdrawalReferenceId_ = withdrawalReferenceIdBuilder_.build();
         }
         if (ipBuilder_ == null) {
           result.ip_ = ip_;
@@ -11205,27 +12464,21 @@ public final class TransferValidationRequestsOuterClass {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext) {
-          return mergeFrom((io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext)other);
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext) {
+          return mergeFrom((io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext other) {
-        if (other == io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext other) {
+        if (other == io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext.getDefaultInstance()) return this;
         if (other.hasUserId()) {
           mergeUserId(other.getUserId());
         }
         if (other.hasApiKeyId()) {
           mergeApiKeyId(other.getApiKeyId());
-        }
-        if (other.hasAccountReferenceId()) {
-          mergeAccountReferenceId(other.getAccountReferenceId());
-        }
-        if (other.hasWithdrawalReferenceId()) {
-          mergeWithdrawalReferenceId(other.getWithdrawalReferenceId());
         }
         if (other.hasIp()) {
           mergeIp(other.getIp());
@@ -11248,11 +12501,11 @@ public final class TransferValidationRequestsOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext parsedMessage = null;
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext) e.getUnfinishedMessage();
+          parsedMessage = (io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11500,256 +12753,18 @@ public final class TransferValidationRequestsOuterClass {
         return apiKeyIdBuilder_;
       }
 
-      private com.google.protobuf.StringValue accountReferenceId_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> accountReferenceIdBuilder_;
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       * @return Whether the accountReferenceId field is set.
-       */
-      public boolean hasAccountReferenceId() {
-        return accountReferenceIdBuilder_ != null || accountReferenceId_ != null;
-      }
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       * @return The accountReferenceId.
-       */
-      public com.google.protobuf.StringValue getAccountReferenceId() {
-        if (accountReferenceIdBuilder_ == null) {
-          return accountReferenceId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : accountReferenceId_;
-        } else {
-          return accountReferenceIdBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       */
-      public Builder setAccountReferenceId(com.google.protobuf.StringValue value) {
-        if (accountReferenceIdBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          accountReferenceId_ = value;
-          onChanged();
-        } else {
-          accountReferenceIdBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       */
-      public Builder setAccountReferenceId(
-          com.google.protobuf.StringValue.Builder builderForValue) {
-        if (accountReferenceIdBuilder_ == null) {
-          accountReferenceId_ = builderForValue.build();
-          onChanged();
-        } else {
-          accountReferenceIdBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       */
-      public Builder mergeAccountReferenceId(com.google.protobuf.StringValue value) {
-        if (accountReferenceIdBuilder_ == null) {
-          if (accountReferenceId_ != null) {
-            accountReferenceId_ =
-              com.google.protobuf.StringValue.newBuilder(accountReferenceId_).mergeFrom(value).buildPartial();
-          } else {
-            accountReferenceId_ = value;
-          }
-          onChanged();
-        } else {
-          accountReferenceIdBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       */
-      public Builder clearAccountReferenceId() {
-        if (accountReferenceIdBuilder_ == null) {
-          accountReferenceId_ = null;
-          onChanged();
-        } else {
-          accountReferenceId_ = null;
-          accountReferenceIdBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       */
-      public com.google.protobuf.StringValue.Builder getAccountReferenceIdBuilder() {
-        
-        onChanged();
-        return getAccountReferenceIdFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       */
-      public com.google.protobuf.StringValueOrBuilder getAccountReferenceIdOrBuilder() {
-        if (accountReferenceIdBuilder_ != null) {
-          return accountReferenceIdBuilder_.getMessageOrBuilder();
-        } else {
-          return accountReferenceId_ == null ?
-              com.google.protobuf.StringValue.getDefaultInstance() : accountReferenceId_;
-        }
-      }
-      /**
-       * <code>.google.protobuf.StringValue account_reference_id = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
-          getAccountReferenceIdFieldBuilder() {
-        if (accountReferenceIdBuilder_ == null) {
-          accountReferenceIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
-                  getAccountReferenceId(),
-                  getParentForChildren(),
-                  isClean());
-          accountReferenceId_ = null;
-        }
-        return accountReferenceIdBuilder_;
-      }
-
-      private com.google.protobuf.StringValue withdrawalReferenceId_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> withdrawalReferenceIdBuilder_;
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       * @return Whether the withdrawalReferenceId field is set.
-       */
-      public boolean hasWithdrawalReferenceId() {
-        return withdrawalReferenceIdBuilder_ != null || withdrawalReferenceId_ != null;
-      }
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       * @return The withdrawalReferenceId.
-       */
-      public com.google.protobuf.StringValue getWithdrawalReferenceId() {
-        if (withdrawalReferenceIdBuilder_ == null) {
-          return withdrawalReferenceId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : withdrawalReferenceId_;
-        } else {
-          return withdrawalReferenceIdBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       */
-      public Builder setWithdrawalReferenceId(com.google.protobuf.StringValue value) {
-        if (withdrawalReferenceIdBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          withdrawalReferenceId_ = value;
-          onChanged();
-        } else {
-          withdrawalReferenceIdBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       */
-      public Builder setWithdrawalReferenceId(
-          com.google.protobuf.StringValue.Builder builderForValue) {
-        if (withdrawalReferenceIdBuilder_ == null) {
-          withdrawalReferenceId_ = builderForValue.build();
-          onChanged();
-        } else {
-          withdrawalReferenceIdBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       */
-      public Builder mergeWithdrawalReferenceId(com.google.protobuf.StringValue value) {
-        if (withdrawalReferenceIdBuilder_ == null) {
-          if (withdrawalReferenceId_ != null) {
-            withdrawalReferenceId_ =
-              com.google.protobuf.StringValue.newBuilder(withdrawalReferenceId_).mergeFrom(value).buildPartial();
-          } else {
-            withdrawalReferenceId_ = value;
-          }
-          onChanged();
-        } else {
-          withdrawalReferenceIdBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       */
-      public Builder clearWithdrawalReferenceId() {
-        if (withdrawalReferenceIdBuilder_ == null) {
-          withdrawalReferenceId_ = null;
-          onChanged();
-        } else {
-          withdrawalReferenceId_ = null;
-          withdrawalReferenceIdBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       */
-      public com.google.protobuf.StringValue.Builder getWithdrawalReferenceIdBuilder() {
-        
-        onChanged();
-        return getWithdrawalReferenceIdFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       */
-      public com.google.protobuf.StringValueOrBuilder getWithdrawalReferenceIdOrBuilder() {
-        if (withdrawalReferenceIdBuilder_ != null) {
-          return withdrawalReferenceIdBuilder_.getMessageOrBuilder();
-        } else {
-          return withdrawalReferenceId_ == null ?
-              com.google.protobuf.StringValue.getDefaultInstance() : withdrawalReferenceId_;
-        }
-      }
-      /**
-       * <code>.google.protobuf.StringValue withdrawal_reference_id = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
-          getWithdrawalReferenceIdFieldBuilder() {
-        if (withdrawalReferenceIdBuilder_ == null) {
-          withdrawalReferenceIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
-                  getWithdrawalReferenceId(),
-                  getParentForChildren(),
-                  isClean());
-          withdrawalReferenceId_ = null;
-        }
-        return withdrawalReferenceIdBuilder_;
-      }
-
       private com.google.protobuf.StringValue ip_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> ipBuilder_;
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        * @return Whether the ip field is set.
        */
       public boolean hasIp() {
         return ipBuilder_ != null || ip_ != null;
       }
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        * @return The ip.
        */
       public com.google.protobuf.StringValue getIp() {
@@ -11760,7 +12775,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        */
       public Builder setIp(com.google.protobuf.StringValue value) {
         if (ipBuilder_ == null) {
@@ -11776,7 +12791,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        */
       public Builder setIp(
           com.google.protobuf.StringValue.Builder builderForValue) {
@@ -11790,7 +12805,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        */
       public Builder mergeIp(com.google.protobuf.StringValue value) {
         if (ipBuilder_ == null) {
@@ -11808,7 +12823,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        */
       public Builder clearIp() {
         if (ipBuilder_ == null) {
@@ -11822,7 +12837,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        */
       public com.google.protobuf.StringValue.Builder getIpBuilder() {
         
@@ -11830,7 +12845,7 @@ public final class TransferValidationRequestsOuterClass {
         return getIpFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        */
       public com.google.protobuf.StringValueOrBuilder getIpOrBuilder() {
         if (ipBuilder_ != null) {
@@ -11841,7 +12856,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>.google.protobuf.StringValue ip = 5;</code>
+       * <code>.google.protobuf.StringValue ip = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
@@ -11861,14 +12876,14 @@ public final class TransferValidationRequestsOuterClass {
       private com.google.protobuf.SingleFieldBuilderV3<
           io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp, io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestampOrBuilder> timestampBuilder_;
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        * @return Whether the timestamp field is set.
        */
       public boolean hasTimestamp() {
         return timestampBuilder_ != null || timestamp_ != null;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        * @return The timestamp.
        */
       public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp getTimestamp() {
@@ -11879,7 +12894,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        */
       public Builder setTimestamp(io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp value) {
         if (timestampBuilder_ == null) {
@@ -11895,7 +12910,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        */
       public Builder setTimestamp(
           io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.Builder builderForValue) {
@@ -11909,7 +12924,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        */
       public Builder mergeTimestamp(io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp value) {
         if (timestampBuilder_ == null) {
@@ -11927,7 +12942,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        */
       public Builder clearTimestamp() {
         if (timestampBuilder_ == null) {
@@ -11941,7 +12956,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        */
       public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.Builder getTimestampBuilder() {
         
@@ -11949,7 +12964,7 @@ public final class TransferValidationRequestsOuterClass {
         return getTimestampFieldBuilder().getBuilder();
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        */
       public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestampOrBuilder getTimestampOrBuilder() {
         if (timestampBuilder_ != null) {
@@ -11960,7 +12975,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 6;</code>
+       * <code>.swisschain.sirius.vaultApi.common.NullableTimestamp timestamp = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp, io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.Builder, io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestampOrBuilder> 
@@ -11988,41 +13003,41 @@ public final class TransferValidationRequestsOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.transferValidationRequests.ClientContext)
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.transferValidationRequests.RequestContext)
     }
 
-    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.transferValidationRequests.ClientContext)
-    private static final io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.transferValidationRequests.RequestContext)
+    private static final io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext();
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext();
     }
 
-    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext getDefaultInstance() {
+    public static io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ClientContext>
-        PARSER = new com.google.protobuf.AbstractParser<ClientContext>() {
+    private static final com.google.protobuf.Parser<RequestContext>
+        PARSER = new com.google.protobuf.AbstractParser<RequestContext>() {
       @java.lang.Override
-      public ClientContext parsePartialFrom(
+      public RequestContext parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClientContext(input, extensionRegistry);
+        return new RequestContext(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ClientContext> parser() {
+    public static com.google.protobuf.Parser<RequestContext> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ClientContext> getParserForType() {
+    public com.google.protobuf.Parser<RequestContext> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ClientContext getDefaultInstanceForType() {
+    public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RequestContext getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12051,16 +13066,16 @@ public final class TransferValidationRequestsOuterClass {
     long getTransferValidationRequestId();
 
     /**
-     * <code>string policy_result = 3;</code>
-     * @return The policyResult.
+     * <code>string document = 3;</code>
+     * @return The document.
      */
-    java.lang.String getPolicyResult();
+    java.lang.String getDocument();
     /**
-     * <code>string policy_result = 3;</code>
-     * @return The bytes for policyResult.
+     * <code>string document = 3;</code>
+     * @return The bytes for document.
      */
     com.google.protobuf.ByteString
-        getPolicyResultBytes();
+        getDocumentBytes();
 
     /**
      * <code>string signature = 4;</code>
@@ -12100,7 +13115,7 @@ public final class TransferValidationRequestsOuterClass {
     }
     private ConfirmTransferValidationRequestRequest() {
       requestId_ = "";
-      policyResult_ = "";
+      document_ = "";
       signature_ = "";
       hostProcessId_ = "";
     }
@@ -12149,7 +13164,7 @@ public final class TransferValidationRequestsOuterClass {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              policyResult_ = s;
+              document_ = s;
               break;
             }
             case 34: {
@@ -12245,38 +13260,38 @@ public final class TransferValidationRequestsOuterClass {
       return transferValidationRequestId_;
     }
 
-    public static final int POLICY_RESULT_FIELD_NUMBER = 3;
-    private volatile java.lang.Object policyResult_;
+    public static final int DOCUMENT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object document_;
     /**
-     * <code>string policy_result = 3;</code>
-     * @return The policyResult.
+     * <code>string document = 3;</code>
+     * @return The document.
      */
     @java.lang.Override
-    public java.lang.String getPolicyResult() {
-      java.lang.Object ref = policyResult_;
+    public java.lang.String getDocument() {
+      java.lang.Object ref = document_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        policyResult_ = s;
+        document_ = s;
         return s;
       }
     }
     /**
-     * <code>string policy_result = 3;</code>
-     * @return The bytes for policyResult.
+     * <code>string document = 3;</code>
+     * @return The bytes for document.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getPolicyResultBytes() {
-      java.lang.Object ref = policyResult_;
+        getDocumentBytes() {
+      java.lang.Object ref = document_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        policyResult_ = b;
+        document_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -12379,8 +13394,8 @@ public final class TransferValidationRequestsOuterClass {
       if (transferValidationRequestId_ != 0L) {
         output.writeInt64(2, transferValidationRequestId_);
       }
-      if (!getPolicyResultBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, policyResult_);
+      if (!getDocumentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, document_);
       }
       if (!getSignatureBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, signature_);
@@ -12404,8 +13419,8 @@ public final class TransferValidationRequestsOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, transferValidationRequestId_);
       }
-      if (!getPolicyResultBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, policyResult_);
+      if (!getDocumentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, document_);
       }
       if (!getSignatureBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, signature_);
@@ -12432,8 +13447,8 @@ public final class TransferValidationRequestsOuterClass {
           .equals(other.getRequestId())) return false;
       if (getTransferValidationRequestId()
           != other.getTransferValidationRequestId()) return false;
-      if (!getPolicyResult()
-          .equals(other.getPolicyResult())) return false;
+      if (!getDocument()
+          .equals(other.getDocument())) return false;
       if (!getSignature()
           .equals(other.getSignature())) return false;
       if (!getHostProcessId()
@@ -12454,8 +13469,8 @@ public final class TransferValidationRequestsOuterClass {
       hash = (37 * hash) + TRANSFER_VALIDATION_REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTransferValidationRequestId());
-      hash = (37 * hash) + POLICY_RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + getPolicyResult().hashCode();
+      hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getDocument().hashCode();
       hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
       hash = (53 * hash) + getSignature().hashCode();
       hash = (37 * hash) + HOST_PROCESS_ID_FIELD_NUMBER;
@@ -12597,7 +13612,7 @@ public final class TransferValidationRequestsOuterClass {
 
         transferValidationRequestId_ = 0L;
 
-        policyResult_ = "";
+        document_ = "";
 
         signature_ = "";
 
@@ -12631,7 +13646,7 @@ public final class TransferValidationRequestsOuterClass {
         io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ConfirmTransferValidationRequestRequest result = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.ConfirmTransferValidationRequestRequest(this);
         result.requestId_ = requestId_;
         result.transferValidationRequestId_ = transferValidationRequestId_;
-        result.policyResult_ = policyResult_;
+        result.document_ = document_;
         result.signature_ = signature_;
         result.hostProcessId_ = hostProcessId_;
         onBuilt();
@@ -12689,8 +13704,8 @@ public final class TransferValidationRequestsOuterClass {
         if (other.getTransferValidationRequestId() != 0L) {
           setTransferValidationRequestId(other.getTransferValidationRequestId());
         }
-        if (!other.getPolicyResult().isEmpty()) {
-          policyResult_ = other.policyResult_;
+        if (!other.getDocument().isEmpty()) {
+          document_ = other.document_;
           onChanged();
         }
         if (!other.getSignature().isEmpty()) {
@@ -12837,78 +13852,78 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
 
-      private java.lang.Object policyResult_ = "";
+      private java.lang.Object document_ = "";
       /**
-       * <code>string policy_result = 3;</code>
-       * @return The policyResult.
+       * <code>string document = 3;</code>
+       * @return The document.
        */
-      public java.lang.String getPolicyResult() {
-        java.lang.Object ref = policyResult_;
+      public java.lang.String getDocument() {
+        java.lang.Object ref = document_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          policyResult_ = s;
+          document_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string policy_result = 3;</code>
-       * @return The bytes for policyResult.
+       * <code>string document = 3;</code>
+       * @return The bytes for document.
        */
       public com.google.protobuf.ByteString
-          getPolicyResultBytes() {
-        java.lang.Object ref = policyResult_;
+          getDocumentBytes() {
+        java.lang.Object ref = document_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          policyResult_ = b;
+          document_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string policy_result = 3;</code>
-       * @param value The policyResult to set.
+       * <code>string document = 3;</code>
+       * @param value The document to set.
        * @return This builder for chaining.
        */
-      public Builder setPolicyResult(
+      public Builder setDocument(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        policyResult_ = value;
+        document_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string policy_result = 3;</code>
+       * <code>string document = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearPolicyResult() {
+      public Builder clearDocument() {
         
-        policyResult_ = getDefaultInstance().getPolicyResult();
+        document_ = getDefaultInstance().getDocument();
         onChanged();
         return this;
       }
       /**
-       * <code>string policy_result = 3;</code>
-       * @param value The bytes for policyResult to set.
+       * <code>string document = 3;</code>
+       * @param value The bytes for document to set.
        * @return This builder for chaining.
        */
-      public Builder setPolicyResultBytes(
+      public Builder setDocumentBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        policyResult_ = value;
+        document_ = value;
         onChanged();
         return this;
       }
@@ -15288,39 +16303,39 @@ public final class TransferValidationRequestsOuterClass {
     long getTransferValidationRequestId();
 
     /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
-     * @return The enum numeric value on the wire for reason.
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
+     * @return The enum numeric value on the wire for rejectionReason.
      */
-    int getReasonValue();
+    int getRejectionReasonValue();
     /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
-     * @return The reason.
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
+     * @return The rejectionReason.
      */
-    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason getReason();
+    io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason getRejectionReason();
 
     /**
-     * <code>string reason_message = 4;</code>
-     * @return The reasonMessage.
+     * <code>string rejection_reason_message = 4;</code>
+     * @return The rejectionReasonMessage.
      */
-    java.lang.String getReasonMessage();
+    java.lang.String getRejectionReasonMessage();
     /**
-     * <code>string reason_message = 4;</code>
-     * @return The bytes for reasonMessage.
+     * <code>string rejection_reason_message = 4;</code>
+     * @return The bytes for rejectionReasonMessage.
      */
     com.google.protobuf.ByteString
-        getReasonMessageBytes();
+        getRejectionReasonMessageBytes();
 
     /**
-     * <code>string policy_result = 5;</code>
-     * @return The policyResult.
+     * <code>string document = 5;</code>
+     * @return The document.
      */
-    java.lang.String getPolicyResult();
+    java.lang.String getDocument();
     /**
-     * <code>string policy_result = 5;</code>
-     * @return The bytes for policyResult.
+     * <code>string document = 5;</code>
+     * @return The bytes for document.
      */
     com.google.protobuf.ByteString
-        getPolicyResultBytes();
+        getDocumentBytes();
 
     /**
      * <code>string signature = 6;</code>
@@ -15360,9 +16375,9 @@ public final class TransferValidationRequestsOuterClass {
     }
     private RejectTransferValidationRequestRequest() {
       requestId_ = "";
-      reason_ = 0;
-      reasonMessage_ = "";
-      policyResult_ = "";
+      rejectionReason_ = 0;
+      rejectionReasonMessage_ = "";
+      document_ = "";
       signature_ = "";
       hostProcessId_ = "";
     }
@@ -15411,19 +16426,19 @@ public final class TransferValidationRequestsOuterClass {
             case 24: {
               int rawValue = input.readEnum();
 
-              reason_ = rawValue;
+              rejectionReason_ = rawValue;
               break;
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              reasonMessage_ = s;
+              rejectionReasonMessage_ = s;
               break;
             }
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              policyResult_ = s;
+              document_ = s;
               break;
             }
             case 50: {
@@ -15519,95 +16534,95 @@ public final class TransferValidationRequestsOuterClass {
       return transferValidationRequestId_;
     }
 
-    public static final int REASON_FIELD_NUMBER = 3;
-    private int reason_;
+    public static final int REJECTION_REASON_FIELD_NUMBER = 3;
+    private int rejectionReason_;
     /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
-     * @return The enum numeric value on the wire for reason.
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
+     * @return The enum numeric value on the wire for rejectionReason.
      */
-    @java.lang.Override public int getReasonValue() {
-      return reason_;
+    @java.lang.Override public int getRejectionReasonValue() {
+      return rejectionReason_;
     }
     /**
-     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
-     * @return The reason.
+     * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
+     * @return The rejectionReason.
      */
-    @java.lang.Override public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason getReason() {
+    @java.lang.Override public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason getRejectionReason() {
       @SuppressWarnings("deprecation")
-      io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason result = io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.valueOf(reason_);
+      io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason result = io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.valueOf(rejectionReason_);
       return result == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.UNRECOGNIZED : result;
     }
 
-    public static final int REASON_MESSAGE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object reasonMessage_;
+    public static final int REJECTION_REASON_MESSAGE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object rejectionReasonMessage_;
     /**
-     * <code>string reason_message = 4;</code>
-     * @return The reasonMessage.
+     * <code>string rejection_reason_message = 4;</code>
+     * @return The rejectionReasonMessage.
      */
     @java.lang.Override
-    public java.lang.String getReasonMessage() {
-      java.lang.Object ref = reasonMessage_;
+    public java.lang.String getRejectionReasonMessage() {
+      java.lang.Object ref = rejectionReasonMessage_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        reasonMessage_ = s;
+        rejectionReasonMessage_ = s;
         return s;
       }
     }
     /**
-     * <code>string reason_message = 4;</code>
-     * @return The bytes for reasonMessage.
+     * <code>string rejection_reason_message = 4;</code>
+     * @return The bytes for rejectionReasonMessage.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getReasonMessageBytes() {
-      java.lang.Object ref = reasonMessage_;
+        getRejectionReasonMessageBytes() {
+      java.lang.Object ref = rejectionReasonMessage_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        reasonMessage_ = b;
+        rejectionReasonMessage_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int POLICY_RESULT_FIELD_NUMBER = 5;
-    private volatile java.lang.Object policyResult_;
+    public static final int DOCUMENT_FIELD_NUMBER = 5;
+    private volatile java.lang.Object document_;
     /**
-     * <code>string policy_result = 5;</code>
-     * @return The policyResult.
+     * <code>string document = 5;</code>
+     * @return The document.
      */
     @java.lang.Override
-    public java.lang.String getPolicyResult() {
-      java.lang.Object ref = policyResult_;
+    public java.lang.String getDocument() {
+      java.lang.Object ref = document_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        policyResult_ = s;
+        document_ = s;
         return s;
       }
     }
     /**
-     * <code>string policy_result = 5;</code>
-     * @return The bytes for policyResult.
+     * <code>string document = 5;</code>
+     * @return The bytes for document.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getPolicyResultBytes() {
-      java.lang.Object ref = policyResult_;
+        getDocumentBytes() {
+      java.lang.Object ref = document_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        policyResult_ = b;
+        document_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -15710,14 +16725,14 @@ public final class TransferValidationRequestsOuterClass {
       if (transferValidationRequestId_ != 0L) {
         output.writeInt64(2, transferValidationRequestId_);
       }
-      if (reason_ != io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.OTHER.getNumber()) {
-        output.writeEnum(3, reason_);
+      if (rejectionReason_ != io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.OTHER.getNumber()) {
+        output.writeEnum(3, rejectionReason_);
       }
-      if (!getReasonMessageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, reasonMessage_);
+      if (!getRejectionReasonMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, rejectionReasonMessage_);
       }
-      if (!getPolicyResultBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, policyResult_);
+      if (!getDocumentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, document_);
       }
       if (!getSignatureBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, signature_);
@@ -15741,15 +16756,15 @@ public final class TransferValidationRequestsOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, transferValidationRequestId_);
       }
-      if (reason_ != io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.OTHER.getNumber()) {
+      if (rejectionReason_ != io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.OTHER.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, reason_);
+          .computeEnumSize(3, rejectionReason_);
       }
-      if (!getReasonMessageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, reasonMessage_);
+      if (!getRejectionReasonMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, rejectionReasonMessage_);
       }
-      if (!getPolicyResultBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, policyResult_);
+      if (!getDocumentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, document_);
       }
       if (!getSignatureBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, signature_);
@@ -15776,11 +16791,11 @@ public final class TransferValidationRequestsOuterClass {
           .equals(other.getRequestId())) return false;
       if (getTransferValidationRequestId()
           != other.getTransferValidationRequestId()) return false;
-      if (reason_ != other.reason_) return false;
-      if (!getReasonMessage()
-          .equals(other.getReasonMessage())) return false;
-      if (!getPolicyResult()
-          .equals(other.getPolicyResult())) return false;
+      if (rejectionReason_ != other.rejectionReason_) return false;
+      if (!getRejectionReasonMessage()
+          .equals(other.getRejectionReasonMessage())) return false;
+      if (!getDocument()
+          .equals(other.getDocument())) return false;
       if (!getSignature()
           .equals(other.getSignature())) return false;
       if (!getHostProcessId()
@@ -15801,12 +16816,12 @@ public final class TransferValidationRequestsOuterClass {
       hash = (37 * hash) + TRANSFER_VALIDATION_REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTransferValidationRequestId());
-      hash = (37 * hash) + REASON_FIELD_NUMBER;
-      hash = (53 * hash) + reason_;
-      hash = (37 * hash) + REASON_MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getReasonMessage().hashCode();
-      hash = (37 * hash) + POLICY_RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + getPolicyResult().hashCode();
+      hash = (37 * hash) + REJECTION_REASON_FIELD_NUMBER;
+      hash = (53 * hash) + rejectionReason_;
+      hash = (37 * hash) + REJECTION_REASON_MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getRejectionReasonMessage().hashCode();
+      hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getDocument().hashCode();
       hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
       hash = (53 * hash) + getSignature().hashCode();
       hash = (37 * hash) + HOST_PROCESS_ID_FIELD_NUMBER;
@@ -15948,11 +16963,11 @@ public final class TransferValidationRequestsOuterClass {
 
         transferValidationRequestId_ = 0L;
 
-        reason_ = 0;
+        rejectionReason_ = 0;
 
-        reasonMessage_ = "";
+        rejectionReasonMessage_ = "";
 
-        policyResult_ = "";
+        document_ = "";
 
         signature_ = "";
 
@@ -15986,9 +17001,9 @@ public final class TransferValidationRequestsOuterClass {
         io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RejectTransferValidationRequestRequest result = new io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.RejectTransferValidationRequestRequest(this);
         result.requestId_ = requestId_;
         result.transferValidationRequestId_ = transferValidationRequestId_;
-        result.reason_ = reason_;
-        result.reasonMessage_ = reasonMessage_;
-        result.policyResult_ = policyResult_;
+        result.rejectionReason_ = rejectionReason_;
+        result.rejectionReasonMessage_ = rejectionReasonMessage_;
+        result.document_ = document_;
         result.signature_ = signature_;
         result.hostProcessId_ = hostProcessId_;
         onBuilt();
@@ -16046,15 +17061,15 @@ public final class TransferValidationRequestsOuterClass {
         if (other.getTransferValidationRequestId() != 0L) {
           setTransferValidationRequestId(other.getTransferValidationRequestId());
         }
-        if (other.reason_ != 0) {
-          setReasonValue(other.getReasonValue());
+        if (other.rejectionReason_ != 0) {
+          setRejectionReasonValue(other.getRejectionReasonValue());
         }
-        if (!other.getReasonMessage().isEmpty()) {
-          reasonMessage_ = other.reasonMessage_;
+        if (!other.getRejectionReasonMessage().isEmpty()) {
+          rejectionReasonMessage_ = other.rejectionReasonMessage_;
           onChanged();
         }
-        if (!other.getPolicyResult().isEmpty()) {
-          policyResult_ = other.policyResult_;
+        if (!other.getDocument().isEmpty()) {
+          document_ = other.document_;
           onChanged();
         }
         if (!other.getSignature().isEmpty()) {
@@ -16201,208 +17216,208 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
 
-      private int reason_ = 0;
+      private int rejectionReason_ = 0;
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
-       * @return The enum numeric value on the wire for reason.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
+       * @return The enum numeric value on the wire for rejectionReason.
        */
-      @java.lang.Override public int getReasonValue() {
-        return reason_;
+      @java.lang.Override public int getRejectionReasonValue() {
+        return rejectionReason_;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
-       * @param value The enum numeric value on the wire for reason to set.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
+       * @param value The enum numeric value on the wire for rejectionReason to set.
        * @return This builder for chaining.
        */
-      public Builder setReasonValue(int value) {
+      public Builder setRejectionReasonValue(int value) {
         
-        reason_ = value;
+        rejectionReason_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
-       * @return The reason.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
+       * @return The rejectionReason.
        */
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason getReason() {
+      public io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason getRejectionReason() {
         @SuppressWarnings("deprecation")
-        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason result = io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.valueOf(reason_);
+        io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason result = io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.valueOf(rejectionReason_);
         return result == null ? io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason.UNRECOGNIZED : result;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
-       * @param value The reason to set.
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
+       * @param value The rejectionReason to set.
        * @return This builder for chaining.
        */
-      public Builder setReason(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason value) {
+      public Builder setRejectionReason(io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        reason_ = value.getNumber();
+        rejectionReason_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason reason = 3;</code>
+       * <code>.swisschain.sirius.vaultApi.transferValidationRequests.TransferValidationRequestRejectionReason rejection_reason = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearReason() {
+      public Builder clearRejectionReason() {
         
-        reason_ = 0;
+        rejectionReason_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object reasonMessage_ = "";
+      private java.lang.Object rejectionReasonMessage_ = "";
       /**
-       * <code>string reason_message = 4;</code>
-       * @return The reasonMessage.
+       * <code>string rejection_reason_message = 4;</code>
+       * @return The rejectionReasonMessage.
        */
-      public java.lang.String getReasonMessage() {
-        java.lang.Object ref = reasonMessage_;
+      public java.lang.String getRejectionReasonMessage() {
+        java.lang.Object ref = rejectionReasonMessage_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          reasonMessage_ = s;
+          rejectionReasonMessage_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string reason_message = 4;</code>
-       * @return The bytes for reasonMessage.
+       * <code>string rejection_reason_message = 4;</code>
+       * @return The bytes for rejectionReasonMessage.
        */
       public com.google.protobuf.ByteString
-          getReasonMessageBytes() {
-        java.lang.Object ref = reasonMessage_;
+          getRejectionReasonMessageBytes() {
+        java.lang.Object ref = rejectionReasonMessage_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          reasonMessage_ = b;
+          rejectionReasonMessage_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string reason_message = 4;</code>
-       * @param value The reasonMessage to set.
+       * <code>string rejection_reason_message = 4;</code>
+       * @param value The rejectionReasonMessage to set.
        * @return This builder for chaining.
        */
-      public Builder setReasonMessage(
+      public Builder setRejectionReasonMessage(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        reasonMessage_ = value;
+        rejectionReasonMessage_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string reason_message = 4;</code>
+       * <code>string rejection_reason_message = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearReasonMessage() {
+      public Builder clearRejectionReasonMessage() {
         
-        reasonMessage_ = getDefaultInstance().getReasonMessage();
+        rejectionReasonMessage_ = getDefaultInstance().getRejectionReasonMessage();
         onChanged();
         return this;
       }
       /**
-       * <code>string reason_message = 4;</code>
-       * @param value The bytes for reasonMessage to set.
+       * <code>string rejection_reason_message = 4;</code>
+       * @param value The bytes for rejectionReasonMessage to set.
        * @return This builder for chaining.
        */
-      public Builder setReasonMessageBytes(
+      public Builder setRejectionReasonMessageBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        reasonMessage_ = value;
+        rejectionReasonMessage_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object policyResult_ = "";
+      private java.lang.Object document_ = "";
       /**
-       * <code>string policy_result = 5;</code>
-       * @return The policyResult.
+       * <code>string document = 5;</code>
+       * @return The document.
        */
-      public java.lang.String getPolicyResult() {
-        java.lang.Object ref = policyResult_;
+      public java.lang.String getDocument() {
+        java.lang.Object ref = document_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          policyResult_ = s;
+          document_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string policy_result = 5;</code>
-       * @return The bytes for policyResult.
+       * <code>string document = 5;</code>
+       * @return The bytes for document.
        */
       public com.google.protobuf.ByteString
-          getPolicyResultBytes() {
-        java.lang.Object ref = policyResult_;
+          getDocumentBytes() {
+        java.lang.Object ref = document_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          policyResult_ = b;
+          document_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string policy_result = 5;</code>
-       * @param value The policyResult to set.
+       * <code>string document = 5;</code>
+       * @param value The document to set.
        * @return This builder for chaining.
        */
-      public Builder setPolicyResult(
+      public Builder setDocument(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        policyResult_ = value;
+        document_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string policy_result = 5;</code>
+       * <code>string document = 5;</code>
        * @return This builder for chaining.
        */
-      public Builder clearPolicyResult() {
+      public Builder clearDocument() {
         
-        policyResult_ = getDefaultInstance().getPolicyResult();
+        document_ = getDefaultInstance().getDocument();
         onChanged();
         return this;
       }
       /**
-       * <code>string policy_result = 5;</code>
-       * @param value The bytes for policyResult to set.
+       * <code>string document = 5;</code>
+       * @param value The bytes for document to set.
        * @return This builder for chaining.
        */
-      public Builder setPolicyResultBytes(
+      public Builder setDocumentBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        policyResult_ = value;
+        document_ = value;
         onChanged();
         return this;
       }
@@ -18785,11 +19800,6 @@ public final class TransferValidationRequestsOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferValidationRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_Blockchain_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -18810,10 +19820,15 @@ public final class TransferValidationRequestsOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_swisschain_sirius_vaultApi_transferValidationRequests_DestinationAddress_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_descriptor;
+    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_fieldAccessorTable;
+      internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ConfirmTransferValidationRequestRequest_descriptor;
   private static final 
@@ -18885,116 +19900,123 @@ public final class TransferValidationRequestsOuterClass {
       "tionRequests.GetTransferValidationReques" +
       "tsErrorResponseBody.ErrorCode\022\025\n\rerror_m" +
       "essage\030\002 \001(\t\"0\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026" +
-      "\n\022INVALID_PARAMETERS\020\001\"\226\002\n\031TransferValid" +
-      "ationRequest\022\n\n\002id\030\001 \001(\003\022W\n\007details\030\002 \001(" +
-      "\0132F.swisschain.sirius.vaultApi.transferV" +
-      "alidationRequests.TransferDetails\022\032\n\022cus" +
-      "tomer_signature\030\003 \001(\t\022\030\n\020sirius_signatur" +
-      "e\030\004 \001(\t\022.\n\ncreated_at\030\005 \001(\0132\032.google.pro" +
-      "tobuf.Timestamp\022.\n\nupdated_at\030\006 \001(\0132\032.go" +
-      "ogle.protobuf.Timestamp\"\360\004\n\017TransferDeta" +
-      "ils\022\024\n\014operation_id\030\001 \001(\003\022U\n\nblockchain\030" +
-      "\002 \001(\0132A.swisschain.sirius.vaultApi.trans" +
-      "ferValidationRequests.Blockchain\022K\n\005asse" +
-      "t\030\003 \001(\0132<.swisschain.sirius.vaultApi.tra" +
-      "nsferValidationRequests.Asset\022\\\n\016source_" +
-      "address\030\004 \001(\0132D.swisschain.sirius.vaultA" +
-      "pi.transferValidationRequests.SourceAddr" +
-      "ess\022f\n\023destination_address\030\005 \001(\0132I.swiss" +
-      "chain.sirius.vaultApi.transferValidation" +
-      "Requests.DestinationAddress\022=\n\006amount\030\006 " +
-      "\001(\0132-.swisschain.sirius.vaultApi.common." +
-      "BigDecimal\022@\n\tfee_limit\030\007 \001(\0132-.swisscha" +
-      "in.sirius.vaultApi.common.BigDecimal\022\\\n\016" +
-      "client_context\030\010 \001(\0132D.swisschain.sirius" +
-      ".vaultApi.transferValidationRequests.Cli" +
-      "entContext\"s\n\nBlockchain\022\n\n\002id\030\001 \001(\t\022\023\n\013" +
-      "protocol_id\030\002 \001(\t\022D\n\014network_type\030\003 \001(\0162" +
-      "..swisschain.sirius.vaultApi.common.Netw" +
-      "orkType\"R\n\005Asset\022\n\n\002id\030\001 \001(\003\022\016\n\006symbol\030\002" +
-      " \001(\t\022-\n\007address\030\003 \001(\0132\034.google.protobuf." +
-      "StringValue\"y\n\rSourceAddress\022\017\n\007address\030" +
-      "\001 \001(\t\022*\n\004name\030\002 \001(\0132\034.google.protobuf.St" +
-      "ringValue\022+\n\005group\030\003 \001(\0132\034.google.protob" +
-      "uf.StringValue\"\357\001\n\022DestinationAddress\022\017\n" +
-      "\007address\030\001 \001(\t\022*\n\004name\030\002 \001(\0132\034.google.pr" +
-      "otobuf.StringValue\022+\n\005group\030\003 \001(\0132\034.goog" +
-      "le.protobuf.StringValue\022)\n\003tag\030\004 \001(\0132\034.g" +
-      "oogle.protobuf.StringValue\022D\n\010tag_type\030\005" +
-      " \001(\01322.swisschain.sirius.vaultApi.common" +
-      ".NullableTagType\"\336\002\n\rClientContext\022-\n\007us" +
-      "er_id\030\001 \001(\0132\034.google.protobuf.StringValu" +
-      "e\0220\n\napi_key_id\030\002 \001(\0132\034.google.protobuf." +
-      "StringValue\022:\n\024account_reference_id\030\003 \001(" +
-      "\0132\034.google.protobuf.StringValue\022=\n\027withd" +
-      "rawal_reference_id\030\004 \001(\0132\034.google.protob" +
-      "uf.StringValue\022(\n\002ip\030\005 \001(\0132\034.google.prot" +
-      "obuf.StringValue\022G\n\ttimestamp\030\006 \001(\01324.sw" +
-      "isschain.sirius.vaultApi.common.Nullable" +
-      "Timestamp\"\250\001\n\'ConfirmTransferValidationR" +
-      "equestRequest\022\022\n\nrequest_id\030\001 \001(\t\022&\n\036tra" +
-      "nsfer_validation_request_id\030\002 \001(\003\022\025\n\rpol" +
-      "icy_result\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\022\027\n\017h" +
-      "ost_process_id\030\005 \001(\t\".\n,ConfirmTransferV" +
-      "alidationRequestResponseBody\"\205\002\n1Confirm" +
-      "TransferValidationRequestErrorResponseBo" +
-      "dy\022\206\001\n\nerror_code\030\001 \001(\0162r.swisschain.sir" +
-      "ius.vaultApi.transferValidationRequests." +
-      "ConfirmTransferValidationRequestErrorRes" +
-      "ponseBody.ErrorCode\022\025\n\rerror_message\030\002 \001" +
-      "(\t\"0\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026\n\022INVALID_" +
-      "PARAMETERS\020\001\"\246\002\n(ConfirmTransferValidati" +
-      "onRequestResponse\022w\n\010response\030\001 \001(\0132c.sw" +
+      "\n\022INVALID_PARAMETERS\020\001\"\233\006\n\031TransferValid" +
+      "ationRequest\022\n\n\002id\030\001 \001(\003\022\024\n\014operation_id" +
+      "\030\002 \001(\003\022/\n\ttenant_id\030\003 \001(\0132\034.google.proto" +
+      "buf.StringValue\022U\n\nblockchain\030\004 \001(\0132A.sw" +
       "isschain.sirius.vaultApi.transferValidat" +
-      "ionRequests.ConfirmTransferValidationReq" +
-      "uestResponseBodyH\000\022y\n\005error\030\002 \001(\0132h.swis" +
-      "schain.sirius.vaultApi.transferValidatio" +
-      "nRequests.ConfirmTransferValidationReque" +
-      "stErrorResponseBodyH\000B\006\n\004body\"\260\002\n&Reject" +
-      "TransferValidationRequestRequest\022\022\n\nrequ" +
-      "est_id\030\001 \001(\t\022&\n\036transfer_validation_requ" +
-      "est_id\030\002 \001(\003\022o\n\006reason\030\003 \001(\0162_.swisschai" +
-      "n.sirius.vaultApi.transferValidationRequ" +
-      "ests.TransferValidationRequestRejectionR" +
-      "eason\022\026\n\016reason_message\030\004 \001(\t\022\025\n\rpolicy_" +
-      "result\030\005 \001(\t\022\021\n\tsignature\030\006 \001(\t\022\027\n\017host_" +
-      "process_id\030\007 \001(\t\"-\n+RejectTransferValida" +
-      "tionRequestResponseBody\"\203\002\n0RejectTransf" +
-      "erValidationRequestErrorResponseBody\022\205\001\n" +
-      "\nerror_code\030\001 \001(\0162q.swisschain.sirius.va" +
-      "ultApi.transferValidationRequests.Reject" +
-      "TransferValidationRequestErrorResponseBo" +
-      "dy.ErrorCode\022\025\n\rerror_message\030\002 \001(\t\"0\n\tE" +
-      "rrorCode\022\013\n\007UNKNOWN\020\000\022\026\n\022INVALID_PARAMET" +
-      "ERS\020\001\"\243\002\n\'RejectTransferValidationReques" +
-      "tResponse\022v\n\010response\030\001 \001(\0132b.swisschain" +
-      ".sirius.vaultApi.transferValidationReque" +
-      "sts.RejectTransferValidationRequestRespo" +
-      "nseBodyH\000\022x\n\005error\030\002 \001(\0132g.swisschain.si" +
-      "rius.vaultApi.transferValidationRequests" +
-      ".RejectTransferValidationRequestErrorRes" +
-      "ponseBodyH\000B\006\n\004body*J\n(TransferValidatio" +
-      "nRequestRejectionReason\022\t\n\005OTHER\020\000\022\023\n\017RE" +
-      "JECTED_POLICY\020\0012\366\004\n\032TransferValidationRe" +
-      "quests\022\300\001\n\003Get\022[.swisschain.sirius.vault" +
-      "Api.transferValidationRequests.GetTransf" +
-      "erValidationRequestsRequest\032\\.swisschain" +
-      ".sirius.vaultApi.transferValidationReque" +
-      "sts.GetTransferValidationRequestsRespons" +
-      "e\022\312\001\n\007Confirm\022^.swisschain.sirius.vaultA" +
-      "pi.transferValidationRequests.ConfirmTra" +
-      "nsferValidationRequestRequest\032_.swisscha" +
-      "in.sirius.vaultApi.transferValidationReq" +
-      "uests.ConfirmTransferValidationRequestRe" +
-      "sponse\022\307\001\n\006Reject\022].swisschain.sirius.va" +
-      "ultApi.transferValidationRequests.Reject" +
-      "TransferValidationRequestRequest\032^.swiss" +
-      "chain.sirius.vaultApi.transferValidation" +
-      "Requests.RejectTransferValidationRequest" +
-      "ResponseB\210\001\nBio.swisschain.sirius.vaultA" +
-      "pi.generated.transferValidationRequests\252" +
-      "\002ASwisschain.Sirius.VaultApi.ApiContract" +
-      ".TransferValidationRequestsb\006proto3"
+      "ionRequests.Blockchain\022K\n\005asset\030\005 \001(\0132<." +
+      "swisschain.sirius.vaultApi.transferValid" +
+      "ationRequests.Asset\022\\\n\016source_address\030\006 " +
+      "\001(\0132D.swisschain.sirius.vaultApi.transfe" +
+      "rValidationRequests.SourceAddress\022f\n\023des" +
+      "tination_address\030\007 \001(\0132I.swisschain.siri" +
+      "us.vaultApi.transferValidationRequests.D" +
+      "estinationAddress\022=\n\006amount\030\010 \001(\0132-.swis" +
+      "schain.sirius.vaultApi.common.BigDecimal" +
+      "\022@\n\tfee_limit\030\t \001(\0132-.swisschain.sirius." +
+      "vaultApi.common.BigDecimal\022`\n\020transfer_c" +
+      "ontext\030\n \001(\0132F.swisschain.sirius.vaultAp" +
+      "i.transferValidationRequests.TransferCon" +
+      "text\022.\n\ncreated_at\030\013 \001(\0132\032.google.protob" +
+      "uf.Timestamp\022.\n\nupdated_at\030\014 \001(\0132\032.googl" +
+      "e.protobuf.Timestamp\"s\n\nBlockchain\022\n\n\002id" +
+      "\030\001 \001(\t\022\023\n\013protocol_id\030\002 \001(\t\022D\n\014network_t" +
+      "ype\030\003 \001(\0162..swisschain.sirius.vaultApi.c" +
+      "ommon.NetworkType\"R\n\005Asset\022\n\n\002id\030\001 \001(\003\022\016" +
+      "\n\006symbol\030\002 \001(\t\022-\n\007address\030\003 \001(\0132\034.google" +
+      ".protobuf.StringValue\"y\n\rSourceAddress\022\017" +
+      "\n\007address\030\001 \001(\t\022*\n\004name\030\002 \001(\0132\034.google.p" +
+      "rotobuf.StringValue\022+\n\005group\030\003 \001(\0132\034.goo" +
+      "gle.protobuf.StringValue\"\357\001\n\022Destination" +
+      "Address\022\017\n\007address\030\001 \001(\t\022*\n\004name\030\002 \001(\0132\034" +
+      ".google.protobuf.StringValue\022+\n\005group\030\003 " +
+      "\001(\0132\034.google.protobuf.StringValue\022)\n\003tag" +
+      "\030\004 \001(\0132\034.google.protobuf.StringValue\022D\n\010" +
+      "tag_type\030\005 \001(\01322.swisschain.sirius.vault" +
+      "Api.common.NullableTagType\"\345\003\n\017TransferC" +
+      "ontext\022.\n\010document\030\001 \001(\0132\034.google.protob" +
+      "uf.StringValue\022/\n\tsignature\030\002 \001(\0132\034.goog" +
+      "le.protobuf.StringValue\022:\n\024account_refer" +
+      "ence_id\030\003 \001(\0132\034.google.protobuf.StringVa" +
+      "lue\022=\n\027withdrawal_reference_id\030\004 \001(\0132\034.g" +
+      "oogle.protobuf.StringValue\022\021\n\tcomponent\030" +
+      "\005 \001(\t\022\026\n\016operation_type\030\006 \001(\t\0222\n\014source_" +
+      "group\030\007 \001(\0132\034.google.protobuf.StringValu" +
+      "e\0227\n\021destination_group\030\010 \001(\0132\034.google.pr" +
+      "otobuf.StringValue\022^\n\017request_context\030\t " +
+      "\001(\0132E.swisschain.sirius.vaultApi.transfe" +
+      "rValidationRequests.RequestContext\"\344\001\n\016R" +
+      "equestContext\022-\n\007user_id\030\001 \001(\0132\034.google." +
+      "protobuf.StringValue\0220\n\napi_key_id\030\002 \001(\013" +
+      "2\034.google.protobuf.StringValue\022(\n\002ip\030\003 \001" +
+      "(\0132\034.google.protobuf.StringValue\022G\n\ttime" +
+      "stamp\030\004 \001(\01324.swisschain.sirius.vaultApi" +
+      ".common.NullableTimestamp\"\243\001\n\'ConfirmTra" +
+      "nsferValidationRequestRequest\022\022\n\nrequest" +
+      "_id\030\001 \001(\t\022&\n\036transfer_validation_request" +
+      "_id\030\002 \001(\003\022\020\n\010document\030\003 \001(\t\022\021\n\tsignature" +
+      "\030\004 \001(\t\022\027\n\017host_process_id\030\005 \001(\t\".\n,Confi" +
+      "rmTransferValidationRequestResponseBody\"" +
+      "\205\002\n1ConfirmTransferValidationRequestErro" +
+      "rResponseBody\022\206\001\n\nerror_code\030\001 \001(\0162r.swi" +
+      "sschain.sirius.vaultApi.transferValidati" +
+      "onRequests.ConfirmTransferValidationRequ" +
+      "estErrorResponseBody.ErrorCode\022\025\n\rerror_" +
+      "message\030\002 \001(\t\"0\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022" +
+      "\026\n\022INVALID_PARAMETERS\020\001\"\246\002\n(ConfirmTrans" +
+      "ferValidationRequestResponse\022w\n\010response" +
+      "\030\001 \001(\0132c.swisschain.sirius.vaultApi.tran" +
+      "sferValidationRequests.ConfirmTransferVa" +
+      "lidationRequestResponseBodyH\000\022y\n\005error\030\002" +
+      " \001(\0132h.swisschain.sirius.vaultApi.transf" +
+      "erValidationRequests.ConfirmTransferVali" +
+      "dationRequestErrorResponseBodyH\000B\006\n\004body" +
+      "\"\277\002\n&RejectTransferValidationRequestRequ" +
+      "est\022\022\n\nrequest_id\030\001 \001(\t\022&\n\036transfer_vali" +
+      "dation_request_id\030\002 \001(\003\022y\n\020rejection_rea" +
+      "son\030\003 \001(\0162_.swisschain.sirius.vaultApi.t" +
+      "ransferValidationRequests.TransferValida" +
+      "tionRequestRejectionReason\022 \n\030rejection_" +
+      "reason_message\030\004 \001(\t\022\020\n\010document\030\005 \001(\t\022\021" +
+      "\n\tsignature\030\006 \001(\t\022\027\n\017host_process_id\030\007 \001" +
+      "(\t\"-\n+RejectTransferValidationRequestRes" +
+      "ponseBody\"\203\002\n0RejectTransferValidationRe" +
+      "questErrorResponseBody\022\205\001\n\nerror_code\030\001 " +
+      "\001(\0162q.swisschain.sirius.vaultApi.transfe" +
+      "rValidationRequests.RejectTransferValida" +
+      "tionRequestErrorResponseBody.ErrorCode\022\025" +
+      "\n\rerror_message\030\002 \001(\t\"0\n\tErrorCode\022\013\n\007UN" +
+      "KNOWN\020\000\022\026\n\022INVALID_PARAMETERS\020\001\"\243\002\n\'Reje" +
+      "ctTransferValidationRequestResponse\022v\n\010r" +
+      "esponse\030\001 \001(\0132b.swisschain.sirius.vaultA" +
+      "pi.transferValidationRequests.RejectTran" +
+      "sferValidationRequestResponseBodyH\000\022x\n\005e" +
+      "rror\030\002 \001(\0132g.swisschain.sirius.vaultApi." +
+      "transferValidationRequests.RejectTransfe" +
+      "rValidationRequestErrorResponseBodyH\000B\006\n" +
+      "\004body*M\n(TransferValidationRequestReject" +
+      "ionReason\022\t\n\005OTHER\020\000\022\026\n\022REJECTED_BY_POLI" +
+      "CY\020\0012\366\004\n\032TransferValidationRequests\022\300\001\n\003" +
+      "Get\022[.swisschain.sirius.vaultApi.transfe" +
+      "rValidationRequests.GetTransferValidatio" +
+      "nRequestsRequest\032\\.swisschain.sirius.vau" +
+      "ltApi.transferValidationRequests.GetTran" +
+      "sferValidationRequestsResponse\022\312\001\n\007Confi" +
+      "rm\022^.swisschain.sirius.vaultApi.transfer" +
+      "ValidationRequests.ConfirmTransferValida" +
+      "tionRequestRequest\032_.swisschain.sirius.v" +
+      "aultApi.transferValidationRequests.Confi" +
+      "rmTransferValidationRequestResponse\022\307\001\n\006" +
+      "Reject\022].swisschain.sirius.vaultApi.tran" +
+      "sferValidationRequests.RejectTransferVal" +
+      "idationRequestRequest\032^.swisschain.siriu" +
+      "s.vaultApi.transferValidationRequests.Re" +
+      "jectTransferValidationRequestResponseB\210\001" +
+      "\nBio.swisschain.sirius.vaultApi.generate" +
+      "d.transferValidationRequests\252\002ASwisschai" +
+      "n.Sirius.VaultApi.ApiContract.TransferVa" +
+      "lidationRequestsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -19032,49 +20054,49 @@ public final class TransferValidationRequestsOuterClass {
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferValidationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferValidationRequest_descriptor,
-        new java.lang.String[] { "Id", "Details", "CustomerSignature", "SiriusSignature", "CreatedAt", "UpdatedAt", });
-    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferDetails_descriptor,
-        new java.lang.String[] { "OperationId", "Blockchain", "Asset", "SourceAddress", "DestinationAddress", "Amount", "FeeLimit", "ClientContext", });
+        new java.lang.String[] { "Id", "OperationId", "TenantId", "Blockchain", "Asset", "SourceAddress", "DestinationAddress", "Amount", "FeeLimit", "TransferContext", "CreatedAt", "UpdatedAt", });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_Blockchain_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_Blockchain_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_vaultApi_transferValidationRequests_Blockchain_descriptor,
         new java.lang.String[] { "Id", "ProtocolId", "NetworkType", });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_Asset_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_Asset_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_vaultApi_transferValidationRequests_Asset_descriptor,
         new java.lang.String[] { "Id", "Symbol", "Address", });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_SourceAddress_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_SourceAddress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_vaultApi_transferValidationRequests_SourceAddress_descriptor,
         new java.lang.String[] { "Address", "Name", "Group", });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_DestinationAddress_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_DestinationAddress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_vaultApi_transferValidationRequests_DestinationAddress_descriptor,
         new java.lang.String[] { "Address", "Name", "Group", "Tag", "TagType", });
-    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_fieldAccessorTable = new
+    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ClientContext_descriptor,
-        new java.lang.String[] { "UserId", "ApiKeyId", "AccountReferenceId", "WithdrawalReferenceId", "Ip", "Timestamp", });
+        internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferContext_descriptor,
+        new java.lang.String[] { "Document", "Signature", "AccountReferenceId", "WithdrawalReferenceId", "Component", "OperationType", "SourceGroup", "DestinationGroup", "RequestContext", });
+    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RequestContext_descriptor,
+        new java.lang.String[] { "UserId", "ApiKeyId", "Ip", "Timestamp", });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ConfirmTransferValidationRequestRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ConfirmTransferValidationRequestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ConfirmTransferValidationRequestRequest_descriptor,
-        new java.lang.String[] { "RequestId", "TransferValidationRequestId", "PolicyResult", "Signature", "HostProcessId", });
+        new java.lang.String[] { "RequestId", "TransferValidationRequestId", "Document", "Signature", "HostProcessId", });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ConfirmTransferValidationRequestResponseBody_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ConfirmTransferValidationRequestResponseBody_fieldAccessorTable = new
@@ -19098,7 +20120,7 @@ public final class TransferValidationRequestsOuterClass {
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RejectTransferValidationRequestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RejectTransferValidationRequestRequest_descriptor,
-        new java.lang.String[] { "RequestId", "TransferValidationRequestId", "Reason", "ReasonMessage", "PolicyResult", "Signature", "HostProcessId", });
+        new java.lang.String[] { "RequestId", "TransferValidationRequestId", "RejectionReason", "RejectionReasonMessage", "Document", "Signature", "HostProcessId", });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RejectTransferValidationRequestResponseBody_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RejectTransferValidationRequestResponseBody_fieldAccessorTable = new

@@ -1,41 +1,29 @@
 package io.swisschain.domain.validators;
 
 public class Validator {
-    public String id;
-    public String name;
-    public String publicKey;
+  private String id;
+  private String publicKey;
 
-    public Validator() {
+  public Validator() {}
 
-    }
+  public Validator(String id, String publicKey) {
+    this.id = id;
+    this.publicKey = publicKey;
+  }
 
-    public Validator(String id, String name, String publicKey) {
-        this.id = id;
-        this.name = name;
-        this.publicKey = publicKey;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public String getPublicKey() {
+    return publicKey;
+  }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPublicKey() {
-        return publicKey;
-    }
-
-    public void setPublicKey(String publicKey) {
-        this.publicKey = publicKey;
-    }
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
+  }
 }

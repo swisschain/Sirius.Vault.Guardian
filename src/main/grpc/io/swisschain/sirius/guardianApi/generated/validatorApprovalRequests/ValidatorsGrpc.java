@@ -120,6 +120,37 @@ public final class ValidatorsGrpc {
     return getAcknowledgeResultMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest,
+      io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse> getGetActiveValidatorsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetActiveValidators",
+      requestType = io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest.class,
+      responseType = io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest,
+      io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse> getGetActiveValidatorsMethod() {
+    io.grpc.MethodDescriptor<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse> getGetActiveValidatorsMethod;
+    if ((getGetActiveValidatorsMethod = ValidatorsGrpc.getGetActiveValidatorsMethod) == null) {
+      synchronized (ValidatorsGrpc.class) {
+        if ((getGetActiveValidatorsMethod = ValidatorsGrpc.getGetActiveValidatorsMethod) == null) {
+          ValidatorsGrpc.getGetActiveValidatorsMethod = getGetActiveValidatorsMethod =
+              io.grpc.MethodDescriptor.<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetActiveValidators"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ValidatorsMethodDescriptorSupplier("GetActiveValidators"))
+              .build();
+        }
+      }
+    }
+    return getGetActiveValidatorsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -189,6 +220,13 @@ public final class ValidatorsGrpc {
       asyncUnimplementedUnaryCall(getAcknowledgeResultMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getActiveValidators(io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest request,
+        io.grpc.stub.StreamObserver<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetActiveValidatorsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -212,6 +250,13 @@ public final class ValidatorsGrpc {
                 io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.AcknowledgeResultRequest,
                 io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.AcknowledgeResultResponse>(
                   this, METHODID_ACKNOWLEDGE_RESULT)))
+          .addMethod(
+            getGetActiveValidatorsMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest,
+                io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse>(
+                  this, METHODID_GET_ACTIVE_VALIDATORS)))
           .build();
     }
   }
@@ -253,6 +298,14 @@ public final class ValidatorsGrpc {
       asyncUnaryCall(
           getChannel().newCall(getAcknowledgeResultMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getActiveValidators(io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest request,
+        io.grpc.stub.StreamObserver<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetActiveValidatorsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -288,6 +341,13 @@ public final class ValidatorsGrpc {
     public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.AcknowledgeResultResponse acknowledgeResult(io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.AcknowledgeResultRequest request) {
       return blockingUnaryCall(
           getChannel(), getAcknowledgeResultMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse getActiveValidators(io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetActiveValidatorsMethod(), getCallOptions(), request);
     }
   }
 
@@ -328,11 +388,20 @@ public final class ValidatorsGrpc {
       return futureUnaryCall(
           getChannel().newCall(getAcknowledgeResultMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse> getActiveValidators(
+        io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetActiveValidatorsMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_APPROVAL_REQUEST = 0;
   private static final int METHODID_GET_APPROVAL_RESULTS = 1;
   private static final int METHODID_ACKNOWLEDGE_RESULT = 2;
+  private static final int METHODID_GET_ACTIVE_VALIDATORS = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -362,6 +431,10 @@ public final class ValidatorsGrpc {
         case METHODID_ACKNOWLEDGE_RESULT:
           serviceImpl.acknowledgeResult((io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.AcknowledgeResultRequest) request,
               (io.grpc.stub.StreamObserver<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.AcknowledgeResultResponse>) responseObserver);
+          break;
+        case METHODID_GET_ACTIVE_VALIDATORS:
+          serviceImpl.getActiveValidators((io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest) request,
+              (io.grpc.stub.StreamObserver<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -427,6 +500,7 @@ public final class ValidatorsGrpc {
               .addMethod(getCreateApprovalRequestMethod())
               .addMethod(getGetApprovalResultsMethod())
               .addMethod(getAcknowledgeResultMethod())
+              .addMethod(getGetActiveValidatorsMethod())
               .build();
         }
       }
