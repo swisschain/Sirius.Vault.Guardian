@@ -32,7 +32,7 @@ jobs:
       - name: Publish to Registry
         uses: swisschain/Publish-Docker-Github-Action@master
         with:
-          name: swisschains/sirius-vault-guardian
+          name: swisschains/sirius-vault-guardian:latest
           dockerfile: docker/dockerfile.x64
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
