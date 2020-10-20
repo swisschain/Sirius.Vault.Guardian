@@ -2,6 +2,8 @@ package io.swisschain.contracts;
 
 import io.swisschain.primitives.NetworkType;
 
+import java.util.Objects;
+
 public class Blockchain {
   private String id;
   private String protocolId;
@@ -39,22 +41,18 @@ public class Blockchain {
     this.networkType = networkType;
   }
 
-  public boolean equal(Blockchain blockchain) {
-    return blockchain != null
-        && compare(getId(), blockchain.getId())
-        && compare(getProtocolId(), blockchain.getProtocolId())
-        && getNetworkType().equals(blockchain.getNetworkType());
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Blockchain that = (Blockchain) o;
+    return id.equals(that.id)
+        && protocolId.equals(that.protocolId)
+        && networkType == that.networkType;
   }
 
-  private boolean compare(String a, String b) {
-    if (a == null && b == null) {
-      return true;
-    }
-
-    if (a == null || b == null) {
-      return false;
-    }
-
-    return a.equals(b);
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, protocolId, networkType);
   }
 }

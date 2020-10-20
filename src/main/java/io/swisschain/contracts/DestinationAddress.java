@@ -2,6 +2,8 @@ package io.swisschain.contracts;
 
 import io.swisschain.primitives.TagType;
 
+import java.util.Objects;
+
 public class DestinationAddress {
   private String address;
   private String name;
@@ -60,36 +62,20 @@ public class DestinationAddress {
     this.tagType = tagType;
   }
 
-  public boolean equal(DestinationAddress destinationAddress) {
-    return destinationAddress != null
-        && compare(getAddress(), destinationAddress.getAddress())
-        && compare(getName(), destinationAddress.getName())
-        && compare(getGroup(), destinationAddress.getGroup())
-        && compare(getTag(), destinationAddress.getTag())
-        && compare(getTagType(), destinationAddress.getTagType());
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    DestinationAddress that = (DestinationAddress) o;
+    return address.equals(that.address)
+        && Objects.equals(name, that.name)
+        && Objects.equals(group, that.group)
+        && Objects.equals(tag, that.tag)
+        && tagType == that.tagType;
   }
 
-  private boolean compare(String a, String b) {
-    if (a == null && b == null) {
-      return true;
-    }
-
-    if (a == null || b == null) {
-      return false;
-    }
-
-    return a.equals(b);
-  }
-
-  private boolean compare(TagType a, TagType b) {
-    if (a == null && b == null) {
-      return true;
-    }
-
-    if (a == null || b == null) {
-      return false;
-    }
-
-    return a.equals(b);
+  @Override
+  public int hashCode() {
+    return Objects.hash(address, name, group, tag, tagType);
   }
 }

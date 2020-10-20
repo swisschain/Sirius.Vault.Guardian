@@ -1,5 +1,7 @@
 package io.swisschain.contracts;
 
+import java.util.Objects;
+
 public class Asset {
   private long id;
   private String symbol;
@@ -37,22 +39,16 @@ public class Asset {
     this.address = address;
   }
 
-  public boolean equal(Asset asset) {
-    return asset != null
-        && getId() == asset.getId()
-        && compare(getSymbol(), asset.getSymbol())
-        && compare(getAddress(), asset.getAddress());
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Asset asset = (Asset) o;
+    return id == asset.id && Objects.equals(symbol, asset.symbol) && address.equals(asset.address);
   }
 
-  private boolean compare(String a, String b) {
-    if (a == null && b == null) {
-      return true;
-    }
-
-    if (a == null || b == null) {
-      return false;
-    }
-
-    return a.equals(b);
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, symbol, address);
   }
 }

@@ -1,5 +1,7 @@
 package io.swisschain.contracts;
 
+import java.util.Objects;
+
 public class SourceAddress {
   private String address;
   private String name;
@@ -37,22 +39,18 @@ public class SourceAddress {
     this.group = group;
   }
 
-  public boolean equal(SourceAddress sourceAddress) {
-    return sourceAddress != null
-        && compare(getAddress(), sourceAddress.getAddress())
-        && compare(getName(), sourceAddress.getName())
-        && compare(getGroup(), sourceAddress.getGroup());
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    SourceAddress that = (SourceAddress) o;
+    return address.equals(that.address)
+        && Objects.equals(name, that.name)
+        && Objects.equals(group, that.group);
   }
 
-  private boolean compare(String a, String b) {
-    if (a == null && b == null) {
-      return true;
-    }
-
-    if (a == null || b == null) {
-      return false;
-    }
-
-    return a.equals(b);
+  @Override
+  public int hashCode() {
+    return Objects.hash(address, name, group);
   }
 }

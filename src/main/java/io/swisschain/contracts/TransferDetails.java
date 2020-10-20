@@ -1,6 +1,7 @@
 package io.swisschain.contracts;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /** Represents the transfer details and original context of the initial client request. */
 public class TransferDetails {
@@ -114,14 +115,31 @@ public class TransferDetails {
     this.transferContext = transferContext;
   }
 
-  public boolean equal(TransferDetails transferDetails){
-    return getOperationId() == transferDetails.getOperationId() &&
-            getBlockchain().equal(transferDetails.getBlockchain()) &&
-            getAsset().equal(transferDetails.getAsset()) &&
-            getSourceAddress().equal(transferDetails.getSourceAddress()) &&
-            getDestinationAddress().equal(transferDetails.getDestinationAddress()) &&
-            getAmount().equals(transferDetails.getAmount()) &&
-            getFeeLimit().equals(transferDetails.getFeeLimit()) &&
-            getTransferContext().equal(transferDetails.getTransferContext());
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    TransferDetails that = (TransferDetails) o;
+    return operationId == that.operationId
+        && Objects.equals(blockchain, that.blockchain)
+        && Objects.equals(asset, that.asset)
+        && Objects.equals(sourceAddress, that.sourceAddress)
+        && Objects.equals(destinationAddress, that.destinationAddress)
+        && Objects.equals(amount, that.amount)
+        && Objects.equals(feeLimit, that.feeLimit)
+        && Objects.equals(transferContext, that.transferContext);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        operationId,
+        blockchain,
+        asset,
+        sourceAddress,
+        destinationAddress,
+        amount,
+        feeLimit,
+        transferContext);
   }
 }

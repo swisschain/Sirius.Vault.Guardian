@@ -1,6 +1,7 @@
 package io.swisschain.contracts;
 
 import java.time.Instant;
+import java.util.Objects;
 
 public class RequestContext {
   private String userId;
@@ -8,7 +9,7 @@ public class RequestContext {
   private String ip;
   private Instant timestamp;
 
-  public RequestContext() {}
+  public  RequestContext() {}
 
   public RequestContext(String userId, String apiKeyId, String ip, Instant timestamp) {
     this.userId = userId;
@@ -49,35 +50,19 @@ public class RequestContext {
     this.timestamp = timestamp;
   }
 
-  public boolean equal(RequestContext requestContext) {
-    return requestContext != null
-        && compare(getUserId(), requestContext.getUserId())
-        && compare(getApiKeyId(), requestContext.getApiKeyId())
-        && compare(getIp(), requestContext.getIp())
-        && compare(getTimestamp(), requestContext.getTimestamp());
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    RequestContext that = (RequestContext) o;
+    return Objects.equals(userId, that.userId)
+        && Objects.equals(apiKeyId, that.apiKeyId)
+        && Objects.equals(ip, that.ip)
+        && Objects.equals(timestamp, that.timestamp);
   }
 
-  private boolean compare(String a, String b) {
-    if (a == null && b == null) {
-      return true;
-    }
-
-    if (a == null || b == null) {
-      return false;
-    }
-
-    return a.equals(b);
-  }
-
-  private boolean compare(Instant a, Instant b) {
-    if (a == null && b == null) {
-      return true;
-    }
-
-    if (a == null || b == null) {
-      return false;
-    }
-
-    return a.equals(b);
+  @Override
+  public int hashCode() {
+    return Objects.hash(userId, apiKeyId, ip, timestamp);
   }
 }

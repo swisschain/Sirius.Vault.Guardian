@@ -166,7 +166,7 @@ public class PolicyService {
       var isTransferDetailsValid =
           validatorDocument
               .getTransferDetails()
-              .equal(transferValidationRequest.getTransferDetails());
+              .equals(transferValidationRequest.getTransferDetails());
 
       if (!isTransferDetailsValid) {
         logger.error(

@@ -1,5 +1,7 @@
 package io.swisschain.contracts;
 
+import java.util.Objects;
+
 /** Represents the transfer detailed information and initial client request. */
 public class TransferContext {
   private String document;
@@ -125,30 +127,33 @@ public class TransferContext {
     this.requestContext = requestContext;
   }
 
-  public boolean equal(TransferContext transferContext) {
-    return transferContext != null
-        && compare(getDocument(), transferContext.getDocument())
-        && compare(getSignature(), transferContext.getSignature())
-        && compare(getAccountReferenceId(), transferContext.getAccountReferenceId())
-        && compare(getWithdrawalReferenceId(), transferContext.getWithdrawalReferenceId())
-        && compare(getComponent(), transferContext.getComponent())
-        && compare(getOperationType(), transferContext.getOperationType())
-        && compare(getSourceGroup(), transferContext.getSourceGroup())
-        && compare(getDestinationGroup(), transferContext.getDestinationGroup())
-        && (getRequestContext() != null
-            ? getRequestContext().equal(transferContext.getRequestContext())
-            : transferContext.getRequestContext() == null);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    TransferContext that = (TransferContext) o;
+    return Objects.equals(document, that.document)
+        && Objects.equals(signature, that.signature)
+        && Objects.equals(accountReferenceId, that.accountReferenceId)
+        && Objects.equals(withdrawalReferenceId, that.withdrawalReferenceId)
+        && component.equals(that.component)
+        && operationType.equals(that.operationType)
+        && Objects.equals(sourceGroup, that.sourceGroup)
+        && Objects.equals(destinationGroup, that.destinationGroup)
+        && Objects.equals(requestContext, that.requestContext);
   }
 
-  private boolean compare(String a, String b) {
-    if (a == null && b == null) {
-      return true;
-    }
-
-    if (a == null || b == null) {
-      return false;
-    }
-
-    return a.equals(b);
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        document,
+        signature,
+        accountReferenceId,
+        withdrawalReferenceId,
+        component,
+        operationType,
+        sourceGroup,
+        destinationGroup,
+        requestContext);
   }
 }
