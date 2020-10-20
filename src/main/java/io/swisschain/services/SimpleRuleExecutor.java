@@ -46,6 +46,10 @@ public class SimpleRuleExecutor {
       return RuleExecutionOutput.createApprove();
     }
 
+    if(validators.size() == 0){
+      return RuleExecutionOutput.createApprove();
+    }
+
     return RuleExecutionOutput.createValidate(validators);
   }
 }
