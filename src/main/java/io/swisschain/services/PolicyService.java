@@ -235,17 +235,17 @@ public class PolicyService {
       transferValidationRequest.processing();
       requestApprovals(transferValidationRequest, ruleExecutionOutput.getValidators());
     } else {
-      var signedDocument =
-          documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
       if (ruleExecutionOutput.getAction() == RuleExecutionAction.Approve) {
-        transferValidationRequest.approve(
-            signedDocument.getDocument(), signedDocument.getSignature());
+        transferValidationRequest.approve();
+        var signedDocument =
+                documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
+        transferValidationRequest.updateDocument(signedDocument.getDocument(), signedDocument.getSignature());
         transferValidationRequestApiService.confirm(transferValidationRequest);
       } else if (ruleExecutionOutput.getAction() == RuleExecutionAction.Reject) {
-        transferValidationRequest.reject(
-            signedDocument.getDocument(),
-            signedDocument.getSignature(),
-            signedDocument.getRejectReasonMessage());
+        var signedDocument =
+                documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
+        transferValidationRequest.reject(signedDocument.getRejectReasonMessage());
+        transferValidationRequest.updateDocument(signedDocument.getDocument(), signedDocument.getSignature());
         transferValidationRequestApiService.reject(transferValidationRequest);
       }
     }

@@ -133,18 +133,19 @@ public class TransferValidationRequest {
     updatedAt = Instant.now();
   }
 
-  public void approve(String document, String signature) {
+  public void approve() {
     setStatus(TransferValidationRequestStatus.Approved);
-    setDocument(document);
-    setSignature(signature);
     setUpdatedAt(Instant.now());
   }
 
-  public void reject(String document, String signature, String rejectReasonMessage) {
+  public void reject(String rejectReasonMessage) {
     setStatus(TransferValidationRequestStatus.Rejected);
-    setDocument(document);
-    setSignature(signature);
     setRejectReasonMessage(rejectReasonMessage);
     setUpdatedAt(Instant.now());
+  }
+
+  public void updateDocument(String document, String signature){
+    setDocument(document);
+    setSignature(signature);
   }
 }
