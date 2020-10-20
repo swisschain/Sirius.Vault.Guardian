@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class TransferDetailsTests {
-  private static TransferDetails getTransferDetails() {
+  private static TransferDetails getTransferDetails(Instant date) {
     return new TransferDetails(
         100001,
         new Blockchain("ethereum-ropsten", "ethereum", NetworkType.Test),
@@ -39,16 +39,16 @@ public class TransferDetailsTests {
                 "D2B5B7E5-15CF-44C8-8C3E-361B421DE671",
                 "B92EDE96-2D93-4744-B7DE-5358278C7C23",
                 "10.0.0.1",
-                Instant.now())));
+                date)));
   }
 
   @Test
   public void transfer_details_are_equals() {
 
     // arrange
-
-    var transferDetails1 = getTransferDetails();
-    var transferDetails2 = getTransferDetails();
+    var date = Instant.now();
+    var transferDetails1 = getTransferDetails(date);
+    var transferDetails2 = getTransferDetails(date);
 
     // ack
 
@@ -61,9 +61,10 @@ public class TransferDetailsTests {
   public void transfer_details_not_equals() {
 
     // arrange
+    var date = Instant.now();
 
-    var transferDetails1 = getTransferDetails();
-    var transferDetails2 = getTransferDetails();
+    var transferDetails1 = getTransferDetails(date);
+    var transferDetails2 = getTransferDetails(date);
 
     // ack
 
@@ -81,7 +82,7 @@ public class TransferDetailsTests {
 
     var js = new JsonSerializer();
 
-    var transferDetails = getTransferDetails();
+    var transferDetails = getTransferDetails(Instant.now());
 
     // ack
 
