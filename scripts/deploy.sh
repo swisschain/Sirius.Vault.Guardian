@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tag_repo=`cd /root/Sirius.Vault.HSM && git describe --tag`
+tag_repo=`cd /root/Sirius.Vault.Guardian && git pull && git describe --tag`
 tag_docker=`echo $tag_repo |awk -F- '{print $2}'`
 
 #changing image tag
