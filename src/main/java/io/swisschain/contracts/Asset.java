@@ -44,7 +44,9 @@ public class Asset {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Asset asset = (Asset) o;
-    return id == asset.id && Objects.equals(symbol, asset.symbol) && address.equals(asset.address);
+    return id == asset.id
+        && Objects.equals(symbol, asset.symbol)
+        && Objects.equals(address, asset.address);
   }
 
   @Override
