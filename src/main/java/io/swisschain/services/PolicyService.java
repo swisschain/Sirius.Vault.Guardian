@@ -128,12 +128,12 @@ public class PolicyService {
               Base64.getDecoder().decode(validatorRequest.getKey()),
               Base64.getDecoder().decode(validatorRequest.getNonce()));
 
-      var json = new String(decryptedData, StandardCharsets.UTF_8);
+      var document = new String(decryptedData, StandardCharsets.UTF_8);
 
       ValidatorDocument validatorDocument;
 
       try {
-        validatorDocument = jsonSerializer.deserialize(json, ValidatorDocument.class);
+        validatorDocument = jsonSerializer.deserialize(document, ValidatorDocument.class);
       } catch (Exception exception) {
         logger.error("Can not deserialize validator document", exception);
         return;
@@ -150,7 +150,7 @@ public class PolicyService {
 
       var isSignatureValid =
           asymmetricEncryptionService.verifySignature(
-              Base64.getDecoder().decode(validatorApproval.getDocument()),
+              decryptedData,
               Base64.getDecoder().decode(validatorApproval.getSignature()),
               validator.getPublicKey());
 
@@ -182,7 +182,7 @@ public class PolicyService {
             ValidatorResponse.create(
                 validatorApproval.getValidatorId(),
                 validatorApproval.getTransferApprovalRequestId(),
-                validatorApproval.getDocument(),
+                document,
                 validatorApproval.getSignature(),
                 validatorDocument.getResolution(),
                 validatorDocument.getResolutionMessage(),
