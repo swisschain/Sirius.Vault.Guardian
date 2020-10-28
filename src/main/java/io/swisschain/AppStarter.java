@@ -5,6 +5,7 @@ import io.swisschain.config.loaders.ConfigLoader;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
 import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
 import io.swisschain.isAlive.IsAliveService;
+import io.swisschain.odm.OdmClient;
 import io.swisschain.repositories.*;
 import io.swisschain.services.*;
 import io.swisschain.sirius.ChannelFactory;
@@ -79,14 +80,23 @@ public class AppStarter {
 
     var validatorsApiService = new ValidatorsApiService(guardianApiClient);
 
-    var simpleRuleExecutor = new SimpleRuleExecutor();
-
     var documentBuilder =
         new DocumentBuilder(asymmetricEncryptionService, appConfig.privateKey, jsonSerializer);
 
+    RuleExecutor ruleExecutor;
+
+    if(appConfig.odm != null && appConfig.odm.enable){
+      var odmClient = new OdmClient(appConfig.odm.baseUrl, appConfig.odm.policySelectorPath, jsonSerializer);
+      ruleExecutor = new OdmRuleExecutor(odmClient);
+      logger.info("RuleExecutor: ODM");
+    } else {
+      ruleExecutor = new SimpleRuleExecutor();
+      logger.info("RuleExecutor: Simple");
+    }
+
     var policyService =
         new PolicyService(
-            simpleRuleExecutor,
+                ruleExecutor,
             validatorsApiService,
             transferValidationRequestApiService,
             transferValidationRequestRepository,
@@ -104,12 +114,16 @@ public class AppStarter {
     service.scheduleWithFixedDelay(
         new HandleValidationRequestsTask(transferValidationRequestApiService, policyService),
         0,
-        1,
+        appConfig.tasks != null && appConfig.tasks.validationRequestsPeriodInSeconds > 0
+            ? appConfig.tasks.validationRequestsPeriodInSeconds
+            : 1,
         TimeUnit.SECONDS);
     service.scheduleWithFixedDelay(
         new HandleValidatorResponsesTask(validatorsApiService, policyService),
         0,
-        1,
+        appConfig.tasks != null && appConfig.tasks.validatorResponsesPeriodInSeconds > 0
+            ? appConfig.tasks.validatorResponsesPeriodInSeconds
+            : 1,
         TimeUnit.SECONDS);
 
     initShutdownHook();

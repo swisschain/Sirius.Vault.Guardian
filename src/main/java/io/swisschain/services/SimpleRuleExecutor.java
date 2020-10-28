@@ -8,7 +8,7 @@ import io.swisschain.domain.validators.ValidatorResponse;
 
 import java.util.List;
 
-public class SimpleRuleExecutor {
+public class SimpleRuleExecutor implements RuleExecutor {
   public RuleExecutionOutput execute(
       TransferValidationRequest transferValidationRequest,
       List<ValidatorResponse> validatorResponses,

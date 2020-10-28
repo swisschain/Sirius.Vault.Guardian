@@ -126,7 +126,7 @@ public class TransferDetails {
         && Objects.equals(sourceAddress, that.sourceAddress)
         && Objects.equals(destinationAddress, that.destinationAddress)
         && Objects.equals(amount, that.amount)
-        && Objects.equals(feeLimit, that.feeLimit)
+        //&& Objects.equals(feeLimit, that.feeLimit)
         && Objects.equals(transferContext, that.transferContext);
   }
 
@@ -139,7 +139,7 @@ public class TransferDetails {
         sourceAddress,
         destinationAddress,
         amount,
-        feeLimit,
+        //feeLimit,
         transferContext);
   }
 }

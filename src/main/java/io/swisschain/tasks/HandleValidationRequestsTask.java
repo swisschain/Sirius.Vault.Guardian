@@ -31,7 +31,11 @@ public class HandleValidationRequestsTask implements Runnable {
       try {
         policyService.processNew(transferValidationRequest);
       } catch (Exception exception) {
-        logger.error("An error occurred while processing transfer validation request.", exception);
+        logger.error(
+            String.format(
+                "An error occurred while processing transfer validation request. TransferSigningRequestId: %d; TenantId: %s",
+                transferValidationRequest.getId(), transferValidationRequest.getTenantId()),
+            exception);
       }
     }
   }

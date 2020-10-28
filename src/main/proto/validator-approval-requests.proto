@@ -12,23 +12,31 @@ service Validators {
   rpc GetActiveValidators(ActiveValidatorsRequest) returns (ActiveValidatorsResponse);
 }
 
+// Create
+
 message CreateApprovalRequestRequest {
-  string requestId = 1;
-  string transferSigningRequestId = 2;
-  repeated ValidatorRequest validatorRequests = 3;
+
   message ValidatorRequest {
-    string validaditorId = 1;
-    string transactionDetailsEncBase64 = 2;
-    string secretEncBase64 = 3;
-    string ivNonce = 4;
+    string validator_id = 1;
+    string transaction_details = 2;
+    string secret = 3;
+    string nonce = 4;
   }
+
+  string request_id = 1;
+  string tenant_id = 2;
+  string transfer_signing_request_id = 3;
+  repeated ValidatorRequest validator_requests = 4;
 }
 
 message CreateApprovalRequestResponse {
   ValidatorsApiError error = 1;
 }
 
+// Get
+
 message GetApprovalResultsRequest {
+  string tenant_id = 1;
 }
 
 message GetApprovalResponse {
@@ -57,6 +65,7 @@ message AcknowledgeResultResponse {
 }
 
 message ActiveValidatorsRequest {
+  string tenant_Id = 1;
 }
 
 message ActiveValidatorsResponse {
