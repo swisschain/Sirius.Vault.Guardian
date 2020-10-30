@@ -27,7 +27,7 @@ import java.util.List;
 public class PolicyService {
   private static final Logger logger = LogManager.getLogger();
 
-  private final SimpleRuleExecutor simpleRuleExecutor;
+  private final RuleExecutor ruleExecutor;
   private final ValidatorsApiService validatorsApiService;
   private final TransferValidationRequestApiService transferValidationRequestApiService;
   private final TransferValidationRequestRepository transferValidationRequestRepository;
@@ -39,7 +39,7 @@ public class PolicyService {
   private final JsonSerializer jsonSerializer;
 
   public PolicyService(
-      SimpleRuleExecutor simpleRuleExecutor,
+      RuleExecutor ruleExecutor,
       ValidatorsApiService validatorsApiService,
       TransferValidationRequestApiService transferValidationRequestApiService,
       TransferValidationRequestRepository transferValidationRequestRepository,
@@ -49,7 +49,7 @@ public class PolicyService {
       AsymmetricEncryptionService asymmetricEncryptionService,
       DocumentBuilder documentBuilder,
       JsonSerializer jsonSerializer) {
-    this.simpleRuleExecutor = simpleRuleExecutor;
+    this.ruleExecutor = ruleExecutor;
     this.validatorsApiService = validatorsApiService;
     this.transferValidationRequestApiService = transferValidationRequestApiService;
     this.transferValidationRequestRepository = transferValidationRequestRepository;
@@ -66,7 +66,8 @@ public class PolicyService {
     var existingTransferValidationRequest =
         transferValidationRequestRepository.getById(transferValidationRequest.getId());
 
-    if (existingTransferValidationRequest != null) {
+    if (existingTransferValidationRequest != null
+        && existingTransferValidationRequest.getStatus() != TransferValidationRequestStatus.New) {
       return;
     }
 
@@ -74,16 +75,17 @@ public class PolicyService {
         String.format(
             "Transfer validation request received. Id: %s", transferValidationRequest.getId()));
 
-    try {
-      transferValidationRequestRepository.insert(transferValidationRequest);
-    } catch (AlreadyExistsException exception) {
-      logger.warn(
-          String.format(
-              "Transfer validation request already exists. Id: %d",
-              transferValidationRequest.getId()));
-      return;
+    if (existingTransferValidationRequest == null) {
+      try {
+        transferValidationRequestRepository.insert(transferValidationRequest);
+      } catch (AlreadyExistsException exception) {
+        logger.warn(
+            String.format(
+                "Transfer validation request already exists. Id: %d",
+                transferValidationRequest.getId()));
+        return;
+      }
     }
-
     processTransferValidationRequest(transferValidationRequest);
   }
 
@@ -103,7 +105,6 @@ public class PolicyService {
               "Received approval for unknown transfer approval request. ValidatorId: %s TransferApprovalRequestId: %d",
               validatorApproval.getValidatorId(),
               validatorApproval.getTransferApprovalRequestId()));
-
       return;
     }
 
@@ -117,7 +118,6 @@ public class PolicyService {
               "Received approval for unknown validator request. ValidatorId: %s TransferApprovalRequestId: %d",
               validatorApproval.getValidatorId(),
               validatorApproval.getTransferApprovalRequestId()));
-
       return;
     }
 
@@ -136,6 +136,7 @@ public class PolicyService {
         validatorDocument = jsonSerializer.deserialize(document, ValidatorDocument.class);
       } catch (Exception exception) {
         logger.error("Can not deserialize validator document", exception);
+        // TODO: send validator request again
         return;
       }
 
@@ -160,6 +161,7 @@ public class PolicyService {
                 "Signature is invalid. ValidatorId: %s TransferApprovalRequestId: %d",
                 validatorApproval.getValidatorId(),
                 validatorApproval.getTransferApprovalRequestId()));
+        // TODO: send validator request again
         return;
       }
 
@@ -174,6 +176,7 @@ public class PolicyService {
                 "Transfer details is invalid. ValidatorId: %s TransferApprovalRequestId: %d",
                 validatorApproval.getValidatorId(),
                 validatorApproval.getTransferApprovalRequestId()));
+        // TODO: send validator request again
         return;
       }
 
@@ -219,7 +222,12 @@ public class PolicyService {
         validatorResponseRepository.getByTransferValidationRequestId(
             transferValidationRequest.getId());
 
-    var executionOutput = executeRules(transferValidationRequest, validationResponses);
+    var validators = validatorsApiService.getValidators();
+
+    RuleExecutionOutput executionOutput;
+
+    executionOutput =
+        ruleExecutor.execute(transferValidationRequest, validationResponses, validators);
 
     processRuleExecutionOutput(
         transferValidationRequest, executionOutput, validatorRequests, validationResponses);
@@ -238,14 +246,16 @@ public class PolicyService {
       if (ruleExecutionOutput.getAction() == RuleExecutionAction.Approve) {
         transferValidationRequest.approve();
         var signedDocument =
-                documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
-        transferValidationRequest.updateDocument(signedDocument.getDocument(), signedDocument.getSignature());
+            documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
+        transferValidationRequest.updateDocument(
+            signedDocument.getDocument(), signedDocument.getSignature());
         transferValidationRequestApiService.confirm(transferValidationRequest);
       } else if (ruleExecutionOutput.getAction() == RuleExecutionAction.Reject) {
         var signedDocument =
-                documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
+            documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
         transferValidationRequest.reject(signedDocument.getRejectReasonMessage());
-        transferValidationRequest.updateDocument(signedDocument.getDocument(), signedDocument.getSignature());
+        transferValidationRequest.updateDocument(
+            signedDocument.getDocument(), signedDocument.getSignature());
         transferValidationRequestApiService.reject(transferValidationRequest);
       }
     }
@@ -297,15 +307,5 @@ public class PolicyService {
             exception);
       }
     }
-  }
-
-  private RuleExecutionOutput executeRules(
-      TransferValidationRequest transferValidationRequest,
-      List<ValidatorResponse> validatorResponses) {
-    // TODO: prepare validation context for rule engine
-
-    var validators = validatorsApiService.getValidators();
-
-    return simpleRuleExecutor.execute(transferValidationRequest, validatorResponses, validators);
   }
 }

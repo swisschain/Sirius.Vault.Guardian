@@ -30,7 +30,12 @@ public class HandleValidatorResponsesTask implements Runnable {
       try {
         policyService.processApproval(validatorApproval);
       } catch (Exception exception) {
-        logger.error("An error occurred while processing approval result.", exception);
+        logger.error(
+            String.format(
+                "An error occurred while processing approval result. TransferSigningRequestId: %d; ValidatorId: %s",
+                validatorApproval.getTransferApprovalRequestId(),
+                validatorApproval.getValidatorId()),
+            exception);
       }
     }
   }
