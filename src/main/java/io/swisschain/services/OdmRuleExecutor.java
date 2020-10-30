@@ -89,7 +89,10 @@ public class OdmRuleExecutor implements RuleExecutor {
       case Approve:
         return RuleExecutionOutput.createApprove();
       case Decline:
-        return RuleExecutionOutput.createReject(result.comment);
+        var rejectionReason = result.comment == null || result.comment.isEmpty()
+                ? "Rejected by policy"
+                : result.comment;
+        return RuleExecutionOutput.createReject(rejectionReason);
       case Wait:
         var selectedValidators = new ArrayList<Validator>();
         var notFoundValidators = new ArrayList<String>();
