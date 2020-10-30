@@ -35,7 +35,7 @@ public class ValidatorsApiService {
                 validatorApproval.getResolutionDocumentEncBase64(),
                 validatorApproval.getSignature(),
                 "deviceInfo", // TODO: set device info
-                "ip"));  // TODO: set ip
+                "ip")); // TODO: set ip
       }
 
       return validatorApprovals;
@@ -48,8 +48,11 @@ public class ValidatorsApiService {
     }
   }
 
-  public List<Validator> getValidators() {
-    var request = ValidatorApprovalRequests.ActiveValidatorsRequest.newBuilder().build();
+  public List<Validator> getValidators(String tenantId) {
+    var request =
+        ValidatorApprovalRequests.ActiveValidatorsRequest.newBuilder()
+            .setTenantId(tenantId)
+            .build();
     var response = guardianApiClient.getTransactions().getActiveValidators(request);
 
     // TODO: handle response errors
@@ -63,8 +66,8 @@ public class ValidatorsApiService {
     return validators;
   }
 
-  public Validator getValidatorById(String validatorId) {
-    var validators = getValidators();
+  public Validator getValidatorById(String tenantId, String validatorId) {
+    var validators = getValidators(tenantId);
 
     for (var validator : validators) {
       if (validator.getId().equals(validatorId)) {
@@ -88,18 +91,19 @@ public class ValidatorsApiService {
   }
 
   public void sendApprovalRequest(
-      long transferValidationRequestId, ValidatorRequest validatorRequest) {
+      String tenantId, long transferValidationRequestId, ValidatorRequest validatorRequest) {
     var requestBuilder =
         ValidatorApprovalRequests.CreateApprovalRequestRequest.newBuilder()
             .setRequestId(
                 String.format(
                     "Guardian:Create:%d-%s",
                     transferValidationRequestId, validatorRequest.getValidatorId()))
+            .setTenantId(tenantId)
             .setTransferSigningRequestId(Long.toString(transferValidationRequestId));
 
     var validatorRequestBuilder =
         ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.newBuilder()
-            .setValidaditorId(validatorRequest.getValidatorId())
+            .setValidatorId(validatorRequest.getValidatorId())
             .setTransactionDetailsEncBase64(validatorRequest.getEncryptedMessage())
             .setSecretEncBase64(validatorRequest.getEncryptedKey())
             .setIvNonce(validatorRequest.getNonce());
