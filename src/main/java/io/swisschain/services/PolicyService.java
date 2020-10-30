@@ -253,9 +253,9 @@ public class PolicyService {
             signedDocument.getDocument(), signedDocument.getSignature());
         transferValidationRequestApiService.confirm(transferValidationRequest);
       } else if (ruleExecutionOutput.getAction() == RuleExecutionAction.Reject) {
+        transferValidationRequest.reject(ruleExecutionOutput.getRejectReasonMessage());
         var signedDocument =
             documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
-        transferValidationRequest.reject(signedDocument.getRejectReasonMessage());
         transferValidationRequest.updateDocument(
             signedDocument.getDocument(), signedDocument.getSignature());
         transferValidationRequestApiService.reject(transferValidationRequest);
