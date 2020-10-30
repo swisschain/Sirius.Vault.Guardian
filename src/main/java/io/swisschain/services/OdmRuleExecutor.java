@@ -92,15 +92,25 @@ public class OdmRuleExecutor implements RuleExecutor {
         return RuleExecutionOutput.createReject(result.comment);
       case Wait:
         var selectedValidators = new ArrayList<Validator>();
+        var notFoundValidators = new ArrayList<String>();
         for (var validatorId : result.notifyValidators) {
           var validator =
               validators.stream().filter(item -> item.getId().equals(validatorId)).findFirst();
           if (validator.isPresent()) {
             selectedValidators.add(validator.get());
           } else {
+            notFoundValidators.add(validatorId);
             logger.warn(String.format("Validator not found. %s", validatorId));
           }
         }
+
+        if (notFoundValidators.size() > 0) {
+          return RuleExecutionOutput.createReject(
+              String.format(
+                  "Transfer can not be validated. Validators not found: %s",
+                  String.join(",", notFoundValidators)));
+        }
+
         return RuleExecutionOutput.createValidate(selectedValidators);
       default:
         throw new Exception(

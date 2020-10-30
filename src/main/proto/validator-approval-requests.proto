@@ -6,56 +6,58 @@ option java_package = "io.swisschain.sirius.guardianApi.generated.validatorAppro
 package swisschain.sirius.GuardianValidatorApi;
 
 service Validators {
-  rpc CreateApprovalRequest(CreateApprovalRequestRequest) returns (CreateApprovalRequestResponse);
-  rpc GetApprovalResults(GetApprovalResultsRequest) returns (GetApprovalResponse);
-  rpc AcknowledgeResult(AcknowledgeResultRequest) returns (AcknowledgeResultResponse);
-  rpc GetActiveValidators(ActiveValidatorsRequest) returns (ActiveValidatorsResponse);
+  rpc CreateApprovalRequest (CreateApprovalRequestRequest) returns (CreateApprovalRequestResponse);
+  rpc GetApprovalResults (GetApprovalResultsRequest) returns (GetApprovalResponse);
+  rpc AcknowledgeResult (AcknowledgeResultRequest) returns (AcknowledgeResultResponse);
+  rpc GetActiveValidators (ActiveValidatorsRequest) returns (ActiveValidatorsResponse);
 }
 
-// Create
+// CreateApprovalRequest
 
 message CreateApprovalRequestRequest {
-
   message ValidatorRequest {
-    string validator_id = 1;
-    string transaction_details = 2;
-    string secret = 3;
-    string nonce = 4;
+    string validatorId = 1;
+    string transactionDetailsEncBase64 = 2;
+    string secretEncBase64 = 3;
+    string ivNonce = 4;
   }
 
-  string request_id = 1;
+  string requestId = 1;
   string tenant_id = 2;
-  string transfer_signing_request_id = 3;
-  repeated ValidatorRequest validator_requests = 4;
+  string transferSigningRequestId = 3;
+  repeated ValidatorRequest validatorRequests = 4;
 }
 
 message CreateApprovalRequestResponse {
   ValidatorsApiError error = 1;
 }
 
-// Get
+// GetApprovalResults
 
 message GetApprovalResultsRequest {
-  string tenant_id = 1;
 }
 
 message GetApprovalResponse {
-  ValidatorsApiError error = 1;
-  repeated ApprovalResponse payload = 2;
   message ApprovalResponse {
     string validatorId = 1;
     string transferSigningRequestId = 2;
     string resolutionDocumentEncBase64 = 3;
     string signature = 4;
   }
+
   enum ResolutionStatus {
     approve = 0;
     reject = 1;
     skip = 2;
   }
+
+  ValidatorsApiError error = 1;
+  repeated ApprovalResponse payload = 2;
 }
 
-message AcknowledgeResultRequest{
+// AcknowledgeResult
+
+message AcknowledgeResultRequest {
   string transferSigningRequestId = 1;
   string validatorId = 2;
 }
@@ -64,24 +66,30 @@ message AcknowledgeResultResponse {
   ValidatorsApiError error = 1;
 }
 
+// GetActiveValidators
+
 message ActiveValidatorsRequest {
-  string tenant_Id = 1;
+  string tenant_id = 1;
 }
 
 message ActiveValidatorsResponse {
-  ValidatorsApiError error = 1;
-  repeated ActiveValidator ActiveValidatorsRequest = 2;
   message ActiveValidator {
     string validatorId = 1;
     string validatorPublicKeyPem = 2;
   }
+
+  ValidatorsApiError error = 1;
+  repeated ActiveValidator ActiveValidatorsRequest = 2;
 }
+
+// ********* errors *********
 
 message ValidatorsApiError {
   enum ErrorCodes {
     Unknown = 0;
     InternalServerError = 1;
   }
+
   ErrorCodes code = 1;
   string message = 2;
 }

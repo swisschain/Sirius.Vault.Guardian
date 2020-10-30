@@ -31,37 +31,49 @@ public final class ValidatorApprovalRequests {
         getRequestIdBytes();
 
     /**
-     * <code>string transferSigningRequestId = 2;</code>
+     * <code>string tenant_id = 2;</code>
+     * @return The tenantId.
+     */
+    java.lang.String getTenantId();
+    /**
+     * <code>string tenant_id = 2;</code>
+     * @return The bytes for tenantId.
+     */
+    com.google.protobuf.ByteString
+        getTenantIdBytes();
+
+    /**
+     * <code>string transferSigningRequestId = 3;</code>
      * @return The transferSigningRequestId.
      */
     java.lang.String getTransferSigningRequestId();
     /**
-     * <code>string transferSigningRequestId = 2;</code>
+     * <code>string transferSigningRequestId = 3;</code>
      * @return The bytes for transferSigningRequestId.
      */
     com.google.protobuf.ByteString
         getTransferSigningRequestIdBytes();
 
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     java.util.List<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest> 
         getValidatorRequestsList();
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest getValidatorRequests(int index);
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     int getValidatorRequestsCount();
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     java.util.List<? extends io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequestOrBuilder> 
         getValidatorRequestsOrBuilderList();
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequestOrBuilder getValidatorRequestsOrBuilder(
         int index);
@@ -80,6 +92,7 @@ public final class ValidatorApprovalRequests {
     }
     private CreateApprovalRequestRequest() {
       requestId_ = "";
+      tenantId_ = "";
       transferSigningRequestId_ = "";
       validatorRequests_ = java.util.Collections.emptyList();
     }
@@ -124,10 +137,16 @@ public final class ValidatorApprovalRequests {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              transferSigningRequestId_ = s;
+              tenantId_ = s;
               break;
             }
             case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              transferSigningRequestId_ = s;
+              break;
+            }
+            case 34: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 validatorRequests_ = new java.util.ArrayList<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest>();
                 mutable_bitField0_ |= 0x00000001;
@@ -176,16 +195,16 @@ public final class ValidatorApprovalRequests {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>string validaditorId = 1;</code>
-       * @return The validaditorId.
+       * <code>string validatorId = 1;</code>
+       * @return The validatorId.
        */
-      java.lang.String getValidaditorId();
+      java.lang.String getValidatorId();
       /**
-       * <code>string validaditorId = 1;</code>
-       * @return The bytes for validaditorId.
+       * <code>string validatorId = 1;</code>
+       * @return The bytes for validatorId.
        */
       com.google.protobuf.ByteString
-          getValidaditorIdBytes();
+          getValidatorIdBytes();
 
       /**
        * <code>string transactionDetailsEncBase64 = 2;</code>
@@ -236,7 +255,7 @@ public final class ValidatorApprovalRequests {
         super(builder);
       }
       private ValidatorRequest() {
-        validaditorId_ = "";
+        validatorId_ = "";
         transactionDetailsEncBase64_ = "";
         secretEncBase64_ = "";
         ivNonce_ = "";
@@ -275,7 +294,7 @@ public final class ValidatorApprovalRequests {
               case 10: {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                validaditorId_ = s;
+                validatorId_ = s;
                 break;
               }
               case 18: {
@@ -328,38 +347,38 @@ public final class ValidatorApprovalRequests {
                 io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.class, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder.class);
       }
 
-      public static final int VALIDADITORID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object validaditorId_;
+      public static final int VALIDATORID_FIELD_NUMBER = 1;
+      private volatile java.lang.Object validatorId_;
       /**
-       * <code>string validaditorId = 1;</code>
-       * @return The validaditorId.
+       * <code>string validatorId = 1;</code>
+       * @return The validatorId.
        */
       @java.lang.Override
-      public java.lang.String getValidaditorId() {
-        java.lang.Object ref = validaditorId_;
+      public java.lang.String getValidatorId() {
+        java.lang.Object ref = validatorId_;
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          validaditorId_ = s;
+          validatorId_ = s;
           return s;
         }
       }
       /**
-       * <code>string validaditorId = 1;</code>
-       * @return The bytes for validaditorId.
+       * <code>string validatorId = 1;</code>
+       * @return The bytes for validatorId.
        */
       @java.lang.Override
       public com.google.protobuf.ByteString
-          getValidaditorIdBytes() {
-        java.lang.Object ref = validaditorId_;
+          getValidatorIdBytes() {
+        java.lang.Object ref = validatorId_;
         if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          validaditorId_ = b;
+          validatorId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -494,8 +513,8 @@ public final class ValidatorApprovalRequests {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getValidaditorIdBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validaditorId_);
+        if (!getValidatorIdBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validatorId_);
         }
         if (!getTransactionDetailsEncBase64Bytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, transactionDetailsEncBase64_);
@@ -515,8 +534,8 @@ public final class ValidatorApprovalRequests {
         if (size != -1) return size;
 
         size = 0;
-        if (!getValidaditorIdBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validaditorId_);
+        if (!getValidatorIdBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validatorId_);
         }
         if (!getTransactionDetailsEncBase64Bytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, transactionDetailsEncBase64_);
@@ -542,8 +561,8 @@ public final class ValidatorApprovalRequests {
         }
         io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest other = (io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest) obj;
 
-        if (!getValidaditorId()
-            .equals(other.getValidaditorId())) return false;
+        if (!getValidatorId()
+            .equals(other.getValidatorId())) return false;
         if (!getTransactionDetailsEncBase64()
             .equals(other.getTransactionDetailsEncBase64())) return false;
         if (!getSecretEncBase64()
@@ -561,8 +580,8 @@ public final class ValidatorApprovalRequests {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + VALIDADITORID_FIELD_NUMBER;
-        hash = (53 * hash) + getValidaditorId().hashCode();
+        hash = (37 * hash) + VALIDATORID_FIELD_NUMBER;
+        hash = (53 * hash) + getValidatorId().hashCode();
         hash = (37 * hash) + TRANSACTIONDETAILSENCBASE64_FIELD_NUMBER;
         hash = (53 * hash) + getTransactionDetailsEncBase64().hashCode();
         hash = (37 * hash) + SECRETENCBASE64_FIELD_NUMBER;
@@ -702,7 +721,7 @@ public final class ValidatorApprovalRequests {
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          validaditorId_ = "";
+          validatorId_ = "";
 
           transactionDetailsEncBase64_ = "";
 
@@ -736,7 +755,7 @@ public final class ValidatorApprovalRequests {
         @java.lang.Override
         public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest buildPartial() {
           io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest result = new io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest(this);
-          result.validaditorId_ = validaditorId_;
+          result.validatorId_ = validatorId_;
           result.transactionDetailsEncBase64_ = transactionDetailsEncBase64_;
           result.secretEncBase64_ = secretEncBase64_;
           result.ivNonce_ = ivNonce_;
@@ -788,8 +807,8 @@ public final class ValidatorApprovalRequests {
 
         public Builder mergeFrom(io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest other) {
           if (other == io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.getDefaultInstance()) return this;
-          if (!other.getValidaditorId().isEmpty()) {
-            validaditorId_ = other.validaditorId_;
+          if (!other.getValidatorId().isEmpty()) {
+            validatorId_ = other.validatorId_;
             onChanged();
           }
           if (!other.getTransactionDetailsEncBase64().isEmpty()) {
@@ -833,78 +852,78 @@ public final class ValidatorApprovalRequests {
           return this;
         }
 
-        private java.lang.Object validaditorId_ = "";
+        private java.lang.Object validatorId_ = "";
         /**
-         * <code>string validaditorId = 1;</code>
-         * @return The validaditorId.
+         * <code>string validatorId = 1;</code>
+         * @return The validatorId.
          */
-        public java.lang.String getValidaditorId() {
-          java.lang.Object ref = validaditorId_;
+        public java.lang.String getValidatorId() {
+          java.lang.Object ref = validatorId_;
           if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
             java.lang.String s = bs.toStringUtf8();
-            validaditorId_ = s;
+            validatorId_ = s;
             return s;
           } else {
             return (java.lang.String) ref;
           }
         }
         /**
-         * <code>string validaditorId = 1;</code>
-         * @return The bytes for validaditorId.
+         * <code>string validatorId = 1;</code>
+         * @return The bytes for validatorId.
          */
         public com.google.protobuf.ByteString
-            getValidaditorIdBytes() {
-          java.lang.Object ref = validaditorId_;
+            getValidatorIdBytes() {
+          java.lang.Object ref = validatorId_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
-            validaditorId_ = b;
+            validatorId_ = b;
             return b;
           } else {
             return (com.google.protobuf.ByteString) ref;
           }
         }
         /**
-         * <code>string validaditorId = 1;</code>
-         * @param value The validaditorId to set.
+         * <code>string validatorId = 1;</code>
+         * @param value The validatorId to set.
          * @return This builder for chaining.
          */
-        public Builder setValidaditorId(
+        public Builder setValidatorId(
             java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
   
-          validaditorId_ = value;
+          validatorId_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>string validaditorId = 1;</code>
+         * <code>string validatorId = 1;</code>
          * @return This builder for chaining.
          */
-        public Builder clearValidaditorId() {
+        public Builder clearValidatorId() {
           
-          validaditorId_ = getDefaultInstance().getValidaditorId();
+          validatorId_ = getDefaultInstance().getValidatorId();
           onChanged();
           return this;
         }
         /**
-         * <code>string validaditorId = 1;</code>
-         * @param value The bytes for validaditorId to set.
+         * <code>string validatorId = 1;</code>
+         * @param value The bytes for validatorId to set.
          * @return This builder for chaining.
          */
-        public Builder setValidaditorIdBytes(
+        public Builder setValidatorIdBytes(
             com.google.protobuf.ByteString value) {
           if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
           
-          validaditorId_ = value;
+          validatorId_ = value;
           onChanged();
           return this;
         }
@@ -1227,10 +1246,48 @@ public final class ValidatorApprovalRequests {
       }
     }
 
-    public static final int TRANSFERSIGNINGREQUESTID_FIELD_NUMBER = 2;
+    public static final int TENANT_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object tenantId_;
+    /**
+     * <code>string tenant_id = 2;</code>
+     * @return The tenantId.
+     */
+    @java.lang.Override
+    public java.lang.String getTenantId() {
+      java.lang.Object ref = tenantId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tenantId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string tenant_id = 2;</code>
+     * @return The bytes for tenantId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTenantIdBytes() {
+      java.lang.Object ref = tenantId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tenantId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TRANSFERSIGNINGREQUESTID_FIELD_NUMBER = 3;
     private volatile java.lang.Object transferSigningRequestId_;
     /**
-     * <code>string transferSigningRequestId = 2;</code>
+     * <code>string transferSigningRequestId = 3;</code>
      * @return The transferSigningRequestId.
      */
     @java.lang.Override
@@ -1247,7 +1304,7 @@ public final class ValidatorApprovalRequests {
       }
     }
     /**
-     * <code>string transferSigningRequestId = 2;</code>
+     * <code>string transferSigningRequestId = 3;</code>
      * @return The bytes for transferSigningRequestId.
      */
     @java.lang.Override
@@ -1265,17 +1322,17 @@ public final class ValidatorApprovalRequests {
       }
     }
 
-    public static final int VALIDATORREQUESTS_FIELD_NUMBER = 3;
+    public static final int VALIDATORREQUESTS_FIELD_NUMBER = 4;
     private java.util.List<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest> validatorRequests_;
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     @java.lang.Override
     public java.util.List<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest> getValidatorRequestsList() {
       return validatorRequests_;
     }
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     @java.lang.Override
     public java.util.List<? extends io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequestOrBuilder> 
@@ -1283,21 +1340,21 @@ public final class ValidatorApprovalRequests {
       return validatorRequests_;
     }
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     @java.lang.Override
     public int getValidatorRequestsCount() {
       return validatorRequests_.size();
     }
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     @java.lang.Override
     public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest getValidatorRequests(int index) {
       return validatorRequests_.get(index);
     }
     /**
-     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+     * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
      */
     @java.lang.Override
     public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequestOrBuilder getValidatorRequestsOrBuilder(
@@ -1322,11 +1379,14 @@ public final class ValidatorApprovalRequests {
       if (!getRequestIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, requestId_);
       }
+      if (!getTenantIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tenantId_);
+      }
       if (!getTransferSigningRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, transferSigningRequestId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, transferSigningRequestId_);
       }
       for (int i = 0; i < validatorRequests_.size(); i++) {
-        output.writeMessage(3, validatorRequests_.get(i));
+        output.writeMessage(4, validatorRequests_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1340,12 +1400,15 @@ public final class ValidatorApprovalRequests {
       if (!getRequestIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, requestId_);
       }
+      if (!getTenantIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tenantId_);
+      }
       if (!getTransferSigningRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, transferSigningRequestId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, transferSigningRequestId_);
       }
       for (int i = 0; i < validatorRequests_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, validatorRequests_.get(i));
+          .computeMessageSize(4, validatorRequests_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1364,6 +1427,8 @@ public final class ValidatorApprovalRequests {
 
       if (!getRequestId()
           .equals(other.getRequestId())) return false;
+      if (!getTenantId()
+          .equals(other.getTenantId())) return false;
       if (!getTransferSigningRequestId()
           .equals(other.getTransferSigningRequestId())) return false;
       if (!getValidatorRequestsList()
@@ -1381,6 +1446,8 @@ public final class ValidatorApprovalRequests {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + TENANT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTenantId().hashCode();
       hash = (37 * hash) + TRANSFERSIGNINGREQUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getTransferSigningRequestId().hashCode();
       if (getValidatorRequestsCount() > 0) {
@@ -1523,6 +1590,8 @@ public final class ValidatorApprovalRequests {
         super.clear();
         requestId_ = "";
 
+        tenantId_ = "";
+
         transferSigningRequestId_ = "";
 
         if (validatorRequestsBuilder_ == null) {
@@ -1559,6 +1628,7 @@ public final class ValidatorApprovalRequests {
         io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest result = new io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest(this);
         int from_bitField0_ = bitField0_;
         result.requestId_ = requestId_;
+        result.tenantId_ = tenantId_;
         result.transferSigningRequestId_ = transferSigningRequestId_;
         if (validatorRequestsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -1619,6 +1689,10 @@ public final class ValidatorApprovalRequests {
         if (other == io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.getDefaultInstance()) return this;
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          onChanged();
+        }
+        if (!other.getTenantId().isEmpty()) {
+          tenantId_ = other.tenantId_;
           onChanged();
         }
         if (!other.getTransferSigningRequestId().isEmpty()) {
@@ -1757,9 +1831,85 @@ public final class ValidatorApprovalRequests {
         return this;
       }
 
+      private java.lang.Object tenantId_ = "";
+      /**
+       * <code>string tenant_id = 2;</code>
+       * @return The tenantId.
+       */
+      public java.lang.String getTenantId() {
+        java.lang.Object ref = tenantId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tenantId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string tenant_id = 2;</code>
+       * @return The bytes for tenantId.
+       */
+      public com.google.protobuf.ByteString
+          getTenantIdBytes() {
+        java.lang.Object ref = tenantId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tenantId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string tenant_id = 2;</code>
+       * @param value The tenantId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTenantId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tenantId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tenant_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTenantId() {
+        
+        tenantId_ = getDefaultInstance().getTenantId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tenant_id = 2;</code>
+       * @param value The bytes for tenantId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTenantIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tenantId_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object transferSigningRequestId_ = "";
       /**
-       * <code>string transferSigningRequestId = 2;</code>
+       * <code>string transferSigningRequestId = 3;</code>
        * @return The transferSigningRequestId.
        */
       public java.lang.String getTransferSigningRequestId() {
@@ -1775,7 +1925,7 @@ public final class ValidatorApprovalRequests {
         }
       }
       /**
-       * <code>string transferSigningRequestId = 2;</code>
+       * <code>string transferSigningRequestId = 3;</code>
        * @return The bytes for transferSigningRequestId.
        */
       public com.google.protobuf.ByteString
@@ -1792,7 +1942,7 @@ public final class ValidatorApprovalRequests {
         }
       }
       /**
-       * <code>string transferSigningRequestId = 2;</code>
+       * <code>string transferSigningRequestId = 3;</code>
        * @param value The transferSigningRequestId to set.
        * @return This builder for chaining.
        */
@@ -1807,7 +1957,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>string transferSigningRequestId = 2;</code>
+       * <code>string transferSigningRequestId = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearTransferSigningRequestId() {
@@ -1817,7 +1967,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>string transferSigningRequestId = 2;</code>
+       * <code>string transferSigningRequestId = 3;</code>
        * @param value The bytes for transferSigningRequestId to set.
        * @return This builder for chaining.
        */
@@ -1846,7 +1996,7 @@ public final class ValidatorApprovalRequests {
           io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequestOrBuilder> validatorRequestsBuilder_;
 
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public java.util.List<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest> getValidatorRequestsList() {
         if (validatorRequestsBuilder_ == null) {
@@ -1856,7 +2006,7 @@ public final class ValidatorApprovalRequests {
         }
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public int getValidatorRequestsCount() {
         if (validatorRequestsBuilder_ == null) {
@@ -1866,7 +2016,7 @@ public final class ValidatorApprovalRequests {
         }
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest getValidatorRequests(int index) {
         if (validatorRequestsBuilder_ == null) {
@@ -1876,7 +2026,7 @@ public final class ValidatorApprovalRequests {
         }
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder setValidatorRequests(
           int index, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest value) {
@@ -1893,7 +2043,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder setValidatorRequests(
           int index, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder builderForValue) {
@@ -1907,7 +2057,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder addValidatorRequests(io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest value) {
         if (validatorRequestsBuilder_ == null) {
@@ -1923,7 +2073,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder addValidatorRequests(
           int index, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest value) {
@@ -1940,7 +2090,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder addValidatorRequests(
           io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder builderForValue) {
@@ -1954,7 +2104,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder addValidatorRequests(
           int index, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder builderForValue) {
@@ -1968,7 +2118,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder addAllValidatorRequests(
           java.lang.Iterable<? extends io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest> values) {
@@ -1983,7 +2133,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder clearValidatorRequests() {
         if (validatorRequestsBuilder_ == null) {
@@ -1996,7 +2146,7 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public Builder removeValidatorRequests(int index) {
         if (validatorRequestsBuilder_ == null) {
@@ -2009,14 +2159,14 @@ public final class ValidatorApprovalRequests {
         return this;
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder getValidatorRequestsBuilder(
           int index) {
         return getValidatorRequestsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequestOrBuilder getValidatorRequestsOrBuilder(
           int index) {
@@ -2026,7 +2176,7 @@ public final class ValidatorApprovalRequests {
         }
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public java.util.List<? extends io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequestOrBuilder> 
            getValidatorRequestsOrBuilderList() {
@@ -2037,14 +2187,14 @@ public final class ValidatorApprovalRequests {
         }
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder addValidatorRequestsBuilder() {
         return getValidatorRequestsFieldBuilder().addBuilder(
             io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.getDefaultInstance());
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder addValidatorRequestsBuilder(
           int index) {
@@ -2052,7 +2202,7 @@ public final class ValidatorApprovalRequests {
             index, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.getDefaultInstance());
       }
       /**
-       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 3;</code>
+       * <code>repeated .swisschain.sirius.GuardianValidatorApi.CreateApprovalRequestRequest.ValidatorRequest validatorRequests = 4;</code>
        */
       public java.util.List<io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.CreateApprovalRequestRequest.ValidatorRequest.Builder> 
            getValidatorRequestsBuilderList() {
@@ -6637,6 +6787,18 @@ public final class ValidatorApprovalRequests {
   public interface ActiveValidatorsRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:swisschain.sirius.GuardianValidatorApi.ActiveValidatorsRequest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string tenant_id = 1;</code>
+     * @return The tenantId.
+     */
+    java.lang.String getTenantId();
+    /**
+     * <code>string tenant_id = 1;</code>
+     * @return The bytes for tenantId.
+     */
+    com.google.protobuf.ByteString
+        getTenantIdBytes();
   }
   /**
    * Protobuf type {@code swisschain.sirius.GuardianValidatorApi.ActiveValidatorsRequest}
@@ -6651,6 +6813,7 @@ public final class ValidatorApprovalRequests {
       super(builder);
     }
     private ActiveValidatorsRequest() {
+      tenantId_ = "";
     }
 
     @java.lang.Override
@@ -6683,6 +6846,12 @@ public final class ValidatorApprovalRequests {
             case 0:
               done = true;
               break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tenantId_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -6715,6 +6884,44 @@ public final class ValidatorApprovalRequests {
               io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest.class, io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest.Builder.class);
     }
 
+    public static final int TENANT_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object tenantId_;
+    /**
+     * <code>string tenant_id = 1;</code>
+     * @return The tenantId.
+     */
+    @java.lang.Override
+    public java.lang.String getTenantId() {
+      java.lang.Object ref = tenantId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tenantId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string tenant_id = 1;</code>
+     * @return The bytes for tenantId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTenantIdBytes() {
+      java.lang.Object ref = tenantId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tenantId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6729,6 +6936,9 @@ public final class ValidatorApprovalRequests {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getTenantIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tenantId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6738,6 +6948,9 @@ public final class ValidatorApprovalRequests {
       if (size != -1) return size;
 
       size = 0;
+      if (!getTenantIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tenantId_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6753,6 +6966,8 @@ public final class ValidatorApprovalRequests {
       }
       io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest other = (io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest) obj;
 
+      if (!getTenantId()
+          .equals(other.getTenantId())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6764,6 +6979,8 @@ public final class ValidatorApprovalRequests {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TENANT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTenantId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6897,6 +7114,8 @@ public final class ValidatorApprovalRequests {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        tenantId_ = "";
+
         return this;
       }
 
@@ -6923,6 +7142,7 @@ public final class ValidatorApprovalRequests {
       @java.lang.Override
       public io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest buildPartial() {
         io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest result = new io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest(this);
+        result.tenantId_ = tenantId_;
         onBuilt();
         return result;
       }
@@ -6971,6 +7191,10 @@ public final class ValidatorApprovalRequests {
 
       public Builder mergeFrom(io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest other) {
         if (other == io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests.ActiveValidatorsRequest.getDefaultInstance()) return this;
+        if (!other.getTenantId().isEmpty()) {
+          tenantId_ = other.tenantId_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6997,6 +7221,82 @@ public final class ValidatorApprovalRequests {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private java.lang.Object tenantId_ = "";
+      /**
+       * <code>string tenant_id = 1;</code>
+       * @return The tenantId.
+       */
+      public java.lang.String getTenantId() {
+        java.lang.Object ref = tenantId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tenantId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string tenant_id = 1;</code>
+       * @return The bytes for tenantId.
+       */
+      public com.google.protobuf.ByteString
+          getTenantIdBytes() {
+        java.lang.Object ref = tenantId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tenantId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string tenant_id = 1;</code>
+       * @param value The tenantId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTenantId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tenantId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tenant_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTenantId() {
+        
+        tenantId_ = getDefaultInstance().getTenantId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tenant_id = 1;</code>
+       * @param value The bytes for tenantId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTenantIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tenantId_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -9619,64 +9919,65 @@ public final class ValidatorApprovalRequests {
   static {
     java.lang.String[] descriptorData = {
       "\n!validator-approval-requests.proto\022&swi" +
-      "sschain.sirius.GuardianValidatorApi\"\277\002\n\034" +
+      "sschain.sirius.GuardianValidatorApi\"\320\002\n\034" +
       "CreateApprovalRequestRequest\022\021\n\trequestI" +
-      "d\030\001 \001(\t\022 \n\030transferSigningRequestId\030\002 \001(" +
-      "\t\022p\n\021validatorRequests\030\003 \003(\0132U.swisschai" +
-      "n.sirius.GuardianValidatorApi.CreateAppr" +
-      "ovalRequestRequest.ValidatorRequest\032x\n\020V" +
-      "alidatorRequest\022\025\n\rvalidaditorId\030\001 \001(\t\022#" +
-      "\n\033transactionDetailsEncBase64\030\002 \001(\t\022\027\n\017s" +
-      "ecretEncBase64\030\003 \001(\t\022\017\n\007ivNonce\030\004 \001(\t\"j\n" +
-      "\035CreateApprovalRequestResponse\022I\n\005error\030" +
-      "\001 \001(\0132:.swisschain.sirius.GuardianValida" +
-      "torApi.ValidatorsApiError\"\033\n\031GetApproval" +
-      "ResultsRequest\"\372\002\n\023GetApprovalResponse\022I" +
-      "\n\005error\030\001 \001(\0132:.swisschain.sirius.Guardi" +
-      "anValidatorApi.ValidatorsApiError\022]\n\007pay" +
-      "load\030\002 \003(\0132L.swisschain.sirius.GuardianV" +
-      "alidatorApi.GetApprovalResponse.Approval" +
-      "Response\032\201\001\n\020ApprovalResponse\022\023\n\013validat" +
-      "orId\030\001 \001(\t\022 \n\030transferSigningRequestId\030\002" +
-      " \001(\t\022#\n\033resolutionDocumentEncBase64\030\003 \001(" +
-      "\t\022\021\n\tsignature\030\004 \001(\t\"5\n\020ResolutionStatus" +
-      "\022\013\n\007approve\020\000\022\n\n\006reject\020\001\022\010\n\004skip\020\002\"Q\n\030A" +
-      "cknowledgeResultRequest\022 \n\030transferSigni" +
-      "ngRequestId\030\001 \001(\t\022\023\n\013validatorId\030\002 \001(\t\"f" +
-      "\n\031AcknowledgeResultResponse\022I\n\005error\030\001 \001" +
-      "(\0132:.swisschain.sirius.GuardianValidator" +
-      "Api.ValidatorsApiError\"\031\n\027ActiveValidato" +
-      "rsRequest\"\237\002\n\030ActiveValidatorsResponse\022I" +
-      "\n\005error\030\001 \001(\0132:.swisschain.sirius.Guardi" +
-      "anValidatorApi.ValidatorsApiError\022q\n\027Act" +
-      "iveValidatorsRequest\030\002 \003(\0132P.swisschain." +
-      "sirius.GuardianValidatorApi.ActiveValida" +
-      "torsResponse.ActiveValidator\032E\n\017ActiveVa" +
-      "lidator\022\023\n\013validatorId\030\001 \001(\t\022\035\n\025validato" +
-      "rPublicKeyPem\030\002 \001(\t\"\256\001\n\022ValidatorsApiErr" +
-      "or\022S\n\004code\030\001 \001(\0162E.swisschain.sirius.Gua" +
-      "rdianValidatorApi.ValidatorsApiError.Err" +
-      "orCodes\022\017\n\007message\030\002 \001(\t\"2\n\nErrorCodes\022\013" +
-      "\n\007Unknown\020\000\022\027\n\023InternalServerError\020\0012\200\005\n" +
-      "\nValidators\022\244\001\n\025CreateApprovalRequest\022D." +
-      "swisschain.sirius.GuardianValidatorApi.C" +
-      "reateApprovalRequestRequest\032E.swisschain" +
-      ".sirius.GuardianValidatorApi.CreateAppro" +
-      "valRequestResponse\022\224\001\n\022GetApprovalResult" +
-      "s\022A.swisschain.sirius.GuardianValidatorA" +
-      "pi.GetApprovalResultsRequest\032;.swisschai" +
-      "n.sirius.GuardianValidatorApi.GetApprova" +
-      "lResponse\022\230\001\n\021AcknowledgeResult\022@.swissc" +
-      "hain.sirius.GuardianValidatorApi.Acknowl" +
-      "edgeResultRequest\032A.swisschain.sirius.Gu" +
-      "ardianValidatorApi.AcknowledgeResultResp" +
-      "onse\022\230\001\n\023GetActiveValidators\022?.swisschai" +
-      "n.sirius.GuardianValidatorApi.ActiveVali" +
-      "datorsRequest\032@.swisschain.sirius.Guardi" +
-      "anValidatorApi.ActiveValidatorsResponseB" +
-      "o\nDio.swisschain.sirius.guardianApi.gene" +
-      "rated.validatorApprovalRequests\252\002&Swissc" +
-      "hain.Sirius.GuardianValidatorApib\006proto3"
+      "d\030\001 \001(\t\022\021\n\ttenant_id\030\002 \001(\t\022 \n\030transferSi" +
+      "gningRequestId\030\003 \001(\t\022p\n\021validatorRequest" +
+      "s\030\004 \003(\0132U.swisschain.sirius.GuardianVali" +
+      "datorApi.CreateApprovalRequestRequest.Va" +
+      "lidatorRequest\032v\n\020ValidatorRequest\022\023\n\013va" +
+      "lidatorId\030\001 \001(\t\022#\n\033transactionDetailsEnc" +
+      "Base64\030\002 \001(\t\022\027\n\017secretEncBase64\030\003 \001(\t\022\017\n" +
+      "\007ivNonce\030\004 \001(\t\"j\n\035CreateApprovalRequestR" +
+      "esponse\022I\n\005error\030\001 \001(\0132:.swisschain.siri" +
+      "us.GuardianValidatorApi.ValidatorsApiErr" +
+      "or\"\033\n\031GetApprovalResultsRequest\"\372\002\n\023GetA" +
+      "pprovalResponse\022I\n\005error\030\001 \001(\0132:.swissch" +
+      "ain.sirius.GuardianValidatorApi.Validato" +
+      "rsApiError\022]\n\007payload\030\002 \003(\0132L.swisschain" +
+      ".sirius.GuardianValidatorApi.GetApproval" +
+      "Response.ApprovalResponse\032\201\001\n\020ApprovalRe" +
+      "sponse\022\023\n\013validatorId\030\001 \001(\t\022 \n\030transferS" +
+      "igningRequestId\030\002 \001(\t\022#\n\033resolutionDocum" +
+      "entEncBase64\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\"5\n" +
+      "\020ResolutionStatus\022\013\n\007approve\020\000\022\n\n\006reject" +
+      "\020\001\022\010\n\004skip\020\002\"Q\n\030AcknowledgeResultRequest" +
+      "\022 \n\030transferSigningRequestId\030\001 \001(\t\022\023\n\013va" +
+      "lidatorId\030\002 \001(\t\"f\n\031AcknowledgeResultResp" +
+      "onse\022I\n\005error\030\001 \001(\0132:.swisschain.sirius." +
+      "GuardianValidatorApi.ValidatorsApiError\"" +
+      ",\n\027ActiveValidatorsRequest\022\021\n\ttenant_id\030" +
+      "\001 \001(\t\"\237\002\n\030ActiveValidatorsResponse\022I\n\005er" +
+      "ror\030\001 \001(\0132:.swisschain.sirius.GuardianVa" +
+      "lidatorApi.ValidatorsApiError\022q\n\027ActiveV" +
+      "alidatorsRequest\030\002 \003(\0132P.swisschain.siri" +
+      "us.GuardianValidatorApi.ActiveValidators" +
+      "Response.ActiveValidator\032E\n\017ActiveValida" +
+      "tor\022\023\n\013validatorId\030\001 \001(\t\022\035\n\025validatorPub" +
+      "licKeyPem\030\002 \001(\t\"\256\001\n\022ValidatorsApiError\022S" +
+      "\n\004code\030\001 \001(\0162E.swisschain.sirius.Guardia" +
+      "nValidatorApi.ValidatorsApiError.ErrorCo" +
+      "des\022\017\n\007message\030\002 \001(\t\"2\n\nErrorCodes\022\013\n\007Un" +
+      "known\020\000\022\027\n\023InternalServerError\020\0012\200\005\n\nVal" +
+      "idators\022\244\001\n\025CreateApprovalRequest\022D.swis" +
+      "schain.sirius.GuardianValidatorApi.Creat" +
+      "eApprovalRequestRequest\032E.swisschain.sir" +
+      "ius.GuardianValidatorApi.CreateApprovalR" +
+      "equestResponse\022\224\001\n\022GetApprovalResults\022A." +
+      "swisschain.sirius.GuardianValidatorApi.G" +
+      "etApprovalResultsRequest\032;.swisschain.si" +
+      "rius.GuardianValidatorApi.GetApprovalRes" +
+      "ponse\022\230\001\n\021AcknowledgeResult\022@.swisschain" +
+      ".sirius.GuardianValidatorApi.Acknowledge" +
+      "ResultRequest\032A.swisschain.sirius.Guardi" +
+      "anValidatorApi.AcknowledgeResultResponse" +
+      "\022\230\001\n\023GetActiveValidators\022?.swisschain.si" +
+      "rius.GuardianValidatorApi.ActiveValidato" +
+      "rsRequest\032@.swisschain.sirius.GuardianVa" +
+      "lidatorApi.ActiveValidatorsResponseBo\nDi" +
+      "o.swisschain.sirius.guardianApi.generate" +
+      "d.validatorApprovalRequests\252\002&Swisschain" +
+      ".Sirius.GuardianValidatorApib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9687,13 +9988,13 @@ public final class ValidatorApprovalRequests {
     internal_static_swisschain_sirius_GuardianValidatorApi_CreateApprovalRequestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_GuardianValidatorApi_CreateApprovalRequestRequest_descriptor,
-        new java.lang.String[] { "RequestId", "TransferSigningRequestId", "ValidatorRequests", });
+        new java.lang.String[] { "RequestId", "TenantId", "TransferSigningRequestId", "ValidatorRequests", });
     internal_static_swisschain_sirius_GuardianValidatorApi_CreateApprovalRequestRequest_ValidatorRequest_descriptor =
       internal_static_swisschain_sirius_GuardianValidatorApi_CreateApprovalRequestRequest_descriptor.getNestedTypes().get(0);
     internal_static_swisschain_sirius_GuardianValidatorApi_CreateApprovalRequestRequest_ValidatorRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_GuardianValidatorApi_CreateApprovalRequestRequest_ValidatorRequest_descriptor,
-        new java.lang.String[] { "ValidaditorId", "TransactionDetailsEncBase64", "SecretEncBase64", "IvNonce", });
+        new java.lang.String[] { "ValidatorId", "TransactionDetailsEncBase64", "SecretEncBase64", "IvNonce", });
     internal_static_swisschain_sirius_GuardianValidatorApi_CreateApprovalRequestResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_swisschain_sirius_GuardianValidatorApi_CreateApprovalRequestResponse_fieldAccessorTable = new
@@ -9735,7 +10036,7 @@ public final class ValidatorApprovalRequests {
     internal_static_swisschain_sirius_GuardianValidatorApi_ActiveValidatorsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_swisschain_sirius_GuardianValidatorApi_ActiveValidatorsRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "TenantId", });
     internal_static_swisschain_sirius_GuardianValidatorApi_ActiveValidatorsResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_swisschain_sirius_GuardianValidatorApi_ActiveValidatorsResponse_fieldAccessorTable = new

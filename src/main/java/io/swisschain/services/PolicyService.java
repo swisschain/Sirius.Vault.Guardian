@@ -140,7 +140,9 @@ public class PolicyService {
         return;
       }
 
-      var validator = validatorsApiService.getValidatorById(validatorApproval.getValidatorId());
+      var validator =
+          validatorsApiService.getValidatorById(
+              transferValidationRequest.getTenantId(), validatorApproval.getValidatorId());
 
       if (validator == null) {
         logger.error(
@@ -222,7 +224,7 @@ public class PolicyService {
         validatorResponseRepository.getByTransferValidationRequestId(
             transferValidationRequest.getId());
 
-    var validators = validatorsApiService.getValidators();
+    var validators = validatorsApiService.getValidators(transferValidationRequest.getTenantId());
 
     RuleExecutionOutput executionOutput;
 
@@ -295,7 +297,10 @@ public class PolicyService {
               Base64.getEncoder().encodeToString(key),
               Base64.getEncoder().encodeToString(nonce));
 
-      validatorsApiService.sendApprovalRequest(transferValidationRequest.getId(), validatorRequest);
+      validatorsApiService.sendApprovalRequest(
+          transferValidationRequest.getTenantId(),
+          transferValidationRequest.getId(),
+          validatorRequest);
 
       try {
         validatorRequestRepository.insert(validatorRequest);
