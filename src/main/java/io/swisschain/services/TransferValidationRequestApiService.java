@@ -100,7 +100,7 @@ public class TransferValidationRequestApiService {
   }
 
   public void reject(TransferValidationRequest transferValidationRequest) {
-    var rejectRequest =
+    var rejectRequestBuilder =
         TransferValidationRequestsOuterClass.RejectTransferValidationRequestRequest.newBuilder()
             .setRequestId(
                 String.format(
@@ -109,12 +109,16 @@ public class TransferValidationRequestApiService {
             .setRejectionReason(
                 TransferValidationRequestsOuterClass.TransferValidationRequestRejectionReason
                     .REJECTED_BY_POLICY)
-            .setRejectionReasonMessage(transferValidationRequest.getRejectReasonMessage())
             .setDocument(transferValidationRequest.getDocument())
             .setSignature(transferValidationRequest.getSignature())
-            .setHostProcessId(hostProcessId)
-            .build();
+            .setHostProcessId(hostProcessId);
 
+    if (transferValidationRequest.getRejectReasonMessage() != null) {
+      rejectRequestBuilder.setRejectionReasonMessage(
+          transferValidationRequest.getRejectReasonMessage());
+    }
+
+    var rejectRequest = rejectRequestBuilder.build();
     var response = vaultApiClient.getTransferValidationRequests().reject(rejectRequest);
 
     if (response.getBodyCase()
