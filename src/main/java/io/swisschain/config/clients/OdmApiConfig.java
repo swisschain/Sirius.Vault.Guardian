@@ -1,6 +1,6 @@
-package io.swisschain.config.policy;
+package io.swisschain.config.clients;
 
-public class OdmConfig {
+public class OdmApiConfig {
   public boolean enable;
   public String baseUrl;
   public String policySelectorPath;

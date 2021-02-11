@@ -4,6 +4,8 @@ import io.swisschain.config.AppConfig;
 import io.swisschain.config.loaders.ConfigLoader;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
 import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
+import io.swisschain.domain.document.CustomerKey;
+import io.swisschain.domain.document.TenantKey;
 import io.swisschain.isAlive.IsAliveService;
 import io.swisschain.odm.OdmClient;
 import io.swisschain.repositories.*;
@@ -16,6 +18,8 @@ import io.swisschain.utils.AppVersion;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -44,18 +48,18 @@ public class AppStarter {
     var vaultApiClient =
         new VaultApiClient(
             ChannelFactory.create(
-                appConfig.vaultApi.host,
-                appConfig.vaultApi.port,
-                appConfig.vaultApi.ssl,
-                appConfig.vaultApi.apiKey));
+                appConfig.clients.vaultApi.host,
+                appConfig.clients.vaultApi.port,
+                appConfig.clients.vaultApi.ssl,
+                appConfig.clients.vaultApi.apiKey));
 
     var guardianApiClient =
         new GuardianApiClient(
             ChannelFactory.create(
-                appConfig.guardianApi.host,
-                appConfig.guardianApi.port,
-                appConfig.guardianApi.ssl,
-                appConfig.guardianApi.apiKey));
+                appConfig.clients.guardianApi.host,
+                appConfig.clients.guardianApi.port,
+                appConfig.clients.guardianApi.ssl,
+                appConfig.clients.guardianApi.apiKey));
 
     // Repositories
 
@@ -81,12 +85,27 @@ public class AppStarter {
     var validatorsApiService = new ValidatorsApiService(guardianApiClient);
 
     var documentBuilder =
-        new DocumentBuilder(asymmetricEncryptionService, appConfig.privateKey, jsonSerializer);
+        new DocumentBuilder(
+            asymmetricEncryptionService, appConfig.keys.guardian.privateKey, jsonSerializer);
+
+    var customerKey = new CustomerKey(appConfig.keys.customer.publicKey);
+    var tenantKeys = new ArrayList<TenantKey>();
+
+    for (var tenantKeyConfig : appConfig.keys.tenants) {
+      tenantKeys.add(new TenantKey(tenantKeyConfig.tenantId, tenantKeyConfig.publicKey));
+    }
+
+    var documentValidator =
+        new DocumentValidator(asymmetricEncryptionService, customerKey, tenantKeys);
 
     RuleExecutor ruleExecutor;
 
-    if(appConfig.odm != null && appConfig.odm.enable){
-      var odmClient = new OdmClient(appConfig.odm.baseUrl, appConfig.odm.policySelectorPath, jsonSerializer);
+    if (appConfig.clients.odmApi != null && appConfig.clients.odmApi.enable) {
+      var odmClient =
+          new OdmClient(
+              appConfig.clients.odmApi.baseUrl,
+              appConfig.clients.odmApi.policySelectorPath,
+              jsonSerializer);
       ruleExecutor = new OdmRuleExecutor(odmClient);
       logger.info("RuleExecutor: ODM");
     } else {
@@ -96,7 +115,7 @@ public class AppStarter {
 
     var policyService =
         new PolicyService(
-                ruleExecutor,
+            ruleExecutor,
             validatorsApiService,
             transferValidationRequestApiService,
             transferValidationRequestRepository,
@@ -105,6 +124,7 @@ public class AppStarter {
             symmetricEncryptionService,
             asymmetricEncryptionService,
             documentBuilder,
+            documentValidator,
             jsonSerializer);
 
     // Tasks

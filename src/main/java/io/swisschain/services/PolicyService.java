@@ -21,6 +21,7 @@ import org.bouncycastle.crypto.InvalidCipherTextException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class PolicyService {
   private final SymmetricEncryptionService symmetricEncryptionService;
   private final AsymmetricEncryptionService asymmetricEncryptionService;
   private final DocumentBuilder documentBuilder;
+  private final DocumentValidator documentValidator;
   private final JsonSerializer jsonSerializer;
 
   public PolicyService(
@@ -48,6 +50,7 @@ public class PolicyService {
       SymmetricEncryptionService symmetricEncryptionService,
       AsymmetricEncryptionService asymmetricEncryptionService,
       DocumentBuilder documentBuilder,
+      DocumentValidator documentValidator,
       JsonSerializer jsonSerializer) {
     this.ruleExecutor = ruleExecutor;
     this.validatorsApiService = validatorsApiService;
@@ -58,6 +61,7 @@ public class PolicyService {
     this.symmetricEncryptionService = symmetricEncryptionService;
     this.asymmetricEncryptionService = asymmetricEncryptionService;
     this.documentBuilder = documentBuilder;
+    this.documentValidator = documentValidator;
     this.jsonSerializer = jsonSerializer;
   }
 
@@ -86,7 +90,12 @@ public class PolicyService {
         return;
       }
     }
-    processTransferValidationRequest(transferValidationRequest);
+
+    var isValidDocument = validateDocument(transferValidationRequest);
+
+    if (isValidDocument) {
+      processTransferValidationRequest(transferValidationRequest);
+    }
   }
 
   public void processApproval(ValidatorApproval validatorApproval) throws Exception {
@@ -214,6 +223,47 @@ public class PolicyService {
         validatorApproval.getValidatorId(), validatorApproval.getTransferApprovalRequestId());
   }
 
+  private boolean validateDocument(TransferValidationRequest transferValidationRequest)
+      throws Exception {
+    var document = transferValidationRequest.getDocument();
+
+    if (document == null || document.isEmpty()) {
+      return true;
+    }
+
+    var apiKey =
+        transferValidationRequest
+            .getTransferDetails()
+            .getTransferContext()
+            .getRequestContext()
+            .getApiKeyId();
+
+    var signature = transferValidationRequest.getSignature();
+
+    if ((signature == null || signature.isEmpty()) && (apiKey == null || apiKey.isEmpty())) {
+      return true;
+    }
+
+    var signatureValidationResult =
+        documentValidator.Validate(
+            transferValidationRequest.getDocument(),
+            transferValidationRequest.getSignature(),
+            transferValidationRequest.getTenantId());
+
+    if (!signatureValidationResult.isValid()) {
+      transferValidationRequest.reject(signatureValidationResult.getReason());
+      var signedDocument =
+          documentBuilder.build(transferValidationRequest, new ArrayList<>(), new ArrayList<>());
+      transferValidationRequest.updateDocument(
+          signedDocument.getDocument(), signedDocument.getSignature());
+      transferValidationRequestApiService.reject(transferValidationRequest);
+
+      return false;
+    }
+
+    return true;
+  }
+
   private void processTransferValidationRequest(TransferValidationRequest transferValidationRequest)
       throws Exception {
     var validatorRequests =
@@ -248,14 +298,14 @@ public class PolicyService {
       if (ruleExecutionOutput.getAction() == RuleExecutionAction.Approve) {
         transferValidationRequest.approve();
         var signedDocument =
-            documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
+            documentBuilder.build(transferValidationRequest, validatorResponses, validatorRequests);
         transferValidationRequest.updateDocument(
             signedDocument.getDocument(), signedDocument.getSignature());
         transferValidationRequestApiService.confirm(transferValidationRequest);
       } else if (ruleExecutionOutput.getAction() == RuleExecutionAction.Reject) {
         transferValidationRequest.reject(ruleExecutionOutput.getRejectReasonMessage());
         var signedDocument =
-            documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
+            documentBuilder.build(transferValidationRequest, validatorResponses, validatorRequests);
         transferValidationRequest.updateDocument(
             signedDocument.getDocument(), signedDocument.getSignature());
         transferValidationRequestApiService.reject(transferValidationRequest);

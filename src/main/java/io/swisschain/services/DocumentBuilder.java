@@ -29,7 +29,7 @@ public class DocumentBuilder {
     this.jsonSerializer = jsonSerializer;
   }
 
-  public SignedDocument buid(
+  public SignedDocument build(
       TransferValidationRequest transferValidationRequest,
       List<ValidatorResponse> validatorResponses,
       List<ValidatorRequest> validatorRequests)

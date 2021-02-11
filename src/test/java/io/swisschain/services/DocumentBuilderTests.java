@@ -165,7 +165,7 @@ public class DocumentBuilderTests {
     // ack
 
     var signedDocument =
-        documentBuilder.buid(transferValidationRequest, validatorResponses, validatorRequests);
+        documentBuilder.build(transferValidationRequest, validatorResponses, validatorRequests);
 
     var signatureIsValid = asymmetricEncryptionService.verifySignature(
         signedDocument.getDocument().getBytes(StandardCharsets.UTF_8),
