@@ -225,7 +225,11 @@ public class PolicyService {
 
   private boolean validateDocument(TransferValidationRequest transferValidationRequest)
       throws Exception {
-    var document = transferValidationRequest.getDocument();
+    var document =
+        transferValidationRequest.getTransferDetails().getTransferContext().getDocument();
+
+    var signature =
+        transferValidationRequest.getTransferDetails().getTransferContext().getSignature();
 
     if (document == null || document.isEmpty()) {
       return true;
@@ -238,17 +242,12 @@ public class PolicyService {
             .getRequestContext()
             .getApiKeyId();
 
-    var signature = transferValidationRequest.getSignature();
-
     if ((signature == null || signature.isEmpty()) && (apiKey == null || apiKey.isEmpty())) {
       return true;
     }
 
     var signatureValidationResult =
-        documentValidator.Validate(
-            transferValidationRequest.getDocument(),
-            transferValidationRequest.getSignature(),
-            transferValidationRequest.getTenantId());
+        documentValidator.Validate(document, signature, transferValidationRequest.getTenantId());
 
     if (!signatureValidationResult.isValid()) {
       transferValidationRequest.reject(signatureValidationResult.getReason());
