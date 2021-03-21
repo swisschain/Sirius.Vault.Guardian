@@ -1,6 +1,6 @@
-package io.swisschain.repositories.entities;
+package io.swisschain.repositories.validatorRequests;
 
-import io.swisschain.repositories.common.Entity;
+import io.swisschain.repositories.Entity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

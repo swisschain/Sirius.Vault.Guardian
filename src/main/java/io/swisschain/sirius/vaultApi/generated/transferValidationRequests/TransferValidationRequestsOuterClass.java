@@ -14681,6 +14681,10 @@ public final class TransferValidationRequestsOuterClass {
        * <code>INVALID_PARAMETERS = 1;</code>
        */
       INVALID_PARAMETERS(1),
+      /**
+       * <code>INVALID_STATE = 2;</code>
+       */
+      INVALID_STATE(2),
       UNRECOGNIZED(-1),
       ;
 
@@ -14692,6 +14696,10 @@ public final class TransferValidationRequestsOuterClass {
        * <code>INVALID_PARAMETERS = 1;</code>
        */
       public static final int INVALID_PARAMETERS_VALUE = 1;
+      /**
+       * <code>INVALID_STATE = 2;</code>
+       */
+      public static final int INVALID_STATE_VALUE = 2;
 
 
       public final int getNumber() {
@@ -14720,6 +14728,7 @@ public final class TransferValidationRequestsOuterClass {
         switch (value) {
           case 0: return UNKNOWN;
           case 1: return INVALID_PARAMETERS;
+          case 2: return INVALID_STATE;
           default: return null;
         }
       }
@@ -18175,6 +18184,10 @@ public final class TransferValidationRequestsOuterClass {
        * <code>INVALID_PARAMETERS = 1;</code>
        */
       INVALID_PARAMETERS(1),
+      /**
+       * <code>INVALID_STATE = 2;</code>
+       */
+      INVALID_STATE(2),
       UNRECOGNIZED(-1),
       ;
 
@@ -18186,6 +18199,10 @@ public final class TransferValidationRequestsOuterClass {
        * <code>INVALID_PARAMETERS = 1;</code>
        */
       public static final int INVALID_PARAMETERS_VALUE = 1;
+      /**
+       * <code>INVALID_STATE = 2;</code>
+       */
+      public static final int INVALID_STATE_VALUE = 2;
 
 
       public final int getNumber() {
@@ -18214,6 +18231,7 @@ public final class TransferValidationRequestsOuterClass {
         switch (value) {
           case 0: return UNKNOWN;
           case 1: return INVALID_PARAMETERS;
+          case 2: return INVALID_STATE;
           default: return null;
         }
       }
@@ -19958,65 +19976,66 @@ public final class TransferValidationRequestsOuterClass {
       "_id\030\002 \001(\003\022\020\n\010document\030\003 \001(\t\022\021\n\tsignature" +
       "\030\004 \001(\t\022\027\n\017host_process_id\030\005 \001(\t\".\n,Confi" +
       "rmTransferValidationRequestResponseBody\"" +
-      "\205\002\n1ConfirmTransferValidationRequestErro" +
+      "\230\002\n1ConfirmTransferValidationRequestErro" +
       "rResponseBody\022\206\001\n\nerror_code\030\001 \001(\0162r.swi" +
       "sschain.sirius.vaultApi.transferValidati" +
       "onRequests.ConfirmTransferValidationRequ" +
       "estErrorResponseBody.ErrorCode\022\025\n\rerror_" +
-      "message\030\002 \001(\t\"0\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022" +
-      "\026\n\022INVALID_PARAMETERS\020\001\"\246\002\n(ConfirmTrans" +
-      "ferValidationRequestResponse\022w\n\010response" +
-      "\030\001 \001(\0132c.swisschain.sirius.vaultApi.tran" +
-      "sferValidationRequests.ConfirmTransferVa" +
-      "lidationRequestResponseBodyH\000\022y\n\005error\030\002" +
-      " \001(\0132h.swisschain.sirius.vaultApi.transf" +
-      "erValidationRequests.ConfirmTransferVali" +
-      "dationRequestErrorResponseBodyH\000B\006\n\004body" +
-      "\"\277\002\n&RejectTransferValidationRequestRequ" +
-      "est\022\022\n\nrequest_id\030\001 \001(\t\022&\n\036transfer_vali" +
-      "dation_request_id\030\002 \001(\003\022y\n\020rejection_rea" +
-      "son\030\003 \001(\0162_.swisschain.sirius.vaultApi.t" +
-      "ransferValidationRequests.TransferValida" +
-      "tionRequestRejectionReason\022 \n\030rejection_" +
-      "reason_message\030\004 \001(\t\022\020\n\010document\030\005 \001(\t\022\021" +
-      "\n\tsignature\030\006 \001(\t\022\027\n\017host_process_id\030\007 \001" +
-      "(\t\"-\n+RejectTransferValidationRequestRes" +
-      "ponseBody\"\203\002\n0RejectTransferValidationRe" +
-      "questErrorResponseBody\022\205\001\n\nerror_code\030\001 " +
-      "\001(\0162q.swisschain.sirius.vaultApi.transfe" +
-      "rValidationRequests.RejectTransferValida" +
-      "tionRequestErrorResponseBody.ErrorCode\022\025" +
-      "\n\rerror_message\030\002 \001(\t\"0\n\tErrorCode\022\013\n\007UN" +
-      "KNOWN\020\000\022\026\n\022INVALID_PARAMETERS\020\001\"\243\002\n\'Reje" +
-      "ctTransferValidationRequestResponse\022v\n\010r" +
-      "esponse\030\001 \001(\0132b.swisschain.sirius.vaultA" +
-      "pi.transferValidationRequests.RejectTran" +
-      "sferValidationRequestResponseBodyH\000\022x\n\005e" +
-      "rror\030\002 \001(\0132g.swisschain.sirius.vaultApi." +
-      "transferValidationRequests.RejectTransfe" +
-      "rValidationRequestErrorResponseBodyH\000B\006\n" +
-      "\004body*M\n(TransferValidationRequestReject" +
-      "ionReason\022\t\n\005OTHER\020\000\022\026\n\022REJECTED_BY_POLI" +
-      "CY\020\0012\366\004\n\032TransferValidationRequests\022\300\001\n\003" +
-      "Get\022[.swisschain.sirius.vaultApi.transfe" +
-      "rValidationRequests.GetTransferValidatio" +
-      "nRequestsRequest\032\\.swisschain.sirius.vau" +
-      "ltApi.transferValidationRequests.GetTran" +
-      "sferValidationRequestsResponse\022\312\001\n\007Confi" +
-      "rm\022^.swisschain.sirius.vaultApi.transfer" +
-      "ValidationRequests.ConfirmTransferValida" +
-      "tionRequestRequest\032_.swisschain.sirius.v" +
-      "aultApi.transferValidationRequests.Confi" +
-      "rmTransferValidationRequestResponse\022\307\001\n\006" +
-      "Reject\022].swisschain.sirius.vaultApi.tran" +
-      "sferValidationRequests.RejectTransferVal" +
-      "idationRequestRequest\032^.swisschain.siriu" +
-      "s.vaultApi.transferValidationRequests.Re" +
-      "jectTransferValidationRequestResponseB\210\001" +
-      "\nBio.swisschain.sirius.vaultApi.generate" +
-      "d.transferValidationRequests\252\002ASwisschai" +
-      "n.Sirius.VaultApi.ApiContract.TransferVa" +
-      "lidationRequestsb\006proto3"
+      "message\030\002 \001(\t\"C\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022" +
+      "\026\n\022INVALID_PARAMETERS\020\001\022\021\n\rINVALID_STATE" +
+      "\020\002\"\246\002\n(ConfirmTransferValidationRequestR" +
+      "esponse\022w\n\010response\030\001 \001(\0132c.swisschain.s" +
+      "irius.vaultApi.transferValidationRequest" +
+      "s.ConfirmTransferValidationRequestRespon" +
+      "seBodyH\000\022y\n\005error\030\002 \001(\0132h.swisschain.sir" +
+      "ius.vaultApi.transferValidationRequests." +
+      "ConfirmTransferValidationRequestErrorRes" +
+      "ponseBodyH\000B\006\n\004body\"\277\002\n&RejectTransferVa" +
+      "lidationRequestRequest\022\022\n\nrequest_id\030\001 \001" +
+      "(\t\022&\n\036transfer_validation_request_id\030\002 \001" +
+      "(\003\022y\n\020rejection_reason\030\003 \001(\0162_.swisschai" +
+      "n.sirius.vaultApi.transferValidationRequ" +
+      "ests.TransferValidationRequestRejectionR" +
+      "eason\022 \n\030rejection_reason_message\030\004 \001(\t\022" +
+      "\020\n\010document\030\005 \001(\t\022\021\n\tsignature\030\006 \001(\t\022\027\n\017" +
+      "host_process_id\030\007 \001(\t\"-\n+RejectTransferV" +
+      "alidationRequestResponseBody\"\226\002\n0RejectT" +
+      "ransferValidationRequestErrorResponseBod" +
+      "y\022\205\001\n\nerror_code\030\001 \001(\0162q.swisschain.siri" +
+      "us.vaultApi.transferValidationRequests.R" +
+      "ejectTransferValidationRequestErrorRespo" +
+      "nseBody.ErrorCode\022\025\n\rerror_message\030\002 \001(\t" +
+      "\"C\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026\n\022INVALID_PA" +
+      "RAMETERS\020\001\022\021\n\rINVALID_STATE\020\002\"\243\002\n\'Reject" +
+      "TransferValidationRequestResponse\022v\n\010res" +
+      "ponse\030\001 \001(\0132b.swisschain.sirius.vaultApi" +
+      ".transferValidationRequests.RejectTransf" +
+      "erValidationRequestResponseBodyH\000\022x\n\005err" +
+      "or\030\002 \001(\0132g.swisschain.sirius.vaultApi.tr" +
+      "ansferValidationRequests.RejectTransferV" +
+      "alidationRequestErrorResponseBodyH\000B\006\n\004b" +
+      "ody*M\n(TransferValidationRequestRejectio" +
+      "nReason\022\t\n\005OTHER\020\000\022\026\n\022REJECTED_BY_POLICY" +
+      "\020\0012\366\004\n\032TransferValidationRequests\022\300\001\n\003Ge" +
+      "t\022[.swisschain.sirius.vaultApi.transferV" +
+      "alidationRequests.GetTransferValidationR" +
+      "equestsRequest\032\\.swisschain.sirius.vault" +
+      "Api.transferValidationRequests.GetTransf" +
+      "erValidationRequestsResponse\022\312\001\n\007Confirm" +
+      "\022^.swisschain.sirius.vaultApi.transferVa" +
+      "lidationRequests.ConfirmTransferValidati" +
+      "onRequestRequest\032_.swisschain.sirius.vau" +
+      "ltApi.transferValidationRequests.Confirm" +
+      "TransferValidationRequestResponse\022\307\001\n\006Re" +
+      "ject\022].swisschain.sirius.vaultApi.transf" +
+      "erValidationRequests.RejectTransferValid" +
+      "ationRequestRequest\032^.swisschain.sirius." +
+      "vaultApi.transferValidationRequests.Reje" +
+      "ctTransferValidationRequestResponseB\210\001\nB" +
+      "io.swisschain.sirius.vaultApi.generated." +
+      "transferValidationRequests\252\002ASwisschain." +
+      "Sirius.VaultApi.ApiContract.TransferVali" +
+      "dationRequestsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -1,4 +1,4 @@
-package io.swisschain.repositories.common;
+package io.swisschain.repositories;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

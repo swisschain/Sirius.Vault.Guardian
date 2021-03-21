@@ -7,19 +7,25 @@ import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
 import io.swisschain.domain.document.CustomerKey;
 import io.swisschain.domain.document.TenantKey;
 import io.swisschain.isAlive.IsAliveService;
-import io.swisschain.odm.OdmClient;
+import io.swisschain.odm.OdmClientImp;
+import io.swisschain.odm.OdmClientRetryDecorator;
 import io.swisschain.repositories.*;
+import io.swisschain.repositories.transferValidationRequests.TransferValidationRequestRepositoryImp;
+import io.swisschain.repositories.transferValidationRequests.TransferValidationRequestRepositoryRetryDecorator;
+import io.swisschain.repositories.validatorRequests.ValidatorRequestRepositoryImp;
+import io.swisschain.repositories.validatorRequests.ValidatorRequestRepositoryRetryDecorator;
+import io.swisschain.repositories.validatorResponses.ValidatorResponseRepositoryImp;
+import io.swisschain.repositories.validatorResponses.ValidatorResponseRepositoryRetryDecorator;
 import io.swisschain.services.*;
 import io.swisschain.sirius.ChannelFactory;
 import io.swisschain.sirius.guardianApi.GuardianApiClient;
 import io.swisschain.sirius.vaultApi.VaultApiClient;
 import io.swisschain.tasks.*;
-import io.swisschain.utils.AppVersion;
+import io.swisschain.common.AppVersion;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -68,21 +74,32 @@ public class AppStarter {
             appConfig.db.url, appConfig.db.user, appConfig.db.password, appConfig.db.schema);
 
     var transferValidationRequestRepository =
-        new TransferValidationRequestRepository(connectionFactory, jsonSerializer);
+        new TransferValidationRequestRepositoryRetryDecorator(
+            new TransferValidationRequestRepositoryImp(connectionFactory, jsonSerializer));
 
-    var validatorRequestRepository = new ValidatorRequestRepository(connectionFactory);
+    var validatorRequestRepository =
+        new ValidatorRequestRepositoryRetryDecorator(
+            new ValidatorRequestRepositoryImp(connectionFactory));
 
-    var validatorResponseRepository = new ValidatorResponseRepository(connectionFactory);
+    var validatorResponseRepository =
+        new ValidatorResponseRepositoryRetryDecorator(
+            new ValidatorResponseRepositoryImp(connectionFactory));
 
     // Services
 
     var asymmetricEncryptionService = new AsymmetricEncryptionService();
     var symmetricEncryptionService = new SymmetricEncryptionService();
 
-    var transferValidationRequestApiService =
-        new TransferValidationRequestApiService(vaultApiClient, hostProcessId);
+    var transferApiService =
+        new TransferApiServiceRetryDecorator(
+            new TransferApiServiceImp(vaultApiClient, hostProcessId));
 
-    var validatorsApiService = new ValidatorsApiService(guardianApiClient);
+    var validatorApiService =
+        new ValidatorApiServiceRetryDecorator(new ValidatorApiServiceImp(guardianApiClient));
+
+    var validatorApprovalApiService =
+        new ValidatorApprovalApiServiceRetryDecorator(
+            new ValidatorApprovalApiServiceImp(guardianApiClient));
 
     var documentBuilder =
         new DocumentBuilder(
@@ -102,10 +119,11 @@ public class AppStarter {
 
     if (appConfig.clients.odmApi != null && appConfig.clients.odmApi.enable) {
       var odmClient =
-          new OdmClient(
-              appConfig.clients.odmApi.baseUrl,
-              appConfig.clients.odmApi.policySelectorPath,
-              jsonSerializer);
+          new OdmClientRetryDecorator(
+              new OdmClientImp(
+                  appConfig.clients.odmApi.baseUrl,
+                  appConfig.clients.odmApi.policySelectorPath,
+                  jsonSerializer));
       ruleExecutor = new OdmRuleExecutor(odmClient);
       logger.info("RuleExecutor: ODM");
     } else {
@@ -116,8 +134,9 @@ public class AppStarter {
     var policyService =
         new PolicyService(
             ruleExecutor,
-            validatorsApiService,
-            transferValidationRequestApiService,
+            validatorApiService,
+            validatorApprovalApiService,
+            transferApiService,
             transferValidationRequestRepository,
             validatorRequestRepository,
             validatorResponseRepository,
@@ -132,14 +151,14 @@ public class AppStarter {
     var service = Executors.newScheduledThreadPool(2);
 
     service.scheduleWithFixedDelay(
-        new HandleValidationRequestsTask(transferValidationRequestApiService, policyService),
+        new HandleValidationRequestsTask(transferApiService, policyService),
         0,
         appConfig.tasks != null && appConfig.tasks.validationRequestsPeriodInSeconds > 0
             ? appConfig.tasks.validationRequestsPeriodInSeconds
             : 1,
         TimeUnit.SECONDS);
     service.scheduleWithFixedDelay(
-        new HandleValidatorResponsesTask(validatorsApiService, policyService),
+        new HandleValidatorResponsesTask(validatorApprovalApiService, policyService),
         0,
         appConfig.tasks != null && appConfig.tasks.validatorResponsesPeriodInSeconds > 0
             ? appConfig.tasks.validatorResponsesPeriodInSeconds

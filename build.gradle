@@ -47,6 +47,8 @@ dependencies {
 
     compile "org.flywaydb:flyway-core:$flyway_version"
     compile "org.postgresql:postgresql:$postgres_version"
+
+    compile "com.evanlennick:retry4j:0.15.0"
 }
 
 sourceSets {

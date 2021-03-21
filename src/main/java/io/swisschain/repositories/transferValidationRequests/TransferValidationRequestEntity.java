@@ -1,7 +1,7 @@
-package io.swisschain.repositories.entities;
+package io.swisschain.repositories.transferValidationRequests;
 
 import io.swisschain.domain.transfers.TransferValidationRequestStatus;
-import io.swisschain.repositories.common.Entity;
+import io.swisschain.repositories.Entity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

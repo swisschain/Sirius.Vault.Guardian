@@ -3,6 +3,8 @@ package io.swisschain.services;
 import com.google.protobuf.Timestamp;
 import io.grpc.StatusRuntimeException;
 import io.swisschain.contracts.*;
+import io.swisschain.domain.exceptions.OperationExhaustedException;
+import io.swisschain.domain.exceptions.OperationFailedException;
 import io.swisschain.domain.transfers.TransferValidationRequest;
 import io.swisschain.mappers.NetworkTypeMapper;
 import io.swisschain.mappers.TagTypeMapper;
@@ -11,66 +13,46 @@ import io.swisschain.sirius.vaultApi.VaultApiClient;
 import io.swisschain.sirius.vaultApi.generated.transferValidationRequests.TransferValidationRequestsOuterClass;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class TransferValidationRequestApiService {
-  private static final Logger logger = LogManager.getLogger();
-
+public class TransferApiServiceImp implements TransferApiService {
+  private final Logger logger = LogManager.getLogger();
   private final VaultApiClient vaultApiClient;
   private final String hostProcessId;
 
-  public TransferValidationRequestApiService(VaultApiClient vaultApiClient, String hostProcessId) {
+  public TransferApiServiceImp(VaultApiClient vaultApiClient, String hostProcessId) {
     this.vaultApiClient = vaultApiClient;
     this.hostProcessId = hostProcessId;
   }
 
-  @Nullable
-  public List<TransferValidationRequest> getRequests() {
-    try {
-      var request =
-          TransferValidationRequestsOuterClass.GetTransferValidationRequestsRequest.newBuilder()
-              .build();
-      var response = vaultApiClient.getTransferValidationRequests().get(request);
+  @Override
+  public List<TransferValidationRequest> get() {
+    var request =
+        TransferValidationRequestsOuterClass.GetTransferValidationRequestsRequest.newBuilder()
+            .build();
+    var response = vaultApiClient.getTransferValidationRequests().get(request);
 
-      if (response.getBodyCase()
-          == TransferValidationRequestsOuterClass.GetTransferValidationRequestsResponse.BodyCase
-              .ERROR) {
-        logger.error(
-            String.format(
-                "An error occurred while getting transfer validation requests. %s",
-                response.getError().getErrorMessage()));
-        return null;
-      }
-
-      var validationRequests = new ArrayList<TransferValidationRequest>();
-
-      for (var validationRequest : response.getResponse().getRequestsList()) {
-        try {
-          validationRequests.add(map(validationRequest));
-        } catch (Exception exception) {
-          logger.error(
-              String.format(
-                  "Can not parse transfer validation request. TransferValidationRequestId: %d",
-                  validationRequest.getId()),
-              exception);
-        }
-      }
-
-      return validationRequests;
-    } catch (StatusRuntimeException statusRuntimeException) {
-      logger.warn(
+    if (response.getBodyCase()
+        == TransferValidationRequestsOuterClass.GetTransferValidationRequestsResponse.BodyCase
+            .ERROR) {
+      logger.error(
           String.format(
-              "Unable to get list of transfer validation requests due to %s network status",
-              statusRuntimeException.getStatus().getCode().name()));
-      return null;
+              "An error occurred while getting transfer validation requests. %s %s",
+              response.getError().getErrorCode().name(), response.getError().getErrorMessage()));
+      return new ArrayList<>();
     }
+
+    return response.getResponse().getRequestsList().stream()
+        .map(this::map)
+        .collect(Collectors.toList());
   }
 
+  @Override
   public void confirm(TransferValidationRequest transferValidationRequest) {
     var conformationRequest =
         TransferValidationRequestsOuterClass.ConfirmTransferValidationRequestRequest.newBuilder()
@@ -88,17 +70,27 @@ public class TransferValidationRequestApiService {
     if (response.getBodyCase()
         == TransferValidationRequestsOuterClass.ConfirmTransferValidationRequestResponse.BodyCase
             .ERROR) {
-      logger.error(
+      var message =
           String.format(
-              "An error occurred while confirming transfer validation request. %s",
-              response.getError().getErrorMessage()));
+              "It is not possible to confirm transfer validation request %d. %s %s",
+              transferValidationRequest.getId(),
+              response.getError().getErrorCode().name(),
+              response.getError().getErrorMessage());
+      if (response.getError().getErrorCode()
+          == TransferValidationRequestsOuterClass.ConfirmTransferValidationRequestErrorResponseBody
+              .ErrorCode.INVALID_STATE) {
+        logger.warn(message);
+      } else {
+        logger.error(message);
+      }
     } else {
       logger.info(
           String.format(
-              "Transfer validation request confirmed. %d", transferValidationRequest.getId()));
+              "Transfer validation request %d confirmed.", transferValidationRequest.getId()));
     }
   }
 
+  @Override
   public void reject(TransferValidationRequest transferValidationRequest) {
     var rejectRequestBuilder =
         TransferValidationRequestsOuterClass.RejectTransferValidationRequestRequest.newBuilder()
@@ -124,14 +116,23 @@ public class TransferValidationRequestApiService {
     if (response.getBodyCase()
         == TransferValidationRequestsOuterClass.RejectTransferValidationRequestResponse.BodyCase
             .ERROR) {
-      logger.error(
+      var message =
           String.format(
-              "An error occurred while rejecting transfer validation request. %s",
-              response.getError().getErrorMessage()));
+              "It is not possible to reject transfer validation request %d. %s %s",
+              transferValidationRequest.getId(),
+              response.getError().getErrorCode().name(),
+              response.getError().getErrorMessage());
+      if (response.getError().getErrorCode()
+          == TransferValidationRequestsOuterClass.RejectTransferValidationRequestErrorResponseBody
+              .ErrorCode.INVALID_STATE) {
+        logger.warn(message);
+      } else {
+        logger.error(message);
+      }
     } else {
       logger.info(
           String.format(
-              "Transfer validation request rejected. %d", transferValidationRequest.getId()));
+              "Transfer validation request %d rejected.", transferValidationRequest.getId()));
     }
   }
 
