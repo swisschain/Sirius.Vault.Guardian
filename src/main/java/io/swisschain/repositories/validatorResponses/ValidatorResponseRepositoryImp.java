@@ -1,20 +1,18 @@
-package io.swisschain.repositories;
+package io.swisschain.repositories.validatorResponses;
 
 import io.swisschain.domain.validators.ValidatorResponse;
-import io.swisschain.repositories.common.Repository;
-import io.swisschain.repositories.entities.ValidatorResponseEntity;
-import io.swisschain.repositories.exceptions.AlreadyExistsException;
+import io.swisschain.repositories.DbConnectionFactory;
+import io.swisschain.domain.exceptions.AlreadyExistsException;
 
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValidatorResponseRepository extends Repository {
+public class ValidatorResponseRepositoryImp implements ValidatorResponseRepository {
   private final String tableName = "validator_responses";
   private final DbConnectionFactory connectionFactory;
 
-  public ValidatorResponseRepository(DbConnectionFactory connectionFactory) {
+  public ValidatorResponseRepositoryImp(DbConnectionFactory connectionFactory) {
     this.connectionFactory = connectionFactory;
   }
 
@@ -63,12 +61,6 @@ public class ValidatorResponseRepository extends Repository {
       statement.setTimestamp(9, Timestamp.from(validatorResponse.getCreatedAt()));
 
       statement.execute();
-    } catch (SQLException exception) {
-      if (exception.getSQLState().equals(UniqueViolationErrorCode)) {
-        throw new AlreadyExistsException();
-      }
-      throw new Exception(
-          "An unexpected error occurred while inserting validator request.", exception);
     }
   }
 

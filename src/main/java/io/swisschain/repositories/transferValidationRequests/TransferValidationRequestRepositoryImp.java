@@ -1,35 +1,26 @@
-package io.swisschain.repositories;
+package io.swisschain.repositories.transferValidationRequests;
 
 import io.swisschain.contracts.TransferDetails;
 import io.swisschain.domain.transfers.TransferValidationRequest;
-import io.swisschain.domain.transfers.TransferValidationRequestStatus;
-import io.swisschain.repositories.common.Repository;
-import io.swisschain.repositories.entities.TransferValidationRequestEntity;
-import io.swisschain.repositories.exceptions.AlreadyExistsException;
+import io.swisschain.repositories.DbConnectionFactory;
 import io.swisschain.services.JsonSerializer;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
-public class TransferValidationRequestRepository extends Repository {
+public class TransferValidationRequestRepositoryImp implements TransferValidationRequestRepository {
   private final String tableName = "transfer_validation_requests";
   private final DbConnectionFactory connectionFactory;
   private final JsonSerializer jsonSerializer;
 
-  public TransferValidationRequestRepository(
+  public TransferValidationRequestRepositoryImp(
       DbConnectionFactory connectionFactory, JsonSerializer jsonSerializer) {
     this.connectionFactory = connectionFactory;
     this.jsonSerializer = jsonSerializer;
   }
 
-  public List<TransferValidationRequest> getByStatus(TransferValidationRequestStatus status) {
-    return new ArrayList<>();
-  }
-
-  public TransferValidationRequest getById(long transferValidationRequestId) throws Exception {
-    String sql =
+  public TransferValidationRequest getById(long transferValidationRequestId) throws SQLException {
+    var sql =
         "SELECT *\n"
             + String.format("FROM %s.%s\n", connectionFactory.getSchema(), tableName)
             + "WHERE id = ?;";
@@ -51,8 +42,7 @@ public class TransferValidationRequestRepository extends Repository {
     }
   }
 
-  public void insert(TransferValidationRequest transferValidationRequest)
-      throws Exception, AlreadyExistsException {
+  public void insert(TransferValidationRequest transferValidationRequest) throws Exception {
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
             + "id, tenant_id, transfer_details, status, document, signature, reject_reason_message, created_at, updated_at)\n"
@@ -72,12 +62,6 @@ public class TransferValidationRequestRepository extends Repository {
       statement.setTimestamp(9, Timestamp.from(transferValidationRequest.getUpdatedAt()));
 
       statement.execute();
-    } catch (SQLException exception) {
-      if (exception.getSQLState().equals(UniqueViolationErrorCode)) {
-        throw new AlreadyExistsException();
-      }
-      throw new Exception(
-          "An unexpected error occurred while inserting transfer validation request.", exception);
     }
   }
 
@@ -101,9 +85,6 @@ public class TransferValidationRequestRepository extends Repository {
       statement.setLong(9, transferValidationRequest.getId());
 
       statement.execute();
-    } catch (SQLException exception) {
-      throw new Exception(
-          "An unexpected error occurred while inserting transfer validation request.", exception);
     }
   }
 

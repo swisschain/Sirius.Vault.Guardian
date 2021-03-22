@@ -11,10 +11,10 @@ import io.swisschain.domain.validators.Validator;
 import io.swisschain.domain.validators.ValidatorApproval;
 import io.swisschain.domain.validators.ValidatorRequest;
 import io.swisschain.domain.validators.ValidatorResponse;
-import io.swisschain.repositories.TransferValidationRequestRepository;
-import io.swisschain.repositories.ValidatorRequestRepository;
-import io.swisschain.repositories.ValidatorResponseRepository;
-import io.swisschain.repositories.exceptions.AlreadyExistsException;
+import io.swisschain.repositories.transferValidationRequests.TransferValidationRequestRepository;
+import io.swisschain.repositories.validatorRequests.ValidatorRequestRepository;
+import io.swisschain.repositories.validatorResponses.ValidatorResponseRepository;
+import io.swisschain.domain.exceptions.AlreadyExistsException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bouncycastle.crypto.InvalidCipherTextException;
@@ -29,8 +29,9 @@ public class PolicyService {
   private static final Logger logger = LogManager.getLogger();
 
   private final RuleExecutor ruleExecutor;
-  private final ValidatorsApiService validatorsApiService;
-  private final TransferValidationRequestApiService transferValidationRequestApiService;
+  private final ValidatorApiService validatorApiService;
+  private final ValidatorApprovalApiService validatorApprovalApiService;
+  private final TransferApiService transferApiService;
   private final TransferValidationRequestRepository transferValidationRequestRepository;
   private final ValidatorRequestRepository validatorRequestRepository;
   private final ValidatorResponseRepository validatorResponseRepository;
@@ -42,8 +43,9 @@ public class PolicyService {
 
   public PolicyService(
       RuleExecutor ruleExecutor,
-      ValidatorsApiService validatorsApiService,
-      TransferValidationRequestApiService transferValidationRequestApiService,
+      ValidatorApiService validatorApiService,
+      ValidatorApprovalApiService validatorApprovalApiService,
+      TransferApiService transferApiService,
       TransferValidationRequestRepository transferValidationRequestRepository,
       ValidatorRequestRepository validatorRequestRepository,
       ValidatorResponseRepository validatorResponseRepository,
@@ -53,8 +55,9 @@ public class PolicyService {
       DocumentValidator documentValidator,
       JsonSerializer jsonSerializer) {
     this.ruleExecutor = ruleExecutor;
-    this.validatorsApiService = validatorsApiService;
-    this.transferValidationRequestApiService = transferValidationRequestApiService;
+    this.validatorApiService = validatorApiService;
+    this.validatorApprovalApiService = validatorApprovalApiService;
+    this.transferApiService = transferApiService;
     this.transferValidationRequestRepository = transferValidationRequestRepository;
     this.validatorRequestRepository = validatorRequestRepository;
     this.validatorResponseRepository = validatorResponseRepository;
@@ -150,7 +153,7 @@ public class PolicyService {
       }
 
       var validator =
-          validatorsApiService.getValidatorById(
+          validatorApiService.getById(
               transferValidationRequest.getTenantId(), validatorApproval.getValidatorId());
 
       if (validator == null) {
@@ -219,7 +222,7 @@ public class PolicyService {
               validatorApproval.getTransferApprovalRequestId()));
     }
 
-    validatorsApiService.confirm(
+    validatorApprovalApiService.confirm(
         validatorApproval.getValidatorId(), validatorApproval.getTransferApprovalRequestId());
   }
 
@@ -255,7 +258,7 @@ public class PolicyService {
           documentBuilder.build(transferValidationRequest, new ArrayList<>(), new ArrayList<>());
       transferValidationRequest.updateDocument(
           signedDocument.getDocument(), signedDocument.getSignature());
-      transferValidationRequestApiService.reject(transferValidationRequest);
+      transferApiService.reject(transferValidationRequest);
 
       return false;
     }
@@ -273,7 +276,7 @@ public class PolicyService {
         validatorResponseRepository.getByTransferValidationRequestId(
             transferValidationRequest.getId());
 
-    var validators = validatorsApiService.getValidators(transferValidationRequest.getTenantId());
+    var validators = validatorApiService.get(transferValidationRequest.getTenantId());
 
     RuleExecutionOutput executionOutput;
 
@@ -300,14 +303,14 @@ public class PolicyService {
             documentBuilder.build(transferValidationRequest, validatorResponses, validatorRequests);
         transferValidationRequest.updateDocument(
             signedDocument.getDocument(), signedDocument.getSignature());
-        transferValidationRequestApiService.confirm(transferValidationRequest);
+        transferApiService.confirm(transferValidationRequest);
       } else if (ruleExecutionOutput.getAction() == RuleExecutionAction.Reject) {
         transferValidationRequest.reject(ruleExecutionOutput.getRejectReasonMessage());
         var signedDocument =
             documentBuilder.build(transferValidationRequest, validatorResponses, validatorRequests);
         transferValidationRequest.updateDocument(
             signedDocument.getDocument(), signedDocument.getSignature());
-        transferValidationRequestApiService.reject(transferValidationRequest);
+        transferApiService.reject(transferValidationRequest);
       }
     }
     transferValidationRequestRepository.update(transferValidationRequest);
@@ -346,7 +349,7 @@ public class PolicyService {
               Base64.getEncoder().encodeToString(key),
               Base64.getEncoder().encodeToString(nonce));
 
-      validatorsApiService.sendApprovalRequest(
+      validatorApprovalApiService.create(
           transferValidationRequest.getTenantId(),
           transferValidationRequest.getId(),
           validatorRequest);

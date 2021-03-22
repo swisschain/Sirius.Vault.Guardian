@@ -1,4 +1,4 @@
-package io.swisschain.utils;
+package io.swisschain.common;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

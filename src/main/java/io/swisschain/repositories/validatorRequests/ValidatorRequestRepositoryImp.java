@@ -1,21 +1,18 @@
-package io.swisschain.repositories;
+package io.swisschain.repositories.validatorRequests;
 
 import io.swisschain.domain.validators.ValidatorRequest;
-import io.swisschain.repositories.common.Repository;
-import io.swisschain.repositories.entities.ValidatorRequestEntity;
-import io.swisschain.repositories.exceptions.AlreadyExistsException;
+import io.swisschain.repositories.DbConnectionFactory;
 
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValidatorRequestRepository extends Repository {
+public class ValidatorRequestRepositoryImp implements ValidatorRequestRepository {
 
   private final String tableName = "validator_requests";
   private final DbConnectionFactory connectionFactory;
 
-  public ValidatorRequestRepository(DbConnectionFactory connectionFactory) {
+  public ValidatorRequestRepositoryImp(DbConnectionFactory connectionFactory) {
     this.connectionFactory = connectionFactory;
   }
 
@@ -70,7 +67,7 @@ public class ValidatorRequestRepository extends Repository {
     }
   }
 
-  public void insert(ValidatorRequest validatorRequest) throws Exception, AlreadyExistsException {
+  public void insert(ValidatorRequest validatorRequest) throws Exception {
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
             + "validator_id, transfer_validation_request_id, encrypted_message, encrypted_key, \"key\", nonce, created_at)\n"
@@ -87,12 +84,6 @@ public class ValidatorRequestRepository extends Repository {
       statement.setTimestamp(7, Timestamp.from(validatorRequest.getCreatedAt()));
 
       statement.execute();
-    } catch (SQLException exception) {
-      if (exception.getSQLState().equals(UniqueViolationErrorCode)) {
-        throw new AlreadyExistsException();
-      }
-      throw new Exception(
-          "An unexpected error occurred while inserting validator request.", exception);
     }
   }
 

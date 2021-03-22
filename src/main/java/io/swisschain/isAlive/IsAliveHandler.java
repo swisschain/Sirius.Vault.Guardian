@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.net.HttpHeaders;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import io.swisschain.utils.AppVersion;
+import io.swisschain.common.AppVersion;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
