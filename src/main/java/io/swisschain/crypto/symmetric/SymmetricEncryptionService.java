@@ -30,7 +30,7 @@ public class SymmetricEncryptionService {
   }
 
   public byte[] decrypt(byte[] data, byte[] key, byte[] nonce) {
-     return process(data, key, nonce, false);
+    return process(data, key, nonce, false);
   }
 
   public byte[] generateKey() {
@@ -62,15 +62,16 @@ public class SymmetricEncryptionService {
 
     if (key.length != KeyBitSize / 8) {
       throw new IllegalArgumentException(
-              String.format("Key should be %s bit. Parameter name: key.", KeyBitSize));
+          String.format("Key should be %s bit. Parameter name: key.", KeyBitSize));
     }
 
     if (nonce.length != NonceBitSize / 8) {
       throw new IllegalArgumentException(
-              String.format("Nonce should be %s bit. Parameter name: nonce.", NonceBitSize));
+          String.format("Nonce should be %s bit. Parameter name: nonce.", NonceBitSize));
     }
 
-    var cipher = new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESEngine()), new PKCS7Padding());
+    var cipher =
+        new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESEngine()), new PKCS7Padding());
 
     var parameters = new ParametersWithIV(new KeyParameter(key), nonce);
     cipher.init(encrypt, parameters);
@@ -79,7 +80,7 @@ public class SymmetricEncryptionService {
     var length = cipher.processBytes(data, 0, data.length, buffer, 0);
 
     try {
-      length+=cipher.doFinal(buffer, length);
+      length += cipher.doFinal(buffer, length);
     } catch (InvalidCipherTextException e) {
       return null;
     }

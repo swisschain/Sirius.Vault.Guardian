@@ -50,13 +50,15 @@ public class AsymmetricEncryptionService {
     return signer.verifySignature(signature);
   }
 
-  public byte[] encrypt(byte[] data, String publicKey) throws IOException, InvalidCipherTextException {
+  public byte[] encrypt(byte[] data, String publicKey)
+      throws IOException, InvalidCipherTextException {
     var cipher = new PKCS1Encoding(new RSAEngine());
     cipher.init(true, getPublicKeyParameters(publicKey));
     return cipher.processBlock(data, 0, data.length);
   }
 
-  public byte[] decrypt(byte[] data, String privateKey) throws IOException, InvalidCipherTextException {
+  public byte[] decrypt(byte[] data, String privateKey)
+      throws IOException, InvalidCipherTextException {
     var cipher = new PKCS1Encoding(new RSAEngine());
     cipher.init(false, getPrivateKeyParameters(privateKey));
     return cipher.processBlock(data, 0, data.length);

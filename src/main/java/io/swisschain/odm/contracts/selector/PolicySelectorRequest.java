@@ -1,6 +1,6 @@
 package io.swisschain.odm.contracts.selector;
 
-import io.swisschain.primitives.NetworkType;
+import io.swisschain.domain.primitives.NetworkType;
 
 public class PolicySelectorRequest {
   public String tenantId;
@@ -10,8 +10,7 @@ public class PolicySelectorRequest {
   public NetworkType networkType;
   public String address;
 
-  public PolicySelectorRequest() {
-  }
+  public PolicySelectorRequest() {}
 
   public PolicySelectorRequest(
       String tenantId,

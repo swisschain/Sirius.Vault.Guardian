@@ -1,6 +1,6 @@
 package io.swisschain.mappers;
 
-import io.swisschain.primitives.NetworkType;
+import io.swisschain.domain.primitives.NetworkType;
 import org.jetbrains.annotations.NotNull;
 
 public final class NetworkTypeMapper {

@@ -6,6 +6,7 @@ public class PolicySelectorRequestWrapper {
 
   @JsonProperty("__DecisionID__")
   public String decisionId;
+
   @JsonProperty("selectPolicyRequest")
   public PolicySelectorRequest request;
 

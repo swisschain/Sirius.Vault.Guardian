@@ -5,8 +5,7 @@ public class Asset {
   public String symbol;
   public String address;
 
-  public Asset() {
-  }
+  public Asset() {}
 
   public Asset(long id, String symbol, String address) {
     this.id = id;

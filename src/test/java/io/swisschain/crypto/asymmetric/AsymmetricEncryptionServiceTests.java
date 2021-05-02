@@ -46,7 +46,8 @@ public class AsymmetricEncryptionServiceTests {
   }
 
   @Test
-  public void encrypt_and_decrypt_with_external_keys() throws IOException, InvalidCipherTextException {
+  public void encrypt_and_decrypt_with_external_keys()
+      throws IOException, InvalidCipherTextException {
     // arrange
 
     var secret = new SymmetricEncryptionService().generateKey();
@@ -74,10 +75,11 @@ public class AsymmetricEncryptionServiceTests {
   public void decrypt() throws IOException, InvalidCipherTextException {
     // arrange
 
-    var privateKey = "-----BEGIN RSA PRIVATE KEY-----\r\nMIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKa465B3ksPWpTHtLOST9uWIlpC1Icx764/HzjWdhfRD+XMtiejMHcoaPFh+TDUDG2iLsnWsAK74/3p6+S1h+MIRFf5+2K+TpYZKMqERlqwRRxYSs7nLcWqo3ccA0xaCuXpAORG6sTZphtRba8BTkqBe3mri7gt51FPilzOrvRjNAgMBAAECgYBvJfJgT7ctOcN2nh3tt/nuWw8LI2vdp/Jf2ol5E66i1/uiHlvwiBPcEX2QVDLOAhJFsnb5HVXJ+1T8UftzlqXVn2Htx9LQ0QIh3SmiJ0UVA7WbhsY4dv+pGMdOAMFewLRJk8NDtIEEloXULllJk/DC2n6C8JwcfIEhH+Vmys3CawJBAPCri3LHMLGndK2dF8loY5toR5rJJl9f8EUCXG4g5O1YCNiXuEKfg8HaJLKgd0dbnzgB9I1upuAbTjuboNSe+2kCQQCxV45gVUWoet7Q1xYNRqjwTmUtwT65kfy+sHWRkCN0UwMJ/HPpUCvF4/FjRVquTdzfHrHslTne91P3I3im6XnFAkEAoHJc9y91y8T4c74P25rtEkWFEdtu6j/1g1boSWtDSOVbOw/QLGpX1pFtzGr6L5JqJVajCPRvQBI0J70V4xSnmwJAdjpe6uODxac/NeS5Xi8bSt7uHoDUe7aofyBOYQrCTYyssVL38OAdLpf2Qi48dDPolL8hSGN76fo3+helxJumgwJAEq9KemNpb/Zdt9SRDfIWYJyu2m14vgCt7QDwBGAsSHTde8raFbmC+31BdsmuGwOgXTC+5Ak028QJjGMKxVu3NA==\r\n-----END RSA PRIVATE KEY-----";
+    var privateKey =
+        "-----BEGIN RSA PRIVATE KEY-----\r\nMIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKa465B3ksPWpTHtLOST9uWIlpC1Icx764/HzjWdhfRD+XMtiejMHcoaPFh+TDUDG2iLsnWsAK74/3p6+S1h+MIRFf5+2K+TpYZKMqERlqwRRxYSs7nLcWqo3ccA0xaCuXpAORG6sTZphtRba8BTkqBe3mri7gt51FPilzOrvRjNAgMBAAECgYBvJfJgT7ctOcN2nh3tt/nuWw8LI2vdp/Jf2ol5E66i1/uiHlvwiBPcEX2QVDLOAhJFsnb5HVXJ+1T8UftzlqXVn2Htx9LQ0QIh3SmiJ0UVA7WbhsY4dv+pGMdOAMFewLRJk8NDtIEEloXULllJk/DC2n6C8JwcfIEhH+Vmys3CawJBAPCri3LHMLGndK2dF8loY5toR5rJJl9f8EUCXG4g5O1YCNiXuEKfg8HaJLKgd0dbnzgB9I1upuAbTjuboNSe+2kCQQCxV45gVUWoet7Q1xYNRqjwTmUtwT65kfy+sHWRkCN0UwMJ/HPpUCvF4/FjRVquTdzfHrHslTne91P3I3im6XnFAkEAoHJc9y91y8T4c74P25rtEkWFEdtu6j/1g1boSWtDSOVbOw/QLGpX1pFtzGr6L5JqJVajCPRvQBI0J70V4xSnmwJAdjpe6uODxac/NeS5Xi8bSt7uHoDUe7aofyBOYQrCTYyssVL38OAdLpf2Qi48dDPolL8hSGN76fo3+helxJumgwJAEq9KemNpb/Zdt9SRDfIWYJyu2m14vgCt7QDwBGAsSHTde8raFbmC+31BdsmuGwOgXTC+5Ak028QJjGMKxVu3NA==\r\n-----END RSA PRIVATE KEY-----";
 
     var encryptedData =
-            "DN3jhrbOx7hzLI0xBRV8EaDdzqHeMxJiCGddSHyQ6t/wwCuZj9GHTP0/F5nKKgBssEQ/JXjzITwgm/yduIkfmCMn+SKhOUAeOUMqdYz5p4wPd6qzRh5YAHo2eBJ4SXJbEaDgE9ZNs58RHJEk0xHOvTbGiem/dUrLqzSOfHVpr6U=";
+        "DN3jhrbOx7hzLI0xBRV8EaDdzqHeMxJiCGddSHyQ6t/wwCuZj9GHTP0/F5nKKgBssEQ/JXjzITwgm/yduIkfmCMn+SKhOUAeOUMqdYz5p4wPd6qzRh5YAHo2eBJ4SXJbEaDgE9ZNs58RHJEk0xHOvTbGiem/dUrLqzSOfHVpr6U=";
     // act
 
     var decryptedDate = service.decrypt(Base64.getDecoder().decode(encryptedData), privateKey);
@@ -85,8 +87,8 @@ public class AsymmetricEncryptionServiceTests {
     // assert
 
     assertEquals(
-            "8LZOlheUuPJgX2Jm/H9ueYxK3CS+R/668+D2ijzKVn4=",
-            Base64.getEncoder().encodeToString(decryptedDate));
+        "8LZOlheUuPJgX2Jm/H9ueYxK3CS+R/668+D2ijzKVn4=",
+        Base64.getEncoder().encodeToString(decryptedDate));
   }
 
   @Test

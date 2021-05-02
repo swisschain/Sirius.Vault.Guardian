@@ -1,6 +1,6 @@
 package io.swisschain.odm.contracts.policy;
 
-import io.swisschain.primitives.NetworkType;
+import io.swisschain.domain.primitives.NetworkType;
 
 public class Blockchain {
   public String id;

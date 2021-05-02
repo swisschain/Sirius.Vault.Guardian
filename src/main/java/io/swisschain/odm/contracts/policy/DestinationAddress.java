@@ -1,6 +1,6 @@
 package io.swisschain.odm.contracts.policy;
 
-import io.swisschain.primitives.TagType;
+import io.swisschain.domain.primitives.TagType;
 
 public class DestinationAddress {
   public String address;

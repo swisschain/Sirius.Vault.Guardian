@@ -1,50 +1,74 @@
 package io.swisschain.domain.validators;
 
+import io.swisschain.contracts.common.Resolution;
+
 import java.time.Instant;
+import java.util.UUID;
 
 public class ValidatorRequest {
+  private String id;
   private String validatorId;
-  private long transferValidationRequestId;
-  private String encryptedMessage;
-  private String encryptedKey;
+  private String tenantId;
+  private String message;
   private String key;
   private String nonce;
+  private ValidatorRequestStatus status;
+  private ValidatorRequestType type;
+  private long validationRequestId;
+  private String document;
+  private String signature;
+  private Resolution resolution;
+  private String resolutionMessage;
+  private String deviceInfo;
+  private String ip;
   private Instant createdAt;
+  private Instant updatedAt;
 
   public ValidatorRequest() {}
 
   public ValidatorRequest(
+      String id,
       String validatorId,
-      long transferValidationRequestId,
-      String encryptedMessage,
-      String encryptedKey,
+      String tenantId,
+      String message,
       String key,
       String nonce,
-      Instant createdAt) {
+      ValidatorRequestStatus status,
+      ValidatorRequestType type,
+      long validationRequestId,
+      String document,
+      String signature,
+      Resolution resolution,
+      String resolutionMessage,
+      String deviceInfo,
+      String ip,
+      Instant createdAt,
+      Instant updatedAt) {
+    this.id = id;
     this.validatorId = validatorId;
-    this.transferValidationRequestId = transferValidationRequestId;
-    this.encryptedMessage = encryptedMessage;
-    this.encryptedKey = encryptedKey;
+    this.tenantId = tenantId;
+    this.message = message;
     this.key = key;
     this.nonce = nonce;
+    this.status = status;
+    this.type = type;
+    this.validationRequestId = validationRequestId;
+    this.document = document;
+    this.signature = signature;
+    this.resolution = resolution;
+    this.resolutionMessage = resolutionMessage;
+    this.deviceInfo = deviceInfo;
+    this.ip = ip;
     this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
   }
 
-  public static ValidatorRequest create(
-      String validatorId,
-      long transferValidationRequestId,
-      String encryptedMessage,
-      String encryptedKey,
-      String key,
-      String nonce) {
-    return new ValidatorRequest(
-        validatorId,
-        transferValidationRequestId,
-        encryptedMessage,
-        encryptedKey,
-        key,
-        nonce,
-        Instant.now());
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public String getValidatorId() {
@@ -55,28 +79,20 @@ public class ValidatorRequest {
     this.validatorId = validatorId;
   }
 
-  public long getTransferValidationRequestId() {
-    return transferValidationRequestId;
+  public String getTenantId() {
+    return tenantId;
   }
 
-  public void setTransferValidationRequestId(long transferValidationRequestId) {
-    this.transferValidationRequestId = transferValidationRequestId;
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
   }
 
-  public String getEncryptedMessage() {
-    return encryptedMessage;
+  public String getMessage() {
+    return message;
   }
 
-  public void setEncryptedMessage(String encryptedMessage) {
-    this.encryptedMessage = encryptedMessage;
-  }
-
-  public String getEncryptedKey() {
-    return encryptedKey;
-  }
-
-  public void setEncryptedKey(String encryptedKey) {
-    this.encryptedKey = encryptedKey;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   public String getKey() {
@@ -95,11 +111,137 @@ public class ValidatorRequest {
     this.nonce = nonce;
   }
 
+  public ValidatorRequestStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(ValidatorRequestStatus status) {
+    this.status = status;
+  }
+
+  public ValidatorRequestType getType() {
+    return type;
+  }
+
+  public void setType(ValidatorRequestType type) {
+    this.type = type;
+  }
+
+  public long getValidationRequestId() {
+    return validationRequestId;
+  }
+
+  public void setValidationRequestId(long validationRequestId) {
+    this.validationRequestId = validationRequestId;
+  }
+
+  public String getDocument() {
+    return document;
+  }
+
+  public void setDocument(String document) {
+    this.document = document;
+  }
+
+  public String getSignature() {
+    return signature;
+  }
+
+  public void setSignature(String signature) {
+    this.signature = signature;
+  }
+
+  public Resolution getResolution() {
+    return resolution;
+  }
+
+  public void setResolution(Resolution resolution) {
+    this.resolution = resolution;
+  }
+
+  public String getResolutionMessage() {
+    return resolutionMessage;
+  }
+
+  public void setResolutionMessage(String resolutionMessage) {
+    this.resolutionMessage = resolutionMessage;
+  }
+
+  public String getDeviceInfo() {
+    return deviceInfo;
+  }
+
+  public void setDeviceInfo(String deviceInfo) {
+    this.deviceInfo = deviceInfo;
+  }
+
+  public String getIp() {
+    return ip;
+  }
+
+  public void setIp(String ip) {
+    this.ip = ip;
+  }
+
   public Instant getCreatedAt() {
     return createdAt;
   }
 
   public void setCreatedAt(Instant createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public Instant getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(Instant updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public void complete(
+      String document,
+      String signature,
+      Resolution resolution,
+      String resolutionMessage,
+      String deviceInfo,
+      String ip) {
+    this.status = ValidatorRequestStatus.Completed;
+    this.document = document;
+    this.signature = signature;
+    this.resolution = resolution;
+    this.resolutionMessage = resolutionMessage;
+    this.deviceInfo = deviceInfo;
+    this.ip = ip;
+    this.updatedAt = Instant.now();
+  }
+
+  public static ValidatorRequest create(
+      String validatorId,
+      String tenantId,
+      String message,
+      String key,
+      String nonce,
+      ValidatorRequestType type,
+      long validationRequestId) {
+    var createdAt = Instant.now();
+    return new ValidatorRequest(
+        UUID.randomUUID().toString(),
+        validatorId,
+        tenantId,
+        message,
+        key,
+        nonce,
+        ValidatorRequestStatus.New,
+        type,
+        validationRequestId,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        createdAt,
+        createdAt);
   }
 }

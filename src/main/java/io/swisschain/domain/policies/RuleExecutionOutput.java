@@ -11,7 +11,7 @@ public class RuleExecutionOutput {
   private String rejectReasonMessage;
 
   public RuleExecutionOutput(
-          RuleExecutionAction action, List<Validator> validators, String rejectReasonMessage) {
+      RuleExecutionAction action, List<Validator> validators, String rejectReasonMessage) {
     this.action = action;
     this.validators = validators;
     this.rejectReasonMessage = rejectReasonMessage;

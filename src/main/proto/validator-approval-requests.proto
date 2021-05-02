@@ -15,17 +15,13 @@ service Validators {
 // CreateApprovalRequest
 
 message CreateApprovalRequestRequest {
-  message ValidatorRequest {
-    string validatorId = 1;
-    string transactionDetailsEncBase64 = 2;
-    string secretEncBase64 = 3;
-    string ivNonce = 4;
-  }
-
-  string requestId = 1;
+  string request_id = 1;
   string tenant_id = 2;
-  string transferSigningRequestId = 3;
-  repeated ValidatorRequest validatorRequests = 4;
+  string validation_request_id = 3;
+  string validator_id = 4;
+  string message = 5;
+  string key = 6;
+  string nonce = 7;
 }
 
 message CreateApprovalRequestResponse {
@@ -39,20 +35,15 @@ message GetApprovalResultsRequest {
 
 message GetApprovalResponse {
   message ApprovalResponse {
-    string validatorId = 1;
-    string transferSigningRequestId = 2;
-    string resolutionDocumentEncBase64 = 3;
-    string signature = 4;
+    string validator_id = 1;
+    string validation_request_id = 2;
+    string message = 3;
+    string device_info = 4;
+    string ip = 5;
   }
 
-  enum ResolutionStatus {
-    approve = 0;
-    reject = 1;
-    skip = 2;
-  }
-
-  ValidatorsApiError error = 1;
-  repeated ApprovalResponse payload = 2;
+  repeated ApprovalResponse payload = 1;
+  ValidatorsApiError error = 2;
 }
 
 // AcknowledgeResult

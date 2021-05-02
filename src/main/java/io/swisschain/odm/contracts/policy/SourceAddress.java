@@ -5,8 +5,7 @@ public class SourceAddress {
   public String name;
   public String group;
 
-  public SourceAddress() {
-  }
+  public SourceAddress() {}
 
   public SourceAddress(String address, String name, String group) {
     this.address = address;

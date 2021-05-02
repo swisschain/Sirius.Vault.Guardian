@@ -1,62 +1,25 @@
 package io.swisschain.domain.validators;
 
-import io.swisschain.contracts.Resolution;
-
-import java.time.Instant;
-
 public class ValidatorResponse {
   private String validatorId;
-  private long transferValidationRequestId;
-  private String document;
-  private String signature;
-  private Resolution resolution;
-  private String resolutionMessage;
+  private String validationRequestId;
+  private String message;
   private String deviceInfo;
   private String ip;
-  private Instant createdAt;
 
   public ValidatorResponse() {}
 
   public ValidatorResponse(
       String validatorId,
-      long transferValidationRequestId,
-      String document,
-      String signature,
-      Resolution resolution,
-      String resolutionMessage,
-      String deviceInfo,
-      String ip,
-      Instant createdAt) {
-    this.validatorId = validatorId;
-    this.transferValidationRequestId = transferValidationRequestId;
-    this.document = document;
-    this.signature = signature;
-    this.resolution = resolution;
-    this.resolutionMessage = resolutionMessage;
-    this.deviceInfo = deviceInfo;
-    this.ip = ip;
-    this.createdAt = createdAt;
-  }
-
-  public static ValidatorResponse create(
-      String validatorId,
-      long transferValidationRequestId,
-      String document,
-      String signature,
-      Resolution resolution,
-      String resolutionMessage,
+      String validationRequestId,
+      String message,
       String deviceInfo,
       String ip) {
-    return new ValidatorResponse(
-        validatorId,
-        transferValidationRequestId,
-        document,
-        signature,
-        resolution,
-        resolutionMessage,
-        deviceInfo,
-        ip,
-        Instant.now());
+    this.validatorId = validatorId;
+    this.validationRequestId = validationRequestId;
+    this.message = message;
+    this.deviceInfo = deviceInfo;
+    this.ip = ip;
   }
 
   public String getValidatorId() {
@@ -67,44 +30,20 @@ public class ValidatorResponse {
     this.validatorId = validatorId;
   }
 
-  public long getTransferValidationRequestId() {
-    return transferValidationRequestId;
+  public String getValidationRequestId() {
+    return validationRequestId;
   }
 
-  public void setTransferValidationRequestId(long transferValidationRequestId) {
-    this.transferValidationRequestId = transferValidationRequestId;
+  public void setValidationRequestId(String validationRequestId) {
+    this.validationRequestId = validationRequestId;
   }
 
-  public String getDocument() {
-    return document;
+  public String getMessage() {
+    return message;
   }
 
-  public void setDocument(String document) {
-    this.document = document;
-  }
-
-  public String getSignature() {
-    return signature;
-  }
-
-  public void setSignature(String signature) {
-    this.signature = signature;
-  }
-
-  public Resolution getResolution() {
-    return resolution;
-  }
-
-  public void setResolution(Resolution resolution) {
-    this.resolution = resolution;
-  }
-
-  public String getResolutionMessage() {
-    return resolutionMessage;
-  }
-
-  public void setResolutionMessage(String resolutionMessage) {
-    this.resolutionMessage = resolutionMessage;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   public String getDeviceInfo() {
@@ -121,13 +60,5 @@ public class ValidatorResponse {
 
   public void setIp(String ip) {
     this.ip = ip;
-  }
-
-  public Instant getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(Instant createdAt) {
-    this.createdAt = createdAt;
   }
 }

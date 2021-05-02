@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option csharp_namespace = "Swisschain.Sirius.VaultApi.ApiContract.SmartContracts";
+
+option java_package = "io.swisschain.sirius.vaultApi.generated.smart_contracts";
+
+import "google/protobuf/wrappers.proto";
+
+package swisschain.sirius.vaultApi.smartContracts;
+
+enum DataType {
+  COMPOSITE = 0;
+  NATIVE = 1;
+  VOID = 2;
+  STRING = 3;
+  INT = 4;
+  UINT = 5;
+  BOOL = 6;
+  BYTES = 7;
+  DECIMAL = 8;
+  ADDRESS = 9;
+  TIMESTAMP = 10;
+}
+
+message DataMetamodel {
+  string name = 1;
+  DataType data_type = 2;
+  int32 size = 3;
+  int32 scale = 4;
+  bool is_array = 5;
+  google.protobuf.StringValue native_type = 6;
+  repeated DataMetamodel components = 7;
+  bool is_required = 8;
+}
+
+message FunctionArgument {
+  DataMetamodel dataModel = 1;
+  repeated FunctionArgument components = 2;
+  google.protobuf.StringValue value = 3;
+}

@@ -6,7 +6,8 @@ import io.swisschain.odm.contracts.selector.PolicySelectorRequest;
 import io.swisschain.odm.contracts.selector.PolicySelectorResponse;
 
 public interface OdmClient {
-  PolicySelectorResponse getPolicy(PolicySelectorRequest policySelectorRequest, String requestId)throws Exception;
+  PolicySelectorResponse getPolicy(PolicySelectorRequest policySelectorRequest, String requestId)
+      throws Exception;
 
   PolicyResponse getResolution(
       PolicyRequest policyRequest,
@@ -14,5 +15,6 @@ public interface OdmClient {
       String policyService,
       String policyServiceVersion,
       String policy,
-      String policyVersion)throws Exception;
+      String policyVersion)
+      throws Exception;
 }
