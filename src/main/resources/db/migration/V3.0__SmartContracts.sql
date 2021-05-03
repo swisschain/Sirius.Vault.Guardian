@@ -1,6 +1,6 @@
-DROP TABLE ${flyway:defaultSchema}.transfer_validation_requests;
 DROP TABLE ${flyway:defaultSchema}.validator_requests;
 DROP TABLE ${flyway:defaultSchema}.validator_responses;
+DROP TABLE ${flyway:defaultSchema}.transfer_validation_requests;
 
 CREATE TABLE ${flyway:defaultSchema}.transfer_validation_requests
 (
