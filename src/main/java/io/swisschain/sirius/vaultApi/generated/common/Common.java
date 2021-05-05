@@ -5181,19 +5181,17 @@ public final class Common {
     long getId();
 
     /**
-     * <code>.google.protobuf.StringValue native_id = 2;</code>
-     *
-     * @return Whether the nativeId field is set.
-     */
-    boolean hasNativeId();
-    /**
-     * <code>.google.protobuf.StringValue native_id = 2;</code>
+     * <code>string native_id = 2;</code>
      *
      * @return The nativeId.
      */
-    com.google.protobuf.StringValue getNativeId();
-    /** <code>.google.protobuf.StringValue native_id = 2;</code> */
-    com.google.protobuf.StringValueOrBuilder getNativeIdOrBuilder();
+    java.lang.String getNativeId();
+    /**
+     * <code>string native_id = 2;</code>
+     *
+     * @return The bytes for nativeId.
+     */
+    com.google.protobuf.ByteString getNativeIdBytes();
   }
   /** Protobuf type {@code swisschain.sirius.vaultApi.common.User} */
   public static final class User extends com.google.protobuf.GeneratedMessageV3
@@ -5206,7 +5204,9 @@ public final class Common {
       super(builder);
     }
 
-    private User() {}
+    private User() {
+      nativeId_ = "";
+    }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
@@ -5244,17 +5244,9 @@ public final class Common {
               }
             case 18:
               {
-                com.google.protobuf.StringValue.Builder subBuilder = null;
-                if (nativeId_ != null) {
-                  subBuilder = nativeId_.toBuilder();
-                }
-                nativeId_ =
-                    input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(nativeId_);
-                  nativeId_ = subBuilder.buildPartial();
-                }
+                java.lang.String s = input.readStringRequireUtf8();
 
+                nativeId_ = s;
                 break;
               }
             default:
@@ -5309,29 +5301,40 @@ public final class Common {
     }
 
     public static final int NATIVE_ID_FIELD_NUMBER = 2;
-    private com.google.protobuf.StringValue nativeId_;
+    private volatile java.lang.Object nativeId_;
     /**
-     * <code>.google.protobuf.StringValue native_id = 2;</code>
-     *
-     * @return Whether the nativeId field is set.
-     */
-    @java.lang.Override
-    public boolean hasNativeId() {
-      return nativeId_ != null;
-    }
-    /**
-     * <code>.google.protobuf.StringValue native_id = 2;</code>
+     * <code>string native_id = 2;</code>
      *
      * @return The nativeId.
      */
     @java.lang.Override
-    public com.google.protobuf.StringValue getNativeId() {
-      return nativeId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : nativeId_;
+    public java.lang.String getNativeId() {
+      java.lang.Object ref = nativeId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nativeId_ = s;
+        return s;
+      }
     }
-    /** <code>.google.protobuf.StringValue native_id = 2;</code> */
+    /**
+     * <code>string native_id = 2;</code>
+     *
+     * @return The bytes for nativeId.
+     */
     @java.lang.Override
-    public com.google.protobuf.StringValueOrBuilder getNativeIdOrBuilder() {
-      return getNativeId();
+    public com.google.protobuf.ByteString getNativeIdBytes() {
+      java.lang.Object ref = nativeId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        nativeId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5351,8 +5354,8 @@ public final class Common {
       if (id_ != 0L) {
         output.writeInt64(1, id_);
       }
-      if (nativeId_ != null) {
-        output.writeMessage(2, getNativeId());
+      if (!getNativeIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nativeId_);
       }
       unknownFields.writeTo(output);
     }
@@ -5366,8 +5369,8 @@ public final class Common {
       if (id_ != 0L) {
         size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, id_);
       }
-      if (nativeId_ != null) {
-        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getNativeId());
+      if (!getNativeIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nativeId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5386,10 +5389,7 @@ public final class Common {
           (io.swisschain.sirius.vaultApi.generated.common.Common.User) obj;
 
       if (getId() != other.getId()) return false;
-      if (hasNativeId() != other.hasNativeId()) return false;
-      if (hasNativeId()) {
-        if (!getNativeId().equals(other.getNativeId())) return false;
-      }
+      if (!getNativeId().equals(other.getNativeId())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5403,10 +5403,8 @@ public final class Common {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getId());
-      if (hasNativeId()) {
-        hash = (37 * hash) + NATIVE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getNativeId().hashCode();
-      }
+      hash = (37 * hash) + NATIVE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getNativeId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5554,12 +5552,8 @@ public final class Common {
         super.clear();
         id_ = 0L;
 
-        if (nativeIdBuilder_ == null) {
-          nativeId_ = null;
-        } else {
-          nativeId_ = null;
-          nativeIdBuilder_ = null;
-        }
+        nativeId_ = "";
+
         return this;
       }
 
@@ -5594,11 +5588,7 @@ public final class Common {
         io.swisschain.sirius.vaultApi.generated.common.Common.User result =
             new io.swisschain.sirius.vaultApi.generated.common.Common.User(this);
         result.id_ = id_;
-        if (nativeIdBuilder_ == null) {
-          result.nativeId_ = nativeId_;
-        } else {
-          result.nativeId_ = nativeIdBuilder_.build();
-        }
+        result.nativeId_ = nativeId_;
         onBuilt();
         return result;
       }
@@ -5655,8 +5645,9 @@ public final class Common {
         if (other.getId() != 0L) {
           setId(other.getId());
         }
-        if (other.hasNativeId()) {
-          mergeNativeId(other.getNativeId());
+        if (!other.getNativeId().isEmpty()) {
+          nativeId_ = other.nativeId_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5722,121 +5713,80 @@ public final class Common {
         return this;
       }
 
-      private com.google.protobuf.StringValue nativeId_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.StringValue,
-              com.google.protobuf.StringValue.Builder,
-              com.google.protobuf.StringValueOrBuilder>
-          nativeIdBuilder_;
+      private java.lang.Object nativeId_ = "";
       /**
-       * <code>.google.protobuf.StringValue native_id = 2;</code>
-       *
-       * @return Whether the nativeId field is set.
-       */
-      public boolean hasNativeId() {
-        return nativeIdBuilder_ != null || nativeId_ != null;
-      }
-      /**
-       * <code>.google.protobuf.StringValue native_id = 2;</code>
+       * <code>string native_id = 2;</code>
        *
        * @return The nativeId.
        */
-      public com.google.protobuf.StringValue getNativeId() {
-        if (nativeIdBuilder_ == null) {
-          return nativeId_ == null
-              ? com.google.protobuf.StringValue.getDefaultInstance()
-              : nativeId_;
+      public java.lang.String getNativeId() {
+        java.lang.Object ref = nativeId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          nativeId_ = s;
+          return s;
         } else {
-          return nativeIdBuilder_.getMessage();
+          return (java.lang.String) ref;
         }
       }
-      /** <code>.google.protobuf.StringValue native_id = 2;</code> */
-      public Builder setNativeId(com.google.protobuf.StringValue value) {
-        if (nativeIdBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          nativeId_ = value;
-          onChanged();
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @return The bytes for nativeId.
+       */
+      public com.google.protobuf.ByteString getNativeIdBytes() {
+        java.lang.Object ref = nativeId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          nativeId_ = b;
+          return b;
         } else {
-          nativeIdBuilder_.setMessage(value);
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @param value The nativeId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNativeId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
 
-        return this;
-      }
-      /** <code>.google.protobuf.StringValue native_id = 2;</code> */
-      public Builder setNativeId(com.google.protobuf.StringValue.Builder builderForValue) {
-        if (nativeIdBuilder_ == null) {
-          nativeId_ = builderForValue.build();
-          onChanged();
-        } else {
-          nativeIdBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /** <code>.google.protobuf.StringValue native_id = 2;</code> */
-      public Builder mergeNativeId(com.google.protobuf.StringValue value) {
-        if (nativeIdBuilder_ == null) {
-          if (nativeId_ != null) {
-            nativeId_ =
-                com.google.protobuf.StringValue.newBuilder(nativeId_)
-                    .mergeFrom(value)
-                    .buildPartial();
-          } else {
-            nativeId_ = value;
-          }
-          onChanged();
-        } else {
-          nativeIdBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /** <code>.google.protobuf.StringValue native_id = 2;</code> */
-      public Builder clearNativeId() {
-        if (nativeIdBuilder_ == null) {
-          nativeId_ = null;
-          onChanged();
-        } else {
-          nativeId_ = null;
-          nativeIdBuilder_ = null;
-        }
-
-        return this;
-      }
-      /** <code>.google.protobuf.StringValue native_id = 2;</code> */
-      public com.google.protobuf.StringValue.Builder getNativeIdBuilder() {
-
+        nativeId_ = value;
         onChanged();
-        return getNativeIdFieldBuilder().getBuilder();
+        return this;
       }
-      /** <code>.google.protobuf.StringValue native_id = 2;</code> */
-      public com.google.protobuf.StringValueOrBuilder getNativeIdOrBuilder() {
-        if (nativeIdBuilder_ != null) {
-          return nativeIdBuilder_.getMessageOrBuilder();
-        } else {
-          return nativeId_ == null
-              ? com.google.protobuf.StringValue.getDefaultInstance()
-              : nativeId_;
-        }
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearNativeId() {
+
+        nativeId_ = getDefaultInstance().getNativeId();
+        onChanged();
+        return this;
       }
-      /** <code>.google.protobuf.StringValue native_id = 2;</code> */
-      private com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.StringValue,
-              com.google.protobuf.StringValue.Builder,
-              com.google.protobuf.StringValueOrBuilder>
-          getNativeIdFieldBuilder() {
-        if (nativeIdBuilder_ == null) {
-          nativeIdBuilder_ =
-              new com.google.protobuf.SingleFieldBuilderV3<
-                  com.google.protobuf.StringValue,
-                  com.google.protobuf.StringValue.Builder,
-                  com.google.protobuf.StringValueOrBuilder>(
-                  getNativeId(), getParentForChildren(), isClean());
-          nativeId_ = null;
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @param value The bytes for nativeId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNativeIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
-        return nativeIdBuilder_;
+        checkByteStringIsUtf8(value);
+
+        nativeId_ = value;
+        onChanged();
+        return this;
       }
 
       @java.lang.Override
@@ -9810,17 +9760,11 @@ public final class Common {
     com.google.protobuf.ByteString getAddressBytes();
 
     /**
-     * <code>string group = 2;</code>
+     * <code>int64 broker_account_id = 2;</code>
      *
-     * @return The group.
+     * @return The brokerAccountId.
      */
-    java.lang.String getGroup();
-    /**
-     * <code>string group = 2;</code>
-     *
-     * @return The bytes for group.
-     */
-    com.google.protobuf.ByteString getGroupBytes();
+    long getBrokerAccountId();
   }
   /** Protobuf type {@code swisschain.sirius.vaultApi.common.SigningAddress} */
   public static final class SigningAddress extends com.google.protobuf.GeneratedMessageV3
@@ -9835,7 +9779,6 @@ public final class Common {
 
     private SigningAddress() {
       address_ = "";
-      group_ = "";
     }
 
     @java.lang.Override
@@ -9874,11 +9817,9 @@ public final class Common {
                 address_ = s;
                 break;
               }
-            case 18:
+            case 16:
               {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                group_ = s;
+                brokerAccountId_ = input.readInt64();
                 break;
               }
             default:
@@ -9957,41 +9898,16 @@ public final class Common {
       }
     }
 
-    public static final int GROUP_FIELD_NUMBER = 2;
-    private volatile java.lang.Object group_;
+    public static final int BROKER_ACCOUNT_ID_FIELD_NUMBER = 2;
+    private long brokerAccountId_;
     /**
-     * <code>string group = 2;</code>
+     * <code>int64 broker_account_id = 2;</code>
      *
-     * @return The group.
+     * @return The brokerAccountId.
      */
     @java.lang.Override
-    public java.lang.String getGroup() {
-      java.lang.Object ref = group_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        group_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string group = 2;</code>
-     *
-     * @return The bytes for group.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getGroupBytes() {
-      java.lang.Object ref = group_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        group_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getBrokerAccountId() {
+      return brokerAccountId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10011,8 +9927,8 @@ public final class Common {
       if (!getAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
       }
-      if (!getGroupBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, group_);
+      if (brokerAccountId_ != 0L) {
+        output.writeInt64(2, brokerAccountId_);
       }
       unknownFields.writeTo(output);
     }
@@ -10026,8 +9942,8 @@ public final class Common {
       if (!getAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
       }
-      if (!getGroupBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, group_);
+      if (brokerAccountId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, brokerAccountId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10046,7 +9962,7 @@ public final class Common {
           (io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress) obj;
 
       if (!getAddress().equals(other.getAddress())) return false;
-      if (!getGroup().equals(other.getGroup())) return false;
+      if (getBrokerAccountId() != other.getBrokerAccountId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -10060,8 +9976,8 @@ public final class Common {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getAddress().hashCode();
-      hash = (37 * hash) + GROUP_FIELD_NUMBER;
-      hash = (53 * hash) + getGroup().hashCode();
+      hash = (37 * hash) + BROKER_ACCOUNT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getBrokerAccountId());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10211,7 +10127,7 @@ public final class Common {
         super.clear();
         address_ = "";
 
-        group_ = "";
+        brokerAccountId_ = 0L;
 
         return this;
       }
@@ -10249,7 +10165,7 @@ public final class Common {
         io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress result =
             new io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress(this);
         result.address_ = address_;
-        result.group_ = group_;
+        result.brokerAccountId_ = brokerAccountId_;
         onBuilt();
         return result;
       }
@@ -10309,9 +10225,8 @@ public final class Common {
           address_ = other.address_;
           onChanged();
         }
-        if (!other.getGroup().isEmpty()) {
-          group_ = other.group_;
-          onChanged();
+        if (other.getBrokerAccountId() != 0L) {
+          setBrokerAccountId(other.getBrokerAccountId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10420,78 +10335,36 @@ public final class Common {
         return this;
       }
 
-      private java.lang.Object group_ = "";
+      private long brokerAccountId_;
       /**
-       * <code>string group = 2;</code>
+       * <code>int64 broker_account_id = 2;</code>
        *
-       * @return The group.
+       * @return The brokerAccountId.
        */
-      public java.lang.String getGroup() {
-        java.lang.Object ref = group_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          group_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public long getBrokerAccountId() {
+        return brokerAccountId_;
       }
       /**
-       * <code>string group = 2;</code>
+       * <code>int64 broker_account_id = 2;</code>
        *
-       * @return The bytes for group.
-       */
-      public com.google.protobuf.ByteString getGroupBytes() {
-        java.lang.Object ref = group_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          group_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string group = 2;</code>
-       *
-       * @param value The group to set.
+       * @param value The brokerAccountId to set.
        * @return This builder for chaining.
        */
-      public Builder setGroup(java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder setBrokerAccountId(long value) {
 
-        group_ = value;
+        brokerAccountId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string group = 2;</code>
+       * <code>int64 broker_account_id = 2;</code>
        *
        * @return This builder for chaining.
        */
-      public Builder clearGroup() {
+      public Builder clearBrokerAccountId() {
 
-        group_ = getDefaultInstance().getGroup();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string group = 2;</code>
-       *
-       * @param value The bytes for group to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGroupBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
-
-        group_ = value;
+        brokerAccountId_ = 0L;
         onChanged();
         return this;
       }
@@ -12768,37 +12641,37 @@ public final class Common {
           + "id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\"\200\001\n\007Account\022\n\n\002id"
           + "\030\001 \001(\003\0222\n\014reference_id\030\002 \001(\0132\034.google.pr"
           + "otobuf.StringValue\0225\n\004user\030\003 \001(\0132\'.swiss"
-          + "chain.sirius.vaultApi.common.User\"C\n\004Use"
-          + "r\022\n\n\002id\030\001 \001(\003\022/\n\tnative_id\030\002 \001(\0132\034.googl"
-          + "e.protobuf.StringValue\"s\n\nBlockchain\022\n\n\002"
-          + "id\030\001 \001(\t\022\023\n\013protocol_id\030\002 \001(\t\022D\n\014network"
-          + "_type\030\003 \001(\0162..swisschain.sirius.vaultApi"
-          + ".common.NetworkType\"R\n\005Asset\022\n\n\002id\030\001 \001(\003"
-          + "\022\016\n\006symbol\030\002 \001(\t\022-\n\007address\030\003 \001(\0132\034.goog"
-          + "le.protobuf.StringValue\"~\n\004Unit\0227\n\005asset"
-          + "\030\001 \001(\0132(.swisschain.sirius.vaultApi.comm"
-          + "on.Asset\022=\n\006amount\030\002 \001(\0132-.swisschain.si"
-          + "rius.vaultApi.common.BigDecimal\"\312\001\n\016Requ"
-          + "estContext\022-\n\007user_id\030\001 \001(\0132\034.google.pro"
-          + "tobuf.StringValue\0220\n\napi_key_id\030\002 \001(\0132\034."
-          + "google.protobuf.StringValue\022(\n\002ip\030\003 \001(\0132"
-          + "\034.google.protobuf.StringValue\022-\n\ttimesta"
-          + "mp\030\004 \001(\0132\032.google.protobuf.Timestamp\"0\n\016"
-          + "SigningAddress\022\017\n\007address\030\001 \001(\t\022\r\n\005group"
-          + "\030\002 \001(\t\"\372\001\n\013CoinToSpend\0225\n\002id\030\001 \001(\0132).swi"
-          + "sschain.sirius.vaultApi.common.CoinId\0227\n"
-          + "\005asset\030\002 \001(\0132(.swisschain.sirius.vaultAp"
-          + "i.common.Asset\022<\n\005value\030\003 \001(\0132-.swisscha"
-          + "in.sirius.vaultApi.common.BigDecimal\022,\n\006"
-          + "redeem\030\004 \001(\0132\034.google.protobuf.StringVal"
-          + "ue\022\017\n\007address\030\005 \001(\t\"0\n\006CoinId\022\026\n\016transac"
-          + "tion_id\030\001 \001(\t\022\016\n\006number\030\002 \001(\005*4\n\034DoubleS"
-          + "pendingProtectionType\022\t\n\005COINS\020\000\022\t\n\005NONC"
-          + "E\020\001*0\n\013NetworkType\022\013\n\007PRIVATE\020\000\022\010\n\004TEST\020"
-          + "\001\022\n\n\006PUBLIC\020\002*\037\n\007TagType\022\010\n\004TEXT\020\000\022\n\n\006NU"
-          + "MBER\020\001B`\n.io.swisschain.sirius.vaultApi."
-          + "generated.common\252\002-Swisschain.Sirius.Vau"
-          + "ltApi.ApiContract.Commonb\006proto3"
+          + "chain.sirius.vaultApi.common.User\"%\n\004Use"
+          + "r\022\n\n\002id\030\001 \001(\003\022\021\n\tnative_id\030\002 \001(\t\"s\n\nBloc"
+          + "kchain\022\n\n\002id\030\001 \001(\t\022\023\n\013protocol_id\030\002 \001(\t\022"
+          + "D\n\014network_type\030\003 \001(\0162..swisschain.siriu"
+          + "s.vaultApi.common.NetworkType\"R\n\005Asset\022\n"
+          + "\n\002id\030\001 \001(\003\022\016\n\006symbol\030\002 \001(\t\022-\n\007address\030\003 "
+          + "\001(\0132\034.google.protobuf.StringValue\"~\n\004Uni"
+          + "t\0227\n\005asset\030\001 \001(\0132(.swisschain.sirius.vau"
+          + "ltApi.common.Asset\022=\n\006amount\030\002 \001(\0132-.swi"
+          + "sschain.sirius.vaultApi.common.BigDecima"
+          + "l\"\312\001\n\016RequestContext\022-\n\007user_id\030\001 \001(\0132\034."
+          + "google.protobuf.StringValue\0220\n\napi_key_i"
+          + "d\030\002 \001(\0132\034.google.protobuf.StringValue\022(\n"
+          + "\002ip\030\003 \001(\0132\034.google.protobuf.StringValue\022"
+          + "-\n\ttimestamp\030\004 \001(\0132\032.google.protobuf.Tim"
+          + "estamp\"<\n\016SigningAddress\022\017\n\007address\030\001 \001("
+          + "\t\022\031\n\021broker_account_id\030\002 \001(\003\"\372\001\n\013CoinToS"
+          + "pend\0225\n\002id\030\001 \001(\0132).swisschain.sirius.vau"
+          + "ltApi.common.CoinId\0227\n\005asset\030\002 \001(\0132(.swi"
+          + "sschain.sirius.vaultApi.common.Asset\022<\n\005"
+          + "value\030\003 \001(\0132-.swisschain.sirius.vaultApi"
+          + ".common.BigDecimal\022,\n\006redeem\030\004 \001(\0132\034.goo"
+          + "gle.protobuf.StringValue\022\017\n\007address\030\005 \001("
+          + "\t\"0\n\006CoinId\022\026\n\016transaction_id\030\001 \001(\t\022\016\n\006n"
+          + "umber\030\002 \001(\005*4\n\034DoubleSpendingProtectionT"
+          + "ype\022\t\n\005COINS\020\000\022\t\n\005NONCE\020\001*0\n\013NetworkType"
+          + "\022\013\n\007PRIVATE\020\000\022\010\n\004TEST\020\001\022\n\n\006PUBLIC\020\002*\037\n\007T"
+          + "agType\022\010\n\004TEXT\020\000\022\n\n\006NUMBER\020\001B`\n.io.swiss"
+          + "chain.sirius.vaultApi.generated.common\252\002"
+          + "-Swisschain.Sirius.VaultApi.ApiContract."
+          + "Commonb\006proto3"
     };
     descriptor =
         com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
@@ -12902,7 +12775,7 @@ public final class Common {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_vaultApi_common_SigningAddress_descriptor,
             new java.lang.String[] {
-              "Address", "Group",
+              "Address", "BrokerAccountId",
             });
     internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_descriptor =
         getDescriptor().getMessageTypes().get(12);

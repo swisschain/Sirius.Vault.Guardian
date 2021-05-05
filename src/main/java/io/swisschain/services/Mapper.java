@@ -38,9 +38,7 @@ public final class Mapper {
   }
 
   public static User map(Common.User user) {
-    return user != null
-        ? new User(user.getId(), user.hasNativeId() ? user.getNativeId().getValue() : null)
-        : null;
+    return user != null ? new User(user.getId(), user.getNativeId()) : null;
   }
 
   public static Unit map(Common.Unit unit) {

@@ -64,7 +64,7 @@ message Account {
 
 message User {
   int64 id = 1;
-  google.protobuf.StringValue native_id = 2;
+  string native_id = 2;
 }
 
 message Blockchain {
@@ -93,7 +93,7 @@ message RequestContext {
 
 message SigningAddress {
   string address = 1;
-  string group = 2;
+  int64 broker_account_id = 2;
 }
 
 message CoinToSpend {
