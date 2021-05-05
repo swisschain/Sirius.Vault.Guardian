@@ -45,7 +45,7 @@ public class TransferValidationRequestRepositoryImp implements TransferValidatio
   public void insert(TransferValidationRequest transferValidationRequest) throws Exception {
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
-            + "id, tenant_id, transfer_details, status, document, signature, reject_reason_message, created_at, updated_at)\n"
+            + "id, tenant_id, transfer, status, document, signature, reject_reason_message, created_at, updated_at)\n"
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 
     try (var connection = this.connectionFactory.create();
@@ -67,7 +67,7 @@ public class TransferValidationRequestRepositoryImp implements TransferValidatio
   public void update(TransferValidationRequest transferValidationRequest) throws Exception {
     var sql =
         String.format("UPDATE %s.%s\n", connectionFactory.getSchema(), tableName)
-            + "SET tenant_id = ?, transfer_details = ?, status = ?, document = ?, signature = ?, reject_reason_message = ?, created_at = ?, updated_at = ?\n"
+            + "SET tenant_id = ?, transfer = ?, status = ?, document = ?, signature = ?, reject_reason_message = ?, created_at = ?, updated_at = ?\n"
             + "WHERE id = ?;";
 
     try (var connection = this.connectionFactory.create();

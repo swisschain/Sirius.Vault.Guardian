@@ -1,12 +1,8 @@
 package io.swisschain.repositories.smart_contract_deployment_validation_requests;
 
 import io.swisschain.contracts.smart_contracts.deployment.SmartContractDeployment;
-import io.swisschain.contracts.transfers.Transfer;
 import io.swisschain.domain.validation_requests.smart_contract_deployments.SmartContractDeploymentValidationRequest;
-import io.swisschain.domain.validation_requests.transfers.TransferValidationRequest;
 import io.swisschain.repositories.DbConnectionFactory;
-import io.swisschain.repositories.transfer_validation_requests.TransferValidationRequestEntity;
-import io.swisschain.repositories.transfer_validation_requests.TransferValidationRequestRepository;
 import io.swisschain.services.JsonSerializer;
 
 import java.sql.SQLException;
@@ -53,7 +49,7 @@ public class SmartContractDeploymentValidationRequestRepositoryImp
       throws Exception {
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
-            + "id, tenant_id, transfer_details, status, document, signature, reject_reason_message, created_at, updated_at)\n"
+            + "id, tenant_id, smart_contract_deployment, status, document, signature, reject_reason_message, created_at, updated_at)\n"
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 
     try (var connection = this.connectionFactory.create();
@@ -82,7 +78,7 @@ public class SmartContractDeploymentValidationRequestRepositoryImp
       throws Exception {
     var sql =
         String.format("UPDATE %s.%s\n", connectionFactory.getSchema(), tableName)
-            + "SET tenant_id = ?, transfer_details = ?, status = ?, document = ?, signature = ?, reject_reason_message = ?, created_at = ?, updated_at = ?\n"
+            + "SET tenant_id = ?, smart_contract_deployment = ?, status = ?, document = ?, signature = ?, reject_reason_message = ?, created_at = ?, updated_at = ?\n"
             + "WHERE id = ?;";
 
     try (var connection = this.connectionFactory.create();
