@@ -1,6 +1,7 @@
 package io.swisschain.services;
 
 import io.swisschain.contracts.common.*;
+import io.swisschain.contracts.documents.Resolution;
 import io.swisschain.contracts.transfers.Transfer;
 import io.swisschain.contracts.transfers.TransferContext;
 import io.swisschain.contracts.transfers.TransferDestination;

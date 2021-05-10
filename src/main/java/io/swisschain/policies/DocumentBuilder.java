@@ -1,8 +1,8 @@
 package io.swisschain.policies;
 
-import io.swisschain.contracts.common.Document;
-import io.swisschain.contracts.common.DocumentStatus;
-import io.swisschain.contracts.common.ValidatorResolution;
+import io.swisschain.contracts.documents.Document;
+import io.swisschain.contracts.documents.DocumentStatus;
+import io.swisschain.contracts.documents.ValidatorResolution;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
 import io.swisschain.domain.policies.SignedDocument;
 import io.swisschain.domain.validation_requests.ValidationRequest;

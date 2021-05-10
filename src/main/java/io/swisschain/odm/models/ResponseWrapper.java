@@ -1,10 +1,8 @@
-package io.swisschain.odm.contracts.policy;
+package io.swisschain.odm.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PolicyResponseWrapper {
+public abstract class ResponseWrapper {
   @JsonProperty("__DecisionID__")
   public String decisionId;
-
-  public PolicyResponse response;
 }

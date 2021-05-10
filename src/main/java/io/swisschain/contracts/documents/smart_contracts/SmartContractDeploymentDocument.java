@@ -1,8 +1,9 @@
-package io.swisschain.contracts.smart_contracts.deployment;
+package io.swisschain.contracts.documents.smart_contracts;
 
-import io.swisschain.contracts.common.Document;
-import io.swisschain.contracts.common.DocumentStatus;
-import io.swisschain.contracts.common.ValidatorResolution;
+import io.swisschain.contracts.documents.Document;
+import io.swisschain.contracts.documents.DocumentStatus;
+import io.swisschain.contracts.documents.ValidatorResolution;
+import io.swisschain.contracts.smart_contracts.deployment.SmartContractDeployment;
 
 import java.time.Instant;
 import java.util.List;

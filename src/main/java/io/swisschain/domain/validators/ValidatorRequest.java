@@ -1,6 +1,6 @@
 package io.swisschain.domain.validators;
 
-import io.swisschain.contracts.common.Resolution;
+import io.swisschain.contracts.documents.Resolution;
 
 import java.time.Instant;
 import java.util.UUID;

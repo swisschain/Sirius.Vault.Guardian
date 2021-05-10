@@ -1,4 +1,4 @@
-package io.swisschain.contracts.common;
+package io.swisschain.contracts.documents;
 
 import java.time.Instant;
 

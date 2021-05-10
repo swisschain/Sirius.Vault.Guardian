@@ -1,6 +1,6 @@
 package io.swisschain.policies.transfers;
 
-import io.swisschain.contracts.common.Resolution;
+import io.swisschain.contracts.documents.Resolution;
 import io.swisschain.domain.policies.RuleExecutionOutput;
 import io.swisschain.domain.validation_requests.transfers.TransferValidationRequest;
 import io.swisschain.domain.validators.Validator;

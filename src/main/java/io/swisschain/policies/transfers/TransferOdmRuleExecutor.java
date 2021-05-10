@@ -1,22 +1,20 @@
 package io.swisschain.policies.transfers;
 
+import io.swisschain.contracts.transfers.Transfer;
 import io.swisschain.domain.policies.RuleExecutionOutput;
 import io.swisschain.domain.validation_requests.transfers.TransferValidationRequest;
 import io.swisschain.domain.validators.Validator;
 import io.swisschain.domain.validators.ValidatorRequest;
 import io.swisschain.odm.OdmClient;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import io.swisschain.policies.OdmRuleExecutor;
 
 import java.util.List;
 
-public class TransferOdmRuleExecutor implements TransferRuleExecutor {
-  private static final Logger logger = LogManager.getLogger();
+public class TransferOdmRuleExecutor extends OdmRuleExecutor<Transfer>
+    implements TransferRuleExecutor {
 
-  private final OdmClient odmClient;
-
-  public TransferOdmRuleExecutor(OdmClient odmClient) {
-    this.odmClient = odmClient;
+  public TransferOdmRuleExecutor(OdmClient<Transfer> odmClient) {
+    super(odmClient);
   }
 
   public RuleExecutionOutput execute(
@@ -24,7 +22,6 @@ public class TransferOdmRuleExecutor implements TransferRuleExecutor {
       List<ValidatorRequest> validatorRequests,
       List<Validator> validators)
       throws Exception {
-
-    throw new Exception("Not implemented");
+    return execute(transferValidationRequest.getTransfer(), validatorRequests, validators);
   }
 }

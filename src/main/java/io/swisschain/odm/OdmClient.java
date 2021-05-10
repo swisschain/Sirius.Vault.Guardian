@@ -1,20 +1,11 @@
 package io.swisschain.odm;
 
-import io.swisschain.odm.contracts.policy.PolicyRequest;
-import io.swisschain.odm.contracts.policy.PolicyResponse;
-import io.swisschain.odm.contracts.selector.PolicySelectorRequest;
-import io.swisschain.odm.contracts.selector.PolicySelectorResponse;
+import io.swisschain.contracts.documents.ValidatorResolution;
+import io.swisschain.odm.models.DecisionResponse;
 
-public interface OdmClient {
-  PolicySelectorResponse getPolicy(PolicySelectorRequest policySelectorRequest, String requestId)
-      throws Exception;
+import java.util.List;
 
-  PolicyResponse getResolution(
-      PolicyRequest policyRequest,
-      String requestId,
-      String policyService,
-      String policyServiceVersion,
-      String policy,
-      String policyVersion)
+public interface OdmClient<T> {
+  DecisionResponse getDecision(T request, List<ValidatorResolution> validatorResolutions)
       throws Exception;
 }

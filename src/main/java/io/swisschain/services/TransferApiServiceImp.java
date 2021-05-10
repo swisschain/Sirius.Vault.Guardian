@@ -6,7 +6,6 @@ import io.swisschain.contracts.transfers.TransferDestination;
 import io.swisschain.contracts.transfers.TransferSource;
 import io.swisschain.domain.primitives.TagType;
 import io.swisschain.domain.validation_requests.transfers.TransferValidationRequest;
-import io.swisschain.mappers.TagTypeMapper;
 import io.swisschain.sirius.vaultApi.VaultApiClient;
 import io.swisschain.sirius.vaultApi.generated.transfer_validation_requests.TransferValidationRequestsOuterClass;
 import org.apache.logging.log4j.LogManager;
@@ -159,7 +158,7 @@ public class TransferApiServiceImp implements TransferApiService {
         transferDestination.getAddress(),
         transferDestination.hasTag() ? transferDestination.getTag().getValue() : null,
         transferDestination.hasTagType()
-            ? TagTypeMapper.map(transferDestination.getTagType().getTagType())
+            ? Mapper.map(transferDestination.getTagType().getTagType())
             : TagType.None,
         Mapper.map(transferDestination.getBrokerAccount()),
         Mapper.map(transferDestination.getAccount()));

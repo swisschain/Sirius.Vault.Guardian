@@ -1,8 +1,9 @@
-package io.swisschain.contracts.transfers;
+package io.swisschain.contracts.documents.transfers;
 
-import io.swisschain.contracts.common.Document;
-import io.swisschain.contracts.common.DocumentStatus;
-import io.swisschain.contracts.common.ValidatorResolution;
+import io.swisschain.contracts.documents.Document;
+import io.swisschain.contracts.documents.DocumentStatus;
+import io.swisschain.contracts.documents.ValidatorResolution;
+import io.swisschain.contracts.transfers.Transfer;
 
 import java.time.Instant;
 import java.util.List;

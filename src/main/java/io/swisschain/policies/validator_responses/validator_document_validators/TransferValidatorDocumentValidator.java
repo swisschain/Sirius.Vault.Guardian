@@ -1,8 +1,8 @@
 package io.swisschain.policies.validator_responses.validator_document_validators;
 
-import io.swisschain.contracts.common.ValidatorDocument;
+import io.swisschain.contracts.documents.ValidatorDocument;
 import io.swisschain.contracts.transfers.Transfer;
-import io.swisschain.contracts.transfers.TransferValidatorDocument;
+import io.swisschain.contracts.documents.transfers.TransferValidatorDocument;
 import io.swisschain.services.JsonSerializer;
 
 public class TransferValidatorDocumentValidator implements ValidatorDocumentValidator {

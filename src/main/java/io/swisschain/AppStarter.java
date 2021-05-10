@@ -1,5 +1,6 @@
 package io.swisschain;
 
+import io.swisschain.common.AppVersion;
 import io.swisschain.config.AppConfig;
 import io.swisschain.config.loaders.ConfigLoader;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
@@ -7,18 +8,19 @@ import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
 import io.swisschain.domain.document.CustomerKey;
 import io.swisschain.domain.document.TenantKey;
 import io.swisschain.isAlive.IsAliveService;
-import io.swisschain.odm.OdmClientImp;
 import io.swisschain.odm.OdmClientRetryDecorator;
-import io.swisschain.policies.smart_contract_deployments.*;
-import io.swisschain.policies.transfers.TransferDocumentBuilder;
+import io.swisschain.odm.SmartContractDeploymentOdmClientImp;
+import io.swisschain.odm.TransferOdmClientImp;
 import io.swisschain.policies.DocumentValidator;
 import io.swisschain.policies.ValidationPolicyFactory;
+import io.swisschain.policies.smart_contract_deployments.*;
 import io.swisschain.policies.transfers.*;
 import io.swisschain.policies.validator_requests.ValidatorRequestProcessor;
 import io.swisschain.policies.validator_responses.ValidatorResponseProcessor;
 import io.swisschain.policies.validator_responses.validator_document_readers.ValidatorDocumentReaderFactory;
 import io.swisschain.policies.validator_responses.validator_document_validators.ValidatorDocumentValidatorFactory;
-import io.swisschain.repositories.*;
+import io.swisschain.repositories.DbConnectionFactory;
+import io.swisschain.repositories.DbMigration;
 import io.swisschain.repositories.smart_contract_deployment_validation_requests.SmartContractDeploymentValidationRequestRepositoryImp;
 import io.swisschain.repositories.smart_contract_deployment_validation_requests.SmartContractDeploymentValidationRequestRepositoryRetryDecorator;
 import io.swisschain.repositories.transfer_validation_requests.TransferValidationRequestRepositoryImp;
@@ -29,8 +31,9 @@ import io.swisschain.services.*;
 import io.swisschain.sirius.ChannelFactory;
 import io.swisschain.sirius.guardianApi.GuardianApiClient;
 import io.swisschain.sirius.vaultApi.VaultApiClient;
-import io.swisschain.tasks.*;
-import io.swisschain.common.AppVersion;
+import io.swisschain.tasks.SmartContractDeploymentValidationRequestTask;
+import io.swisschain.tasks.TransferValidationRequestTask;
+import io.swisschain.tasks.ValidatorResponseTask;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -143,14 +146,16 @@ public class AppStarter {
     SmartContractDeploymentRuleExecutor smartContractDeploymentRuleExecutor;
 
     if (appConfig.clients.odmApi != null && appConfig.clients.odmApi.enable) {
-      var odmClient =
-          new OdmClientRetryDecorator(
-              new OdmClientImp(
-                  appConfig.clients.odmApi.baseUrl,
-                  appConfig.clients.odmApi.policySelectorPath,
-                  jsonSerializer));
-      transferRuleExecutor = new TransferOdmRuleExecutor(odmClient);
-      smartContractDeploymentRuleExecutor = new SmartContractDeploymentOdmRuleExecutor(odmClient);
+      var transferOdmClient =
+          new OdmClientRetryDecorator<>(
+              new TransferOdmClientImp(appConfig.clients.odmApi.transferPolicyUrl, jsonSerializer));
+      transferRuleExecutor = new TransferOdmRuleExecutor(transferOdmClient);
+      var smartContractDeploymentOdmClient =
+          new OdmClientRetryDecorator<>(
+              new SmartContractDeploymentOdmClientImp(
+                  appConfig.clients.odmApi.smartContractDeploymentPolicyUrl, jsonSerializer));
+      smartContractDeploymentRuleExecutor =
+          new SmartContractDeploymentOdmRuleExecutor(smartContractDeploymentOdmClient);
       logger.info("RuleExecutor: ODM");
     } else {
       transferRuleExecutor = new TransferSimpleRuleExecutor();

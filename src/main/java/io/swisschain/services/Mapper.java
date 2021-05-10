@@ -5,9 +5,11 @@ import io.swisschain.contracts.common.*;
 import io.swisschain.contracts.smart_contracts.DataMetamodel;
 import io.swisschain.contracts.smart_contracts.DataType;
 import io.swisschain.contracts.smart_contracts.FunctionArgument;
-import io.swisschain.mappers.NetworkTypeMapper;
+import io.swisschain.domain.primitives.NetworkType;
+import io.swisschain.domain.primitives.TagType;
 import io.swisschain.sirius.vaultApi.generated.common.Common;
 import io.swisschain.sirius.vaultApi.generated.smart_contracts.SmartContracts;
+import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -19,7 +21,7 @@ public final class Mapper {
     return new Blockchain(
         blockchain.getId(),
         blockchain.getProtocolId(),
-        NetworkTypeMapper.map(blockchain.getNetworkType()));
+        map(blockchain.getNetworkType()));
   }
 
   public static BrokerAccount map(Common.BrokerAccount brokerAccount) {
@@ -121,5 +123,31 @@ public final class Mapper {
         return DataType.Timestamp;
     }
     throw new IllegalArgumentException(String.format("Unknown data type %s.", dataType.name()));
+  }
+
+  public static NetworkType map(
+          @NotNull io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType networkType) {
+    switch (networkType) {
+      case PRIVATE:
+        return NetworkType.Private;
+      case TEST:
+        return NetworkType.Test;
+      case PUBLIC:
+        return NetworkType.Public;
+      default:
+        throw new IllegalArgumentException(
+                String.format("Unknown network type. %s", networkType.name()));
+    }
+  }
+
+  public static TagType map(@NotNull Common.TagType tagType) {
+    switch (tagType) {
+      case TEXT:
+        return TagType.Text;
+      case NUMBER:
+        return TagType.Number;
+      default:
+        throw new IllegalArgumentException(String.format("Unknown tag type. %s", tagType.name()));
+    }
   }
 }

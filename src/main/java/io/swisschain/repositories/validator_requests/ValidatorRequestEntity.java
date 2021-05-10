@@ -1,6 +1,6 @@
 package io.swisschain.repositories.validator_requests;
 
-import io.swisschain.contracts.common.Resolution;
+import io.swisschain.contracts.documents.Resolution;
 import io.swisschain.domain.validators.ValidatorRequestStatus;
 import io.swisschain.domain.validators.ValidatorRequestType;
 import io.swisschain.repositories.Entity;

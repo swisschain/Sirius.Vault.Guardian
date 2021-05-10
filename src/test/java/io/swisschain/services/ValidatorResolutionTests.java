@@ -1,6 +1,6 @@
 package io.swisschain.services;
 
-import io.swisschain.contracts.transfers.TransferValidatorDocument;
+import io.swisschain.contracts.documents.transfers.TransferValidatorDocument;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
 import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
 import org.junit.Before;
