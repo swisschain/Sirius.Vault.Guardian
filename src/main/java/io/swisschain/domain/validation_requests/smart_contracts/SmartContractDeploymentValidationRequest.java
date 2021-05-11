@@ -1,4 +1,4 @@
-package io.swisschain.domain.validation_requests.smart_contract_deployments;
+package io.swisschain.domain.validation_requests.smart_contracts;
 
 import io.swisschain.contracts.smart_contracts.deployment.SmartContractDeployment;
 import io.swisschain.domain.validation_requests.ValidationRequest;

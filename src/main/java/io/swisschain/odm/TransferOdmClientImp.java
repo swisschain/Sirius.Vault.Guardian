@@ -19,8 +19,7 @@ public class TransferOdmClientImp extends OdmClientImp<Transfer> {
   }
 
   @Override
-  protected RequestWrapper wrap(
-      Transfer data, List<ValidatorResolution> validatorResolutions) {
+  protected RequestWrapper wrap(Transfer data, List<ValidatorResolution> validatorResolutions) {
     return new TransferValidationRequestWrapper(
         UUID.randomUUID().toString(), new TransferValidationRequest(data, validatorResolutions));
   }

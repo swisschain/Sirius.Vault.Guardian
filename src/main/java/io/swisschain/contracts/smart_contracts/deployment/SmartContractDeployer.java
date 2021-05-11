@@ -40,7 +40,7 @@ public class SmartContractDeployer {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    SmartContractDeployer that = (SmartContractDeployer) o;
+    var that = (SmartContractDeployer) o;
     return address.equals(that.address) && brokerAccount.equals(that.brokerAccount);
   }
 

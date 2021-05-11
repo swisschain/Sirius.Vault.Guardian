@@ -110,7 +110,7 @@ public class SmartContractDeployment {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    SmartContractDeployment that = (SmartContractDeployment) o;
+    var that = (SmartContractDeployment) o;
     return id == that.id
         && blockchain.equals(that.blockchain)
         && deployer.equals(that.deployer)

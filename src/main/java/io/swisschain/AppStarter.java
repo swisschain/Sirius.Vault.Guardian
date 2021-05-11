@@ -10,10 +10,12 @@ import io.swisschain.domain.document.TenantKey;
 import io.swisschain.isAlive.IsAliveService;
 import io.swisschain.odm.OdmClientRetryDecorator;
 import io.swisschain.odm.SmartContractDeploymentOdmClientImp;
+import io.swisschain.odm.SmartContractInvocationOdmClientImp;
 import io.swisschain.odm.TransferOdmClientImp;
 import io.swisschain.policies.DocumentValidator;
 import io.swisschain.policies.ValidationPolicyFactory;
 import io.swisschain.policies.smart_contract_deployments.*;
+import io.swisschain.policies.smart_contract_invocations.*;
 import io.swisschain.policies.transfers.*;
 import io.swisschain.policies.validator_requests.ValidatorRequestProcessor;
 import io.swisschain.policies.validator_responses.ValidatorResponseProcessor;
@@ -23,6 +25,8 @@ import io.swisschain.repositories.DbConnectionFactory;
 import io.swisschain.repositories.DbMigration;
 import io.swisschain.repositories.smart_contract_deployment_validation_requests.SmartContractDeploymentValidationRequestRepositoryImp;
 import io.swisschain.repositories.smart_contract_deployment_validation_requests.SmartContractDeploymentValidationRequestRepositoryRetryDecorator;
+import io.swisschain.repositories.smart_contract_invocation_validation_requests.SmartContractInvocationValidationRequestRepositoryImp;
+import io.swisschain.repositories.smart_contract_invocation_validation_requests.SmartContractInvocationValidationRequestRepositoryRetryDecorator;
 import io.swisschain.repositories.transfer_validation_requests.TransferValidationRequestRepositoryImp;
 import io.swisschain.repositories.transfer_validation_requests.TransferValidationRequestRepositoryRetryDecorator;
 import io.swisschain.repositories.validator_requests.ValidatorRequestRepositoryImp;
@@ -32,6 +36,7 @@ import io.swisschain.sirius.ChannelFactory;
 import io.swisschain.sirius.guardianApi.GuardianApiClient;
 import io.swisschain.sirius.vaultApi.VaultApiClient;
 import io.swisschain.tasks.SmartContractDeploymentValidationRequestTask;
+import io.swisschain.tasks.SmartContractInvocationValidationRequestTask;
 import io.swisschain.tasks.TransferValidationRequestTask;
 import io.swisschain.tasks.ValidatorResponseTask;
 import org.apache.logging.log4j.LogManager;
@@ -90,6 +95,11 @@ public class AppStarter {
             new SmartContractDeploymentValidationRequestRepositoryImp(
                 connectionFactory, jsonSerializer));
 
+    var smartContractInvocationValidationRequestRepository =
+        new SmartContractInvocationValidationRequestRepositoryRetryDecorator(
+            new SmartContractInvocationValidationRequestRepositoryImp(
+                connectionFactory, jsonSerializer));
+
     var transferValidationRequestRepository =
         new TransferValidationRequestRepositoryRetryDecorator(
             new TransferValidationRequestRepositoryImp(connectionFactory, jsonSerializer));
@@ -111,6 +121,10 @@ public class AppStarter {
         new SmartContractDeploymentApiServiceRetryDecorator(
             new SmartContractDeploymentApiServiceImp(vaultApiClient, hostProcessId));
 
+    var smartContractInvocationApiService =
+        new SmartContractInvocationApiServiceRetryDecorator(
+            new SmartContractInvocationApiServiceImp(vaultApiClient, hostProcessId));
+
     var validatorApiService =
         new ValidatorApiServiceRetryDecorator(new ValidatorApiServiceImp(guardianApiClient));
 
@@ -130,6 +144,10 @@ public class AppStarter {
         new SmartContractDeploymentDocumentBuilder(
             asymmetricEncryptionService, appConfig.keys.guardian.privateKey, jsonSerializer);
 
+    var smartContractInvocationDocumentBuilder =
+        new SmartContractInvocationDocumentBuilder(
+            asymmetricEncryptionService, appConfig.keys.guardian.privateKey, jsonSerializer);
+
     var customerKey = new CustomerKey(appConfig.keys.customer.publicKey);
     var tenantKeys = new ArrayList<TenantKey>();
 
@@ -144,6 +162,7 @@ public class AppStarter {
 
     TransferRuleExecutor transferRuleExecutor;
     SmartContractDeploymentRuleExecutor smartContractDeploymentRuleExecutor;
+    SmartContractInvocationRuleExecutor smartContractInvocationRuleExecutor;
 
     if (appConfig.clients.odmApi != null && appConfig.clients.odmApi.enable) {
       var transferOdmClient =
@@ -156,10 +175,17 @@ public class AppStarter {
                   appConfig.clients.odmApi.smartContractDeploymentPolicyUrl, jsonSerializer));
       smartContractDeploymentRuleExecutor =
           new SmartContractDeploymentOdmRuleExecutor(smartContractDeploymentOdmClient);
+      var smartContractInvocationOdmClient =
+          new OdmClientRetryDecorator<>(
+              new SmartContractInvocationOdmClientImp(
+                  appConfig.clients.odmApi.smartContractInvocationPolicyUrl, jsonSerializer));
+      smartContractInvocationRuleExecutor =
+          new SmartContractInvocationOdmRuleExecutor(smartContractInvocationOdmClient);
       logger.info("RuleExecutor: ODM");
     } else {
       transferRuleExecutor = new TransferSimpleRuleExecutor();
       smartContractDeploymentRuleExecutor = new SmartContractDeploymentSimpleRuleExecutor();
+      smartContractInvocationRuleExecutor = new SmartContractInvocationSimpleRuleExecutor();
       logger.info("RuleExecutor: Simple");
     }
 
@@ -209,7 +235,30 @@ public class AppStarter {
             smartContractDeploymentDocumentBuilder,
             documentValidator);
 
-    var validationPolicyFactory = new ValidationPolicyFactory(transferValidationPolicy);
+    var smartContractInvocationValidationPolicy =
+        new SmartContractInvocationValidationPolicy(
+            smartContractInvocationRuleExecutor,
+            validatorApiService,
+            smartContractInvocationApiService,
+            smartContractInvocationValidationRequestRepository,
+            validatorRequestRepository,
+            validatorRequestProcessor,
+            smartContractInvocationDocumentBuilder,
+            jsonSerializer);
+
+    var smartContractInvocationValidationRequestProcessor =
+        new SmartContractInvocationValidationRequestProcessor(
+            smartContractInvocationValidationPolicy,
+            smartContractInvocationApiService,
+            smartContractInvocationValidationRequestRepository,
+            smartContractInvocationDocumentBuilder,
+            documentValidator);
+
+    var validationPolicyFactory =
+        new ValidationPolicyFactory(
+            transferValidationPolicy,
+            smartContractDeploymentValidationPolicy,
+            smartContractInvocationValidationPolicy);
     var validatorDocumentReaderFactory = new ValidatorDocumentReaderFactory(jsonSerializer);
     var validatorDocumentValidatorFactory = new ValidatorDocumentValidatorFactory(jsonSerializer);
 
@@ -227,7 +276,7 @@ public class AppStarter {
 
     // Tasks
 
-    var service = Executors.newScheduledThreadPool(3);
+    var service = Executors.newScheduledThreadPool(4);
 
     service.scheduleWithFixedDelay(
         new TransferValidationRequestTask(transferApiService, transferValidationRequestProcessor),
@@ -239,6 +288,14 @@ public class AppStarter {
     service.scheduleWithFixedDelay(
         new SmartContractDeploymentValidationRequestTask(
             smartContractDeploymentApiService, smartContractDeploymentValidationRequestProcessor),
+        0,
+        appConfig.tasks != null && appConfig.tasks.validationRequestsPeriodInSeconds > 0
+            ? appConfig.tasks.validationRequestsPeriodInSeconds
+            : 1,
+        TimeUnit.SECONDS);
+    service.scheduleWithFixedDelay(
+        new SmartContractInvocationValidationRequestTask(
+            smartContractInvocationApiService, smartContractInvocationValidationRequestProcessor),
         0,
         appConfig.tasks != null && appConfig.tasks.validationRequestsPeriodInSeconds > 0
             ? appConfig.tasks.validationRequestsPeriodInSeconds

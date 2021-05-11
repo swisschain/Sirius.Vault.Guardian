@@ -2,7 +2,7 @@ package io.swisschain.repositories.smart_contract_deployment_validation_requests
 
 import io.swisschain.domain.exceptions.OperationExhaustedException;
 import io.swisschain.domain.exceptions.OperationFailedException;
-import io.swisschain.domain.validation_requests.smart_contract_deployments.SmartContractDeploymentValidationRequest;
+import io.swisschain.domain.validation_requests.smart_contracts.SmartContractDeploymentValidationRequest;
 
 import java.sql.SQLException;
 

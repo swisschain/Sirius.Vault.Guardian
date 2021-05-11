@@ -2,7 +2,7 @@ package io.swisschain.policies.smart_contract_deployments;
 
 import io.swisschain.domain.exceptions.AlreadyExistsException;
 import io.swisschain.domain.validation_requests.ValidationRequestStatus;
-import io.swisschain.domain.validation_requests.smart_contract_deployments.SmartContractDeploymentValidationRequest;
+import io.swisschain.domain.validation_requests.smart_contracts.SmartContractDeploymentValidationRequest;
 import io.swisschain.policies.DocumentValidator;
 import io.swisschain.repositories.smart_contract_deployment_validation_requests.SmartContractDeploymentValidationRequestRepository;
 import io.swisschain.services.SmartContractDeploymentApiService;
@@ -45,12 +45,12 @@ public class SmartContractDeploymentValidationRequestProcessor {
         validationRequestRepository.insert(smartContractDeploymentValidationRequest);
         logger.info(
             String.format(
-                "Transfer validation request received. Id: %s",
+                "Smart contract deployment validation request received. Id: %s",
                 smartContractDeploymentValidationRequest.getId()));
       } catch (AlreadyExistsException exception) {
         logger.warn(
             String.format(
-                "Transfer validation request already exists. Id: %d",
+                "Smart contract deployment validation request already exists. Id: %d",
                 smartContractDeploymentValidationRequest.getId()));
       }
     } else {

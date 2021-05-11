@@ -6,9 +6,17 @@ import io.swisschain.services.JsonSerializer;
 public class ValidatorDocumentValidatorFactory {
 
   private final TransferValidatorDocumentValidator transferValidatorDocumentValidator;
+  private final SmartContractDeploymentValidatorDocumentValidator
+      smartContractDeploymentValidatorDocumentValidator;
+  private final SmartContractInvocationValidatorDocumentValidator
+      smartContractInvocationValidatorDocumentValidator;
 
   public ValidatorDocumentValidatorFactory(JsonSerializer jsonSerializer) {
     transferValidatorDocumentValidator = new TransferValidatorDocumentValidator(jsonSerializer);
+    smartContractDeploymentValidatorDocumentValidator =
+        new SmartContractDeploymentValidatorDocumentValidator(jsonSerializer);
+    smartContractInvocationValidatorDocumentValidator =
+        new SmartContractInvocationValidatorDocumentValidator(jsonSerializer);
   }
 
   public ValidatorDocumentValidator get(ValidatorRequestType type) throws Exception {
@@ -16,7 +24,9 @@ public class ValidatorDocumentValidatorFactory {
       case Transfer:
         return transferValidatorDocumentValidator;
       case SmartContractDeployment:
-        return null;
+        return smartContractDeploymentValidatorDocumentValidator;
+      case SmartContractInvocation:
+        return smartContractInvocationValidatorDocumentValidator;
       default:
         throw new Exception();
     }

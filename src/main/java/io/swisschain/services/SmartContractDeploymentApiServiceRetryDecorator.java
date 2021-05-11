@@ -5,7 +5,7 @@ import com.evanlennick.retry4j.exception.UnexpectedException;
 import io.swisschain.common.durability.RetryPolicies;
 import io.swisschain.domain.exceptions.OperationExhaustedException;
 import io.swisschain.domain.exceptions.OperationFailedException;
-import io.swisschain.domain.validation_requests.smart_contract_deployments.SmartContractDeploymentValidationRequest;
+import io.swisschain.domain.validation_requests.smart_contracts.SmartContractDeploymentValidationRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

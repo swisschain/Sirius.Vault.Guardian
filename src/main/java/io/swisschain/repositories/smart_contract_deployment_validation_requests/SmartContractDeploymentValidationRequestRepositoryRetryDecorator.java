@@ -6,7 +6,7 @@ import io.swisschain.common.durability.RetryPolicies;
 import io.swisschain.domain.exceptions.AlreadyExistsException;
 import io.swisschain.domain.exceptions.OperationExhaustedException;
 import io.swisschain.domain.exceptions.OperationFailedException;
-import io.swisschain.domain.validation_requests.smart_contract_deployments.SmartContractDeploymentValidationRequest;
+import io.swisschain.domain.validation_requests.smart_contracts.SmartContractDeploymentValidationRequest;
 import io.swisschain.repositories.PostgresErrorCodes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

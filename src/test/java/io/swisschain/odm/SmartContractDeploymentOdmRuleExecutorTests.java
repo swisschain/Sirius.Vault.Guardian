@@ -8,7 +8,7 @@ import io.swisschain.contracts.smart_contracts.deployment.SmartContractDeploymen
 import io.swisschain.domain.policies.RuleExecutionAction;
 import io.swisschain.domain.primitives.NetworkType;
 import io.swisschain.domain.validation_requests.ValidationRequestStatus;
-import io.swisschain.domain.validation_requests.smart_contract_deployments.SmartContractDeploymentValidationRequest;
+import io.swisschain.domain.validation_requests.smart_contracts.SmartContractDeploymentValidationRequest;
 import io.swisschain.domain.validators.Validator;
 import io.swisschain.domain.validators.ValidatorRequest;
 import io.swisschain.domain.validators.ValidatorRequestStatus;
@@ -28,7 +28,7 @@ public class SmartContractDeploymentOdmRuleExecutorTests {
 
   private SmartContractDeploymentOdmRuleExecutor executor;
 
-  //@Before
+  // @Before
   public void initialize() {
     executor =
         new SmartContractDeploymentOdmRuleExecutor(
@@ -37,7 +37,7 @@ public class SmartContractDeploymentOdmRuleExecutorTests {
                 new JsonSerializer()));
   }
 
-  //@Test
+  // @Test
   public void approve_trusted_smart_contract_deployment() throws Exception {
     // arrange
 
@@ -86,7 +86,7 @@ public class SmartContractDeploymentOdmRuleExecutorTests {
     assertEquals(result.getAction(), RuleExecutionAction.Approve);
   }
 
-  //@Test
+  // @Test
   public void validate_untrusted_smart_contract_deployment() throws Exception {
     // arrange
 
@@ -155,7 +155,7 @@ public class SmartContractDeploymentOdmRuleExecutorTests {
     assertEquals(result.getAction(), RuleExecutionAction.Validate);
   }
 
-  //@Test
+  // @Test
   public void approve_untrusted_smart_contract_deployment() throws Exception {
     // arrange
 
@@ -219,7 +219,7 @@ public class SmartContractDeploymentOdmRuleExecutorTests {
     assertEquals(result.getAction(), RuleExecutionAction.Approve);
   }
 
-  //@Test
+  // @Test
   public void decline_unknown_smart_contract_deployment() throws Exception {
     // arrange
 

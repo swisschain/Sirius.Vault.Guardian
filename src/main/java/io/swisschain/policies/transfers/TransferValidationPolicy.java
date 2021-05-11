@@ -67,6 +67,7 @@ public class TransferValidationPolicy implements ValidationPolicy {
           transferValidationRequest.getTenantId(),
           message,
           MessageType.Transfer,
+          ValidatorRequestType.Transfer,
           ruleExecutionOutput.getValidators());
     } else {
       if (ruleExecutionOutput.getAction() == RuleExecutionAction.Approve) {

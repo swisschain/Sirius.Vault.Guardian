@@ -1,7 +1,7 @@
 package io.swisschain.policies.smart_contract_deployments;
 
 import io.swisschain.domain.policies.RuleExecutionAction;
-import io.swisschain.domain.validation_requests.smart_contract_deployments.SmartContractDeploymentValidationRequest;
+import io.swisschain.domain.validation_requests.smart_contracts.SmartContractDeploymentValidationRequest;
 import io.swisschain.domain.validator_messages.MessageType;
 import io.swisschain.domain.validators.ValidatorRequestType;
 import io.swisschain.policies.ValidationPolicy;
@@ -77,7 +77,8 @@ public class SmartContractDeploymentValidationPolicy implements ValidationPolicy
           smartContractDeploymentValidationRequest.getId(),
           smartContractDeploymentValidationRequest.getTenantId(),
           message,
-          MessageType.Transfer,
+          MessageType.SmartContractDeployment,
+          ValidatorRequestType.SmartContractDeployment,
           ruleExecutionOutput.getValidators());
     } else {
       if (ruleExecutionOutput.getAction() == RuleExecutionAction.Approve) {

@@ -33,7 +33,7 @@ public class TransferOdmRuleExecutorTests {
 
   private TransferOdmRuleExecutor executor;
 
-  //@Before
+  // @Before
   public void initialize() {
     executor =
         new TransferOdmRuleExecutor(
@@ -42,7 +42,7 @@ public class TransferOdmRuleExecutorTests {
                 new JsonSerializer()));
   }
 
- //@Test
+  // @Test
   public void approve_small_transfer() throws Exception {
     // arrange
 
@@ -79,7 +79,7 @@ public class TransferOdmRuleExecutorTests {
     assertEquals(result.getAction(), RuleExecutionAction.Approve);
   }
 
-  //@Test
+  // @Test
   public void validate_medium_transfer() throws Exception {
     // arrange
 
@@ -121,7 +121,7 @@ public class TransferOdmRuleExecutorTests {
     assertEquals(result.getAction(), RuleExecutionAction.Validate);
   }
 
-  //@Test
+  // @Test
   public void approve_medium_transfer() throws Exception {
     // arrange
 
@@ -183,7 +183,7 @@ public class TransferOdmRuleExecutorTests {
     assertEquals(result.getAction(), RuleExecutionAction.Approve);
   }
 
-  //@Test
+  // @Test
   public void reject_medium_transfer() throws Exception {
     // arrange
 
@@ -245,7 +245,7 @@ public class TransferOdmRuleExecutorTests {
     assertEquals(result.getAction(), RuleExecutionAction.Reject);
   }
 
-  //@Test
+  // @Test
   public void reject_medium_transfer_no_validators() throws Exception {
     // arrange
 

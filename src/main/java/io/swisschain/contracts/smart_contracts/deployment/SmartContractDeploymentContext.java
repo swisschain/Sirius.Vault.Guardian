@@ -120,7 +120,7 @@ public class SmartContractDeploymentContext {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    SmartContractDeploymentContext that = (SmartContractDeploymentContext) o;
+    var that = (SmartContractDeploymentContext) o;
     return document.equals(that.document)
         && documentVersion.equals(that.documentVersion)
         && signature.equals(that.signature)

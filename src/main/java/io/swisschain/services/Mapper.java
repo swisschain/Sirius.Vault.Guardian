@@ -19,9 +19,7 @@ import java.util.stream.Collectors;
 public final class Mapper {
   public static Blockchain map(Common.Blockchain blockchain) {
     return new Blockchain(
-        blockchain.getId(),
-        blockchain.getProtocolId(),
-        map(blockchain.getNetworkType()));
+        blockchain.getId(), blockchain.getProtocolId(), map(blockchain.getNetworkType()));
   }
 
   public static BrokerAccount map(Common.BrokerAccount brokerAccount) {
@@ -126,7 +124,7 @@ public final class Mapper {
   }
 
   public static NetworkType map(
-          @NotNull io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType networkType) {
+      @NotNull io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType networkType) {
     switch (networkType) {
       case PRIVATE:
         return NetworkType.Private;
@@ -136,7 +134,7 @@ public final class Mapper {
         return NetworkType.Public;
       default:
         throw new IllegalArgumentException(
-                String.format("Unknown network type. %s", networkType.name()));
+            String.format("Unknown network type. %s", networkType.name()));
     }
   }
 

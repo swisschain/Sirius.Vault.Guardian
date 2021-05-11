@@ -48,6 +48,7 @@ public class ValidatorRequestProcessor {
       String tenantId,
       String message,
       MessageType messageType,
+      ValidatorRequestType validatorRequestType,
       List<Validator> validators)
       throws Exception {
 
@@ -82,7 +83,7 @@ public class ValidatorRequestProcessor {
               message,
               Base64.getEncoder().encodeToString(key),
               Base64.getEncoder().encodeToString(nonce),
-              ValidatorRequestType.Transfer,
+              validatorRequestType,
               validationRequestId);
 
       validatorRequestApiService.create(

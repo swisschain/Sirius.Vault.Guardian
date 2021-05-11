@@ -1,4 +1,4 @@
-package io.swisschain.contracts.documents.smart_contracts;
+package io.swisschain.contracts.documents.smart_contracts.deployment;
 
 import io.swisschain.contracts.documents.Resolution;
 import io.swisschain.contracts.documents.ValidatorDocument;
@@ -13,7 +13,7 @@ public class SmartContractDeploymentValidatorDocument extends ValidatorDocument 
   }
 
   public SmartContractDeploymentValidatorDocument(
-          Resolution resolution, String resolutionMessage, SmartContractDeployment deployment) {
+      Resolution resolution, String resolutionMessage, SmartContractDeployment deployment) {
     super(resolution, resolutionMessage);
     this.deployment = deployment;
   }

@@ -3,10 +3,10 @@ package io.swisschain.policies.smart_contract_deployments;
 import io.swisschain.contracts.documents.Document;
 import io.swisschain.contracts.documents.DocumentStatus;
 import io.swisschain.contracts.documents.ValidatorResolution;
-import io.swisschain.contracts.documents.smart_contracts.SmartContractDeploymentDocument;
+import io.swisschain.contracts.documents.smart_contracts.deployment.SmartContractDeploymentDocument;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
 import io.swisschain.domain.validation_requests.ValidationRequest;
-import io.swisschain.domain.validation_requests.smart_contract_deployments.SmartContractDeploymentValidationRequest;
+import io.swisschain.domain.validation_requests.smart_contracts.SmartContractDeploymentValidationRequest;
 import io.swisschain.policies.DocumentBuilder;
 import io.swisschain.services.JsonSerializer;
 

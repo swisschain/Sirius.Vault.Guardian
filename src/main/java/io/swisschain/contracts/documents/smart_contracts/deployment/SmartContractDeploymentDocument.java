@@ -1,4 +1,4 @@
-package io.swisschain.contracts.documents.smart_contracts;
+package io.swisschain.contracts.documents.smart_contracts.deployment;
 
 import io.swisschain.contracts.documents.Document;
 import io.swisschain.contracts.documents.DocumentStatus;

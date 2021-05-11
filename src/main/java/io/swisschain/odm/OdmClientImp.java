@@ -49,8 +49,7 @@ public abstract class OdmClientImp<T> implements OdmClient<T> {
     return getResponse(Objects.requireNonNull(response.body()).string());
   }
 
-  protected abstract RequestWrapper wrap(
-      T data, List<ValidatorResolution> validatorResolutions);
+  protected abstract RequestWrapper wrap(T data, List<ValidatorResolution> validatorResolutions);
 
   protected abstract DecisionResponse getResponse(String data) throws Exception;
 }

@@ -13,7 +13,7 @@ public class TransferValidatorDocument extends ValidatorDocument {
   }
 
   public TransferValidatorDocument(
-          Resolution resolution, String resolutionMessage, Transfer transfer) {
+      Resolution resolution, String resolutionMessage, Transfer transfer) {
     super(resolution, resolutionMessage);
     this.transfer = transfer;
   }

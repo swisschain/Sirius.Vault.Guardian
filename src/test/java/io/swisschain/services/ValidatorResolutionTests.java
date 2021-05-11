@@ -3,7 +3,6 @@ package io.swisschain.services;
 import io.swisschain.contracts.documents.transfers.TransferValidatorDocument;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
 import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
-import org.junit.Before;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -15,14 +14,14 @@ public class ValidatorResolutionTests {
   private AsymmetricEncryptionService asymmetricEncryptionService;
   private JsonSerializer jsonSerializer;
 
-  @Before
+  //@Before
   public void initialize() {
     asymmetricEncryptionService = new AsymmetricEncryptionService();
     symmetricEncryptionService = new SymmetricEncryptionService();
     jsonSerializer = new JsonSerializer();
   }
 
-  // @Test
+  //@Test
   public void decrypt_and_validate_signature() throws Exception {
     // arrange
 
