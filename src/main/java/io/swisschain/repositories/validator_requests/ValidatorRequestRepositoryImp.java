@@ -72,7 +72,7 @@ public class ValidatorRequestRepositoryImp implements ValidatorRequestRepository
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
             + "id, validator_id, tenant_id, message, \"key\", nonce, status, \"type\", validation_request_id, document, signature, resolution, resolution_message, device_info, ip, created_at, updated_at)\n"
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 
     try (var connection = this.connectionFactory.create();
         var statement = connection.prepareStatement(sql)) {
