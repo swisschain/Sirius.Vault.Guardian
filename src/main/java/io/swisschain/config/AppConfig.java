@@ -1,4 +1,5 @@
 package io.swisschain.config;
+
 import io.swisschain.config.clients.ClientsConfig;
 import io.swisschain.config.db.DbConfig;
 import io.swisschain.config.keys.KeysConfig;

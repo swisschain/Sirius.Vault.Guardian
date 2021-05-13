@@ -5,9 +5,15 @@ option csharp_namespace = "Swisschain.Sirius.VaultApi.ApiContract.Common";
 option java_package = "io.swisschain.sirius.vaultApi.generated.common";
 
 import "google/protobuf/struct.proto";
+import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
 package swisschain.sirius.vaultApi.common;
+
+enum DoubleSpendingProtectionType {
+  COINS = 0;
+  NONCE = 1;
+}
 
 enum NetworkType {
   PRIVATE = 0;
@@ -43,4 +49,62 @@ message NullableTimestamp {
     google.protobuf.NullValue null = 1;
     google.protobuf.Timestamp timestamp = 2;
   }
+}
+
+message BrokerAccount {
+  int64 id = 1;
+  string name = 2;
+}
+
+message Account {
+  int64 id = 1;
+  google.protobuf.StringValue reference_id = 2;
+  User user = 3;
+}
+
+message User {
+  int64 id = 1;
+  string native_id = 2;
+}
+
+message Blockchain {
+  string id = 1;
+  string protocol_id = 2;
+  NetworkType network_type = 3;
+}
+
+message Asset {
+  int64 id = 1;
+  string symbol = 2;
+  google.protobuf.StringValue address = 3;
+}
+
+message Unit {
+  Asset asset = 1;
+  BigDecimal amount = 2;
+}
+
+message RequestContext {
+  google.protobuf.StringValue user_id = 1;
+  google.protobuf.StringValue api_key_id = 2;
+  google.protobuf.StringValue ip = 3;
+  google.protobuf.Timestamp timestamp = 4;
+}
+
+message SigningAddress {
+  string address = 1;
+  int64 broker_account_id = 2;
+}
+
+message CoinToSpend {
+  CoinId id = 1;
+  .swisschain.sirius.vaultApi.common.Asset asset = 2;
+  .swisschain.sirius.vaultApi.common.BigDecimal value = 3;
+  google.protobuf.StringValue redeem = 4;
+  string address = 5;
+}
+
+message CoinId {
+  string transaction_id = 1;
+  int32 number = 2;
 }

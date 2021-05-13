@@ -5,48 +5,135 @@ package io.swisschain.sirius.vaultApi.generated.common;
 
 public final class Common {
   private Common() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /** Protobuf enum {@code swisschain.sirius.vaultApi.common.DoubleSpendingProtectionType} */
+  public enum DoubleSpendingProtectionType implements com.google.protobuf.ProtocolMessageEnum {
+    /** <code>COINS = 0;</code> */
+    COINS(0),
+    /** <code>NONCE = 1;</code> */
+    NONCE(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /** <code>COINS = 0;</code> */
+    public static final int COINS_VALUE = 0;
+    /** <code>NONCE = 1;</code> */
+    public static final int NONCE_VALUE = 1;
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DoubleSpendingProtectionType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static DoubleSpendingProtectionType forNumber(int value) {
+      switch (value) {
+        case 0:
+          return COINS;
+        case 1:
+          return NONCE;
+        default:
+          return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DoubleSpendingProtectionType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+
+    private static final com.google.protobuf.Internal.EnumLiteMap<DoubleSpendingProtectionType>
+        internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<DoubleSpendingProtectionType>() {
+              public DoubleSpendingProtectionType findValueByNumber(int number) {
+                return DoubleSpendingProtectionType.forNumber(number);
+              }
+            };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+
+    public final com.google.protobuf.Descriptors.EnumDescriptor getDescriptorForType() {
+      return getDescriptor();
+    }
+
+    public static final com.google.protobuf.Descriptors.EnumDescriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .getDescriptor()
+          .getEnumTypes()
+          .get(0);
+    }
+
+    private static final DoubleSpendingProtectionType[] VALUES = values();
+
+    public static DoubleSpendingProtectionType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException("EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DoubleSpendingProtectionType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:swisschain.sirius.vaultApi.common.DoubleSpendingProtectionType)
   }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  /**
-   * Protobuf enum {@code swisschain.sirius.vaultApi.common.NetworkType}
-   */
-  public enum NetworkType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>PRIVATE = 0;</code>
-     */
+  /** Protobuf enum {@code swisschain.sirius.vaultApi.common.NetworkType} */
+  public enum NetworkType implements com.google.protobuf.ProtocolMessageEnum {
+    /** <code>PRIVATE = 0;</code> */
     PRIVATE(0),
-    /**
-     * <code>TEST = 1;</code>
-     */
+    /** <code>TEST = 1;</code> */
     TEST(1),
-    /**
-     * <code>PUBLIC = 2;</code>
-     */
+    /** <code>PUBLIC = 2;</code> */
     PUBLIC(2),
     UNRECOGNIZED(-1),
     ;
 
-    /**
-     * <code>PRIVATE = 0;</code>
-     */
+    /** <code>PRIVATE = 0;</code> */
     public static final int PRIVATE_VALUE = 0;
-    /**
-     * <code>TEST = 1;</code>
-     */
+    /** <code>TEST = 1;</code> */
     public static final int TEST_VALUE = 1;
-    /**
-     * <code>PUBLIC = 2;</code>
-     */
+    /** <code>PUBLIC = 2;</code> */
     public static final int PUBLIC_VALUE = 2;
-
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
@@ -72,49 +159,57 @@ public final class Common {
      */
     public static NetworkType forNumber(int value) {
       switch (value) {
-        case 0: return PRIVATE;
-        case 1: return TEST;
-        case 2: return PUBLIC;
-        default: return null;
+        case 0:
+          return PRIVATE;
+        case 1:
+          return TEST;
+        case 2:
+          return PUBLIC;
+        default:
+          return null;
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<NetworkType>
-        internalGetValueMap() {
+    public static com.google.protobuf.Internal.EnumLiteMap<NetworkType> internalGetValueMap() {
       return internalValueMap;
     }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        NetworkType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<NetworkType>() {
-            public NetworkType findValueByNumber(int number) {
-              return NetworkType.forNumber(number);
-            }
-          };
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
+    private static final com.google.protobuf.Internal.EnumLiteMap<NetworkType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<NetworkType>() {
+          public NetworkType findValueByNumber(int number) {
+            return NetworkType.forNumber(number);
+          }
+        };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor getValueDescriptor() {
       if (this == UNRECOGNIZED) {
         throw new java.lang.IllegalStateException(
             "Can't get the descriptor of an unrecognized enum value.");
       }
       return getDescriptor().getValues().get(ordinal());
     }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
+
+    public final com.google.protobuf.Descriptors.EnumDescriptor getDescriptorForType() {
       return getDescriptor();
     }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.getDescriptor().getEnumTypes().get(0);
+
+    public static final com.google.protobuf.Descriptors.EnumDescriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .getDescriptor()
+          .getEnumTypes()
+          .get(1);
     }
 
     private static final NetworkType[] VALUES = values();
 
-    public static NetworkType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+    public static NetworkType valueOf(com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
+        throw new java.lang.IllegalArgumentException("EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
         return UNRECOGNIZED;
@@ -131,31 +226,19 @@ public final class Common {
     // @@protoc_insertion_point(enum_scope:swisschain.sirius.vaultApi.common.NetworkType)
   }
 
-  /**
-   * Protobuf enum {@code swisschain.sirius.vaultApi.common.TagType}
-   */
-  public enum TagType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>TEXT = 0;</code>
-     */
+  /** Protobuf enum {@code swisschain.sirius.vaultApi.common.TagType} */
+  public enum TagType implements com.google.protobuf.ProtocolMessageEnum {
+    /** <code>TEXT = 0;</code> */
     TEXT(0),
-    /**
-     * <code>NUMBER = 1;</code>
-     */
+    /** <code>NUMBER = 1;</code> */
     NUMBER(1),
     UNRECOGNIZED(-1),
     ;
 
-    /**
-     * <code>TEXT = 0;</code>
-     */
+    /** <code>TEXT = 0;</code> */
     public static final int TEXT_VALUE = 0;
-    /**
-     * <code>NUMBER = 1;</code>
-     */
+    /** <code>NUMBER = 1;</code> */
     public static final int NUMBER_VALUE = 1;
-
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
@@ -181,48 +264,55 @@ public final class Common {
      */
     public static TagType forNumber(int value) {
       switch (value) {
-        case 0: return TEXT;
-        case 1: return NUMBER;
-        default: return null;
+        case 0:
+          return TEXT;
+        case 1:
+          return NUMBER;
+        default:
+          return null;
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<TagType>
-        internalGetValueMap() {
+    public static com.google.protobuf.Internal.EnumLiteMap<TagType> internalGetValueMap() {
       return internalValueMap;
     }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        TagType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<TagType>() {
-            public TagType findValueByNumber(int number) {
-              return TagType.forNumber(number);
-            }
-          };
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
+    private static final com.google.protobuf.Internal.EnumLiteMap<TagType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<TagType>() {
+          public TagType findValueByNumber(int number) {
+            return TagType.forNumber(number);
+          }
+        };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor getValueDescriptor() {
       if (this == UNRECOGNIZED) {
         throw new java.lang.IllegalStateException(
             "Can't get the descriptor of an unrecognized enum value.");
       }
       return getDescriptor().getValues().get(ordinal());
     }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
+
+    public final com.google.protobuf.Descriptors.EnumDescriptor getDescriptorForType() {
       return getDescriptor();
     }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.getDescriptor().getEnumTypes().get(1);
+
+    public static final com.google.protobuf.Descriptors.EnumDescriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .getDescriptor()
+          .getEnumTypes()
+          .get(2);
     }
 
     private static final TagType[] VALUES = values();
 
-    public static TagType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+    public static TagType valueOf(com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
+        throw new java.lang.IllegalArgumentException("EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
         return UNRECOGNIZED;
@@ -239,61 +329,64 @@ public final class Common {
     // @@protoc_insertion_point(enum_scope:swisschain.sirius.vaultApi.common.TagType)
   }
 
-  public interface NullableNetworkTypeOrBuilder extends
+  public interface NullableNetworkTypeOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.NullableNetworkType)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The enum numeric value on the wire for null.
      */
     int getNullValue();
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The null.
      */
     com.google.protobuf.NullValue getNull();
 
     /**
      * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+     *
      * @return The enum numeric value on the wire for networkType.
      */
     int getNetworkTypeValue();
     /**
      * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+     *
      * @return The networkType.
      */
     io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType getNetworkType();
 
-    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.KindCase getKindCase();
+    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.KindCase
+        getKindCase();
   }
-  /**
-   * Protobuf type {@code swisschain.sirius.vaultApi.common.NullableNetworkType}
-   */
-  public static final class NullableNetworkType extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.NullableNetworkType} */
+  public static final class NullableNetworkType extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.NullableNetworkType)
       NullableNetworkTypeOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use NullableNetworkType.newBuilder() to construct.
     private NullableNetworkType(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private NullableNetworkType() {
-    }
+
+    private NullableNetworkType() {}
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
       return new NullableNetworkType();
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private NullableNetworkType(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -312,59 +405,79 @@ public final class Common {
             case 0:
               done = true;
               break;
-            case 8: {
-              int rawValue = input.readEnum();
-              kindCase_ = 1;
-              kind_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              kindCase_ = 2;
-              kind_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            case 8:
+              {
+                int rawValue = input.readEnum();
+                kindCase_ = 1;
+                kind_ = rawValue;
+                break;
               }
-              break;
-            }
+            case 16:
+              {
+                int rawValue = input.readEnum();
+                kindCase_ = 2;
+                kind_ = rawValue;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_fieldAccessorTable
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.class, io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.Builder.class);
+              io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.class,
+              io.swisschain
+                  .sirius
+                  .vaultApi
+                  .generated
+                  .common
+                  .Common
+                  .NullableNetworkType
+                  .Builder
+                  .class);
     }
 
     private int kindCase_ = 0;
     private java.lang.Object kind_;
+
     public enum KindCase
-        implements com.google.protobuf.Internal.EnumLite,
+        implements
+            com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       NULL(1),
       NETWORK_TYPE(2),
       KIND_NOT_SET(0);
       private final int value;
+
       private KindCase(int value) {
         this.value = value;
       }
@@ -380,26 +493,30 @@ public final class Common {
 
       public static KindCase forNumber(int value) {
         switch (value) {
-          case 1: return NULL;
-          case 2: return NETWORK_TYPE;
-          case 0: return KIND_NOT_SET;
-          default: return null;
+          case 1:
+            return NULL;
+          case 2:
+            return NETWORK_TYPE;
+          case 0:
+            return KIND_NOT_SET;
+          default:
+            return null;
         }
       }
+
       public int getNumber() {
         return this.value;
       }
     };
 
-    public KindCase
-    getKindCase() {
-      return KindCase.forNumber(
-          kindCase_);
+    public KindCase getKindCase() {
+      return KindCase.forNumber(kindCase_);
     }
 
     public static final int NULL_FIELD_NUMBER = 1;
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The enum numeric value on the wire for null.
      */
     public int getNullValue() {
@@ -410,13 +527,14 @@ public final class Common {
     }
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The null.
      */
     public com.google.protobuf.NullValue getNull() {
       if (kindCase_ == 1) {
         @SuppressWarnings("deprecation")
-        com.google.protobuf.NullValue result = com.google.protobuf.NullValue.valueOf(
-            (java.lang.Integer) kind_);
+        com.google.protobuf.NullValue result =
+            com.google.protobuf.NullValue.valueOf((java.lang.Integer) kind_);
         return result == null ? com.google.protobuf.NullValue.UNRECOGNIZED : result;
       }
       return com.google.protobuf.NullValue.NULL_VALUE;
@@ -425,6 +543,7 @@ public final class Common {
     public static final int NETWORK_TYPE_FIELD_NUMBER = 2;
     /**
      * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+     *
      * @return The enum numeric value on the wire for networkType.
      */
     public int getNetworkTypeValue() {
@@ -435,19 +554,24 @@ public final class Common {
     }
     /**
      * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+     *
      * @return The networkType.
      */
     public io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType getNetworkType() {
       if (kindCase_ == 2) {
         @SuppressWarnings("deprecation")
-        io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType result = io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.valueOf(
-            (java.lang.Integer) kind_);
-        return result == null ? io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.UNRECOGNIZED : result;
+        io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType result =
+            io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.valueOf(
+                (java.lang.Integer) kind_);
+        return result == null
+            ? io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.UNRECOGNIZED
+            : result;
       }
       return io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.PRIVATE;
     }
 
     private byte memoizedIsInitialized = -1;
+
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -459,8 +583,7 @@ public final class Common {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (kindCase_ == 1) {
         output.writeEnum(1, ((java.lang.Integer) kind_));
       }
@@ -477,12 +600,12 @@ public final class Common {
 
       size = 0;
       if (kindCase_ == 1) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, ((java.lang.Integer) kind_));
+        size +=
+            com.google.protobuf.CodedOutputStream.computeEnumSize(1, ((java.lang.Integer) kind_));
       }
       if (kindCase_ == 2) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, ((java.lang.Integer) kind_));
+        size +=
+            com.google.protobuf.CodedOutputStream.computeEnumSize(2, ((java.lang.Integer) kind_));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -492,22 +615,22 @@ public final class Common {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
-      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType)) {
+      if (!(obj
+          instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType)) {
         return super.equals(obj);
       }
-      io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType other = (io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType) obj;
+      io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType) obj;
 
       if (!getKindCase().equals(other.getKindCase())) return false;
       switch (kindCase_) {
         case 1:
-          if (getNullValue()
-              != other.getNullValue()) return false;
+          if (getNullValue() != other.getNullValue()) return false;
           break;
         case 2:
-          if (getNetworkTypeValue()
-              != other.getNetworkTypeValue()) return false;
+          if (getNetworkTypeValue() != other.getNetworkTypeValue()) return false;
           break;
         case 0:
         default:
@@ -540,88 +663,101 @@ public final class Common {
       return hash;
     }
 
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(
+            java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType prototype) {
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -630,41 +766,55 @@ public final class Common {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code swisschain.sirius.vaultApi.common.NullableNetworkType}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.NullableNetworkType} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.NullableNetworkType)
         io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkTypeOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_fieldAccessorTable
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.class, io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.Builder.class);
+                io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.class,
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .NullableNetworkType
+                    .Builder
+                    .class);
       }
 
-      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.newBuilder()
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
       }
+
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -674,19 +824,27 @@ public final class Common {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor;
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType getDefaultInstanceForType() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.getDefaultInstance();
+      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+            .getDefaultInstance();
       }
 
       @java.lang.Override
       public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType build() {
-        io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType result = buildPartial();
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType result =
+            buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -694,8 +852,10 @@ public final class Common {
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType buildPartial() {
-        io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType result = new io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType(this);
+      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+          buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType(this);
         if (kindCase_ == 1) {
           result.kind_ = kind_;
         }
@@ -711,58 +871,69 @@ public final class Common {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType) {
-          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType)other);
+        if (other
+            instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType) {
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType) other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType other) {
-        if (other == io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType.getDefaultInstance()) return this;
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+                .getDefaultInstance()) return this;
         switch (other.getKindCase()) {
-          case NULL: {
-            setNullValue(other.getNullValue());
-            break;
-          }
-          case NETWORK_TYPE: {
-            setNetworkTypeValue(other.getNetworkTypeValue());
-            break;
-          }
-          case KIND_NOT_SET: {
-            break;
-          }
+          case NULL:
+            {
+              setNullValue(other.getNullValue());
+              break;
+            }
+          case NETWORK_TYPE:
+            {
+              setNetworkTypeValue(other.getNetworkTypeValue());
+              break;
+            }
+          case KIND_NOT_SET:
+            {
+              break;
+            }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -779,11 +950,14 @@ public final class Common {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parsedMessage = null;
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType parsedMessage =
+            null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType)
+                  e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -792,12 +966,12 @@ public final class Common {
         }
         return this;
       }
+
       private int kindCase_ = 0;
       private java.lang.Object kind_;
-      public KindCase
-          getKindCase() {
-        return KindCase.forNumber(
-            kindCase_);
+
+      public KindCase getKindCase() {
+        return KindCase.forNumber(kindCase_);
       }
 
       public Builder clearKind() {
@@ -807,9 +981,9 @@ public final class Common {
         return this;
       }
 
-
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return The enum numeric value on the wire for null.
        */
       @java.lang.Override
@@ -821,6 +995,7 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @param value The enum numeric value on the wire for null to set.
        * @return This builder for chaining.
        */
@@ -832,20 +1007,22 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return The null.
        */
       @java.lang.Override
       public com.google.protobuf.NullValue getNull() {
         if (kindCase_ == 1) {
           @SuppressWarnings("deprecation")
-          com.google.protobuf.NullValue result = com.google.protobuf.NullValue.valueOf(
-              (java.lang.Integer) kind_);
+          com.google.protobuf.NullValue result =
+              com.google.protobuf.NullValue.valueOf((java.lang.Integer) kind_);
           return result == null ? com.google.protobuf.NullValue.UNRECOGNIZED : result;
         }
         return com.google.protobuf.NullValue.NULL_VALUE;
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @param value The null to set.
        * @return This builder for chaining.
        */
@@ -860,6 +1037,7 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearNull() {
@@ -873,6 +1051,7 @@ public final class Common {
 
       /**
        * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+       *
        * @return The enum numeric value on the wire for networkType.
        */
       @java.lang.Override
@@ -884,6 +1063,7 @@ public final class Common {
       }
       /**
        * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+       *
        * @param value The enum numeric value on the wire for networkType to set.
        * @return This builder for chaining.
        */
@@ -895,24 +1075,30 @@ public final class Common {
       }
       /**
        * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+       *
        * @return The networkType.
        */
       @java.lang.Override
       public io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType getNetworkType() {
         if (kindCase_ == 2) {
           @SuppressWarnings("deprecation")
-          io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType result = io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.valueOf(
-              (java.lang.Integer) kind_);
-          return result == null ? io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.UNRECOGNIZED : result;
+          io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType result =
+              io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.valueOf(
+                  (java.lang.Integer) kind_);
+          return result == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.UNRECOGNIZED
+              : result;
         }
         return io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.PRIVATE;
       }
       /**
        * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+       *
        * @param value The networkType to set.
        * @return This builder for chaining.
        */
-      public Builder setNetworkType(io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType value) {
+      public Builder setNetworkType(
+          io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -923,6 +1109,7 @@ public final class Common {
       }
       /**
        * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearNetworkType() {
@@ -933,6 +1120,7 @@ public final class Common {
         }
         return this;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -945,30 +1133,33 @@ public final class Common {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.NullableNetworkType)
     }
 
     // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.NullableNetworkType)
-    private static final io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType DEFAULT_INSTANCE;
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        DEFAULT_INSTANCE;
+
     static {
-      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType();
+      DEFAULT_INSTANCE =
+          new io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType();
     }
 
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType getDefaultInstance() {
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<NullableNetworkType>
-        PARSER = new com.google.protobuf.AbstractParser<NullableNetworkType>() {
-      @java.lang.Override
-      public NullableNetworkType parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NullableNetworkType(input, extensionRegistry);
-      }
-    };
+    private static final com.google.protobuf.Parser<NullableNetworkType> PARSER =
+        new com.google.protobuf.AbstractParser<NullableNetworkType>() {
+          @java.lang.Override
+          public NullableNetworkType parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new NullableNetworkType(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<NullableNetworkType> parser() {
       return PARSER;
@@ -980,67 +1171,70 @@ public final class Common {
     }
 
     @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType getDefaultInstanceForType() {
+    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableNetworkType
+        getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface NullableTagTypeOrBuilder extends
+  public interface NullableTagTypeOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.NullableTagType)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The enum numeric value on the wire for null.
      */
     int getNullValue();
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The null.
      */
     com.google.protobuf.NullValue getNull();
 
     /**
      * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+     *
      * @return The enum numeric value on the wire for tagType.
      */
     int getTagTypeValue();
     /**
      * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+     *
      * @return The tagType.
      */
     io.swisschain.sirius.vaultApi.generated.common.Common.TagType getTagType();
 
-    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.KindCase getKindCase();
+    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.KindCase
+        getKindCase();
   }
-  /**
-   * Protobuf type {@code swisschain.sirius.vaultApi.common.NullableTagType}
-   */
-  public static final class NullableTagType extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.NullableTagType} */
+  public static final class NullableTagType extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.NullableTagType)
       NullableTagTypeOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use NullableTagType.newBuilder() to construct.
     private NullableTagType(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private NullableTagType() {
-    }
+
+    private NullableTagType() {}
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
       return new NullableTagType();
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private NullableTagType(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1059,59 +1253,71 @@ public final class Common {
             case 0:
               done = true;
               break;
-            case 8: {
-              int rawValue = input.readEnum();
-              kindCase_ = 1;
-              kind_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              kindCase_ = 2;
-              kind_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            case 8:
+              {
+                int rawValue = input.readEnum();
+                kindCase_ = 1;
+                kind_ = rawValue;
+                break;
               }
-              break;
-            }
+            case 16:
+              {
+                int rawValue = input.readEnum();
+                kindCase_ = 2;
+                kind_ = rawValue;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTagType_fieldAccessorTable
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_NullableTagType_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.class, io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.Builder.class);
+              io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.Builder.class);
     }
 
     private int kindCase_ = 0;
     private java.lang.Object kind_;
+
     public enum KindCase
-        implements com.google.protobuf.Internal.EnumLite,
+        implements
+            com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       NULL(1),
       TAG_TYPE(2),
       KIND_NOT_SET(0);
       private final int value;
+
       private KindCase(int value) {
         this.value = value;
       }
@@ -1127,26 +1333,30 @@ public final class Common {
 
       public static KindCase forNumber(int value) {
         switch (value) {
-          case 1: return NULL;
-          case 2: return TAG_TYPE;
-          case 0: return KIND_NOT_SET;
-          default: return null;
+          case 1:
+            return NULL;
+          case 2:
+            return TAG_TYPE;
+          case 0:
+            return KIND_NOT_SET;
+          default:
+            return null;
         }
       }
+
       public int getNumber() {
         return this.value;
       }
     };
 
-    public KindCase
-    getKindCase() {
-      return KindCase.forNumber(
-          kindCase_);
+    public KindCase getKindCase() {
+      return KindCase.forNumber(kindCase_);
     }
 
     public static final int NULL_FIELD_NUMBER = 1;
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The enum numeric value on the wire for null.
      */
     public int getNullValue() {
@@ -1157,13 +1367,14 @@ public final class Common {
     }
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The null.
      */
     public com.google.protobuf.NullValue getNull() {
       if (kindCase_ == 1) {
         @SuppressWarnings("deprecation")
-        com.google.protobuf.NullValue result = com.google.protobuf.NullValue.valueOf(
-            (java.lang.Integer) kind_);
+        com.google.protobuf.NullValue result =
+            com.google.protobuf.NullValue.valueOf((java.lang.Integer) kind_);
         return result == null ? com.google.protobuf.NullValue.UNRECOGNIZED : result;
       }
       return com.google.protobuf.NullValue.NULL_VALUE;
@@ -1172,6 +1383,7 @@ public final class Common {
     public static final int TAG_TYPE_FIELD_NUMBER = 2;
     /**
      * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+     *
      * @return The enum numeric value on the wire for tagType.
      */
     public int getTagTypeValue() {
@@ -1182,19 +1394,24 @@ public final class Common {
     }
     /**
      * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+     *
      * @return The tagType.
      */
     public io.swisschain.sirius.vaultApi.generated.common.Common.TagType getTagType() {
       if (kindCase_ == 2) {
         @SuppressWarnings("deprecation")
-        io.swisschain.sirius.vaultApi.generated.common.Common.TagType result = io.swisschain.sirius.vaultApi.generated.common.Common.TagType.valueOf(
-            (java.lang.Integer) kind_);
-        return result == null ? io.swisschain.sirius.vaultApi.generated.common.Common.TagType.UNRECOGNIZED : result;
+        io.swisschain.sirius.vaultApi.generated.common.Common.TagType result =
+            io.swisschain.sirius.vaultApi.generated.common.Common.TagType.valueOf(
+                (java.lang.Integer) kind_);
+        return result == null
+            ? io.swisschain.sirius.vaultApi.generated.common.Common.TagType.UNRECOGNIZED
+            : result;
       }
       return io.swisschain.sirius.vaultApi.generated.common.Common.TagType.TEXT;
     }
 
     private byte memoizedIsInitialized = -1;
+
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1206,8 +1423,7 @@ public final class Common {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (kindCase_ == 1) {
         output.writeEnum(1, ((java.lang.Integer) kind_));
       }
@@ -1224,12 +1440,12 @@ public final class Common {
 
       size = 0;
       if (kindCase_ == 1) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, ((java.lang.Integer) kind_));
+        size +=
+            com.google.protobuf.CodedOutputStream.computeEnumSize(1, ((java.lang.Integer) kind_));
       }
       if (kindCase_ == 2) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, ((java.lang.Integer) kind_));
+        size +=
+            com.google.protobuf.CodedOutputStream.computeEnumSize(2, ((java.lang.Integer) kind_));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1239,22 +1455,21 @@ public final class Common {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType)) {
         return super.equals(obj);
       }
-      io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType other = (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType) obj;
+      io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType) obj;
 
       if (!getKindCase().equals(other.getKindCase())) return false;
       switch (kindCase_) {
         case 1:
-          if (getNullValue()
-              != other.getNullValue()) return false;
+          if (getNullValue() != other.getNullValue()) return false;
           break;
         case 2:
-          if (getTagTypeValue()
-              != other.getTagTypeValue()) return false;
+          if (getTagTypeValue() != other.getTagTypeValue()) return false;
           break;
         case 0:
         default:
@@ -1288,87 +1503,95 @@ public final class Common {
     }
 
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType prototype) {
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -1377,41 +1600,55 @@ public final class Common {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code swisschain.sirius.vaultApi.common.NullableTagType}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.NullableTagType} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.NullableTagType)
         io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagTypeOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTagType_fieldAccessorTable
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableTagType_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.class, io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.Builder.class);
+                io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.class,
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .NullableTagType
+                    .Builder
+                    .class);
       }
 
-      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.newBuilder()
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
       }
+
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -1421,19 +1658,27 @@ public final class Common {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor;
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType getDefaultInstanceForType() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.getDefaultInstance();
+      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType
+            .getDefaultInstance();
       }
 
       @java.lang.Override
       public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType build() {
-        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType result = buildPartial();
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType result =
+            buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1442,7 +1687,8 @@ public final class Common {
 
       @java.lang.Override
       public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType buildPartial() {
-        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType result = new io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType(this);
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType(this);
         if (kindCase_ == 1) {
           result.kind_ = kind_;
         }
@@ -1458,58 +1704,69 @@ public final class Common {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType) {
-          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType)other);
+        if (other
+            instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType) {
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType) other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType other) {
-        if (other == io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType.getDefaultInstance()) return this;
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType
+                .getDefaultInstance()) return this;
         switch (other.getKindCase()) {
-          case NULL: {
-            setNullValue(other.getNullValue());
-            break;
-          }
-          case TAG_TYPE: {
-            setTagTypeValue(other.getTagTypeValue());
-            break;
-          }
-          case KIND_NOT_SET: {
-            break;
-          }
+          case NULL:
+            {
+              setNullValue(other.getNullValue());
+              break;
+            }
+          case TAG_TYPE:
+            {
+              setTagTypeValue(other.getTagTypeValue());
+              break;
+            }
+          case KIND_NOT_SET:
+            {
+              break;
+            }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1530,7 +1787,9 @@ public final class Common {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType)
+                  e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1539,12 +1798,12 @@ public final class Common {
         }
         return this;
       }
+
       private int kindCase_ = 0;
       private java.lang.Object kind_;
-      public KindCase
-          getKindCase() {
-        return KindCase.forNumber(
-            kindCase_);
+
+      public KindCase getKindCase() {
+        return KindCase.forNumber(kindCase_);
       }
 
       public Builder clearKind() {
@@ -1554,9 +1813,9 @@ public final class Common {
         return this;
       }
 
-
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return The enum numeric value on the wire for null.
        */
       @java.lang.Override
@@ -1568,6 +1827,7 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @param value The enum numeric value on the wire for null to set.
        * @return This builder for chaining.
        */
@@ -1579,20 +1839,22 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return The null.
        */
       @java.lang.Override
       public com.google.protobuf.NullValue getNull() {
         if (kindCase_ == 1) {
           @SuppressWarnings("deprecation")
-          com.google.protobuf.NullValue result = com.google.protobuf.NullValue.valueOf(
-              (java.lang.Integer) kind_);
+          com.google.protobuf.NullValue result =
+              com.google.protobuf.NullValue.valueOf((java.lang.Integer) kind_);
           return result == null ? com.google.protobuf.NullValue.UNRECOGNIZED : result;
         }
         return com.google.protobuf.NullValue.NULL_VALUE;
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @param value The null to set.
        * @return This builder for chaining.
        */
@@ -1607,6 +1869,7 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearNull() {
@@ -1620,6 +1883,7 @@ public final class Common {
 
       /**
        * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+       *
        * @return The enum numeric value on the wire for tagType.
        */
       @java.lang.Override
@@ -1631,6 +1895,7 @@ public final class Common {
       }
       /**
        * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+       *
        * @param value The enum numeric value on the wire for tagType to set.
        * @return This builder for chaining.
        */
@@ -1642,24 +1907,30 @@ public final class Common {
       }
       /**
        * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+       *
        * @return The tagType.
        */
       @java.lang.Override
       public io.swisschain.sirius.vaultApi.generated.common.Common.TagType getTagType() {
         if (kindCase_ == 2) {
           @SuppressWarnings("deprecation")
-          io.swisschain.sirius.vaultApi.generated.common.Common.TagType result = io.swisschain.sirius.vaultApi.generated.common.Common.TagType.valueOf(
-              (java.lang.Integer) kind_);
-          return result == null ? io.swisschain.sirius.vaultApi.generated.common.Common.TagType.UNRECOGNIZED : result;
+          io.swisschain.sirius.vaultApi.generated.common.Common.TagType result =
+              io.swisschain.sirius.vaultApi.generated.common.Common.TagType.valueOf(
+                  (java.lang.Integer) kind_);
+          return result == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.TagType.UNRECOGNIZED
+              : result;
         }
         return io.swisschain.sirius.vaultApi.generated.common.Common.TagType.TEXT;
       }
       /**
        * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+       *
        * @param value The tagType to set.
        * @return This builder for chaining.
        */
-      public Builder setTagType(io.swisschain.sirius.vaultApi.generated.common.Common.TagType value) {
+      public Builder setTagType(
+          io.swisschain.sirius.vaultApi.generated.common.Common.TagType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -1670,6 +1941,7 @@ public final class Common {
       }
       /**
        * <code>.swisschain.sirius.vaultApi.common.TagType tag_type = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearTagType() {
@@ -1680,6 +1952,7 @@ public final class Common {
         }
         return this;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1692,30 +1965,33 @@ public final class Common {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.NullableTagType)
     }
 
     // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.NullableTagType)
-    private static final io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType DEFAULT_INSTANCE;
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType
+        DEFAULT_INSTANCE;
+
     static {
-      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType();
+      DEFAULT_INSTANCE =
+          new io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType();
     }
 
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType getDefaultInstance() {
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType
+        getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<NullableTagType>
-        PARSER = new com.google.protobuf.AbstractParser<NullableTagType>() {
-      @java.lang.Override
-      public NullableTagType parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NullableTagType(input, extensionRegistry);
-      }
-    };
+    private static final com.google.protobuf.Parser<NullableTagType> PARSER =
+        new com.google.protobuf.AbstractParser<NullableTagType>() {
+          @java.lang.Override
+          public NullableTagType parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new NullableTagType(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<NullableTagType> parser() {
       return PARSER;
@@ -1727,56 +2003,56 @@ public final class Common {
     }
 
     @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType getDefaultInstanceForType() {
+    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTagType
+        getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface BigDecimalOrBuilder extends
+  public interface BigDecimalOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.BigDecimal)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>string value = 1;</code>
+     *
      * @return The value.
      */
     java.lang.String getValue();
     /**
      * <code>string value = 1;</code>
+     *
      * @return The bytes for value.
      */
-    com.google.protobuf.ByteString
-        getValueBytes();
+    com.google.protobuf.ByteString getValueBytes();
   }
-  /**
-   * Protobuf type {@code swisschain.sirius.vaultApi.common.BigDecimal}
-   */
-  public static final class BigDecimal extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.BigDecimal} */
+  public static final class BigDecimal extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.BigDecimal)
       BigDecimalOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use BigDecimal.newBuilder() to construct.
     private BigDecimal(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private BigDecimal() {
       value_ = "";
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
       return new BigDecimal();
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private BigDecimal(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1795,48 +2071,57 @@ public final class Common {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 10:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
 
-              value_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+                value_ = s;
+                break;
               }
-              break;
-            }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_BigDecimal_fieldAccessorTable
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_BigDecimal_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.class, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder.class);
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder.class);
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
     private volatile java.lang.Object value_;
     /**
      * <code>string value = 1;</code>
+     *
      * @return The value.
      */
     @java.lang.Override
@@ -1845,8 +2130,7 @@ public final class Common {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         value_ = s;
         return s;
@@ -1854,16 +2138,15 @@ public final class Common {
     }
     /**
      * <code>string value = 1;</code>
+     *
      * @return The bytes for value.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getValueBytes() {
+    public com.google.protobuf.ByteString getValueBytes() {
       java.lang.Object ref = value_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         value_ = b;
         return b;
       } else {
@@ -1872,6 +2155,7 @@ public final class Common {
     }
 
     private byte memoizedIsInitialized = -1;
+
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1883,8 +2167,7 @@ public final class Common {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (!getValueBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, value_);
       }
@@ -1908,15 +2191,15 @@ public final class Common {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal)) {
         return super.equals(obj);
       }
-      io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal other = (io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal) obj;
+      io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal) obj;
 
-      if (!getValue()
-          .equals(other.getValue())) return false;
+      if (!getValue().equals(other.getValue())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1936,87 +2219,95 @@ public final class Common {
     }
 
     public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal prototype) {
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -2025,41 +2316,47 @@ public final class Common {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code swisschain.sirius.vaultApi.common.BigDecimal}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.BigDecimal} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.BigDecimal)
         io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_BigDecimal_fieldAccessorTable
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_BigDecimal_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.class, io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder.class);
+                io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder.class);
       }
 
-      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.newBuilder()
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
       }
+
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -2069,14 +2366,21 @@ public final class Common {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor;
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getDefaultInstanceForType() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance();
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+            .getDefaultInstance();
       }
 
       @java.lang.Override
@@ -2090,7 +2394,8 @@ public final class Common {
 
       @java.lang.Override
       public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal buildPartial() {
-        io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal result = new io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal(this);
+        io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal(this);
         result.value_ = value_;
         onBuilt();
         return result;
@@ -2100,46 +2405,53 @@ public final class Common {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal) {
-          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal)other);
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal) other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal other) {
-        if (other == io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance()) return this;
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+                .getDefaultInstance()) return this;
         if (!other.getValue().isEmpty()) {
           value_ = other.value_;
           onChanged();
@@ -2163,7 +2475,9 @@ public final class Common {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal)
+                  e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2176,13 +2490,13 @@ public final class Common {
       private java.lang.Object value_ = "";
       /**
        * <code>string value = 1;</code>
+       *
        * @return The value.
        */
       public java.lang.String getValue() {
         java.lang.Object ref = value_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           value_ = s;
           return s;
@@ -2192,15 +2506,14 @@ public final class Common {
       }
       /**
        * <code>string value = 1;</code>
+       *
        * @return The bytes for value.
        */
-      public com.google.protobuf.ByteString
-          getValueBytes() {
+      public com.google.protobuf.ByteString getValueBytes() {
         java.lang.Object ref = value_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           value_ = b;
           return b;
         } else {
@@ -2209,45 +2522,47 @@ public final class Common {
       }
       /**
        * <code>string value = 1;</code>
+       *
        * @param value The value to set.
        * @return This builder for chaining.
        */
-      public Builder setValue(
-          java.lang.String value) {
+      public Builder setValue(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          throw new NullPointerException();
+        }
+
         value_ = value;
         onChanged();
         return this;
       }
       /**
        * <code>string value = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        
+
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
       }
       /**
        * <code>string value = 1;</code>
+       *
        * @param value The bytes for value to set.
        * @return This builder for chaining.
        */
-      public Builder setValueBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setValueBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
         value_ = value;
         onChanged();
         return this;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2260,30 +2575,32 @@ public final class Common {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.BigDecimal)
     }
 
     // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.BigDecimal)
-    private static final io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal DEFAULT_INSTANCE;
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+        DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal();
     }
 
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getDefaultInstance() {
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+        getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<BigDecimal>
-        PARSER = new com.google.protobuf.AbstractParser<BigDecimal>() {
-      @java.lang.Override
-      public BigDecimal parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BigDecimal(input, extensionRegistry);
-      }
-    };
+    private static final com.google.protobuf.Parser<BigDecimal> PARSER =
+        new com.google.protobuf.AbstractParser<BigDecimal>() {
+          @java.lang.Override
+          public BigDecimal parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new BigDecimal(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<BigDecimal> parser() {
       return PARSER;
@@ -2295,71 +2612,72 @@ public final class Common {
     }
 
     @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getDefaultInstanceForType() {
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+        getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface NullableTimestampOrBuilder extends
+  public interface NullableTimestampOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.NullableTimestamp)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The enum numeric value on the wire for null.
      */
     int getNullValue();
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The null.
      */
     com.google.protobuf.NullValue getNull();
 
     /**
      * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     *
      * @return Whether the timestamp field is set.
      */
     boolean hasTimestamp();
     /**
      * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     *
      * @return The timestamp.
      */
     com.google.protobuf.Timestamp getTimestamp();
-    /**
-     * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-     */
+    /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
     com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
 
-    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.KindCase getKindCase();
+    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.KindCase
+        getKindCase();
   }
-  /**
-   * Protobuf type {@code swisschain.sirius.vaultApi.common.NullableTimestamp}
-   */
-  public static final class NullableTimestamp extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.NullableTimestamp} */
+  public static final class NullableTimestamp extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.NullableTimestamp)
       NullableTimestampOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use NullableTimestamp.newBuilder() to construct.
     private NullableTimestamp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private NullableTimestamp() {
-    }
+
+    private NullableTimestamp() {}
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
       return new NullableTimestamp();
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private NullableTimestamp(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2378,67 +2696,87 @@ public final class Common {
             case 0:
               done = true;
               break;
-            case 8: {
-              int rawValue = input.readEnum();
-              kindCase_ = 1;
-              kind_ = rawValue;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (kindCase_ == 2) {
-                subBuilder = ((com.google.protobuf.Timestamp) kind_).toBuilder();
+            case 8:
+              {
+                int rawValue = input.readEnum();
+                kindCase_ = 1;
+                kind_ = rawValue;
+                break;
               }
-              kind_ =
-                  input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.protobuf.Timestamp) kind_);
-                kind_ = subBuilder.buildPartial();
+            case 18:
+              {
+                com.google.protobuf.Timestamp.Builder subBuilder = null;
+                if (kindCase_ == 2) {
+                  subBuilder = ((com.google.protobuf.Timestamp) kind_).toBuilder();
+                }
+                kind_ =
+                    input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom((com.google.protobuf.Timestamp) kind_);
+                  kind_ = subBuilder.buildPartial();
+                }
+                kindCase_ = 2;
+                break;
               }
-              kindCase_ = 2;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_fieldAccessorTable
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.class, io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.Builder.class);
+              io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.class,
+              io.swisschain
+                  .sirius
+                  .vaultApi
+                  .generated
+                  .common
+                  .Common
+                  .NullableTimestamp
+                  .Builder
+                  .class);
     }
 
     private int kindCase_ = 0;
     private java.lang.Object kind_;
+
     public enum KindCase
-        implements com.google.protobuf.Internal.EnumLite,
+        implements
+            com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       NULL(1),
       TIMESTAMP(2),
       KIND_NOT_SET(0);
       private final int value;
+
       private KindCase(int value) {
         this.value = value;
       }
@@ -2454,26 +2792,30 @@ public final class Common {
 
       public static KindCase forNumber(int value) {
         switch (value) {
-          case 1: return NULL;
-          case 2: return TIMESTAMP;
-          case 0: return KIND_NOT_SET;
-          default: return null;
+          case 1:
+            return NULL;
+          case 2:
+            return TIMESTAMP;
+          case 0:
+            return KIND_NOT_SET;
+          default:
+            return null;
         }
       }
+
       public int getNumber() {
         return this.value;
       }
     };
 
-    public KindCase
-    getKindCase() {
-      return KindCase.forNumber(
-          kindCase_);
+    public KindCase getKindCase() {
+      return KindCase.forNumber(kindCase_);
     }
 
     public static final int NULL_FIELD_NUMBER = 1;
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The enum numeric value on the wire for null.
      */
     public int getNullValue() {
@@ -2484,13 +2826,14 @@ public final class Common {
     }
     /**
      * <code>.google.protobuf.NullValue null = 1;</code>
+     *
      * @return The null.
      */
     public com.google.protobuf.NullValue getNull() {
       if (kindCase_ == 1) {
         @SuppressWarnings("deprecation")
-        com.google.protobuf.NullValue result = com.google.protobuf.NullValue.valueOf(
-            (java.lang.Integer) kind_);
+        com.google.protobuf.NullValue result =
+            com.google.protobuf.NullValue.valueOf((java.lang.Integer) kind_);
         return result == null ? com.google.protobuf.NullValue.UNRECOGNIZED : result;
       }
       return com.google.protobuf.NullValue.NULL_VALUE;
@@ -2499,6 +2842,7 @@ public final class Common {
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
     /**
      * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     *
      * @return Whether the timestamp field is set.
      */
     @java.lang.Override
@@ -2507,27 +2851,27 @@ public final class Common {
     }
     /**
      * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     *
      * @return The timestamp.
      */
     @java.lang.Override
     public com.google.protobuf.Timestamp getTimestamp() {
       if (kindCase_ == 2) {
-         return (com.google.protobuf.Timestamp) kind_;
+        return (com.google.protobuf.Timestamp) kind_;
       }
       return com.google.protobuf.Timestamp.getDefaultInstance();
     }
-    /**
-     * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-     */
+    /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
       if (kindCase_ == 2) {
-         return (com.google.protobuf.Timestamp) kind_;
+        return (com.google.protobuf.Timestamp) kind_;
       }
       return com.google.protobuf.Timestamp.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
+
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2539,8 +2883,7 @@ public final class Common {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (kindCase_ == 1) {
         output.writeEnum(1, ((java.lang.Integer) kind_));
       }
@@ -2557,12 +2900,13 @@ public final class Common {
 
       size = 0;
       if (kindCase_ == 1) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, ((java.lang.Integer) kind_));
+        size +=
+            com.google.protobuf.CodedOutputStream.computeEnumSize(1, ((java.lang.Integer) kind_));
       }
       if (kindCase_ == 2) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (com.google.protobuf.Timestamp) kind_);
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(
+                2, (com.google.protobuf.Timestamp) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2572,22 +2916,22 @@ public final class Common {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
-      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp)) {
+      if (!(obj
+          instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp)) {
         return super.equals(obj);
       }
-      io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp other = (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp) obj;
+      io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp) obj;
 
       if (!getKindCase().equals(other.getKindCase())) return false;
       switch (kindCase_) {
         case 1:
-          if (getNullValue()
-              != other.getNullValue()) return false;
+          if (getNullValue() != other.getNullValue()) return false;
           break;
         case 2:
-          if (!getTimestamp()
-              .equals(other.getTimestamp())) return false;
+          if (!getTimestamp().equals(other.getTimestamp())) return false;
           break;
         case 0:
         default:
@@ -2621,87 +2965,95 @@ public final class Common {
     }
 
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
     public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp prototype) {
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -2710,41 +3062,55 @@ public final class Common {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code swisschain.sirius.vaultApi.common.NullableTimestamp}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.NullableTimestamp} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.NullableTimestamp)
         io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestampOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_fieldAccessorTable
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.class, io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.Builder.class);
+                io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.class,
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .NullableTimestamp
+                    .Builder
+                    .class);
       }
 
-      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.newBuilder()
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
       }
+
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -2754,19 +3120,27 @@ public final class Common {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor;
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp getDefaultInstanceForType() {
-        return io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.getDefaultInstance();
+      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+            .getDefaultInstance();
       }
 
       @java.lang.Override
       public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp build() {
-        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp result = buildPartial();
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp result =
+            buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2774,8 +3148,10 @@ public final class Common {
       }
 
       @java.lang.Override
-      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp buildPartial() {
-        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp result = new io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp(this);
+      public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+          buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp(this);
         if (kindCase_ == 1) {
           result.kind_ = kind_;
         }
@@ -2795,58 +3171,69 @@ public final class Common {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp) {
-          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp)other);
+        if (other
+            instanceof io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp) {
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp) other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp other) {
-        if (other == io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp.getDefaultInstance()) return this;
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+                .getDefaultInstance()) return this;
         switch (other.getKindCase()) {
-          case NULL: {
-            setNullValue(other.getNullValue());
-            break;
-          }
-          case TIMESTAMP: {
-            mergeTimestamp(other.getTimestamp());
-            break;
-          }
-          case KIND_NOT_SET: {
-            break;
-          }
+          case NULL:
+            {
+              setNullValue(other.getNullValue());
+              break;
+            }
+          case TIMESTAMP:
+            {
+              mergeTimestamp(other.getTimestamp());
+              break;
+            }
+          case KIND_NOT_SET:
+            {
+              break;
+            }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2863,11 +3250,14 @@ public final class Common {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parsedMessage = null;
+        io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp parsedMessage =
+            null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp)
+                  e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2876,12 +3266,12 @@ public final class Common {
         }
         return this;
       }
+
       private int kindCase_ = 0;
       private java.lang.Object kind_;
-      public KindCase
-          getKindCase() {
-        return KindCase.forNumber(
-            kindCase_);
+
+      public KindCase getKindCase() {
+        return KindCase.forNumber(kindCase_);
       }
 
       public Builder clearKind() {
@@ -2891,9 +3281,9 @@ public final class Common {
         return this;
       }
 
-
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return The enum numeric value on the wire for null.
        */
       @java.lang.Override
@@ -2905,6 +3295,7 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @param value The enum numeric value on the wire for null to set.
        * @return This builder for chaining.
        */
@@ -2916,20 +3307,22 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return The null.
        */
       @java.lang.Override
       public com.google.protobuf.NullValue getNull() {
         if (kindCase_ == 1) {
           @SuppressWarnings("deprecation")
-          com.google.protobuf.NullValue result = com.google.protobuf.NullValue.valueOf(
-              (java.lang.Integer) kind_);
+          com.google.protobuf.NullValue result =
+              com.google.protobuf.NullValue.valueOf((java.lang.Integer) kind_);
           return result == null ? com.google.protobuf.NullValue.UNRECOGNIZED : result;
         }
         return com.google.protobuf.NullValue.NULL_VALUE;
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @param value The null to set.
        * @return This builder for chaining.
        */
@@ -2944,6 +3337,7 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.NullValue null = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearNull() {
@@ -2956,9 +3350,13 @@ public final class Common {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampBuilder_;
+              com.google.protobuf.Timestamp,
+              com.google.protobuf.Timestamp.Builder,
+              com.google.protobuf.TimestampOrBuilder>
+          timestampBuilder_;
       /**
        * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       *
        * @return Whether the timestamp field is set.
        */
       @java.lang.Override
@@ -2967,6 +3365,7 @@ public final class Common {
       }
       /**
        * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       *
        * @return The timestamp.
        */
       @java.lang.Override
@@ -2983,9 +3382,7 @@ public final class Common {
           return com.google.protobuf.Timestamp.getDefaultInstance();
         }
       }
-      /**
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-       */
+      /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
       public Builder setTimestamp(com.google.protobuf.Timestamp value) {
         if (timestampBuilder_ == null) {
           if (value == null) {
@@ -2999,11 +3396,8 @@ public final class Common {
         kindCase_ = 2;
         return this;
       }
-      /**
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-       */
-      public Builder setTimestamp(
-          com.google.protobuf.Timestamp.Builder builderForValue) {
+      /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
+      public Builder setTimestamp(com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timestampBuilder_ == null) {
           kind_ = builderForValue.build();
           onChanged();
@@ -3013,15 +3407,14 @@ public final class Common {
         kindCase_ = 2;
         return this;
       }
-      /**
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-       */
+      /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
       public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
         if (timestampBuilder_ == null) {
-          if (kindCase_ == 2 &&
-              kind_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-            kind_ = com.google.protobuf.Timestamp.newBuilder((com.google.protobuf.Timestamp) kind_)
-                .mergeFrom(value).buildPartial();
+          if (kindCase_ == 2 && kind_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            kind_ =
+                com.google.protobuf.Timestamp.newBuilder((com.google.protobuf.Timestamp) kind_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             kind_ = value;
           }
@@ -3035,9 +3428,7 @@ public final class Common {
         kindCase_ = 2;
         return this;
       }
-      /**
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-       */
+      /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
       public Builder clearTimestamp() {
         if (timestampBuilder_ == null) {
           if (kindCase_ == 2) {
@@ -3054,15 +3445,11 @@ public final class Common {
         }
         return this;
       }
-      /**
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-       */
+      /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
       public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
         return getTimestampFieldBuilder().getBuilder();
       }
-      /**
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-       */
+      /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
       @java.lang.Override
       public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
         if ((kindCase_ == 2) && (timestampBuilder_ != null)) {
@@ -3074,27 +3461,30 @@ public final class Common {
           return com.google.protobuf.Timestamp.getDefaultInstance();
         }
       }
-      /**
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
-       */
+      /** <code>.google.protobuf.Timestamp timestamp = 2;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+              com.google.protobuf.Timestamp,
+              com.google.protobuf.Timestamp.Builder,
+              com.google.protobuf.TimestampOrBuilder>
           getTimestampFieldBuilder() {
         if (timestampBuilder_ == null) {
           if (!(kindCase_ == 2)) {
             kind_ = com.google.protobuf.Timestamp.getDefaultInstance();
           }
-          timestampBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                  (com.google.protobuf.Timestamp) kind_,
-                  getParentForChildren(),
-                  isClean());
+          timestampBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.Timestamp,
+                  com.google.protobuf.Timestamp.Builder,
+                  com.google.protobuf.TimestampOrBuilder>(
+                  (com.google.protobuf.Timestamp) kind_, getParentForChildren(), isClean());
           kind_ = null;
         }
         kindCase_ = 2;
-        onChanged();;
+        onChanged();
+        ;
         return timestampBuilder_;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3107,30 +3497,33 @@ public final class Common {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.NullableTimestamp)
     }
 
     // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.NullableTimestamp)
-    private static final io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp DEFAULT_INSTANCE;
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+        DEFAULT_INSTANCE;
+
     static {
-      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp();
+      DEFAULT_INSTANCE =
+          new io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp();
     }
 
-    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp getDefaultInstance() {
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+        getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<NullableTimestamp>
-        PARSER = new com.google.protobuf.AbstractParser<NullableTimestamp>() {
-      @java.lang.Override
-      public NullableTimestamp parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NullableTimestamp(input, extensionRegistry);
-      }
-    };
+    private static final com.google.protobuf.Parser<NullableTimestamp> PARSER =
+        new com.google.protobuf.AbstractParser<NullableTimestamp>() {
+          @java.lang.Override
+          public NullableTimestamp parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new NullableTimestamp(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<NullableTimestamp> parser() {
       return PARSER;
@@ -3142,92 +3535,9266 @@ public final class Common {
     }
 
     @java.lang.Override
-    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp getDefaultInstanceForType() {
+    public io.swisschain.sirius.vaultApi.generated.common.Common.NullableTimestamp
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface BrokerAccountOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.BrokerAccount)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 id = 1;</code>
+     *
+     * @return The id.
+     */
+    long getId();
+
+    /**
+     * <code>string name = 2;</code>
+     *
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     *
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString getNameBytes();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.BrokerAccount} */
+  public static final class BrokerAccount extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.BrokerAccount)
+      BrokerAccountOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use BrokerAccount.newBuilder() to construct.
+    private BrokerAccount(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private BrokerAccount() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new BrokerAccount();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private BrokerAccount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8:
+              {
+                id_ = input.readInt64();
+                break;
+              }
+            case 18:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                name_ = s;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>int64 id = 1;</code>
+     *
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     *
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     *
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, id_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount) obj;
+
+      if (getId() != other.getId()) return false;
+      if (!getName().equals(other.getName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getId());
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.BrokerAccount} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.BrokerAccount)
+        io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount.Builder.class);
+      }
+
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+
+        name_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount(this);
+        result.id_ = id_;
+        result.name_ = name_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount) {
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount
+                .getDefaultInstance()) return this;
+        if (other.getId() != 0L) {
+          setId(other.getId());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long id_;
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @return The id.
+       */
+      @java.lang.Override
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       *
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       *
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       *
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       *
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.BrokerAccount)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.BrokerAccount)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount
+        getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
+    private static final com.google.protobuf.Parser<BrokerAccount> PARSER =
+        new com.google.protobuf.AbstractParser<BrokerAccount>() {
+          @java.lang.Override
+          public BrokerAccount parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new BrokerAccount(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<BrokerAccount> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BrokerAccount> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BrokerAccount
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface AccountOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.Account)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 id = 1;</code>
+     *
+     * @return The id.
+     */
+    long getId();
+
+    /**
+     * <code>.google.protobuf.StringValue reference_id = 2;</code>
+     *
+     * @return Whether the referenceId field is set.
+     */
+    boolean hasReferenceId();
+    /**
+     * <code>.google.protobuf.StringValue reference_id = 2;</code>
+     *
+     * @return The referenceId.
+     */
+    com.google.protobuf.StringValue getReferenceId();
+    /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+    com.google.protobuf.StringValueOrBuilder getReferenceIdOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.User user = 3;</code>
+     *
+     * @return Whether the user field is set.
+     */
+    boolean hasUser();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.User user = 3;</code>
+     *
+     * @return The user.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.User getUser();
+    /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+    io.swisschain.sirius.vaultApi.generated.common.Common.UserOrBuilder getUserOrBuilder();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.Account} */
+  public static final class Account extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.Account)
+      AccountOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use Account.newBuilder() to construct.
+    private Account(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private Account() {}
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new Account();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private Account(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8:
+              {
+                id_ = input.readInt64();
+                break;
+              }
+            case 18:
+              {
+                com.google.protobuf.StringValue.Builder subBuilder = null;
+                if (referenceId_ != null) {
+                  subBuilder = referenceId_.toBuilder();
+                }
+                referenceId_ =
+                    input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(referenceId_);
+                  referenceId_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 26:
+              {
+                io.swisschain.sirius.vaultApi.generated.common.Common.User.Builder subBuilder =
+                    null;
+                if (user_ != null) {
+                  subBuilder = user_.toBuilder();
+                }
+                user_ =
+                    input.readMessage(
+                        io.swisschain.sirius.vaultApi.generated.common.Common.User.parser(),
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(user_);
+                  user_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_Account_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_Account_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.Account.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.Account.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>int64 id = 1;</code>
+     *
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+
+    public static final int REFERENCE_ID_FIELD_NUMBER = 2;
+    private com.google.protobuf.StringValue referenceId_;
+    /**
+     * <code>.google.protobuf.StringValue reference_id = 2;</code>
+     *
+     * @return Whether the referenceId field is set.
+     */
+    @java.lang.Override
+    public boolean hasReferenceId() {
+      return referenceId_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue reference_id = 2;</code>
+     *
+     * @return The referenceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getReferenceId() {
+      return referenceId_ == null
+          ? com.google.protobuf.StringValue.getDefaultInstance()
+          : referenceId_;
+    }
+    /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getReferenceIdOrBuilder() {
+      return getReferenceId();
+    }
+
+    public static final int USER_FIELD_NUMBER = 3;
+    private io.swisschain.sirius.vaultApi.generated.common.Common.User user_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.User user = 3;</code>
+     *
+     * @return Whether the user field is set.
+     */
+    @java.lang.Override
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.User user = 3;</code>
+     *
+     * @return The user.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.User getUser() {
+      return user_ == null
+          ? io.swisschain.sirius.vaultApi.generated.common.Common.User.getDefaultInstance()
+          : user_;
+    }
+    /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.UserOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
+      }
+      if (referenceId_ != null) {
+        output.writeMessage(2, getReferenceId());
+      }
+      if (user_ != null) {
+        output.writeMessage(3, getUser());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, id_);
+      }
+      if (referenceId_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getReferenceId());
+      }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getUser());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.Account)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.Account other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.Account) obj;
+
+      if (getId() != other.getId()) return false;
+      if (hasReferenceId() != other.hasReferenceId()) return false;
+      if (hasReferenceId()) {
+        if (!getReferenceId().equals(other.getReferenceId())) return false;
+      }
+      if (hasUser() != other.hasUser()) return false;
+      if (hasUser()) {
+        if (!getUser().equals(other.getUser())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getId());
+      if (hasReferenceId()) {
+        hash = (37 * hash) + REFERENCE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getReferenceId().hashCode();
+      }
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.Account prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.Account} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.Account)
+        io.swisschain.sirius.vaultApi.generated.common.Common.AccountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_Account_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_Account_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.Account.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.Account.Builder.class);
+      }
+
+      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.Account.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+
+        if (referenceIdBuilder_ == null) {
+          referenceId_ = null;
+        } else {
+          referenceId_ = null;
+          referenceIdBuilder_ = null;
+        }
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_Account_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Account
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.Account.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Account build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Account result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Account buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Account result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.Account(this);
+        result.id_ = id_;
+        if (referenceIdBuilder_ == null) {
+          result.referenceId_ = referenceId_;
+        } else {
+          result.referenceId_ = referenceIdBuilder_.build();
+        }
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.Account) {
+          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.Account) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.Account other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.Account.getDefaultInstance())
+          return this;
+        if (other.getId() != 0L) {
+          setId(other.getId());
+        }
+        if (other.hasReferenceId()) {
+          mergeReferenceId(other.getReferenceId());
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Account parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.Account)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long id_;
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @return The id.
+       */
+      @java.lang.Override
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.StringValue referenceId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          referenceIdBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue reference_id = 2;</code>
+       *
+       * @return Whether the referenceId field is set.
+       */
+      public boolean hasReferenceId() {
+        return referenceIdBuilder_ != null || referenceId_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue reference_id = 2;</code>
+       *
+       * @return The referenceId.
+       */
+      public com.google.protobuf.StringValue getReferenceId() {
+        if (referenceIdBuilder_ == null) {
+          return referenceId_ == null
+              ? com.google.protobuf.StringValue.getDefaultInstance()
+              : referenceId_;
+        } else {
+          return referenceIdBuilder_.getMessage();
+        }
+      }
+      /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+      public Builder setReferenceId(com.google.protobuf.StringValue value) {
+        if (referenceIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          referenceId_ = value;
+          onChanged();
+        } else {
+          referenceIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+      public Builder setReferenceId(com.google.protobuf.StringValue.Builder builderForValue) {
+        if (referenceIdBuilder_ == null) {
+          referenceId_ = builderForValue.build();
+          onChanged();
+        } else {
+          referenceIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+      public Builder mergeReferenceId(com.google.protobuf.StringValue value) {
+        if (referenceIdBuilder_ == null) {
+          if (referenceId_ != null) {
+            referenceId_ =
+                com.google.protobuf.StringValue.newBuilder(referenceId_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            referenceId_ = value;
+          }
+          onChanged();
+        } else {
+          referenceIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+      public Builder clearReferenceId() {
+        if (referenceIdBuilder_ == null) {
+          referenceId_ = null;
+          onChanged();
+        } else {
+          referenceId_ = null;
+          referenceIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+      public com.google.protobuf.StringValue.Builder getReferenceIdBuilder() {
+
+        onChanged();
+        return getReferenceIdFieldBuilder().getBuilder();
+      }
+      /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+      public com.google.protobuf.StringValueOrBuilder getReferenceIdOrBuilder() {
+        if (referenceIdBuilder_ != null) {
+          return referenceIdBuilder_.getMessageOrBuilder();
+        } else {
+          return referenceId_ == null
+              ? com.google.protobuf.StringValue.getDefaultInstance()
+              : referenceId_;
+        }
+      }
+      /** <code>.google.protobuf.StringValue reference_id = 2;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          getReferenceIdFieldBuilder() {
+        if (referenceIdBuilder_ == null) {
+          referenceIdBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.StringValue,
+                  com.google.protobuf.StringValue.Builder,
+                  com.google.protobuf.StringValueOrBuilder>(
+                  getReferenceId(), getParentForChildren(), isClean());
+          referenceId_ = null;
+        }
+        return referenceIdBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.common.Common.User user_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.User,
+              io.swisschain.sirius.vaultApi.generated.common.Common.User.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.UserOrBuilder>
+          userBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.User user = 3;</code>
+       *
+       * @return Whether the user field is set.
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.User user = 3;</code>
+       *
+       * @return The user.
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.User getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.User.getDefaultInstance()
+              : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+      public Builder setUser(io.swisschain.sirius.vaultApi.generated.common.Common.User value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+      public Builder setUser(
+          io.swisschain.sirius.vaultApi.generated.common.Common.User.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+      public Builder mergeUser(io.swisschain.sirius.vaultApi.generated.common.Common.User value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .User
+                    .newBuilder(user_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.User.Builder getUserBuilder() {
+
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.UserOrBuilder
+          getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.User.getDefaultInstance()
+              : user_;
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.User user = 3;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.User,
+              io.swisschain.sirius.vaultApi.generated.common.Common.User.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.UserOrBuilder>
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.swisschain.sirius.vaultApi.generated.common.Common.User,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.User.Builder,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.UserOrBuilder>(
+                  getUser(), getParentForChildren(), isClean());
+          user_ = null;
+        }
+        return userBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.Account)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.Account)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.Account
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.Account();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Account
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Account> PARSER =
+        new com.google.protobuf.AbstractParser<Account>() {
+          @java.lang.Override
+          public Account parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Account(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<Account> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Account> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.Account
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface UserOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.User)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 id = 1;</code>
+     *
+     * @return The id.
+     */
+    long getId();
+
+    /**
+     * <code>string native_id = 2;</code>
+     *
+     * @return The nativeId.
+     */
+    java.lang.String getNativeId();
+    /**
+     * <code>string native_id = 2;</code>
+     *
+     * @return The bytes for nativeId.
+     */
+    com.google.protobuf.ByteString getNativeIdBytes();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.User} */
+  public static final class User extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.User)
+      UserOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use User.newBuilder() to construct.
+    private User(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private User() {
+      nativeId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new User();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private User(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8:
+              {
+                id_ = input.readInt64();
+                break;
+              }
+            case 18:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                nativeId_ = s;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_User_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_User_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.User.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.User.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>int64 id = 1;</code>
+     *
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+
+    public static final int NATIVE_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object nativeId_;
+    /**
+     * <code>string native_id = 2;</code>
+     *
+     * @return The nativeId.
+     */
+    @java.lang.Override
+    public java.lang.String getNativeId() {
+      java.lang.Object ref = nativeId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nativeId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string native_id = 2;</code>
+     *
+     * @return The bytes for nativeId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getNativeIdBytes() {
+      java.lang.Object ref = nativeId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        nativeId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
+      }
+      if (!getNativeIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nativeId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, id_);
+      }
+      if (!getNativeIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nativeId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.User)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.User other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.User) obj;
+
+      if (getId() != other.getId()) return false;
+      if (!getNativeId().equals(other.getNativeId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getId());
+      hash = (37 * hash) + NATIVE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getNativeId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.User prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.User} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.User)
+        io.swisschain.sirius.vaultApi.generated.common.Common.UserOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_User_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_User_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.User.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.User.Builder.class);
+      }
+
+      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.User.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+
+        nativeId_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_User_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.User
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.User.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.User build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.User result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.User buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.User result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.User(this);
+        result.id_ = id_;
+        result.nativeId_ = nativeId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.User) {
+          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.User) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.common.Common.User other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.User.getDefaultInstance())
+          return this;
+        if (other.getId() != 0L) {
+          setId(other.getId());
+        }
+        if (!other.getNativeId().isEmpty()) {
+          nativeId_ = other.nativeId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.User parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.User) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long id_;
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @return The id.
+       */
+      @java.lang.Override
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object nativeId_ = "";
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @return The nativeId.
+       */
+      public java.lang.String getNativeId() {
+        java.lang.Object ref = nativeId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          nativeId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @return The bytes for nativeId.
+       */
+      public com.google.protobuf.ByteString getNativeIdBytes() {
+        java.lang.Object ref = nativeId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          nativeId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @param value The nativeId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNativeId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        nativeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearNativeId() {
+
+        nativeId_ = getDefaultInstance().getNativeId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string native_id = 2;</code>
+       *
+       * @param value The bytes for nativeId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNativeIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        nativeId_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.User)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.User)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.User
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.User();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.User getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<User> PARSER =
+        new com.google.protobuf.AbstractParser<User>() {
+          @java.lang.Override
+          public User parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new User(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<User> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<User> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.User getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface BlockchainOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.Blockchain)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     *
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     *
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString getIdBytes();
+
+    /**
+     * <code>string protocol_id = 2;</code>
+     *
+     * @return The protocolId.
+     */
+    java.lang.String getProtocolId();
+    /**
+     * <code>string protocol_id = 2;</code>
+     *
+     * @return The bytes for protocolId.
+     */
+    com.google.protobuf.ByteString getProtocolIdBytes();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+     *
+     * @return The enum numeric value on the wire for networkType.
+     */
+    int getNetworkTypeValue();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+     *
+     * @return The networkType.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType getNetworkType();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.Blockchain} */
+  public static final class Blockchain extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.Blockchain)
+      BlockchainOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use Blockchain.newBuilder() to construct.
+    private Blockchain(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private Blockchain() {
+      id_ = "";
+      protocolId_ = "";
+      networkType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new Blockchain();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private Blockchain(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                id_ = s;
+                break;
+              }
+            case 18:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                protocolId_ = s;
+                break;
+              }
+            case 24:
+              {
+                int rawValue = input.readEnum();
+
+                networkType_ = rawValue;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_Blockchain_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_Blockchain_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     *
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     *
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROTOCOL_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object protocolId_;
+    /**
+     * <code>string protocol_id = 2;</code>
+     *
+     * @return The protocolId.
+     */
+    @java.lang.Override
+    public java.lang.String getProtocolId() {
+      java.lang.Object ref = protocolId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        protocolId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string protocol_id = 2;</code>
+     *
+     * @return The bytes for protocolId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getProtocolIdBytes() {
+      java.lang.Object ref = protocolId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        protocolId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NETWORK_TYPE_FIELD_NUMBER = 3;
+    private int networkType_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+     *
+     * @return The enum numeric value on the wire for networkType.
+     */
+    @java.lang.Override
+    public int getNetworkTypeValue() {
+      return networkType_;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+     *
+     * @return The networkType.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType getNetworkType() {
+      @SuppressWarnings("deprecation")
+      io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType result =
+          io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.valueOf(networkType_);
+      return result == null
+          ? io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.UNRECOGNIZED
+          : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (!getProtocolIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, protocolId_);
+      }
+      if (networkType_
+          != io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.PRIVATE
+              .getNumber()) {
+        output.writeEnum(3, networkType_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (!getProtocolIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, protocolId_);
+      }
+      if (networkType_
+          != io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.PRIVATE
+              .getNumber()) {
+        size += com.google.protobuf.CodedOutputStream.computeEnumSize(3, networkType_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain) obj;
+
+      if (!getId().equals(other.getId())) return false;
+      if (!getProtocolId().equals(other.getProtocolId())) return false;
+      if (networkType_ != other.networkType_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + PROTOCOL_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getProtocolId().hashCode();
+      hash = (37 * hash) + NETWORK_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + networkType_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.Blockchain} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.Blockchain)
+        io.swisschain.sirius.vaultApi.generated.common.Common.BlockchainOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_Blockchain_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_Blockchain_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain.Builder.class);
+      }
+
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        protocolId_ = "";
+
+        networkType_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_Blockchain_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain(this);
+        result.id_ = id_;
+        result.protocolId_ = protocolId_;
+        result.networkType_ = networkType_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain) {
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain
+                .getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (!other.getProtocolId().isEmpty()) {
+          protocolId_ = other.protocolId_;
+          onChanged();
+        }
+        if (other.networkType_ != 0) {
+          setNetworkTypeValue(other.getNetworkTypeValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       *
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       *
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       *
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       *
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object protocolId_ = "";
+      /**
+       * <code>string protocol_id = 2;</code>
+       *
+       * @return The protocolId.
+       */
+      public java.lang.String getProtocolId() {
+        java.lang.Object ref = protocolId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          protocolId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string protocol_id = 2;</code>
+       *
+       * @return The bytes for protocolId.
+       */
+      public com.google.protobuf.ByteString getProtocolIdBytes() {
+        java.lang.Object ref = protocolId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          protocolId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string protocol_id = 2;</code>
+       *
+       * @param value The protocolId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        protocolId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string protocol_id = 2;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearProtocolId() {
+
+        protocolId_ = getDefaultInstance().getProtocolId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string protocol_id = 2;</code>
+       *
+       * @param value The bytes for protocolId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        protocolId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int networkType_ = 0;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+       *
+       * @return The enum numeric value on the wire for networkType.
+       */
+      @java.lang.Override
+      public int getNetworkTypeValue() {
+        return networkType_;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+       *
+       * @param value The enum numeric value on the wire for networkType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNetworkTypeValue(int value) {
+
+        networkType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+       *
+       * @return The networkType.
+       */
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType getNetworkType() {
+        @SuppressWarnings("deprecation")
+        io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType result =
+            io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.valueOf(networkType_);
+        return result == null
+            ? io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType.UNRECOGNIZED
+            : result;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+       *
+       * @param value The networkType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNetworkType(
+          io.swisschain.sirius.vaultApi.generated.common.Common.NetworkType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        networkType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.NetworkType network_type = 3;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearNetworkType() {
+
+        networkType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.Blockchain)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.Blockchain)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Blockchain> PARSER =
+        new com.google.protobuf.AbstractParser<Blockchain>() {
+          @java.lang.Override
+          public Blockchain parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Blockchain(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<Blockchain> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Blockchain> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.Blockchain
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface AssetOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.Asset)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 id = 1;</code>
+     *
+     * @return The id.
+     */
+    long getId();
+
+    /**
+     * <code>string symbol = 2;</code>
+     *
+     * @return The symbol.
+     */
+    java.lang.String getSymbol();
+    /**
+     * <code>string symbol = 2;</code>
+     *
+     * @return The bytes for symbol.
+     */
+    com.google.protobuf.ByteString getSymbolBytes();
+
+    /**
+     * <code>.google.protobuf.StringValue address = 3;</code>
+     *
+     * @return Whether the address field is set.
+     */
+    boolean hasAddress();
+    /**
+     * <code>.google.protobuf.StringValue address = 3;</code>
+     *
+     * @return The address.
+     */
+    com.google.protobuf.StringValue getAddress();
+    /** <code>.google.protobuf.StringValue address = 3;</code> */
+    com.google.protobuf.StringValueOrBuilder getAddressOrBuilder();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.Asset} */
+  public static final class Asset extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.Asset)
+      AssetOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use Asset.newBuilder() to construct.
+    private Asset(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private Asset() {
+      symbol_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new Asset();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private Asset(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8:
+              {
+                id_ = input.readInt64();
+                break;
+              }
+            case 18:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                symbol_ = s;
+                break;
+              }
+            case 26:
+              {
+                com.google.protobuf.StringValue.Builder subBuilder = null;
+                if (address_ != null) {
+                  subBuilder = address_.toBuilder();
+                }
+                address_ =
+                    input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(address_);
+                  address_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_Asset_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_Asset_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>int64 id = 1;</code>
+     *
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+
+    public static final int SYMBOL_FIELD_NUMBER = 2;
+    private volatile java.lang.Object symbol_;
+    /**
+     * <code>string symbol = 2;</code>
+     *
+     * @return The symbol.
+     */
+    @java.lang.Override
+    public java.lang.String getSymbol() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        symbol_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string symbol = 2;</code>
+     *
+     * @return The bytes for symbol.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getSymbolBytes() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        symbol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 3;
+    private com.google.protobuf.StringValue address_;
+    /**
+     * <code>.google.protobuf.StringValue address = 3;</code>
+     *
+     * @return Whether the address field is set.
+     */
+    @java.lang.Override
+    public boolean hasAddress() {
+      return address_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 3;</code>
+     *
+     * @return The address.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getAddress() {
+      return address_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : address_;
+    }
+    /** <code>.google.protobuf.StringValue address = 3;</code> */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getAddressOrBuilder() {
+      return getAddress();
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
+      }
+      if (!getSymbolBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, symbol_);
+      }
+      if (address_ != null) {
+        output.writeMessage(3, getAddress());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, id_);
+      }
+      if (!getSymbolBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, symbol_);
+      }
+      if (address_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getAddress());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.Asset)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.Asset other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.Asset) obj;
+
+      if (getId() != other.getId()) return false;
+      if (!getSymbol().equals(other.getSymbol())) return false;
+      if (hasAddress() != other.hasAddress()) return false;
+      if (hasAddress()) {
+        if (!getAddress().equals(other.getAddress())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getId());
+      hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
+      hash = (53 * hash) + getSymbol().hashCode();
+      if (hasAddress()) {
+        hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+        hash = (53 * hash) + getAddress().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.Asset prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.Asset} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.Asset)
+        io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_Asset_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_Asset_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.Asset.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder.class);
+      }
+
+      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.Asset.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+
+        symbol_ = "";
+
+        if (addressBuilder_ == null) {
+          address_ = null;
+        } else {
+          address_ = null;
+          addressBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_Asset_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Asset
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.Asset.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Asset build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Asset result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Asset buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Asset result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.Asset(this);
+        result.id_ = id_;
+        result.symbol_ = symbol_;
+        if (addressBuilder_ == null) {
+          result.address_ = address_;
+        } else {
+          result.address_ = addressBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.Asset) {
+          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.Asset) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.common.Common.Asset other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.Asset.getDefaultInstance())
+          return this;
+        if (other.getId() != 0L) {
+          setId(other.getId());
+        }
+        if (!other.getSymbol().isEmpty()) {
+          symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.hasAddress()) {
+          mergeAddress(other.getAddress());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Asset parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.Asset)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long id_;
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @return The id.
+       */
+      @java.lang.Override
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object symbol_ = "";
+      /**
+       * <code>string symbol = 2;</code>
+       *
+       * @return The symbol.
+       */
+      public java.lang.String getSymbol() {
+        java.lang.Object ref = symbol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          symbol_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string symbol = 2;</code>
+       *
+       * @return The bytes for symbol.
+       */
+      public com.google.protobuf.ByteString getSymbolBytes() {
+        java.lang.Object ref = symbol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          symbol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string symbol = 2;</code>
+       *
+       * @param value The symbol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSymbol(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string symbol = 2;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearSymbol() {
+
+        symbol_ = getDefaultInstance().getSymbol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string symbol = 2;</code>
+       *
+       * @param value The bytes for symbol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSymbolBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.StringValue address_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          addressBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue address = 3;</code>
+       *
+       * @return Whether the address field is set.
+       */
+      public boolean hasAddress() {
+        return addressBuilder_ != null || address_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue address = 3;</code>
+       *
+       * @return The address.
+       */
+      public com.google.protobuf.StringValue getAddress() {
+        if (addressBuilder_ == null) {
+          return address_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : address_;
+        } else {
+          return addressBuilder_.getMessage();
+        }
+      }
+      /** <code>.google.protobuf.StringValue address = 3;</code> */
+      public Builder setAddress(com.google.protobuf.StringValue value) {
+        if (addressBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          address_ = value;
+          onChanged();
+        } else {
+          addressBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue address = 3;</code> */
+      public Builder setAddress(com.google.protobuf.StringValue.Builder builderForValue) {
+        if (addressBuilder_ == null) {
+          address_ = builderForValue.build();
+          onChanged();
+        } else {
+          addressBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue address = 3;</code> */
+      public Builder mergeAddress(com.google.protobuf.StringValue value) {
+        if (addressBuilder_ == null) {
+          if (address_ != null) {
+            address_ =
+                com.google.protobuf.StringValue.newBuilder(address_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            address_ = value;
+          }
+          onChanged();
+        } else {
+          addressBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue address = 3;</code> */
+      public Builder clearAddress() {
+        if (addressBuilder_ == null) {
+          address_ = null;
+          onChanged();
+        } else {
+          address_ = null;
+          addressBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue address = 3;</code> */
+      public com.google.protobuf.StringValue.Builder getAddressBuilder() {
+
+        onChanged();
+        return getAddressFieldBuilder().getBuilder();
+      }
+      /** <code>.google.protobuf.StringValue address = 3;</code> */
+      public com.google.protobuf.StringValueOrBuilder getAddressOrBuilder() {
+        if (addressBuilder_ != null) {
+          return addressBuilder_.getMessageOrBuilder();
+        } else {
+          return address_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : address_;
+        }
+      }
+      /** <code>.google.protobuf.StringValue address = 3;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          getAddressFieldBuilder() {
+        if (addressBuilder_ == null) {
+          addressBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.StringValue,
+                  com.google.protobuf.StringValue.Builder,
+                  com.google.protobuf.StringValueOrBuilder>(
+                  getAddress(), getParentForChildren(), isClean());
+          address_ = null;
+        }
+        return addressBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.Asset)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.Asset)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.Asset
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.Asset();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Asset getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Asset> PARSER =
+        new com.google.protobuf.AbstractParser<Asset>() {
+          @java.lang.Override
+          public Asset parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Asset(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<Asset> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Asset> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.Asset getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface UnitOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.Unit)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code>
+     *
+     * @return Whether the asset field is set.
+     */
+    boolean hasAsset();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code>
+     *
+     * @return The asset.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.Asset getAsset();
+    /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+    io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder getAssetOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code>
+     *
+     * @return Whether the amount field is set.
+     */
+    boolean hasAmount();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code>
+     *
+     * @return The amount.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount();
+    /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getAmountOrBuilder();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.Unit} */
+  public static final class Unit extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.Unit)
+      UnitOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use Unit.newBuilder() to construct.
+    private Unit(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private Unit() {}
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new Unit();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private Unit(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder subBuilder =
+                    null;
+                if (asset_ != null) {
+                  subBuilder = asset_.toBuilder();
+                }
+                asset_ =
+                    input.readMessage(
+                        io.swisschain.sirius.vaultApi.generated.common.Common.Asset.parser(),
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(asset_);
+                  asset_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 18:
+              {
+                io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder
+                    subBuilder = null;
+                if (amount_ != null) {
+                  subBuilder = amount_.toBuilder();
+                }
+                amount_ =
+                    input.readMessage(
+                        io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.parser(),
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(amount_);
+                  amount_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_Unit_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_Unit_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.Unit.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.Unit.Builder.class);
+    }
+
+    public static final int ASSET_FIELD_NUMBER = 1;
+    private io.swisschain.sirius.vaultApi.generated.common.Common.Asset asset_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code>
+     *
+     * @return Whether the asset field is set.
+     */
+    @java.lang.Override
+    public boolean hasAsset() {
+      return asset_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code>
+     *
+     * @return The asset.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.Asset getAsset() {
+      return asset_ == null
+          ? io.swisschain.sirius.vaultApi.generated.common.Common.Asset.getDefaultInstance()
+          : asset_;
+    }
+    /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder
+        getAssetOrBuilder() {
+      return getAsset();
+    }
+
+    public static final int AMOUNT_FIELD_NUMBER = 2;
+    private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal amount_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code>
+     *
+     * @return Whether the amount field is set.
+     */
+    @java.lang.Override
+    public boolean hasAmount() {
+      return amount_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code>
+     *
+     * @return The amount.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount() {
+      return amount_ == null
+          ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance()
+          : amount_;
+    }
+    /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder
+        getAmountOrBuilder() {
+      return getAmount();
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (asset_ != null) {
+        output.writeMessage(1, getAsset());
+      }
+      if (amount_ != null) {
+        output.writeMessage(2, getAmount());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (asset_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getAsset());
+      }
+      if (amount_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getAmount());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.Unit)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.Unit other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.Unit) obj;
+
+      if (hasAsset() != other.hasAsset()) return false;
+      if (hasAsset()) {
+        if (!getAsset().equals(other.getAsset())) return false;
+      }
+      if (hasAmount() != other.hasAmount()) return false;
+      if (hasAmount()) {
+        if (!getAmount().equals(other.getAmount())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasAsset()) {
+        hash = (37 * hash) + ASSET_FIELD_NUMBER;
+        hash = (53 * hash) + getAsset().hashCode();
+      }
+      if (hasAmount()) {
+        hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getAmount().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.Unit prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.Unit} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.Unit)
+        io.swisschain.sirius.vaultApi.generated.common.Common.UnitOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_Unit_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_Unit_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.Unit.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.Unit.Builder.class);
+      }
+
+      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.Unit.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (assetBuilder_ == null) {
+          asset_ = null;
+        } else {
+          asset_ = null;
+          assetBuilder_ = null;
+        }
+        if (amountBuilder_ == null) {
+          amount_ = null;
+        } else {
+          amount_ = null;
+          amountBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_Unit_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Unit
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.Unit.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Unit build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Unit result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Unit buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Unit result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.Unit(this);
+        if (assetBuilder_ == null) {
+          result.asset_ = asset_;
+        } else {
+          result.asset_ = assetBuilder_.build();
+        }
+        if (amountBuilder_ == null) {
+          result.amount_ = amount_;
+        } else {
+          result.amount_ = amountBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.Unit) {
+          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.Unit) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.common.Common.Unit other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.Unit.getDefaultInstance())
+          return this;
+        if (other.hasAsset()) {
+          mergeAsset(other.getAsset());
+        }
+        if (other.hasAmount()) {
+          mergeAmount(other.getAmount());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.Unit parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.Unit) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.common.Common.Asset asset_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset,
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder>
+          assetBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code>
+       *
+       * @return Whether the asset field is set.
+       */
+      public boolean hasAsset() {
+        return assetBuilder_ != null || asset_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code>
+       *
+       * @return The asset.
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Asset getAsset() {
+        if (assetBuilder_ == null) {
+          return asset_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.Asset.getDefaultInstance()
+              : asset_;
+        } else {
+          return assetBuilder_.getMessage();
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+      public Builder setAsset(io.swisschain.sirius.vaultApi.generated.common.Common.Asset value) {
+        if (assetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          asset_ = value;
+          onChanged();
+        } else {
+          assetBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+      public Builder setAsset(
+          io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder builderForValue) {
+        if (assetBuilder_ == null) {
+          asset_ = builderForValue.build();
+          onChanged();
+        } else {
+          assetBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+      public Builder mergeAsset(io.swisschain.sirius.vaultApi.generated.common.Common.Asset value) {
+        if (assetBuilder_ == null) {
+          if (asset_ != null) {
+            asset_ =
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .Asset
+                    .newBuilder(asset_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            asset_ = value;
+          }
+          onChanged();
+        } else {
+          assetBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+      public Builder clearAsset() {
+        if (assetBuilder_ == null) {
+          asset_ = null;
+          onChanged();
+        } else {
+          asset_ = null;
+          assetBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder getAssetBuilder() {
+
+        onChanged();
+        return getAssetFieldBuilder().getBuilder();
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder
+          getAssetOrBuilder() {
+        if (assetBuilder_ != null) {
+          return assetBuilder_.getMessageOrBuilder();
+        } else {
+          return asset_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.Asset.getDefaultInstance()
+              : asset_;
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 1;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset,
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder>
+          getAssetFieldBuilder() {
+        if (assetBuilder_ == null) {
+          assetBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.swisschain.sirius.vaultApi.generated.common.Common.Asset,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder>(
+                  getAsset(), getParentForChildren(), isClean());
+          asset_ = null;
+        }
+        return assetBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal amount_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>
+          amountBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code>
+       *
+       * @return Whether the amount field is set.
+       */
+      public boolean hasAmount() {
+        return amountBuilder_ != null || amount_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code>
+       *
+       * @return The amount.
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getAmount() {
+        if (amountBuilder_ == null) {
+          return amount_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+                  .getDefaultInstance()
+              : amount_;
+        } else {
+          return amountBuilder_.getMessage();
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+      public Builder setAmount(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
+        if (amountBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          amount_ = value;
+          onChanged();
+        } else {
+          amountBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+      public Builder setAmount(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder
+              builderForValue) {
+        if (amountBuilder_ == null) {
+          amount_ = builderForValue.build();
+          onChanged();
+        } else {
+          amountBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+      public Builder mergeAmount(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
+        if (amountBuilder_ == null) {
+          if (amount_ != null) {
+            amount_ =
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .BigDecimal
+                    .newBuilder(amount_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            amount_ = value;
+          }
+          onChanged();
+        } else {
+          amountBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+      public Builder clearAmount() {
+        if (amountBuilder_ == null) {
+          amount_ = null;
+          onChanged();
+        } else {
+          amount_ = null;
+          amountBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder
+          getAmountBuilder() {
+
+        onChanged();
+        return getAmountFieldBuilder().getBuilder();
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder
+          getAmountOrBuilder() {
+        if (amountBuilder_ != null) {
+          return amountBuilder_.getMessageOrBuilder();
+        } else {
+          return amount_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+                  .getDefaultInstance()
+              : amount_;
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal amount = 2;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>
+          getAmountFieldBuilder() {
+        if (amountBuilder_ == null) {
+          amountBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>(
+                  getAmount(), getParentForChildren(), isClean());
+          amount_ = null;
+        }
+        return amountBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.Unit)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.Unit)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.Unit
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.Unit();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.Unit getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Unit> PARSER =
+        new com.google.protobuf.AbstractParser<Unit>() {
+          @java.lang.Override
+          public Unit parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Unit(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<Unit> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Unit> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.Unit getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface RequestContextOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.RequestContext)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     *
+     * @return Whether the userId field is set.
+     */
+    boolean hasUserId();
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     *
+     * @return The userId.
+     */
+    com.google.protobuf.StringValue getUserId();
+    /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+    com.google.protobuf.StringValueOrBuilder getUserIdOrBuilder();
+
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     *
+     * @return Whether the apiKeyId field is set.
+     */
+    boolean hasApiKeyId();
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     *
+     * @return The apiKeyId.
+     */
+    com.google.protobuf.StringValue getApiKeyId();
+    /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+    com.google.protobuf.StringValueOrBuilder getApiKeyIdOrBuilder();
+
+    /**
+     * <code>.google.protobuf.StringValue ip = 3;</code>
+     *
+     * @return Whether the ip field is set.
+     */
+    boolean hasIp();
+    /**
+     * <code>.google.protobuf.StringValue ip = 3;</code>
+     *
+     * @return The ip.
+     */
+    com.google.protobuf.StringValue getIp();
+    /** <code>.google.protobuf.StringValue ip = 3;</code> */
+    com.google.protobuf.StringValueOrBuilder getIpOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     *
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     *
+     * @return The timestamp.
+     */
+    com.google.protobuf.Timestamp getTimestamp();
+    /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+    com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.RequestContext} */
+  public static final class RequestContext extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.RequestContext)
+      RequestContextOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use RequestContext.newBuilder() to construct.
+    private RequestContext(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private RequestContext() {}
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new RequestContext();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private RequestContext(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.StringValue.Builder subBuilder = null;
+                if (userId_ != null) {
+                  subBuilder = userId_.toBuilder();
+                }
+                userId_ =
+                    input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(userId_);
+                  userId_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 18:
+              {
+                com.google.protobuf.StringValue.Builder subBuilder = null;
+                if (apiKeyId_ != null) {
+                  subBuilder = apiKeyId_.toBuilder();
+                }
+                apiKeyId_ =
+                    input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(apiKeyId_);
+                  apiKeyId_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 26:
+              {
+                com.google.protobuf.StringValue.Builder subBuilder = null;
+                if (ip_ != null) {
+                  subBuilder = ip_.toBuilder();
+                }
+                ip_ =
+                    input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(ip_);
+                  ip_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 34:
+              {
+                com.google.protobuf.Timestamp.Builder subBuilder = null;
+                if (timestamp_ != null) {
+                  subBuilder = timestamp_.toBuilder();
+                }
+                timestamp_ =
+                    input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(timestamp_);
+                  timestamp_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_RequestContext_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_RequestContext_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext.Builder.class);
+    }
+
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private com.google.protobuf.StringValue userId_;
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     *
+     * @return Whether the userId field is set.
+     */
+    @java.lang.Override
+    public boolean hasUserId() {
+      return userId_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue user_id = 1;</code>
+     *
+     * @return The userId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getUserId() {
+      return userId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : userId_;
+    }
+    /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getUserIdOrBuilder() {
+      return getUserId();
+    }
+
+    public static final int API_KEY_ID_FIELD_NUMBER = 2;
+    private com.google.protobuf.StringValue apiKeyId_;
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     *
+     * @return Whether the apiKeyId field is set.
+     */
+    @java.lang.Override
+    public boolean hasApiKeyId() {
+      return apiKeyId_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+     *
+     * @return The apiKeyId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getApiKeyId() {
+      return apiKeyId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : apiKeyId_;
+    }
+    /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getApiKeyIdOrBuilder() {
+      return getApiKeyId();
+    }
+
+    public static final int IP_FIELD_NUMBER = 3;
+    private com.google.protobuf.StringValue ip_;
+    /**
+     * <code>.google.protobuf.StringValue ip = 3;</code>
+     *
+     * @return Whether the ip field is set.
+     */
+    @java.lang.Override
+    public boolean hasIp() {
+      return ip_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue ip = 3;</code>
+     *
+     * @return The ip.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getIp() {
+      return ip_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : ip_;
+    }
+    /** <code>.google.protobuf.StringValue ip = 3;</code> */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getIpOrBuilder() {
+      return getIp();
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 4;
+    private com.google.protobuf.Timestamp timestamp_;
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     *
+     * @return Whether the timestamp field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestamp() {
+      return timestamp_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     *
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getTimestamp() {
+      return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
+    }
+    /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
+      return getTimestamp();
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (userId_ != null) {
+        output.writeMessage(1, getUserId());
+      }
+      if (apiKeyId_ != null) {
+        output.writeMessage(2, getApiKeyId());
+      }
+      if (ip_ != null) {
+        output.writeMessage(3, getIp());
+      }
+      if (timestamp_ != null) {
+        output.writeMessage(4, getTimestamp());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getUserId());
+      }
+      if (apiKeyId_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getApiKeyId());
+      }
+      if (ip_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getIp());
+      }
+      if (timestamp_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getTimestamp());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext) obj;
+
+      if (hasUserId() != other.hasUserId()) return false;
+      if (hasUserId()) {
+        if (!getUserId().equals(other.getUserId())) return false;
+      }
+      if (hasApiKeyId() != other.hasApiKeyId()) return false;
+      if (hasApiKeyId()) {
+        if (!getApiKeyId().equals(other.getApiKeyId())) return false;
+      }
+      if (hasIp() != other.hasIp()) return false;
+      if (hasIp()) {
+        if (!getIp().equals(other.getIp())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (!getTimestamp().equals(other.getTimestamp())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUserId()) {
+        hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId().hashCode();
+      }
+      if (hasApiKeyId()) {
+        hash = (37 * hash) + API_KEY_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getApiKeyId().hashCode();
+      }
+      if (hasIp()) {
+        hash = (37 * hash) + IP_FIELD_NUMBER;
+        hash = (53 * hash) + getIp().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + getTimestamp().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.RequestContext} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.RequestContext)
+        io.swisschain.sirius.vaultApi.generated.common.Common.RequestContextOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_RequestContext_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_RequestContext_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext.Builder.class);
+      }
+
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (userIdBuilder_ == null) {
+          userId_ = null;
+        } else {
+          userId_ = null;
+          userIdBuilder_ = null;
+        }
+        if (apiKeyIdBuilder_ == null) {
+          apiKeyId_ = null;
+        } else {
+          apiKeyId_ = null;
+          apiKeyIdBuilder_ = null;
+        }
+        if (ipBuilder_ == null) {
+          ip_ = null;
+        } else {
+          ip_ = null;
+          ipBuilder_ = null;
+        }
+        if (timestampBuilder_ == null) {
+          timestamp_ = null;
+        } else {
+          timestamp_ = null;
+          timestampBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_RequestContext_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext(this);
+        if (userIdBuilder_ == null) {
+          result.userId_ = userId_;
+        } else {
+          result.userId_ = userIdBuilder_.build();
+        }
+        if (apiKeyIdBuilder_ == null) {
+          result.apiKeyId_ = apiKeyId_;
+        } else {
+          result.apiKeyId_ = apiKeyIdBuilder_.build();
+        }
+        if (ipBuilder_ == null) {
+          result.ip_ = ip_;
+        } else {
+          result.ip_ = ipBuilder_.build();
+        }
+        if (timestampBuilder_ == null) {
+          result.timestamp_ = timestamp_;
+        } else {
+          result.timestamp_ = timestampBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext) {
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext
+                .getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          mergeUserId(other.getUserId());
+        }
+        if (other.hasApiKeyId()) {
+          mergeApiKeyId(other.getApiKeyId());
+        }
+        if (other.hasIp()) {
+          mergeIp(other.getIp());
+        }
+        if (other.hasTimestamp()) {
+          mergeTimestamp(other.getTimestamp());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.StringValue userId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          userIdBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue user_id = 1;</code>
+       *
+       * @return Whether the userId field is set.
+       */
+      public boolean hasUserId() {
+        return userIdBuilder_ != null || userId_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue user_id = 1;</code>
+       *
+       * @return The userId.
+       */
+      public com.google.protobuf.StringValue getUserId() {
+        if (userIdBuilder_ == null) {
+          return userId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : userId_;
+        } else {
+          return userIdBuilder_.getMessage();
+        }
+      }
+      /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+      public Builder setUserId(com.google.protobuf.StringValue value) {
+        if (userIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          userId_ = value;
+          onChanged();
+        } else {
+          userIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+      public Builder setUserId(com.google.protobuf.StringValue.Builder builderForValue) {
+        if (userIdBuilder_ == null) {
+          userId_ = builderForValue.build();
+          onChanged();
+        } else {
+          userIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+      public Builder mergeUserId(com.google.protobuf.StringValue value) {
+        if (userIdBuilder_ == null) {
+          if (userId_ != null) {
+            userId_ =
+                com.google.protobuf.StringValue.newBuilder(userId_).mergeFrom(value).buildPartial();
+          } else {
+            userId_ = value;
+          }
+          onChanged();
+        } else {
+          userIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+      public Builder clearUserId() {
+        if (userIdBuilder_ == null) {
+          userId_ = null;
+          onChanged();
+        } else {
+          userId_ = null;
+          userIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+      public com.google.protobuf.StringValue.Builder getUserIdBuilder() {
+
+        onChanged();
+        return getUserIdFieldBuilder().getBuilder();
+      }
+      /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+      public com.google.protobuf.StringValueOrBuilder getUserIdOrBuilder() {
+        if (userIdBuilder_ != null) {
+          return userIdBuilder_.getMessageOrBuilder();
+        } else {
+          return userId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : userId_;
+        }
+      }
+      /** <code>.google.protobuf.StringValue user_id = 1;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          getUserIdFieldBuilder() {
+        if (userIdBuilder_ == null) {
+          userIdBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.StringValue,
+                  com.google.protobuf.StringValue.Builder,
+                  com.google.protobuf.StringValueOrBuilder>(
+                  getUserId(), getParentForChildren(), isClean());
+          userId_ = null;
+        }
+        return userIdBuilder_;
+      }
+
+      private com.google.protobuf.StringValue apiKeyId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          apiKeyIdBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+       *
+       * @return Whether the apiKeyId field is set.
+       */
+      public boolean hasApiKeyId() {
+        return apiKeyIdBuilder_ != null || apiKeyId_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue api_key_id = 2;</code>
+       *
+       * @return The apiKeyId.
+       */
+      public com.google.protobuf.StringValue getApiKeyId() {
+        if (apiKeyIdBuilder_ == null) {
+          return apiKeyId_ == null
+              ? com.google.protobuf.StringValue.getDefaultInstance()
+              : apiKeyId_;
+        } else {
+          return apiKeyIdBuilder_.getMessage();
+        }
+      }
+      /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+      public Builder setApiKeyId(com.google.protobuf.StringValue value) {
+        if (apiKeyIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          apiKeyId_ = value;
+          onChanged();
+        } else {
+          apiKeyIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+      public Builder setApiKeyId(com.google.protobuf.StringValue.Builder builderForValue) {
+        if (apiKeyIdBuilder_ == null) {
+          apiKeyId_ = builderForValue.build();
+          onChanged();
+        } else {
+          apiKeyIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+      public Builder mergeApiKeyId(com.google.protobuf.StringValue value) {
+        if (apiKeyIdBuilder_ == null) {
+          if (apiKeyId_ != null) {
+            apiKeyId_ =
+                com.google.protobuf.StringValue.newBuilder(apiKeyId_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            apiKeyId_ = value;
+          }
+          onChanged();
+        } else {
+          apiKeyIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+      public Builder clearApiKeyId() {
+        if (apiKeyIdBuilder_ == null) {
+          apiKeyId_ = null;
+          onChanged();
+        } else {
+          apiKeyId_ = null;
+          apiKeyIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+      public com.google.protobuf.StringValue.Builder getApiKeyIdBuilder() {
+
+        onChanged();
+        return getApiKeyIdFieldBuilder().getBuilder();
+      }
+      /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+      public com.google.protobuf.StringValueOrBuilder getApiKeyIdOrBuilder() {
+        if (apiKeyIdBuilder_ != null) {
+          return apiKeyIdBuilder_.getMessageOrBuilder();
+        } else {
+          return apiKeyId_ == null
+              ? com.google.protobuf.StringValue.getDefaultInstance()
+              : apiKeyId_;
+        }
+      }
+      /** <code>.google.protobuf.StringValue api_key_id = 2;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          getApiKeyIdFieldBuilder() {
+        if (apiKeyIdBuilder_ == null) {
+          apiKeyIdBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.StringValue,
+                  com.google.protobuf.StringValue.Builder,
+                  com.google.protobuf.StringValueOrBuilder>(
+                  getApiKeyId(), getParentForChildren(), isClean());
+          apiKeyId_ = null;
+        }
+        return apiKeyIdBuilder_;
+      }
+
+      private com.google.protobuf.StringValue ip_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          ipBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue ip = 3;</code>
+       *
+       * @return Whether the ip field is set.
+       */
+      public boolean hasIp() {
+        return ipBuilder_ != null || ip_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue ip = 3;</code>
+       *
+       * @return The ip.
+       */
+      public com.google.protobuf.StringValue getIp() {
+        if (ipBuilder_ == null) {
+          return ip_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : ip_;
+        } else {
+          return ipBuilder_.getMessage();
+        }
+      }
+      /** <code>.google.protobuf.StringValue ip = 3;</code> */
+      public Builder setIp(com.google.protobuf.StringValue value) {
+        if (ipBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ip_ = value;
+          onChanged();
+        } else {
+          ipBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue ip = 3;</code> */
+      public Builder setIp(com.google.protobuf.StringValue.Builder builderForValue) {
+        if (ipBuilder_ == null) {
+          ip_ = builderForValue.build();
+          onChanged();
+        } else {
+          ipBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue ip = 3;</code> */
+      public Builder mergeIp(com.google.protobuf.StringValue value) {
+        if (ipBuilder_ == null) {
+          if (ip_ != null) {
+            ip_ = com.google.protobuf.StringValue.newBuilder(ip_).mergeFrom(value).buildPartial();
+          } else {
+            ip_ = value;
+          }
+          onChanged();
+        } else {
+          ipBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue ip = 3;</code> */
+      public Builder clearIp() {
+        if (ipBuilder_ == null) {
+          ip_ = null;
+          onChanged();
+        } else {
+          ip_ = null;
+          ipBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue ip = 3;</code> */
+      public com.google.protobuf.StringValue.Builder getIpBuilder() {
+
+        onChanged();
+        return getIpFieldBuilder().getBuilder();
+      }
+      /** <code>.google.protobuf.StringValue ip = 3;</code> */
+      public com.google.protobuf.StringValueOrBuilder getIpOrBuilder() {
+        if (ipBuilder_ != null) {
+          return ipBuilder_.getMessageOrBuilder();
+        } else {
+          return ip_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : ip_;
+        }
+      }
+      /** <code>.google.protobuf.StringValue ip = 3;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          getIpFieldBuilder() {
+        if (ipBuilder_ == null) {
+          ipBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.StringValue,
+                  com.google.protobuf.StringValue.Builder,
+                  com.google.protobuf.StringValueOrBuilder>(
+                  getIp(), getParentForChildren(), isClean());
+          ip_ = null;
+        }
+        return ipBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp timestamp_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp,
+              com.google.protobuf.Timestamp.Builder,
+              com.google.protobuf.TimestampOrBuilder>
+          timestampBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+       *
+       * @return Whether the timestamp field is set.
+       */
+      public boolean hasTimestamp() {
+        return timestampBuilder_ != null || timestamp_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+       *
+       * @return The timestamp.
+       */
+      public com.google.protobuf.Timestamp getTimestamp() {
+        if (timestampBuilder_ == null) {
+          return timestamp_ == null
+              ? com.google.protobuf.Timestamp.getDefaultInstance()
+              : timestamp_;
+        } else {
+          return timestampBuilder_.getMessage();
+        }
+      }
+      /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+      public Builder setTimestamp(com.google.protobuf.Timestamp value) {
+        if (timestampBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          timestamp_ = value;
+          onChanged();
+        } else {
+          timestampBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+      public Builder setTimestamp(com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (timestampBuilder_ == null) {
+          timestamp_ = builderForValue.build();
+          onChanged();
+        } else {
+          timestampBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+      public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
+        if (timestampBuilder_ == null) {
+          if (timestamp_ != null) {
+            timestamp_ =
+                com.google.protobuf.Timestamp.newBuilder(timestamp_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            timestamp_ = value;
+          }
+          onChanged();
+        } else {
+          timestampBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+      public Builder clearTimestamp() {
+        if (timestampBuilder_ == null) {
+          timestamp_ = null;
+          onChanged();
+        } else {
+          timestamp_ = null;
+          timestampBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+      public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
+
+        onChanged();
+        return getTimestampFieldBuilder().getBuilder();
+      }
+      /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+      public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
+        if (timestampBuilder_ != null) {
+          return timestampBuilder_.getMessageOrBuilder();
+        } else {
+          return timestamp_ == null
+              ? com.google.protobuf.Timestamp.getDefaultInstance()
+              : timestamp_;
+        }
+      }
+      /** <code>.google.protobuf.Timestamp timestamp = 4;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp,
+              com.google.protobuf.Timestamp.Builder,
+              com.google.protobuf.TimestampOrBuilder>
+          getTimestampFieldBuilder() {
+        if (timestampBuilder_ == null) {
+          timestampBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.Timestamp,
+                  com.google.protobuf.Timestamp.Builder,
+                  com.google.protobuf.TimestampOrBuilder>(
+                  getTimestamp(), getParentForChildren(), isClean());
+          timestamp_ = null;
+        }
+        return timestampBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.RequestContext)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.RequestContext)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RequestContext> PARSER =
+        new com.google.protobuf.AbstractParser<RequestContext>() {
+          @java.lang.Override
+          public RequestContext parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new RequestContext(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<RequestContext> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RequestContext> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.RequestContext
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface SigningAddressOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.SigningAddress)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string address = 1;</code>
+     *
+     * @return The address.
+     */
+    java.lang.String getAddress();
+    /**
+     * <code>string address = 1;</code>
+     *
+     * @return The bytes for address.
+     */
+    com.google.protobuf.ByteString getAddressBytes();
+
+    /**
+     * <code>int64 broker_account_id = 2;</code>
+     *
+     * @return The brokerAccountId.
+     */
+    long getBrokerAccountId();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.SigningAddress} */
+  public static final class SigningAddress extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.SigningAddress)
+      SigningAddressOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use SigningAddress.newBuilder() to construct.
+    private SigningAddress(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private SigningAddress() {
+      address_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new SigningAddress();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private SigningAddress(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                address_ = s;
+                break;
+              }
+            case 16:
+              {
+                brokerAccountId_ = input.readInt64();
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_SigningAddress_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_SigningAddress_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress.Builder.class);
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 1;
+    private volatile java.lang.Object address_;
+    /**
+     * <code>string address = 1;</code>
+     *
+     * @return The address.
+     */
+    @java.lang.Override
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string address = 1;</code>
+     *
+     * @return The bytes for address.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BROKER_ACCOUNT_ID_FIELD_NUMBER = 2;
+    private long brokerAccountId_;
+    /**
+     * <code>int64 broker_account_id = 2;</code>
+     *
+     * @return The brokerAccountId.
+     */
+    @java.lang.Override
+    public long getBrokerAccountId() {
+      return brokerAccountId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (!getAddressBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
+      }
+      if (brokerAccountId_ != 0L) {
+        output.writeInt64(2, brokerAccountId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getAddressBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
+      }
+      if (brokerAccountId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, brokerAccountId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress) obj;
+
+      if (!getAddress().equals(other.getAddress())) return false;
+      if (getBrokerAccountId() != other.getBrokerAccountId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (37 * hash) + BROKER_ACCOUNT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getBrokerAccountId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.SigningAddress} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.SigningAddress)
+        io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddressOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_SigningAddress_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_SigningAddress_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress.Builder.class);
+      }
+
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        address_ = "";
+
+        brokerAccountId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_SigningAddress_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress(this);
+        result.address_ = address_;
+        result.brokerAccountId_ = brokerAccountId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress) {
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress
+                .getDefaultInstance()) return this;
+        if (!other.getAddress().isEmpty()) {
+          address_ = other.address_;
+          onChanged();
+        }
+        if (other.getBrokerAccountId() != 0L) {
+          setBrokerAccountId(other.getBrokerAccountId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object address_ = "";
+      /**
+       * <code>string address = 1;</code>
+       *
+       * @return The address.
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          address_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string address = 1;</code>
+       *
+       * @return The bytes for address.
+       */
+      public com.google.protobuf.ByteString getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string address = 1;</code>
+       *
+       * @param value The address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddress(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 1;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearAddress() {
+
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 1;</code>
+       *
+       * @param value The bytes for address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddressBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        address_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long brokerAccountId_;
+      /**
+       * <code>int64 broker_account_id = 2;</code>
+       *
+       * @return The brokerAccountId.
+       */
+      @java.lang.Override
+      public long getBrokerAccountId() {
+        return brokerAccountId_;
+      }
+      /**
+       * <code>int64 broker_account_id = 2;</code>
+       *
+       * @param value The brokerAccountId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBrokerAccountId(long value) {
+
+        brokerAccountId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 broker_account_id = 2;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearBrokerAccountId() {
+
+        brokerAccountId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.SigningAddress)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.SigningAddress)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SigningAddress> PARSER =
+        new com.google.protobuf.AbstractParser<SigningAddress>() {
+          @java.lang.Override
+          public SigningAddress parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new SigningAddress(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<SigningAddress> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SigningAddress> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.SigningAddress
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface CoinToSpendOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.CoinToSpend)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code>
+     *
+     * @return Whether the id field is set.
+     */
+    boolean hasId();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code>
+     *
+     * @return The id.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.CoinId getId();
+    /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+    io.swisschain.sirius.vaultApi.generated.common.Common.CoinIdOrBuilder getIdOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code>
+     *
+     * @return Whether the asset field is set.
+     */
+    boolean hasAsset();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code>
+     *
+     * @return The asset.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.Asset getAsset();
+    /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+    io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder getAssetOrBuilder();
+
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code>
+     *
+     * @return Whether the value field is set.
+     */
+    boolean hasValue();
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code>
+     *
+     * @return The value.
+     */
+    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getValue();
+    /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+    io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder getValueOrBuilder();
+
+    /**
+     * <code>.google.protobuf.StringValue redeem = 4;</code>
+     *
+     * @return Whether the redeem field is set.
+     */
+    boolean hasRedeem();
+    /**
+     * <code>.google.protobuf.StringValue redeem = 4;</code>
+     *
+     * @return The redeem.
+     */
+    com.google.protobuf.StringValue getRedeem();
+    /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+    com.google.protobuf.StringValueOrBuilder getRedeemOrBuilder();
+
+    /**
+     * <code>string address = 5;</code>
+     *
+     * @return The address.
+     */
+    java.lang.String getAddress();
+    /**
+     * <code>string address = 5;</code>
+     *
+     * @return The bytes for address.
+     */
+    com.google.protobuf.ByteString getAddressBytes();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.CoinToSpend} */
+  public static final class CoinToSpend extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.CoinToSpend)
+      CoinToSpendOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CoinToSpend.newBuilder() to construct.
+    private CoinToSpend(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CoinToSpend() {
+      address_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new CoinToSpend();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CoinToSpend(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.Builder subBuilder =
+                    null;
+                if (id_ != null) {
+                  subBuilder = id_.toBuilder();
+                }
+                id_ =
+                    input.readMessage(
+                        io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.parser(),
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(id_);
+                  id_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 18:
+              {
+                io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder subBuilder =
+                    null;
+                if (asset_ != null) {
+                  subBuilder = asset_.toBuilder();
+                }
+                asset_ =
+                    input.readMessage(
+                        io.swisschain.sirius.vaultApi.generated.common.Common.Asset.parser(),
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(asset_);
+                  asset_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 26:
+              {
+                io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder
+                    subBuilder = null;
+                if (value_ != null) {
+                  subBuilder = value_.toBuilder();
+                }
+                value_ =
+                    input.readMessage(
+                        io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.parser(),
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(value_);
+                  value_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 34:
+              {
+                com.google.protobuf.StringValue.Builder subBuilder = null;
+                if (redeem_ != null) {
+                  subBuilder = redeem_.toBuilder();
+                }
+                redeem_ =
+                    input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(redeem_);
+                  redeem_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            case 42:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                address_ = s;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private io.swisschain.sirius.vaultApi.generated.common.Common.CoinId id_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code>
+     *
+     * @return Whether the id field is set.
+     */
+    @java.lang.Override
+    public boolean hasId() {
+      return id_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code>
+     *
+     * @return The id.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.CoinId getId() {
+      return id_ == null
+          ? io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.getDefaultInstance()
+          : id_;
+    }
+    /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.CoinIdOrBuilder getIdOrBuilder() {
+      return getId();
+    }
+
+    public static final int ASSET_FIELD_NUMBER = 2;
+    private io.swisschain.sirius.vaultApi.generated.common.Common.Asset asset_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code>
+     *
+     * @return Whether the asset field is set.
+     */
+    @java.lang.Override
+    public boolean hasAsset() {
+      return asset_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code>
+     *
+     * @return The asset.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.Asset getAsset() {
+      return asset_ == null
+          ? io.swisschain.sirius.vaultApi.generated.common.Common.Asset.getDefaultInstance()
+          : asset_;
+    }
+    /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder
+        getAssetOrBuilder() {
+      return getAsset();
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 3;
+    private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value_;
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code>
+     *
+     * @return Whether the value field is set.
+     */
+    @java.lang.Override
+    public boolean hasValue() {
+      return value_ != null;
+    }
+    /**
+     * <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code>
+     *
+     * @return The value.
+     */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getValue() {
+      return value_ == null
+          ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.getDefaultInstance()
+          : value_;
+    }
+    /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder
+        getValueOrBuilder() {
+      return getValue();
+    }
+
+    public static final int REDEEM_FIELD_NUMBER = 4;
+    private com.google.protobuf.StringValue redeem_;
+    /**
+     * <code>.google.protobuf.StringValue redeem = 4;</code>
+     *
+     * @return Whether the redeem field is set.
+     */
+    @java.lang.Override
+    public boolean hasRedeem() {
+      return redeem_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue redeem = 4;</code>
+     *
+     * @return The redeem.
+     */
+    @java.lang.Override
+    public com.google.protobuf.StringValue getRedeem() {
+      return redeem_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : redeem_;
+    }
+    /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+    @java.lang.Override
+    public com.google.protobuf.StringValueOrBuilder getRedeemOrBuilder() {
+      return getRedeem();
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 5;
+    private volatile java.lang.Object address_;
+    /**
+     * <code>string address = 5;</code>
+     *
+     * @return The address.
+     */
+    @java.lang.Override
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string address = 5;</code>
+     *
+     * @return The bytes for address.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (id_ != null) {
+        output.writeMessage(1, getId());
+      }
+      if (asset_ != null) {
+        output.writeMessage(2, getAsset());
+      }
+      if (value_ != null) {
+        output.writeMessage(3, getValue());
+      }
+      if (redeem_ != null) {
+        output.writeMessage(4, getRedeem());
+      }
+      if (!getAddressBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, address_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getId());
+      }
+      if (asset_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getAsset());
+      }
+      if (value_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getValue());
+      }
+      if (redeem_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getRedeem());
+      }
+      if (!getAddressBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, address_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend) obj;
+
+      if (hasId() != other.hasId()) return false;
+      if (hasId()) {
+        if (!getId().equals(other.getId())) return false;
+      }
+      if (hasAsset() != other.hasAsset()) return false;
+      if (hasAsset()) {
+        if (!getAsset().equals(other.getAsset())) return false;
+      }
+      if (hasValue() != other.hasValue()) return false;
+      if (hasValue()) {
+        if (!getValue().equals(other.getValue())) return false;
+      }
+      if (hasRedeem() != other.hasRedeem()) return false;
+      if (hasRedeem()) {
+        if (!getRedeem().equals(other.getRedeem())) return false;
+      }
+      if (!getAddress().equals(other.getAddress())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasId()) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId().hashCode();
+      }
+      if (hasAsset()) {
+        hash = (37 * hash) + ASSET_FIELD_NUMBER;
+        hash = (53 * hash) + getAsset().hashCode();
+      }
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValue().hashCode();
+      }
+      if (hasRedeem()) {
+        hash = (37 * hash) + REDEEM_FIELD_NUMBER;
+        hash = (53 * hash) + getRedeem().hashCode();
+      }
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.CoinToSpend} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.CoinToSpend)
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpendOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend.Builder.class);
+      }
+
+      // Construct using
+      // io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (idBuilder_ == null) {
+          id_ = null;
+        } else {
+          id_ = null;
+          idBuilder_ = null;
+        }
+        if (assetBuilder_ == null) {
+          asset_ = null;
+        } else {
+          asset_ = null;
+          assetBuilder_ = null;
+        }
+        if (valueBuilder_ == null) {
+          value_ = null;
+        } else {
+          value_ = null;
+          valueBuilder_ = null;
+        }
+        if (redeemBuilder_ == null) {
+          redeem_ = null;
+        } else {
+          redeem_ = null;
+          redeemBuilder_ = null;
+        }
+        address_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend(this);
+        if (idBuilder_ == null) {
+          result.id_ = id_;
+        } else {
+          result.id_ = idBuilder_.build();
+        }
+        if (assetBuilder_ == null) {
+          result.asset_ = asset_;
+        } else {
+          result.asset_ = assetBuilder_.build();
+        }
+        if (valueBuilder_ == null) {
+          result.value_ = value_;
+        } else {
+          result.value_ = valueBuilder_.build();
+        }
+        if (redeemBuilder_ == null) {
+          result.redeem_ = redeem_;
+        } else {
+          result.redeem_ = redeemBuilder_.build();
+        }
+        result.address_ = address_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend) {
+          return mergeFrom(
+              (io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend
+                .getDefaultInstance()) return this;
+        if (other.hasId()) {
+          mergeId(other.getId());
+        }
+        if (other.hasAsset()) {
+          mergeAsset(other.getAsset());
+        }
+        if (other.hasValue()) {
+          mergeValue(other.getValue());
+        }
+        if (other.hasRedeem()) {
+          mergeRedeem(other.getRedeem());
+        }
+        if (!other.getAddress().isEmpty()) {
+          address_ = other.address_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.common.Common.CoinId id_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinId,
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinIdOrBuilder>
+          idBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code>
+       *
+       * @return Whether the id field is set.
+       */
+      public boolean hasId() {
+        return idBuilder_ != null || id_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code>
+       *
+       * @return The id.
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinId getId() {
+        if (idBuilder_ == null) {
+          return id_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.getDefaultInstance()
+              : id_;
+        } else {
+          return idBuilder_.getMessage();
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+      public Builder setId(io.swisschain.sirius.vaultApi.generated.common.Common.CoinId value) {
+        if (idBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          id_ = value;
+          onChanged();
+        } else {
+          idBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+      public Builder setId(
+          io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.Builder builderForValue) {
+        if (idBuilder_ == null) {
+          id_ = builderForValue.build();
+          onChanged();
+        } else {
+          idBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+      public Builder mergeId(io.swisschain.sirius.vaultApi.generated.common.Common.CoinId value) {
+        if (idBuilder_ == null) {
+          if (id_ != null) {
+            id_ =
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .CoinId
+                    .newBuilder(id_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            id_ = value;
+          }
+          onChanged();
+        } else {
+          idBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+      public Builder clearId() {
+        if (idBuilder_ == null) {
+          id_ = null;
+          onChanged();
+        } else {
+          id_ = null;
+          idBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.Builder getIdBuilder() {
+
+        onChanged();
+        return getIdFieldBuilder().getBuilder();
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinIdOrBuilder
+          getIdOrBuilder() {
+        if (idBuilder_ != null) {
+          return idBuilder_.getMessageOrBuilder();
+        } else {
+          return id_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.getDefaultInstance()
+              : id_;
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.CoinId id = 1;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinId,
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinIdOrBuilder>
+          getIdFieldBuilder() {
+        if (idBuilder_ == null) {
+          idBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.swisschain.sirius.vaultApi.generated.common.Common.CoinId,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.Builder,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.CoinIdOrBuilder>(
+                  getId(), getParentForChildren(), isClean());
+          id_ = null;
+        }
+        return idBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.common.Common.Asset asset_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset,
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder>
+          assetBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code>
+       *
+       * @return Whether the asset field is set.
+       */
+      public boolean hasAsset() {
+        return assetBuilder_ != null || asset_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code>
+       *
+       * @return The asset.
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Asset getAsset() {
+        if (assetBuilder_ == null) {
+          return asset_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.Asset.getDefaultInstance()
+              : asset_;
+        } else {
+          return assetBuilder_.getMessage();
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+      public Builder setAsset(io.swisschain.sirius.vaultApi.generated.common.Common.Asset value) {
+        if (assetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          asset_ = value;
+          onChanged();
+        } else {
+          assetBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+      public Builder setAsset(
+          io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder builderForValue) {
+        if (assetBuilder_ == null) {
+          asset_ = builderForValue.build();
+          onChanged();
+        } else {
+          assetBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+      public Builder mergeAsset(io.swisschain.sirius.vaultApi.generated.common.Common.Asset value) {
+        if (assetBuilder_ == null) {
+          if (asset_ != null) {
+            asset_ =
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .Asset
+                    .newBuilder(asset_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            asset_ = value;
+          }
+          onChanged();
+        } else {
+          assetBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+      public Builder clearAsset() {
+        if (assetBuilder_ == null) {
+          asset_ = null;
+          onChanged();
+        } else {
+          asset_ = null;
+          assetBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder getAssetBuilder() {
+
+        onChanged();
+        return getAssetFieldBuilder().getBuilder();
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder
+          getAssetOrBuilder() {
+        if (assetBuilder_ != null) {
+          return assetBuilder_.getMessageOrBuilder();
+        } else {
+          return asset_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.Asset.getDefaultInstance()
+              : asset_;
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.Asset asset = 2;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset,
+              io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder>
+          getAssetFieldBuilder() {
+        if (assetBuilder_ == null) {
+          assetBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.swisschain.sirius.vaultApi.generated.common.Common.Asset,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.Asset.Builder,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.AssetOrBuilder>(
+                  getAsset(), getParentForChildren(), isClean());
+          asset_ = null;
+        }
+        return assetBuilder_;
+      }
+
+      private io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>
+          valueBuilder_;
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code>
+       *
+       * @return Whether the value field is set.
+       */
+      public boolean hasValue() {
+        return valueBuilder_ != null || value_ != null;
+      }
+      /**
+       * <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code>
+       *
+       * @return The value.
+       */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal getValue() {
+        if (valueBuilder_ == null) {
+          return value_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+                  .getDefaultInstance()
+              : value_;
+        } else {
+          return valueBuilder_.getMessage();
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+      public Builder setValue(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
+        if (valueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          value_ = value;
+          onChanged();
+        } else {
+          valueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+      public Builder setValue(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder
+              builderForValue) {
+        if (valueBuilder_ == null) {
+          value_ = builderForValue.build();
+          onChanged();
+        } else {
+          valueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+      public Builder mergeValue(
+          io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal value) {
+        if (valueBuilder_ == null) {
+          if (value_ != null) {
+            value_ =
+                io.swisschain
+                    .sirius
+                    .vaultApi
+                    .generated
+                    .common
+                    .Common
+                    .BigDecimal
+                    .newBuilder(value_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            value_ = value;
+          }
+          onChanged();
+        } else {
+          valueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+      public Builder clearValue() {
+        if (valueBuilder_ == null) {
+          value_ = null;
+          onChanged();
+        } else {
+          value_ = null;
+          valueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder
+          getValueBuilder() {
+
+        onChanged();
+        return getValueFieldBuilder().getBuilder();
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+      public io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder
+          getValueOrBuilder() {
+        if (valueBuilder_ != null) {
+          return valueBuilder_.getMessageOrBuilder();
+        } else {
+          return value_ == null
+              ? io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal
+                  .getDefaultInstance()
+              : value_;
+        }
+      }
+      /** <code>.swisschain.sirius.vaultApi.common.BigDecimal value = 3;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder,
+              io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>
+          getValueFieldBuilder() {
+        if (valueBuilder_ == null) {
+          valueBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimal.Builder,
+                  io.swisschain.sirius.vaultApi.generated.common.Common.BigDecimalOrBuilder>(
+                  getValue(), getParentForChildren(), isClean());
+          value_ = null;
+        }
+        return valueBuilder_;
+      }
+
+      private com.google.protobuf.StringValue redeem_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          redeemBuilder_;
+      /**
+       * <code>.google.protobuf.StringValue redeem = 4;</code>
+       *
+       * @return Whether the redeem field is set.
+       */
+      public boolean hasRedeem() {
+        return redeemBuilder_ != null || redeem_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue redeem = 4;</code>
+       *
+       * @return The redeem.
+       */
+      public com.google.protobuf.StringValue getRedeem() {
+        if (redeemBuilder_ == null) {
+          return redeem_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : redeem_;
+        } else {
+          return redeemBuilder_.getMessage();
+        }
+      }
+      /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+      public Builder setRedeem(com.google.protobuf.StringValue value) {
+        if (redeemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          redeem_ = value;
+          onChanged();
+        } else {
+          redeemBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+      public Builder setRedeem(com.google.protobuf.StringValue.Builder builderForValue) {
+        if (redeemBuilder_ == null) {
+          redeem_ = builderForValue.build();
+          onChanged();
+        } else {
+          redeemBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+      public Builder mergeRedeem(com.google.protobuf.StringValue value) {
+        if (redeemBuilder_ == null) {
+          if (redeem_ != null) {
+            redeem_ =
+                com.google.protobuf.StringValue.newBuilder(redeem_).mergeFrom(value).buildPartial();
+          } else {
+            redeem_ = value;
+          }
+          onChanged();
+        } else {
+          redeemBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+      public Builder clearRedeem() {
+        if (redeemBuilder_ == null) {
+          redeem_ = null;
+          onChanged();
+        } else {
+          redeem_ = null;
+          redeemBuilder_ = null;
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+      public com.google.protobuf.StringValue.Builder getRedeemBuilder() {
+
+        onChanged();
+        return getRedeemFieldBuilder().getBuilder();
+      }
+      /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+      public com.google.protobuf.StringValueOrBuilder getRedeemOrBuilder() {
+        if (redeemBuilder_ != null) {
+          return redeemBuilder_.getMessageOrBuilder();
+        } else {
+          return redeem_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : redeem_;
+        }
+      }
+      /** <code>.google.protobuf.StringValue redeem = 4;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          getRedeemFieldBuilder() {
+        if (redeemBuilder_ == null) {
+          redeemBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.StringValue,
+                  com.google.protobuf.StringValue.Builder,
+                  com.google.protobuf.StringValueOrBuilder>(
+                  getRedeem(), getParentForChildren(), isClean());
+          redeem_ = null;
+        }
+        return redeemBuilder_;
+      }
+
+      private java.lang.Object address_ = "";
+      /**
+       * <code>string address = 5;</code>
+       *
+       * @return The address.
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          address_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string address = 5;</code>
+       *
+       * @return The bytes for address.
+       */
+      public com.google.protobuf.ByteString getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string address = 5;</code>
+       *
+       * @param value The address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddress(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 5;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearAddress() {
+
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 5;</code>
+       *
+       * @param value The bytes for address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddressBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        address_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.CoinToSpend)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.CoinToSpend)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CoinToSpend> PARSER =
+        new com.google.protobuf.AbstractParser<CoinToSpend>() {
+          @java.lang.Override
+          public CoinToSpend parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CoinToSpend(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CoinToSpend> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CoinToSpend> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.CoinToSpend
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface CoinIdOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:swisschain.sirius.vaultApi.common.CoinId)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string transaction_id = 1;</code>
+     *
+     * @return The transactionId.
+     */
+    java.lang.String getTransactionId();
+    /**
+     * <code>string transaction_id = 1;</code>
+     *
+     * @return The bytes for transactionId.
+     */
+    com.google.protobuf.ByteString getTransactionIdBytes();
+
+    /**
+     * <code>int32 number = 2;</code>
+     *
+     * @return The number.
+     */
+    int getNumber();
+  }
+  /** Protobuf type {@code swisschain.sirius.vaultApi.common.CoinId} */
+  public static final class CoinId extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:swisschain.sirius.vaultApi.common.CoinId)
+      CoinIdOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CoinId.newBuilder() to construct.
+    private CoinId(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CoinId() {
+      transactionId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new CoinId();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CoinId(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                transactionId_ = s;
+                break;
+              }
+            case 16:
+              {
+                number_ = input.readInt32();
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.swisschain
+          .sirius
+          .vaultApi
+          .generated
+          .common
+          .Common
+          .internal_static_swisschain_sirius_vaultApi_common_CoinId_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.swisschain.sirius.vaultApi.generated.common.Common
+          .internal_static_swisschain_sirius_vaultApi_common_CoinId_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.class,
+              io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.Builder.class);
+    }
+
+    public static final int TRANSACTION_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object transactionId_;
+    /**
+     * <code>string transaction_id = 1;</code>
+     *
+     * @return The transactionId.
+     */
+    @java.lang.Override
+    public java.lang.String getTransactionId() {
+      java.lang.Object ref = transactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        transactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string transaction_id = 1;</code>
+     *
+     * @return The bytes for transactionId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getTransactionIdBytes() {
+      java.lang.Object ref = transactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        transactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NUMBER_FIELD_NUMBER = 2;
+    private int number_;
+    /**
+     * <code>int32 number = 2;</code>
+     *
+     * @return The number.
+     */
+    @java.lang.Override
+    public int getNumber() {
+      return number_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (!getTransactionIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, transactionId_);
+      }
+      if (number_ != 0) {
+        output.writeInt32(2, number_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getTransactionIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, transactionId_);
+      }
+      if (number_ != 0) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(2, number_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.swisschain.sirius.vaultApi.generated.common.Common.CoinId)) {
+        return super.equals(obj);
+      }
+      io.swisschain.sirius.vaultApi.generated.common.Common.CoinId other =
+          (io.swisschain.sirius.vaultApi.generated.common.Common.CoinId) obj;
+
+      if (!getTransactionId().equals(other.getTransactionId())) return false;
+      if (getNumber() != other.getNumber()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTransactionId().hashCode();
+      hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getNumber();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinId prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /** Protobuf type {@code swisschain.sirius.vaultApi.common.CoinId} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:swisschain.sirius.vaultApi.common.CoinId)
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinIdOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_CoinId_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common
+            .internal_static_swisschain_sirius_vaultApi_common_CoinId_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.class,
+                io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.Builder.class);
+      }
+
+      // Construct using io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        transactionId_ = "";
+
+        number_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.swisschain
+            .sirius
+            .vaultApi
+            .generated
+            .common
+            .Common
+            .internal_static_swisschain_sirius_vaultApi_common_CoinId_descriptor;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinId
+          getDefaultInstanceForType() {
+        return io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinId build() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinId result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.swisschain.sirius.vaultApi.generated.common.Common.CoinId buildPartial() {
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinId result =
+            new io.swisschain.sirius.vaultApi.generated.common.Common.CoinId(this);
+        result.transactionId_ = transactionId_;
+        result.number_ = number_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.swisschain.sirius.vaultApi.generated.common.Common.CoinId) {
+          return mergeFrom((io.swisschain.sirius.vaultApi.generated.common.Common.CoinId) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.swisschain.sirius.vaultApi.generated.common.Common.CoinId other) {
+        if (other
+            == io.swisschain.sirius.vaultApi.generated.common.Common.CoinId.getDefaultInstance())
+          return this;
+        if (!other.getTransactionId().isEmpty()) {
+          transactionId_ = other.transactionId_;
+          onChanged();
+        }
+        if (other.getNumber() != 0) {
+          setNumber(other.getNumber());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.swisschain.sirius.vaultApi.generated.common.Common.CoinId parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.swisschain.sirius.vaultApi.generated.common.Common.CoinId)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object transactionId_ = "";
+      /**
+       * <code>string transaction_id = 1;</code>
+       *
+       * @return The transactionId.
+       */
+      public java.lang.String getTransactionId() {
+        java.lang.Object ref = transactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          transactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string transaction_id = 1;</code>
+       *
+       * @return The bytes for transactionId.
+       */
+      public com.google.protobuf.ByteString getTransactionIdBytes() {
+        java.lang.Object ref = transactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          transactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string transaction_id = 1;</code>
+       *
+       * @param value The transactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransactionId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+
+        transactionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transaction_id = 1;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearTransactionId() {
+
+        transactionId_ = getDefaultInstance().getTransactionId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transaction_id = 1;</code>
+       *
+       * @param value The bytes for transactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransactionIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        transactionId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int number_;
+      /**
+       * <code>int32 number = 2;</code>
+       *
+       * @return The number.
+       */
+      @java.lang.Override
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <code>int32 number = 2;</code>
+       *
+       * @param value The number to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNumber(int value) {
+
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 number = 2;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearNumber() {
+
+        number_ = 0;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:swisschain.sirius.vaultApi.common.CoinId)
+    }
+
+    // @@protoc_insertion_point(class_scope:swisschain.sirius.vaultApi.common.CoinId)
+    private static final io.swisschain.sirius.vaultApi.generated.common.Common.CoinId
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.swisschain.sirius.vaultApi.generated.common.Common.CoinId();
+    }
+
+    public static io.swisschain.sirius.vaultApi.generated.common.Common.CoinId
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CoinId> PARSER =
+        new com.google.protobuf.AbstractParser<CoinId>() {
+          @java.lang.Override
+          public CoinId parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CoinId(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CoinId> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CoinId> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.swisschain.sirius.vaultApi.generated.common.Common.CoinId
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_swisschain_sirius_vaultApi_common_NullableTagType_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_swisschain_sirius_vaultApi_common_BigDecimal_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_Account_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_Account_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_User_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_User_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_Blockchain_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_Blockchain_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_Asset_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_Asset_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_Unit_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_Unit_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_RequestContext_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_RequestContext_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_SigningAddress_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_SigningAddress_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_swisschain_sirius_vaultApi_common_CoinId_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_swisschain_sirius_vaultApi_common_CoinId_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+
+  private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+
   static {
     java.lang.String[] descriptorData = {
-      "\n\014common.proto\022!swisschain.sirius.vaultA" +
-      "pi.common\032\034google/protobuf/struct.proto\032" +
-      "\037google/protobuf/timestamp.proto\"\221\001\n\023Nul" +
-      "lableNetworkType\022*\n\004null\030\001 \001(\0162\032.google." +
-      "protobuf.NullValueH\000\022F\n\014network_type\030\002 \001" +
-      "(\0162..swisschain.sirius.vaultApi.common.N" +
-      "etworkTypeH\000B\006\n\004kind\"\205\001\n\017NullableTagType" +
-      "\022*\n\004null\030\001 \001(\0162\032.google.protobuf.NullVal" +
-      "ueH\000\022>\n\010tag_type\030\002 \001(\0162*.swisschain.siri" +
-      "us.vaultApi.common.TagTypeH\000B\006\n\004kind\"\033\n\n" +
-      "BigDecimal\022\r\n\005value\030\001 \001(\t\"x\n\021NullableTim" +
-      "estamp\022*\n\004null\030\001 \001(\0162\032.google.protobuf.N" +
-      "ullValueH\000\022/\n\ttimestamp\030\002 \001(\0132\032.google.p" +
-      "rotobuf.TimestampH\000B\006\n\004kind*0\n\013NetworkTy" +
-      "pe\022\013\n\007PRIVATE\020\000\022\010\n\004TEST\020\001\022\n\n\006PUBLIC\020\002*\037\n" +
-      "\007TagType\022\010\n\004TEXT\020\000\022\n\n\006NUMBER\020\001B`\n.io.swi" +
-      "sschain.sirius.vaultApi.generated.common" +
-      "\252\002-Swisschain.Sirius.VaultApi.ApiContrac" +
-      "t.Commonb\006proto3"
+      "\n\014common.proto\022!swisschain.sirius.vaultA"
+          + "pi.common\032\034google/protobuf/struct.proto\032"
+          + "\036google/protobuf/wrappers.proto\032\037google/"
+          + "protobuf/timestamp.proto\"\221\001\n\023NullableNet"
+          + "workType\022*\n\004null\030\001 \001(\0162\032.google.protobuf"
+          + ".NullValueH\000\022F\n\014network_type\030\002 \001(\0162..swi"
+          + "sschain.sirius.vaultApi.common.NetworkTy"
+          + "peH\000B\006\n\004kind\"\205\001\n\017NullableTagType\022*\n\004null"
+          + "\030\001 \001(\0162\032.google.protobuf.NullValueH\000\022>\n\010"
+          + "tag_type\030\002 \001(\0162*.swisschain.sirius.vault"
+          + "Api.common.TagTypeH\000B\006\n\004kind\"\033\n\nBigDecim"
+          + "al\022\r\n\005value\030\001 \001(\t\"x\n\021NullableTimestamp\022*"
+          + "\n\004null\030\001 \001(\0162\032.google.protobuf.NullValue"
+          + "H\000\022/\n\ttimestamp\030\002 \001(\0132\032.google.protobuf."
+          + "TimestampH\000B\006\n\004kind\")\n\rBrokerAccount\022\n\n\002"
+          + "id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\"\200\001\n\007Account\022\n\n\002id"
+          + "\030\001 \001(\003\0222\n\014reference_id\030\002 \001(\0132\034.google.pr"
+          + "otobuf.StringValue\0225\n\004user\030\003 \001(\0132\'.swiss"
+          + "chain.sirius.vaultApi.common.User\"%\n\004Use"
+          + "r\022\n\n\002id\030\001 \001(\003\022\021\n\tnative_id\030\002 \001(\t\"s\n\nBloc"
+          + "kchain\022\n\n\002id\030\001 \001(\t\022\023\n\013protocol_id\030\002 \001(\t\022"
+          + "D\n\014network_type\030\003 \001(\0162..swisschain.siriu"
+          + "s.vaultApi.common.NetworkType\"R\n\005Asset\022\n"
+          + "\n\002id\030\001 \001(\003\022\016\n\006symbol\030\002 \001(\t\022-\n\007address\030\003 "
+          + "\001(\0132\034.google.protobuf.StringValue\"~\n\004Uni"
+          + "t\0227\n\005asset\030\001 \001(\0132(.swisschain.sirius.vau"
+          + "ltApi.common.Asset\022=\n\006amount\030\002 \001(\0132-.swi"
+          + "sschain.sirius.vaultApi.common.BigDecima"
+          + "l\"\312\001\n\016RequestContext\022-\n\007user_id\030\001 \001(\0132\034."
+          + "google.protobuf.StringValue\0220\n\napi_key_i"
+          + "d\030\002 \001(\0132\034.google.protobuf.StringValue\022(\n"
+          + "\002ip\030\003 \001(\0132\034.google.protobuf.StringValue\022"
+          + "-\n\ttimestamp\030\004 \001(\0132\032.google.protobuf.Tim"
+          + "estamp\"<\n\016SigningAddress\022\017\n\007address\030\001 \001("
+          + "\t\022\031\n\021broker_account_id\030\002 \001(\003\"\372\001\n\013CoinToS"
+          + "pend\0225\n\002id\030\001 \001(\0132).swisschain.sirius.vau"
+          + "ltApi.common.CoinId\0227\n\005asset\030\002 \001(\0132(.swi"
+          + "sschain.sirius.vaultApi.common.Asset\022<\n\005"
+          + "value\030\003 \001(\0132-.swisschain.sirius.vaultApi"
+          + ".common.BigDecimal\022,\n\006redeem\030\004 \001(\0132\034.goo"
+          + "gle.protobuf.StringValue\022\017\n\007address\030\005 \001("
+          + "\t\"0\n\006CoinId\022\026\n\016transaction_id\030\001 \001(\t\022\016\n\006n"
+          + "umber\030\002 \001(\005*4\n\034DoubleSpendingProtectionT"
+          + "ype\022\t\n\005COINS\020\000\022\t\n\005NONCE\020\001*0\n\013NetworkType"
+          + "\022\013\n\007PRIVATE\020\000\022\010\n\004TEST\020\001\022\n\n\006PUBLIC\020\002*\037\n\007T"
+          + "agType\022\010\n\004TEXT\020\000\022\n\n\006NUMBER\020\001B`\n.io.swiss"
+          + "chain.sirius.vaultApi.generated.common\252\002"
+          + "-Swisschain.Sirius.VaultApi.ApiContract."
+          + "Commonb\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.StructProto.getDescriptor(),
-          com.google.protobuf.TimestampProto.getDescriptor(),
-        });
+    descriptor =
+        com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
+            descriptorData,
+            new com.google.protobuf.Descriptors.FileDescriptor[] {
+              com.google.protobuf.StructProto.getDescriptor(),
+              com.google.protobuf.WrappersProto.getDescriptor(),
+              com.google.protobuf.TimestampProto.getDescriptor(),
+            });
     internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor,
-        new java.lang.String[] { "Null", "NetworkType", "Kind", });
+        getDescriptor().getMessageTypes().get(0);
+    internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_NullableNetworkType_descriptor,
+            new java.lang.String[] {
+              "Null", "NetworkType", "Kind",
+            });
     internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_swisschain_sirius_vaultApi_common_NullableTagType_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor,
-        new java.lang.String[] { "Null", "TagType", "Kind", });
+        getDescriptor().getMessageTypes().get(1);
+    internal_static_swisschain_sirius_vaultApi_common_NullableTagType_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_NullableTagType_descriptor,
+            new java.lang.String[] {
+              "Null", "TagType", "Kind",
+            });
     internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_swisschain_sirius_vaultApi_common_BigDecimal_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor,
-        new java.lang.String[] { "Value", });
+        getDescriptor().getMessageTypes().get(2);
+    internal_static_swisschain_sirius_vaultApi_common_BigDecimal_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_BigDecimal_descriptor,
+            new java.lang.String[] {
+              "Value",
+            });
     internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor,
-        new java.lang.String[] { "Null", "Timestamp", "Kind", });
+        getDescriptor().getMessageTypes().get(3);
+    internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_NullableTimestamp_descriptor,
+            new java.lang.String[] {
+              "Null", "Timestamp", "Kind",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_descriptor =
+        getDescriptor().getMessageTypes().get(4);
+    internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_BrokerAccount_descriptor,
+            new java.lang.String[] {
+              "Id", "Name",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_Account_descriptor =
+        getDescriptor().getMessageTypes().get(5);
+    internal_static_swisschain_sirius_vaultApi_common_Account_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_Account_descriptor,
+            new java.lang.String[] {
+              "Id", "ReferenceId", "User",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_User_descriptor =
+        getDescriptor().getMessageTypes().get(6);
+    internal_static_swisschain_sirius_vaultApi_common_User_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_User_descriptor,
+            new java.lang.String[] {
+              "Id", "NativeId",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_Blockchain_descriptor =
+        getDescriptor().getMessageTypes().get(7);
+    internal_static_swisschain_sirius_vaultApi_common_Blockchain_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_Blockchain_descriptor,
+            new java.lang.String[] {
+              "Id", "ProtocolId", "NetworkType",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_Asset_descriptor =
+        getDescriptor().getMessageTypes().get(8);
+    internal_static_swisschain_sirius_vaultApi_common_Asset_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_Asset_descriptor,
+            new java.lang.String[] {
+              "Id", "Symbol", "Address",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_Unit_descriptor =
+        getDescriptor().getMessageTypes().get(9);
+    internal_static_swisschain_sirius_vaultApi_common_Unit_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_Unit_descriptor,
+            new java.lang.String[] {
+              "Asset", "Amount",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_RequestContext_descriptor =
+        getDescriptor().getMessageTypes().get(10);
+    internal_static_swisschain_sirius_vaultApi_common_RequestContext_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_RequestContext_descriptor,
+            new java.lang.String[] {
+              "UserId", "ApiKeyId", "Ip", "Timestamp",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_SigningAddress_descriptor =
+        getDescriptor().getMessageTypes().get(11);
+    internal_static_swisschain_sirius_vaultApi_common_SigningAddress_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_SigningAddress_descriptor,
+            new java.lang.String[] {
+              "Address", "BrokerAccountId",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_descriptor =
+        getDescriptor().getMessageTypes().get(12);
+    internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_CoinToSpend_descriptor,
+            new java.lang.String[] {
+              "Id", "Asset", "Value", "Redeem", "Address",
+            });
+    internal_static_swisschain_sirius_vaultApi_common_CoinId_descriptor =
+        getDescriptor().getMessageTypes().get(13);
+    internal_static_swisschain_sirius_vaultApi_common_CoinId_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_swisschain_sirius_vaultApi_common_CoinId_descriptor,
+            new java.lang.String[] {
+              "TransactionId", "Number",
+            });
     com.google.protobuf.StructProto.getDescriptor();
+    com.google.protobuf.WrappersProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

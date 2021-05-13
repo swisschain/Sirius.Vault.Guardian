@@ -1,0 +1,153 @@
+syntax = "proto3";
+
+option csharp_namespace = "Swisschain.Sirius.VaultApi.ApiContract.SmartContractInvocationValidationRequests";
+option java_package = "io.swisschain.sirius.vaultApi.generated.smart_contract_invocation_validation_requests";
+
+package swisschain.sirius.vaultApi.smartContractInvocationValidationRequests;
+
+import "common.proto";
+import "smart_contracts.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+
+service SmartContractInvocationValidationRequests {
+  rpc Get (GetSmartContractInvocationValidationRequestsRequest) returns (GetSmartContractInvocationValidationRequestsResponse);
+  rpc Confirm (ConfirmSmartContractInvocationValidationRequestRequest) returns (ConfirmSmartContractInvocationValidationRequestResponse);
+  rpc Reject (RejectSmartContractInvocationValidationRequestRequest) returns (RejectSmartContractInvocationValidationRequestResponse);
+}
+
+// Get
+
+message GetSmartContractInvocationValidationRequestsRequest {
+}
+
+message GetSmartContractInvocationValidationRequestsResponse {
+  oneof body {
+    GetSmartContractInvocationValidationRequestsResponseBody response = 1;
+    GetSmartContractInvocationValidationRequestsErrorResponseBody error = 2;
+  }
+}
+
+message GetSmartContractInvocationValidationRequestsResponseBody {
+  repeated SmartContractInvocationValidationRequest requests = 1;
+}
+
+message GetSmartContractInvocationValidationRequestsErrorResponseBody {
+
+  enum ErrorCode {
+    UNKNOWN = 0;
+    INVALID_PARAMETERS = 1;
+  }
+
+  ErrorCode error_code = 1;
+  string error_message = 2;
+}
+
+message SmartContractInvocationValidationRequest {
+  int64 id = 1;
+  string tenant_id = 2;
+  SmartContractInvocation smart_contract_invocation = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+}
+
+message SmartContractInvocation {
+  int64 id = 1;
+  .swisschain.sirius.vaultApi.common.Blockchain blockchain = 2;
+  SmartContractInvoker invoker = 3;
+  repeated .swisschain.sirius.vaultApi.smartContracts.FunctionArgument arguments = 4;
+  .swisschain.sirius.vaultApi.common.Unit payment = 5;
+  .swisschain.sirius.vaultApi.common.Unit fee = 6;
+  SmartContractInvocationContext context = 7;
+  string method_name = 8;
+  google.protobuf.StringValue method_address = 9;
+  string smart_contract_address = 10;
+}
+
+message SmartContractInvoker {
+  string address = 1;
+  .swisschain.sirius.vaultApi.common.BrokerAccount broker_account = 2;
+}
+
+message SmartContractInvocationContext {
+  google.protobuf.StringValue document = 1;
+  google.protobuf.StringValue document_version = 2;
+  google.protobuf.StringValue signature = 3;
+  string smart_contract_name = 4;
+  string code_hash = 5;
+  string component = 6;
+  google.protobuf.StringValue reference_id = 7;
+  .swisschain.sirius.vaultApi.common.RequestContext request_context = 8;
+}
+
+// Confirm
+
+message ConfirmSmartContractInvocationValidationRequestRequest {
+  string request_id = 1;
+  int64 validation_request_id = 2;
+  string document = 3;
+  string signature = 4;
+  string host_process_id = 5;
+}
+
+message ConfirmSmartContractInvocationValidationRequestResponse {
+  oneof body {
+    ConfirmSmartContractInvocationValidationRequestResponseBody response = 1;
+    ConfirmSmartContractInvocationValidationRequestErrorResponseBody error = 2;
+  }
+}
+
+message ConfirmSmartContractInvocationValidationRequestResponseBody {
+}
+
+message ConfirmSmartContractInvocationValidationRequestErrorResponseBody {
+
+  enum ErrorCode {
+    UNKNOWN = 0;
+    INVALID_PARAMETERS = 1;
+    INVALID_STATE = 2;
+  }
+
+  ErrorCode error_code = 1;
+  string error_message = 2;
+}
+
+// Reject
+
+message RejectSmartContractInvocationValidationRequestRequest {
+
+  enum RejectionReason {
+    OTHER = 0;
+    REJECTED_BY_POLICY = 1;
+  }
+
+  string request_id = 1;
+  int64 validation_request_id = 2;
+  RejectionReason rejection_reason = 3;
+  string rejection_reason_message = 4;
+  string document = 5;
+  string signature = 6;
+  string host_process_id = 7;
+}
+
+message RejectSmartContractInvocationValidationRequestResponse {
+  oneof body {
+    RejectSmartContractInvocationValidationRequestResponseBody response = 1;
+    RejectSmartContractInvocationValidationRequestErrorResponseBody error = 2;
+  }
+}
+
+message RejectSmartContractInvocationValidationRequestResponseBody {
+}
+
+message RejectSmartContractInvocationValidationRequestErrorResponseBody {
+
+  enum ErrorCode {
+    UNKNOWN = 0;
+    INVALID_PARAMETERS = 1;
+    INVALID_STATE = 2;
+  }
+
+  ErrorCode error_code = 1;
+  string error_message = 2;
+}

@@ -1,5 +1,6 @@
 package io.swisschain;
 
+import io.swisschain.common.AppVersion;
 import io.swisschain.config.AppConfig;
 import io.swisschain.config.loaders.ConfigLoader;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
@@ -7,21 +8,37 @@ import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
 import io.swisschain.domain.document.CustomerKey;
 import io.swisschain.domain.document.TenantKey;
 import io.swisschain.isAlive.IsAliveService;
-import io.swisschain.odm.OdmClientImp;
 import io.swisschain.odm.OdmClientRetryDecorator;
-import io.swisschain.repositories.*;
-import io.swisschain.repositories.transferValidationRequests.TransferValidationRequestRepositoryImp;
-import io.swisschain.repositories.transferValidationRequests.TransferValidationRequestRepositoryRetryDecorator;
-import io.swisschain.repositories.validatorRequests.ValidatorRequestRepositoryImp;
-import io.swisschain.repositories.validatorRequests.ValidatorRequestRepositoryRetryDecorator;
-import io.swisschain.repositories.validatorResponses.ValidatorResponseRepositoryImp;
-import io.swisschain.repositories.validatorResponses.ValidatorResponseRepositoryRetryDecorator;
+import io.swisschain.odm.SmartContractDeploymentOdmClientImp;
+import io.swisschain.odm.SmartContractInvocationOdmClientImp;
+import io.swisschain.odm.TransferOdmClientImp;
+import io.swisschain.policies.DocumentValidator;
+import io.swisschain.policies.ValidationPolicyFactory;
+import io.swisschain.policies.smart_contract_deployments.*;
+import io.swisschain.policies.smart_contract_invocations.*;
+import io.swisschain.policies.transfers.*;
+import io.swisschain.policies.validator_requests.ValidatorRequestProcessor;
+import io.swisschain.policies.validator_responses.ValidatorResponseProcessor;
+import io.swisschain.policies.validator_responses.validator_document_readers.ValidatorDocumentReaderFactory;
+import io.swisschain.policies.validator_responses.validator_document_validators.ValidatorDocumentValidatorFactory;
+import io.swisschain.repositories.DbConnectionFactory;
+import io.swisschain.repositories.DbMigration;
+import io.swisschain.repositories.smart_contract_deployment_validation_requests.SmartContractDeploymentValidationRequestRepositoryImp;
+import io.swisschain.repositories.smart_contract_deployment_validation_requests.SmartContractDeploymentValidationRequestRepositoryRetryDecorator;
+import io.swisschain.repositories.smart_contract_invocation_validation_requests.SmartContractInvocationValidationRequestRepositoryImp;
+import io.swisschain.repositories.smart_contract_invocation_validation_requests.SmartContractInvocationValidationRequestRepositoryRetryDecorator;
+import io.swisschain.repositories.transfer_validation_requests.TransferValidationRequestRepositoryImp;
+import io.swisschain.repositories.transfer_validation_requests.TransferValidationRequestRepositoryRetryDecorator;
+import io.swisschain.repositories.validator_requests.ValidatorRequestRepositoryImp;
+import io.swisschain.repositories.validator_requests.ValidatorRequestRepositoryRetryDecorator;
 import io.swisschain.services.*;
 import io.swisschain.sirius.ChannelFactory;
 import io.swisschain.sirius.guardianApi.GuardianApiClient;
 import io.swisschain.sirius.vaultApi.VaultApiClient;
-import io.swisschain.tasks.*;
-import io.swisschain.common.AppVersion;
+import io.swisschain.tasks.SmartContractDeploymentValidationRequestTask;
+import io.swisschain.tasks.SmartContractInvocationValidationRequestTask;
+import io.swisschain.tasks.TransferValidationRequestTask;
+import io.swisschain.tasks.ValidatorResponseTask;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -73,6 +90,16 @@ public class AppStarter {
         new DbConnectionFactory(
             appConfig.db.url, appConfig.db.user, appConfig.db.password, appConfig.db.schema);
 
+    var smartContractDeploymentValidationRequestRepository =
+        new SmartContractDeploymentValidationRequestRepositoryRetryDecorator(
+            new SmartContractDeploymentValidationRequestRepositoryImp(
+                connectionFactory, jsonSerializer));
+
+    var smartContractInvocationValidationRequestRepository =
+        new SmartContractInvocationValidationRequestRepositoryRetryDecorator(
+            new SmartContractInvocationValidationRequestRepositoryImp(
+                connectionFactory, jsonSerializer));
+
     var transferValidationRequestRepository =
         new TransferValidationRequestRepositoryRetryDecorator(
             new TransferValidationRequestRepositoryImp(connectionFactory, jsonSerializer));
@@ -80,10 +107,6 @@ public class AppStarter {
     var validatorRequestRepository =
         new ValidatorRequestRepositoryRetryDecorator(
             new ValidatorRequestRepositoryImp(connectionFactory));
-
-    var validatorResponseRepository =
-        new ValidatorResponseRepositoryRetryDecorator(
-            new ValidatorResponseRepositoryImp(connectionFactory));
 
     // Services
 
@@ -94,15 +117,35 @@ public class AppStarter {
         new TransferApiServiceRetryDecorator(
             new TransferApiServiceImp(vaultApiClient, hostProcessId));
 
+    var smartContractDeploymentApiService =
+        new SmartContractDeploymentApiServiceRetryDecorator(
+            new SmartContractDeploymentApiServiceImp(vaultApiClient, hostProcessId));
+
+    var smartContractInvocationApiService =
+        new SmartContractInvocationApiServiceRetryDecorator(
+            new SmartContractInvocationApiServiceImp(vaultApiClient, hostProcessId));
+
     var validatorApiService =
         new ValidatorApiServiceRetryDecorator(new ValidatorApiServiceImp(guardianApiClient));
 
-    var validatorApprovalApiService =
-        new ValidatorApprovalApiServiceRetryDecorator(
-            new ValidatorApprovalApiServiceImp(guardianApiClient));
+    var validatorRequestApiService =
+        new ValidatorRequestApiServiceRetryDecorator(
+            new ValidatorRequestApiServiceImp(guardianApiClient));
 
-    var documentBuilder =
-        new DocumentBuilder(
+    var validatorResponseApiService =
+        new ValidatorResponseApiServiceRetryDecorator(
+            new ValidatorResponseApiServiceImp(guardianApiClient));
+
+    var transferDocumentBuilder =
+        new TransferDocumentBuilder(
+            asymmetricEncryptionService, appConfig.keys.guardian.privateKey, jsonSerializer);
+
+    var smartContractDeploymentDocumentBuilder =
+        new SmartContractDeploymentDocumentBuilder(
+            asymmetricEncryptionService, appConfig.keys.guardian.privateKey, jsonSerializer);
+
+    var smartContractInvocationDocumentBuilder =
+        new SmartContractInvocationDocumentBuilder(
             asymmetricEncryptionService, appConfig.keys.guardian.privateKey, jsonSerializer);
 
     var customerKey = new CustomerKey(appConfig.keys.customer.publicKey);
@@ -112,53 +155,154 @@ public class AppStarter {
       tenantKeys.add(new TenantKey(tenantKeyConfig.tenantId, tenantKeyConfig.publicKey));
     }
 
+    // Policies
+
     var documentValidator =
         new DocumentValidator(asymmetricEncryptionService, customerKey, tenantKeys);
 
-    RuleExecutor ruleExecutor;
+    TransferRuleExecutor transferRuleExecutor;
+    SmartContractDeploymentRuleExecutor smartContractDeploymentRuleExecutor;
+    SmartContractInvocationRuleExecutor smartContractInvocationRuleExecutor;
 
     if (appConfig.clients.odmApi != null && appConfig.clients.odmApi.enable) {
-      var odmClient =
-          new OdmClientRetryDecorator(
-              new OdmClientImp(
-                  appConfig.clients.odmApi.baseUrl,
-                  appConfig.clients.odmApi.policySelectorPath,
-                  jsonSerializer));
-      ruleExecutor = new OdmRuleExecutor(odmClient);
+      var transferOdmClient =
+          new OdmClientRetryDecorator<>(
+              new TransferOdmClientImp(appConfig.clients.odmApi.transferPolicyUrl, jsonSerializer));
+      transferRuleExecutor = new TransferOdmRuleExecutor(transferOdmClient);
+      var smartContractDeploymentOdmClient =
+          new OdmClientRetryDecorator<>(
+              new SmartContractDeploymentOdmClientImp(
+                  appConfig.clients.odmApi.smartContractDeploymentPolicyUrl, jsonSerializer));
+      smartContractDeploymentRuleExecutor =
+          new SmartContractDeploymentOdmRuleExecutor(smartContractDeploymentOdmClient);
+      var smartContractInvocationOdmClient =
+          new OdmClientRetryDecorator<>(
+              new SmartContractInvocationOdmClientImp(
+                  appConfig.clients.odmApi.smartContractInvocationPolicyUrl, jsonSerializer));
+      smartContractInvocationRuleExecutor =
+          new SmartContractInvocationOdmRuleExecutor(smartContractInvocationOdmClient);
       logger.info("RuleExecutor: ODM");
     } else {
-      ruleExecutor = new SimpleRuleExecutor();
+      transferRuleExecutor = new TransferSimpleRuleExecutor();
+      smartContractDeploymentRuleExecutor = new SmartContractDeploymentSimpleRuleExecutor();
+      smartContractInvocationRuleExecutor = new SmartContractInvocationSimpleRuleExecutor();
       logger.info("RuleExecutor: Simple");
     }
 
-    var policyService =
-        new PolicyService(
-            ruleExecutor,
+    var validatorRequestProcessor =
+        new ValidatorRequestProcessor(
+            validatorRequestApiService,
+            validatorRequestRepository,
+            symmetricEncryptionService,
+            asymmetricEncryptionService,
+            jsonSerializer);
+
+    var transferValidationPolicy =
+        new TransferValidationPolicy(
+            transferRuleExecutor,
             validatorApiService,
-            validatorApprovalApiService,
             transferApiService,
             transferValidationRequestRepository,
             validatorRequestRepository,
-            validatorResponseRepository,
+            validatorRequestProcessor,
+            transferDocumentBuilder,
+            jsonSerializer);
+
+    var transferValidationRequestProcessor =
+        new TransferValidationRequestProcessor(
+            transferValidationPolicy,
+            transferApiService,
+            transferValidationRequestRepository,
+            transferDocumentBuilder,
+            documentValidator);
+
+    var smartContractDeploymentValidationPolicy =
+        new SmartContractDeploymentValidationPolicy(
+            smartContractDeploymentRuleExecutor,
+            validatorApiService,
+            smartContractDeploymentApiService,
+            smartContractDeploymentValidationRequestRepository,
+            validatorRequestRepository,
+            validatorRequestProcessor,
+            smartContractDeploymentDocumentBuilder,
+            jsonSerializer);
+
+    var smartContractDeploymentValidationRequestProcessor =
+        new SmartContractDeploymentValidationRequestProcessor(
+            smartContractDeploymentValidationPolicy,
+            smartContractDeploymentApiService,
+            smartContractDeploymentValidationRequestRepository,
+            smartContractDeploymentDocumentBuilder,
+            documentValidator);
+
+    var smartContractInvocationValidationPolicy =
+        new SmartContractInvocationValidationPolicy(
+            smartContractInvocationRuleExecutor,
+            validatorApiService,
+            smartContractInvocationApiService,
+            smartContractInvocationValidationRequestRepository,
+            validatorRequestRepository,
+            validatorRequestProcessor,
+            smartContractInvocationDocumentBuilder,
+            jsonSerializer);
+
+    var smartContractInvocationValidationRequestProcessor =
+        new SmartContractInvocationValidationRequestProcessor(
+            smartContractInvocationValidationPolicy,
+            smartContractInvocationApiService,
+            smartContractInvocationValidationRequestRepository,
+            smartContractInvocationDocumentBuilder,
+            documentValidator);
+
+    var validationPolicyFactory =
+        new ValidationPolicyFactory(
+            transferValidationPolicy,
+            smartContractDeploymentValidationPolicy,
+            smartContractInvocationValidationPolicy);
+    var validatorDocumentReaderFactory = new ValidatorDocumentReaderFactory(jsonSerializer);
+    var validatorDocumentValidatorFactory = new ValidatorDocumentValidatorFactory(jsonSerializer);
+
+    var validatorResponseProcessor =
+        new ValidatorResponseProcessor(
+            validatorApiService,
+            validatorRequestApiService,
+            validatorRequestRepository,
             symmetricEncryptionService,
-            asymmetricEncryptionService,
-            documentBuilder,
+            validatorDocumentReaderFactory,
+            validatorDocumentValidatorFactory,
+            validationPolicyFactory,
             documentValidator,
             jsonSerializer);
 
     // Tasks
 
-    var service = Executors.newScheduledThreadPool(2);
+    var service = Executors.newScheduledThreadPool(4);
 
     service.scheduleWithFixedDelay(
-        new HandleValidationRequestsTask(transferApiService, policyService),
+        new TransferValidationRequestTask(transferApiService, transferValidationRequestProcessor),
         0,
         appConfig.tasks != null && appConfig.tasks.validationRequestsPeriodInSeconds > 0
             ? appConfig.tasks.validationRequestsPeriodInSeconds
             : 1,
         TimeUnit.SECONDS);
     service.scheduleWithFixedDelay(
-        new HandleValidatorResponsesTask(validatorApprovalApiService, policyService),
+        new SmartContractDeploymentValidationRequestTask(
+            smartContractDeploymentApiService, smartContractDeploymentValidationRequestProcessor),
+        0,
+        appConfig.tasks != null && appConfig.tasks.validationRequestsPeriodInSeconds > 0
+            ? appConfig.tasks.validationRequestsPeriodInSeconds
+            : 1,
+        TimeUnit.SECONDS);
+    service.scheduleWithFixedDelay(
+        new SmartContractInvocationValidationRequestTask(
+            smartContractInvocationApiService, smartContractInvocationValidationRequestProcessor),
+        0,
+        appConfig.tasks != null && appConfig.tasks.validationRequestsPeriodInSeconds > 0
+            ? appConfig.tasks.validationRequestsPeriodInSeconds
+            : 1,
+        TimeUnit.SECONDS);
+    service.scheduleWithFixedDelay(
+        new ValidatorResponseTask(validatorResponseApiService, validatorResponseProcessor),
         0,
         appConfig.tasks != null && appConfig.tasks.validatorResponsesPeriodInSeconds > 0
             ? appConfig.tasks.validatorResponsesPeriodInSeconds
