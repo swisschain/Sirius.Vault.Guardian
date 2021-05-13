@@ -72,7 +72,7 @@ public class ValidatorRequestRepositoryImp implements ValidatorRequestRepository
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
             + "id, validator_id, tenant_id, message, \"key\", nonce, status, \"type\", validation_request_id, document, signature, resolution, resolution_message, device_info, ip, created_at, updated_at)\n"
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 
     try (var connection = this.connectionFactory.create();
         var statement = connection.prepareStatement(sql)) {
@@ -87,7 +87,11 @@ public class ValidatorRequestRepositoryImp implements ValidatorRequestRepository
       statement.setLong(9, validatorRequest.getValidationRequestId());
       statement.setString(10, validatorRequest.getDocument());
       statement.setString(11, validatorRequest.getSignature());
-      statement.setString(12, validatorRequest.getResolution().name());
+      statement.setString(
+          12,
+          validatorRequest.getResolution() != null
+              ? validatorRequest.getResolution().name()
+              : null);
       statement.setString(13, validatorRequest.getResolutionMessage());
       statement.setString(14, validatorRequest.getDeviceInfo());
       statement.setString(15, validatorRequest.getIp());
@@ -116,7 +120,11 @@ public class ValidatorRequestRepositoryImp implements ValidatorRequestRepository
       statement.setLong(8, validatorRequest.getValidationRequestId());
       statement.setString(9, validatorRequest.getDocument());
       statement.setString(10, validatorRequest.getSignature());
-      statement.setString(11, validatorRequest.getResolution().name());
+      statement.setString(
+          11,
+          validatorRequest.getResolution() != null
+              ? validatorRequest.getResolution().name()
+              : null);
       statement.setString(12, validatorRequest.getResolutionMessage());
       statement.setString(13, validatorRequest.getDeviceInfo());
       statement.setString(14, validatorRequest.getIp());

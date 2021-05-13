@@ -109,7 +109,8 @@ public class ValidatorRequestEntity extends Entity {
     this.validationRequestId = resultSet.getLong("validation_request_id");
     this.document = resultSet.getString("document");
     this.signature = resultSet.getString("signature");
-    this.resolution = Resolution.valueOf(resultSet.getString("resolution"));
+    var resolution = resultSet.getString("resolution");
+    this.resolution = resolution != null ? Resolution.valueOf(resolution) : null;
     this.resolutionMessage = resultSet.getString("resolution_message");
     this.deviceInfo = resultSet.getString("device_info");
     this.ip = resultSet.getString("ip");
