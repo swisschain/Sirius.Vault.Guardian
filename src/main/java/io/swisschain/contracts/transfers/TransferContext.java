@@ -109,16 +109,23 @@ public class TransferContext {
     if (o == null || getClass() != o.getClass()) return false;
     TransferContext that = (TransferContext) o;
     return Objects.equals(document, that.document)
+        && Objects.equals(documentVersion, that.documentVersion)
         && Objects.equals(signature, that.signature)
         && Objects.equals(withdrawalReferenceId, that.withdrawalReferenceId)
-        && component.equals(that.component)
-        && operationType.equals(that.operationType)
+        && Objects.equals(component, that.component)
+        && Objects.equals(operationType, that.operationType)
         && Objects.equals(requestContext, that.requestContext);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        document, signature, withdrawalReferenceId, component, operationType, requestContext);
+        document,
+        documentVersion,
+        signature,
+        withdrawalReferenceId,
+        component,
+        operationType,
+        requestContext);
   }
 }

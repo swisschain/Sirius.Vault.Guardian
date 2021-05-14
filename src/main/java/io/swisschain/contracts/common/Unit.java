@@ -40,7 +40,16 @@ public class Unit {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Unit unit = (Unit) o;
-    return asset.equals(unit.asset) && amount.equals(unit.amount);
+
+    if (amount == null && unit.amount != null || amount != null && unit.amount == null) {
+      return false;
+    }
+
+    if (amount != null && amount.compareTo(unit.amount) != 0) {
+      return false;
+    }
+
+    return asset.equals(unit.asset);
   }
 
   @Override
