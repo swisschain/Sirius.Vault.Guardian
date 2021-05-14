@@ -145,4 +145,28 @@ public class SmartContractDeploymentTests {
 
     assertEquals(smartContractDeployment, deserializedSmartContractDeployment);
   }
+
+  @Test
+  public void
+      smart_contract_deployments_are_equals_after_serialization_with_different_decimal_scale()
+          throws Exception {
+
+    // arrange
+
+    var js = new JsonSerializer();
+
+    var smartContractDeployment = create(Instant.now());
+    smartContractDeployment.getPayment().setAmount(new BigDecimal("1.5"));
+
+    // ack
+
+    var json = js.serialize(smartContractDeployment);
+
+    var deserializedSmartContractDeployment = js.deserialize(json, SmartContractDeployment.class);
+    deserializedSmartContractDeployment.getPayment().setAmount(new BigDecimal("1.50"));
+
+    // assert
+
+    assertEquals(smartContractDeployment, deserializedSmartContractDeployment);
+  }
 }

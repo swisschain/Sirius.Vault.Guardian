@@ -2,6 +2,7 @@ package io.swisschain.odm;
 
 import io.swisschain.contracts.common.*;
 import io.swisschain.contracts.documents.Resolution;
+import io.swisschain.contracts.smart_contracts.FunctionArgument;
 import io.swisschain.contracts.smart_contracts.invocation.SmartContractInvocation;
 import io.swisschain.contracts.smart_contracts.invocation.SmartContractInvocationContext;
 import io.swisschain.contracts.smart_contracts.invocation.SmartContractInvoker;
@@ -16,6 +17,8 @@ import io.swisschain.domain.validators.ValidatorRequestStatus;
 import io.swisschain.domain.validators.ValidatorRequestType;
 import io.swisschain.policies.smart_contract_invocations.SmartContractInvocationOdmRuleExecutor;
 import io.swisschain.services.JsonSerializer;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -29,7 +32,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
 
   private SmartContractInvocationOdmRuleExecutor executor;
 
-  // @Before
+  @Before
   public void initialize() {
     executor =
         new SmartContractInvocationOdmRuleExecutor(
@@ -38,7 +41,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
                 new JsonSerializer()));
   }
 
-  // @Test
+  @Test
   public void approve_trusted_smart_contract_invocation() throws Exception {
     // arrange
 
@@ -52,7 +55,10 @@ public class SmartContractInvocationOdmRuleExecutorTests {
                 new SmartContractInvoker("a1", new BrokerAccount(1, "b1")),
                 new SmartContractMethod("m1", "ma1"),
                 "a1",
-                new ArrayList<>(),
+                new ArrayList<FunctionArgument>(Arrays.asList(
+                        new FunctionArgument(),
+                        new FunctionArgument()
+                )),
                 new Unit(new Asset(1, "ETC", "a1"), BigDecimal.valueOf(200)),
                 new Unit(),
                 new SmartContractInvocationContext(
@@ -63,7 +69,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
                     "hc1",
                     "c",
                     "rf",
-                    new RequestContext())),
+                    new RequestContext("uid", "apikeyid", "ip", Instant.now()))),
             ValidationRequestStatus.Processing,
             null,
             null,
@@ -71,6 +77,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
             Instant.now(),
             Instant.now());
 
+    var a = new JsonSerializer().serialize(validationRequest.getSmartContractInvocation());
     var validatorRequests = new ArrayList<ValidatorRequest>();
 
     var validators =

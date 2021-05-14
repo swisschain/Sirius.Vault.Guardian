@@ -120,15 +120,15 @@ public class SmartContractInvocationContext {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    var that = (SmartContractInvocationContext) o;
-    return document.equals(that.document)
-        && documentVersion.equals(that.documentVersion)
-        && signature.equals(that.signature)
-        && smartContractName.equals(that.smartContractName)
-        && codeHash.equals(that.codeHash)
-        && component.equals(that.component)
+    SmartContractInvocationContext that = (SmartContractInvocationContext) o;
+    return Objects.equals(document, that.document)
+        && Objects.equals(documentVersion, that.documentVersion)
+        && Objects.equals(signature, that.signature)
+        && Objects.equals(smartContractName, that.smartContractName)
+        && Objects.equals(codeHash, that.codeHash)
+        && Objects.equals(component, that.component)
         && Objects.equals(referenceId, that.referenceId)
-        && requestContext.equals(that.requestContext);
+        && Objects.equals(requestContext, that.requestContext);
   }
 
   @Override
