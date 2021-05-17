@@ -23,8 +23,8 @@ public final class SmartContracts {
     STRING(3),
     /** <code>INT = 4;</code> */
     INT(4),
-    /** <code>UINT = 5;</code> */
-    UINT(5),
+    /** <code>U_INT = 5;</code> */
+    U_INT(5),
     /** <code>BOOL = 6;</code> */
     BOOL(6),
     /** <code>BYTES = 7;</code> */
@@ -48,8 +48,8 @@ public final class SmartContracts {
     public static final int STRING_VALUE = 3;
     /** <code>INT = 4;</code> */
     public static final int INT_VALUE = 4;
-    /** <code>UINT = 5;</code> */
-    public static final int UINT_VALUE = 5;
+    /** <code>U_INT = 5;</code> */
+    public static final int U_INT_VALUE = 5;
     /** <code>BOOL = 6;</code> */
     public static final int BOOL_VALUE = 6;
     /** <code>BYTES = 7;</code> */
@@ -96,7 +96,7 @@ public final class SmartContracts {
         case 4:
           return INT;
         case 5:
-          return UINT;
+          return U_INT;
         case 6:
           return BOOL;
         case 7:
@@ -174,17 +174,19 @@ public final class SmartContracts {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>.google.protobuf.StringValue name = 1;</code>
+     *
+     * @return Whether the name field is set.
+     */
+    boolean hasName();
+    /**
+     * <code>.google.protobuf.StringValue name = 1;</code>
      *
      * @return The name.
      */
-    java.lang.String getName();
-    /**
-     * <code>string name = 1;</code>
-     *
-     * @return The bytes for name.
-     */
-    com.google.protobuf.ByteString getNameBytes();
+    com.google.protobuf.StringValue getName();
+    /** <code>.google.protobuf.StringValue name = 1;</code> */
+    com.google.protobuf.StringValueOrBuilder getNameOrBuilder();
 
     /**
      * <code>.swisschain.sirius.vaultApi.smartContracts.DataType data_type = 2;</code>
@@ -293,7 +295,6 @@ public final class SmartContracts {
     }
 
     private DataMetamodel() {
-      name_ = "";
       dataType_ = 0;
       components_ = java.util.Collections.emptyList();
     }
@@ -330,9 +331,17 @@ public final class SmartContracts {
               break;
             case 10:
               {
-                java.lang.String s = input.readStringRequireUtf8();
+                com.google.protobuf.StringValue.Builder subBuilder = null;
+                if (name_ != null) {
+                  subBuilder = name_.toBuilder();
+                }
+                name_ =
+                    input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(name_);
+                  name_ = subBuilder.buildPartial();
+                }
 
-                name_ = s;
                 break;
               }
             case 16:
@@ -456,40 +465,29 @@ public final class SmartContracts {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    private com.google.protobuf.StringValue name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>.google.protobuf.StringValue name = 1;</code>
+     *
+     * @return Whether the name field is set.
+     */
+    @java.lang.Override
+    public boolean hasName() {
+      return name_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue name = 1;</code>
      *
      * @return The name.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
+    public com.google.protobuf.StringValue getName() {
+      return name_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : name_;
     }
-    /**
-     * <code>string name = 1;</code>
-     *
-     * @return The bytes for name.
-     */
+    /** <code>.google.protobuf.StringValue name = 1;</code> */
     @java.lang.Override
-    public com.google.protobuf.ByteString getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.StringValueOrBuilder getNameOrBuilder() {
+      return getName();
     }
 
     public static final int DATA_TYPE_FIELD_NUMBER = 2;
@@ -681,8 +679,8 @@ public final class SmartContracts {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      if (name_ != null) {
+        output.writeMessage(1, getName());
       }
       if (dataType_
           != io.swisschain.sirius.vaultApi.generated.smart_contracts.SmartContracts.DataType
@@ -716,8 +714,8 @@ public final class SmartContracts {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      if (name_ != null) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getName());
       }
       if (dataType_
           != io.swisschain.sirius.vaultApi.generated.smart_contracts.SmartContracts.DataType
@@ -761,7 +759,10 @@ public final class SmartContracts {
           (io.swisschain.sirius.vaultApi.generated.smart_contracts.SmartContracts.DataMetamodel)
               obj;
 
-      if (!getName().equals(other.getName())) return false;
+      if (hasName() != other.hasName()) return false;
+      if (hasName()) {
+        if (!getName().equals(other.getName())) return false;
+      }
       if (dataType_ != other.dataType_) return false;
       if (getSize() != other.getSize()) return false;
       if (getScale() != other.getScale()) return false;
@@ -783,8 +784,10 @@ public final class SmartContracts {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
       hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + dataType_;
       hash = (37 * hash) + SIZE_FIELD_NUMBER;
@@ -1051,8 +1054,12 @@ public final class SmartContracts {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        name_ = "";
-
+        if (nameBuilder_ == null) {
+          name_ = null;
+        } else {
+          name_ = null;
+          nameBuilder_ = null;
+        }
         dataType_ = 0;
 
         size_ = 0;
@@ -1120,7 +1127,11 @@ public final class SmartContracts {
                     .SmartContracts
                     .DataMetamodel(this);
         int from_bitField0_ = bitField0_;
-        result.name_ = name_;
+        if (nameBuilder_ == null) {
+          result.name_ = name_;
+        } else {
+          result.name_ = nameBuilder_.build();
+        }
         result.dataType_ = dataType_;
         result.size_ = size_;
         result.scale_ = scale_;
@@ -1199,9 +1210,8 @@ public final class SmartContracts {
         if (other
             == io.swisschain.sirius.vaultApi.generated.smart_contracts.SmartContracts.DataMetamodel
                 .getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
+        if (other.hasName()) {
+          mergeName(other.getName());
         }
         if (other.dataType_ != 0) {
           setDataTypeValue(other.getDataTypeValue());
@@ -1282,80 +1292,115 @@ public final class SmartContracts {
 
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private com.google.protobuf.StringValue name_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          nameBuilder_;
       /**
-       * <code>string name = 1;</code>
+       * <code>.google.protobuf.StringValue name = 1;</code>
+       *
+       * @return Whether the name field is set.
+       */
+      public boolean hasName() {
+        return nameBuilder_ != null || name_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue name = 1;</code>
        *
        * @return The name.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
+      public com.google.protobuf.StringValue getName() {
+        if (nameBuilder_ == null) {
+          return name_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : name_;
         } else {
-          return (java.lang.String) ref;
+          return nameBuilder_.getMessage();
         }
       }
-      /**
-       * <code>string name = 1;</code>
-       *
-       * @return The bytes for name.
-       */
-      public com.google.protobuf.ByteString getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          name_ = b;
-          return b;
+      /** <code>.google.protobuf.StringValue name = 1;</code> */
+      public Builder setName(com.google.protobuf.StringValue value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          name_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string name = 1;</code>
-       *
-       * @param value The name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setName(java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
+          nameBuilder_.setMessage(value);
         }
 
-        name_ = value;
-        onChanged();
         return this;
       }
-      /**
-       * <code>string name = 1;</code>
-       *
-       * @return This builder for chaining.
-       */
+      /** <code>.google.protobuf.StringValue name = 1;</code> */
+      public Builder setName(com.google.protobuf.StringValue.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          name_ = builderForValue.build();
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue name = 1;</code> */
+      public Builder mergeName(com.google.protobuf.StringValue value) {
+        if (nameBuilder_ == null) {
+          if (name_ != null) {
+            name_ =
+                com.google.protobuf.StringValue.newBuilder(name_).mergeFrom(value).buildPartial();
+          } else {
+            name_ = value;
+          }
+          onChanged();
+        } else {
+          nameBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /** <code>.google.protobuf.StringValue name = 1;</code> */
       public Builder clearName() {
+        if (nameBuilder_ == null) {
+          name_ = null;
+          onChanged();
+        } else {
+          name_ = null;
+          nameBuilder_ = null;
+        }
 
-        name_ = getDefaultInstance().getName();
-        onChanged();
         return this;
       }
-      /**
-       * <code>string name = 1;</code>
-       *
-       * @param value The bytes for name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNameBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
+      /** <code>.google.protobuf.StringValue name = 1;</code> */
+      public com.google.protobuf.StringValue.Builder getNameBuilder() {
 
-        name_ = value;
         onChanged();
-        return this;
+        return getNameFieldBuilder().getBuilder();
+      }
+      /** <code>.google.protobuf.StringValue name = 1;</code> */
+      public com.google.protobuf.StringValueOrBuilder getNameOrBuilder() {
+        if (nameBuilder_ != null) {
+          return nameBuilder_.getMessageOrBuilder();
+        } else {
+          return name_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : name_;
+        }
+      }
+      /** <code>.google.protobuf.StringValue name = 1;</code> */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue,
+              com.google.protobuf.StringValue.Builder,
+              com.google.protobuf.StringValueOrBuilder>
+          getNameFieldBuilder() {
+        if (nameBuilder_ == null) {
+          nameBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.StringValue,
+                  com.google.protobuf.StringValue.Builder,
+                  com.google.protobuf.StringValueOrBuilder>(
+                  getName(), getParentForChildren(), isClean());
+          name_ = null;
+        }
+        return nameBuilder_;
       }
 
       private int dataType_ = 0;
@@ -3957,27 +4002,27 @@ public final class SmartContracts {
     java.lang.String[] descriptorData = {
       "\n\025smart_contracts.proto\022)swisschain.siri"
           + "us.vaultApi.smartContracts\032\036google/proto"
-          + "buf/wrappers.proto\"\252\002\n\rDataMetamodel\022\014\n\004"
-          + "name\030\001 \001(\t\022F\n\tdata_type\030\002 \001(\01623.swisscha"
-          + "in.sirius.vaultApi.smartContracts.DataTy"
-          + "pe\022\014\n\004size\030\003 \001(\005\022\r\n\005scale\030\004 \001(\005\022\020\n\010is_ar"
-          + "ray\030\005 \001(\010\0221\n\013native_type\030\006 \001(\0132\034.google."
-          + "protobuf.StringValue\022L\n\ncomponents\030\007 \003(\013"
-          + "28.swisschain.sirius.vaultApi.smartContr"
-          + "acts.DataMetamodel\022\023\n\013is_required\030\010 \001(\010\""
-          + "\335\001\n\020FunctionArgument\022K\n\tdataModel\030\001 \001(\0132"
-          + "8.swisschain.sirius.vaultApi.smartContra"
-          + "cts.DataMetamodel\022O\n\ncomponents\030\002 \003(\0132;."
-          + "swisschain.sirius.vaultApi.smartContract"
-          + "s.FunctionArgument\022+\n\005value\030\003 \001(\0132\034.goog"
-          + "le.protobuf.StringValue*\214\001\n\010DataType\022\r\n\t"
-          + "COMPOSITE\020\000\022\n\n\006NATIVE\020\001\022\010\n\004VOID\020\002\022\n\n\006STR"
-          + "ING\020\003\022\007\n\003INT\020\004\022\010\n\004UINT\020\005\022\010\n\004BOOL\020\006\022\t\n\005BY"
-          + "TES\020\007\022\013\n\007DECIMAL\020\010\022\013\n\007ADDRESS\020\t\022\r\n\tTIMES"
-          + "TAMP\020\nBq\n7io.swisschain.sirius.vaultApi."
-          + "generated.smart_contracts\252\0025Swisschain.S"
-          + "irius.VaultApi.ApiContract.SmartContract"
-          + "sb\006proto3"
+          + "buf/wrappers.proto\"\310\002\n\rDataMetamodel\022*\n\004"
+          + "name\030\001 \001(\0132\034.google.protobuf.StringValue"
+          + "\022F\n\tdata_type\030\002 \001(\01623.swisschain.sirius."
+          + "vaultApi.smartContracts.DataType\022\014\n\004size"
+          + "\030\003 \001(\005\022\r\n\005scale\030\004 \001(\005\022\020\n\010is_array\030\005 \001(\010\022"
+          + "1\n\013native_type\030\006 \001(\0132\034.google.protobuf.S"
+          + "tringValue\022L\n\ncomponents\030\007 \003(\01328.swissch"
+          + "ain.sirius.vaultApi.smartContracts.DataM"
+          + "etamodel\022\023\n\013is_required\030\010 \001(\010\"\335\001\n\020Functi"
+          + "onArgument\022K\n\tdataModel\030\001 \001(\01328.swisscha"
+          + "in.sirius.vaultApi.smartContracts.DataMe"
+          + "tamodel\022O\n\ncomponents\030\002 \003(\0132;.swisschain"
+          + ".sirius.vaultApi.smartContracts.Function"
+          + "Argument\022+\n\005value\030\003 \001(\0132\034.google.protobu"
+          + "f.StringValue*\215\001\n\010DataType\022\r\n\tCOMPOSITE\020"
+          + "\000\022\n\n\006NATIVE\020\001\022\010\n\004VOID\020\002\022\n\n\006STRING\020\003\022\007\n\003I"
+          + "NT\020\004\022\t\n\005U_INT\020\005\022\010\n\004BOOL\020\006\022\t\n\005BYTES\020\007\022\013\n\007"
+          + "DECIMAL\020\010\022\013\n\007ADDRESS\020\t\022\r\n\tTIMESTAMP\020\nBq\n"
+          + "7io.swisschain.sirius.vaultApi.generated"
+          + ".smart_contracts\252\0025Swisschain.Sirius.Vau"
+          + "ltApi.ApiContract.SmartContractsb\006proto3"
     };
     descriptor =
         com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(

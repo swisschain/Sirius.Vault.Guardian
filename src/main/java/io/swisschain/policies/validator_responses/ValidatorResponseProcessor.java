@@ -133,14 +133,14 @@ public class ValidatorResponseProcessor {
     var validatorDocument =
         validatorDocumentReaderFactory.get(validatorRequest.getType()).read(message.getDocument());
 
-    if (validatorDocument == null){
+    if (validatorDocument == null) {
       logger.error(
-              String.format(
-                      "Validator document format is invalid. ValidatorId: %s ValidationRequestId: %s",
-                      validatorResponse.getValidatorId(), validatorResponse.getValidationRequestId()));
+          String.format(
+              "Validator document format is invalid. ValidatorId: %s ValidationRequestId: %s",
+              validatorResponse.getValidatorId(), validatorResponse.getValidationRequestId()));
 
       validatorRequestApiService.confirm(
-              validatorResponse.getValidatorId(), validatorResponse.getValidationRequestId());
+          validatorResponse.getValidatorId(), validatorResponse.getValidationRequestId());
 
       return;
     }
@@ -177,6 +177,6 @@ public class ValidatorResponseProcessor {
         .execute(validatorRequest.getValidationRequestId());
 
     validatorRequestApiService.confirm(
-            validatorResponse.getValidatorId(), validatorResponse.getValidationRequestId());
+        validatorResponse.getValidatorId(), validatorResponse.getValidationRequestId());
   }
 }
