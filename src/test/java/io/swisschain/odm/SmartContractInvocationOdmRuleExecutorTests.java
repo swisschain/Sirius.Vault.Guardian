@@ -30,7 +30,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
 
   private SmartContractInvocationOdmRuleExecutor executor;
 
-  //@Before
+  // @Before
   public void initialize() {
     executor =
         new SmartContractInvocationOdmRuleExecutor(
@@ -39,7 +39,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
                 new JsonSerializer()));
   }
 
-  //@Test
+  // @Test
   public void approve_trusted_smart_contract_invocation() throws Exception {
     // arrange
 
@@ -53,10 +53,8 @@ public class SmartContractInvocationOdmRuleExecutorTests {
                 new SmartContractInvoker("a1", new BrokerAccount(1, "b1")),
                 new SmartContractMethod("m1", "ma1"),
                 "a1",
-                new ArrayList<FunctionArgument>(Arrays.asList(
-                        new FunctionArgument(),
-                        new FunctionArgument()
-                )),
+                new ArrayList<FunctionArgument>(
+                    Arrays.asList(new FunctionArgument(), new FunctionArgument())),
                 new Unit(new Asset(1, "ETC", "a1"), BigDecimal.valueOf(200)),
                 new Unit(),
                 new SmartContractInvocationContext(
@@ -241,10 +239,10 @@ public class SmartContractInvocationOdmRuleExecutorTests {
             "t1",
             new SmartContractInvocation(
                 10000,
-                    new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
-                    new SmartContractInvoker("a1", new BrokerAccount(1, "b1")),
-                    new SmartContractMethod("m4", "ma4"),
-                    "a1",
+                new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
+                new SmartContractInvoker("a1", new BrokerAccount(1, "b1")),
+                new SmartContractMethod("m4", "ma4"),
+                "a1",
                 new ArrayList<>(),
                 new Unit(new Asset(1, "ETC", "a1"), BigDecimal.valueOf(200)),
                 new Unit(),

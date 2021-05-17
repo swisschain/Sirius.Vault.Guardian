@@ -14,7 +14,7 @@ enum DataType {
   VOID = 2;
   STRING = 3;
   INT = 4;
-  UINT = 5;
+  U_INT = 5;
   BOOL = 6;
   BYTES = 7;
   DECIMAL = 8;
@@ -23,7 +23,7 @@ enum DataType {
 }
 
 message DataMetamodel {
-  string name = 1;
+  google.protobuf.StringValue name = 1;
   DataType data_type = 2;
   int32 size = 3;
   int32 scale = 4;

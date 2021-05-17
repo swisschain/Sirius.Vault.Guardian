@@ -14,14 +14,14 @@ public class ValidatorResolutionTests {
   private AsymmetricEncryptionService asymmetricEncryptionService;
   private JsonSerializer jsonSerializer;
 
-  //@Before
+  // @Before
   public void initialize() {
     asymmetricEncryptionService = new AsymmetricEncryptionService();
     symmetricEncryptionService = new SymmetricEncryptionService();
     jsonSerializer = new JsonSerializer();
   }
 
-  //@Test
+  // @Test
   public void decrypt_and_validate_signature() throws Exception {
     // arrange
 

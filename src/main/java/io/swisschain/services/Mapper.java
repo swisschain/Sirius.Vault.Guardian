@@ -85,7 +85,7 @@ public final class Mapper {
 
   public static DataMetamodel map(SmartContracts.DataMetamodel dataMetamodel) {
     return new DataMetamodel(
-        dataMetamodel.getName(),
+        dataMetamodel.hasName() ? dataMetamodel.getName().getValue() : null,
         map(dataMetamodel.getDataType()),
         dataMetamodel.getSize(),
         dataMetamodel.getScale(),
@@ -107,7 +107,7 @@ public final class Mapper {
         return DataType.String;
       case INT:
         return DataType.Int;
-      case UINT:
+      case U_INT:
         return DataType.UInt;
       case BOOL:
         return DataType.Bool;
