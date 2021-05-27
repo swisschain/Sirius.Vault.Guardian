@@ -123,7 +123,7 @@ public class DataMetamodel {
     return size == that.size
         && scale == that.scale
         && isArray == that.isArray
-        && name.equals(that.name)
+        && Objects.equals(name, that.name)
         && dataType == that.dataType
         && nativeType.equals(that.nativeType)
         && components.equals(that.components)
