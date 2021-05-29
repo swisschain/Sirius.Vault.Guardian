@@ -12,7 +12,10 @@ public interface ValidatorRequestRepository {
   List<ValidatorRequest> getByValidationRequestId(
       long validationRequestId, ValidatorRequestType requestType) throws Exception;
 
-  void insert(ValidatorRequest validatorRequest) throws Exception;
+  ValidatorRequest getByValidatorId(String validatorId, long validationRequestId)
+      throws Exception;
+
+  boolean insert(ValidatorRequest validatorRequest) throws Exception;
 
   void update(ValidatorRequest validatorRequest) throws Exception;
 }

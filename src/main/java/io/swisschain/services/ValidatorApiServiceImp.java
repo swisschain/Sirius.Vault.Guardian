@@ -1,16 +1,14 @@
 package io.swisschain.services;
 
+import io.swisschain.domain.exceptions.OperationException;
 import io.swisschain.domain.validators.Validator;
 import io.swisschain.sirius.guardianApi.GuardianApiClient;
-import io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import io.swisschain.sirius.guardianApi.generated.validators.ValidatorsOuterClass;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ValidatorApiServiceImp implements ValidatorApiService {
-  private static final Logger logger = LogManager.getLogger();
   private final GuardianApiClient guardianApiClient;
 
   public ValidatorApiServiceImp(GuardianApiClient guardianApiClient) {
@@ -18,22 +16,25 @@ public class ValidatorApiServiceImp implements ValidatorApiService {
   }
 
   @Override
-  public List<Validator> get(String tenantId) {
+  public List<Validator> get(String tenantId) throws OperationException {
     var request =
-        ValidatorApprovalRequests.ActiveValidatorsRequest.newBuilder()
-            .setTenantId(tenantId)
-            .build();
-    var response = guardianApiClient.getTransactions().getActiveValidators(request);
+        ValidatorsOuterClass.GetValidatorsRequest.newBuilder().setTenantId(tenantId).build();
+    var response = guardianApiClient.getValidators().get(request);
 
-    // TODO: handle response errors
+    if (response.getBodyCase() == ValidatorsOuterClass.GetValidatorsResponse.BodyCase.ERROR) {
+      throw new OperationException(
+          String.format(
+              "Can not get validators. Error: %s %s",
+              response.getError().getErrorCode().name(), response.getError().getErrorMessage()));
+    }
 
-    return response.getActiveValidatorsRequestList().stream()
-        .map(item -> new Validator(item.getValidatorId(), item.getValidatorPublicKeyPem()))
+    return response.getResponse().getValidatorsList().stream()
+        .map(item -> new Validator(item.getId(), item.getPublicKey()))
         .collect(Collectors.toList());
   }
 
   @Override
-  public Validator getById(String tenantId, String validatorId) {
+  public Validator getById(String tenantId, String validatorId) throws OperationException {
     return get(tenantId).stream()
         .filter(validator -> validator.getId().equals(validatorId))
         .findFirst()

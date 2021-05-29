@@ -5,11 +5,8 @@ import com.evanlennick.retry4j.exception.UnexpectedException;
 import io.swisschain.common.durability.RetryPolicies;
 import io.swisschain.domain.exceptions.OperationExhaustedException;
 import io.swisschain.domain.exceptions.OperationFailedException;
-import io.swisschain.domain.validators.ValidatorResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.List;
 
 public class ValidatorRequestApiServiceRetryDecorator implements ValidatorRequestApiService {
   private final Logger logger = LogManager.getLogger();

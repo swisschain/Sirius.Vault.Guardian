@@ -68,11 +68,38 @@ public class ValidatorRequestRepositoryImp implements ValidatorRequestRepository
     }
   }
 
-  public void insert(ValidatorRequest validatorRequest) throws Exception {
+  public ValidatorRequest getByValidatorId(String validatorId, long validationRequestId)
+      throws SQLException {
+    var sql =
+        "SELECT *\n"
+            + String.format("FROM %s.%s\n", connectionFactory.getSchema(), tableName)
+            + "WHERE validation_request_id = ? and validator_id = ?;";
+
+    try (var connection = this.connectionFactory.create();
+        var statement = connection.prepareStatement(sql)) {
+      statement.setLong(1, validationRequestId);
+      statement.setString(2, validatorId);
+
+      var resultSet = statement.executeQuery();
+
+      if (resultSet.next()) {
+        var entity = new ValidatorRequestEntity();
+        entity.map(resultSet);
+
+        return toDomain(entity);
+      }
+
+      return null;
+    }
+  }
+
+  public boolean insert(ValidatorRequest validatorRequest) throws Exception {
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
             + "id, validator_id, tenant_id, message, \"key\", nonce, status, \"type\", validation_request_id, document, signature, resolution, resolution_message, device_info, ip, created_at, updated_at)\n"
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "
+            + "ON CONFLICT ON CONSTRAINT ux_validator_request "
+            + "DO NOTHING;";
 
     try (var connection = this.connectionFactory.create();
         var statement = connection.prepareStatement(sql)) {
@@ -98,7 +125,7 @@ public class ValidatorRequestRepositoryImp implements ValidatorRequestRepository
       statement.setTimestamp(16, Timestamp.from(validatorRequest.getCreatedAt()));
       statement.setTimestamp(17, Timestamp.from(validatorRequest.getUpdatedAt()));
 
-      statement.execute();
+      return statement.executeUpdate() == 1;
     }
   }
 
