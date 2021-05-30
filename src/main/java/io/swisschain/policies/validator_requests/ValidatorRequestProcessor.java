@@ -2,7 +2,6 @@ package io.swisschain.policies.validator_requests;
 
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
 import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
-import io.swisschain.domain.exceptions.AlreadyExistsException;
 import io.swisschain.domain.validator_messages.MessageType;
 import io.swisschain.domain.validator_messages.ValidatorRequestMessage;
 import io.swisschain.domain.validators.Validator;
@@ -86,23 +85,25 @@ public class ValidatorRequestProcessor {
               validatorRequestType,
               validationRequestId);
 
+      var inserted = validatorRequestRepository.insert(validatorRequest);
+
+      if (!inserted) {
+        validatorRequest =
+            validatorRequestRepository.getByValidatorId(validator.getId(), validationRequestId);
+      }
+
       validatorRequestApiService.create(
           tenantId,
           validatorRequest.getId(),
-          validator.getId(),
+          validatorRequest.getValidatorId(),
           Base64.getEncoder().encodeToString(encryptedMessage),
           Base64.getEncoder().encodeToString(encryptedKey),
           Base64.getEncoder().encodeToString(nonce));
 
-      try {
-        validatorRequestRepository.insert(validatorRequest);
-      } catch (AlreadyExistsException exception) {
-        logger.error(
-            String.format(
-                "The validator request already exists. Id: %d; Validator Id: %s",
-                validationRequestId, validator.getId()),
-            exception);
-      }
+      logger.info(
+          String.format(
+              "Validation request %d sent to validator %s",
+              validationRequestId, validatorRequest.getValidatorId()));
     }
   }
 }

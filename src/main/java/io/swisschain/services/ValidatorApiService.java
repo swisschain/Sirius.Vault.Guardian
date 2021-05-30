@@ -1,5 +1,6 @@
 package io.swisschain.services;
 
+import io.swisschain.domain.exceptions.OperationException;
 import io.swisschain.domain.exceptions.OperationExhaustedException;
 import io.swisschain.domain.exceptions.OperationFailedException;
 import io.swisschain.domain.validators.Validator;
@@ -7,8 +8,9 @@ import io.swisschain.domain.validators.Validator;
 import java.util.List;
 
 public interface ValidatorApiService {
-  List<Validator> get(String tenantId) throws OperationFailedException, OperationExhaustedException;
+  List<Validator> get(String tenantId)
+      throws OperationFailedException, OperationExhaustedException, OperationException;
 
   Validator getById(String tenantId, String validatorId)
-      throws OperationFailedException, OperationExhaustedException;
+      throws OperationFailedException, OperationExhaustedException, OperationException;
 }

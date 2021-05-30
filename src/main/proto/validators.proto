@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option csharp_namespace = "Swisschain.Sirius.GuardianValidatorApi";
+option java_package = "io.swisschain.sirius.guardianApi.generated.validators";
+
+package swisschain.sirius.guardian_api;
+
+service Validators {
+  rpc Get (GetValidatorsRequest) returns (GetValidatorsResponse);
+}
+
+// Get
+
+message GetValidatorsRequest {
+  string tenant_id = 1;
+}
+
+message GetValidatorsResponse {
+  oneof body {
+    GetValidatorsResponseBody response = 1;
+    GetValidatorsErrorResponseBody error = 2;
+  }
+}
+
+message GetValidatorsResponseBody {
+  repeated Validator validators = 1;
+}
+
+message GetValidatorsErrorResponseBody {
+
+  enum ErrorCode {
+    UNKNOWN = 0;
+  }
+
+  ErrorCode error_code = 1;
+  string error_message = 2;
+}
+
+message Validator {
+  string id = 1;
+  string public_key = 2;
+}

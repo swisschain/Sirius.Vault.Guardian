@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+option csharp_namespace = "Swisschain.Sirius.GuardianValidatorApi";
+option java_package = "io.swisschain.sirius.guardianApi.generated.validation_requests";
+
+package swisschain.sirius.guardian_api;
+
+service ValidationRequests {
+  rpc Create (CreateValidationRequestRequest) returns (CreateValidationRequestResponse);
+  rpc Confirm (ConfirmValidationRequestRequest) returns (ConfirmValidationRequestResponse);
+}
+
+// Create
+
+message CreateValidationRequestRequest {
+  string request_id = 1;
+  string tenant_id = 2;
+  string validation_request_id = 3;
+  string validator_id = 4;
+  string message = 5;
+  string key = 6;
+  string nonce = 7;
+}
+
+message CreateValidationRequestResponse {
+  oneof body {
+    CreateValidationRequestResponseBody response = 1;
+    CreateValidationRequestErrorResponseBody error = 2;
+  }
+}
+
+message CreateValidationRequestResponseBody {
+}
+
+message CreateValidationRequestErrorResponseBody {
+
+  enum ErrorCode {
+    UNKNOWN = 0;
+  }
+
+  ErrorCode error_code = 1;
+  string error_message = 2;
+}
+
+// Confirm
+
+message ConfirmValidationRequestRequest {
+  string request_id = 1;
+  string validation_request_id = 2;
+  string validator_id = 3;
+}
+
+message ConfirmValidationRequestResponse {
+  oneof body {
+    ConfirmValidationRequestResponseBody response = 1;
+    ConfirmValidationRequestErrorResponseBody error = 2;
+  }
+}
+
+message ConfirmValidationRequestResponseBody {
+}
+
+message ConfirmValidationRequestErrorResponseBody {
+
+  enum ErrorCode {
+    UNKNOWN = 0;
+  }
+
+  ErrorCode error_code = 1;
+  string error_message = 2;
+}

@@ -92,20 +92,53 @@ public class ValidatorRequestRepositoryRetryDecorator implements ValidatorReques
   }
 
   @Override
-  public void insert(ValidatorRequest validatorRequest)
+  public ValidatorRequest getByValidatorId(String validatorId, long validationRequestId)
+      throws OperationExhaustedException, OperationFailedException {
+    try {
+      var status =
+          RetryPolicies.ExecuteWithDefaultRepositoryConfig(
+              o ->
+                  logger.warn(
+                      String.format(
+                          "Failed to get validator request by validation request %d by validator id %s.",
+                          validationRequestId, validatorId),
+                      o.getLastExceptionThatCausedRetry()),
+              () -> validatorRequestRepository.getByValidatorId(validatorId, validationRequestId));
+      return status.getResult();
+    } catch (RetriesExhaustedException exception) {
+      logger.error(
+          String.format(
+              "Failed to get validator request by validation request %d by validator id %s. Retries exhausted with total tries %d duration %d ms.",
+              validationRequestId,
+              validatorId,
+              exception.getStatus().getTotalTries(),
+              exception.getStatus().getTotalElapsedDuration().toMillis()));
+      throw new OperationExhaustedException(exception);
+    } catch (UnexpectedException exception) {
+      logger.error(
+          String.format(
+              "An unexpected error occurred while getting validator request by validation request %d by validator id %s.",
+              validationRequestId, validatorId),
+          exception);
+      throw new OperationFailedException(exception);
+    }
+  }
+
+  @Override
+  public boolean insert(ValidatorRequest validatorRequest)
       throws AlreadyExistsException, OperationExhaustedException, OperationFailedException {
     try {
-      RetryPolicies.ExecuteWithDefaultRepositoryConfig(
-          o ->
-              logger.warn(
-                  String.format(
-                      "Failed to insert validator request with validator id %s and transfer validation request %d.",
-                      validatorRequest.getValidatorId(), validatorRequest.getValidationRequestId()),
-                  o.getLastExceptionThatCausedRetry()),
-          () -> {
-            validatorRequestRepository.insert(validatorRequest);
-            return null;
-          });
+      var status =
+          RetryPolicies.ExecuteWithDefaultRepositoryConfig(
+              o ->
+                  logger.warn(
+                      String.format(
+                          "Failed to insert validator request with validator id %s and transfer validation request %d.",
+                          validatorRequest.getValidatorId(),
+                          validatorRequest.getValidationRequestId()),
+                      o.getLastExceptionThatCausedRetry()),
+              () -> validatorRequestRepository.insert(validatorRequest));
+      return status.getResult();
     } catch (RetriesExhaustedException exception) {
       logger.error(
           String.format(

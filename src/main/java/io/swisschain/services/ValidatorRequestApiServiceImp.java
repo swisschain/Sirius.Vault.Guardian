@@ -1,29 +1,14 @@
 package io.swisschain.services;
 
+import io.swisschain.domain.exceptions.OperationException;
 import io.swisschain.sirius.guardianApi.GuardianApiClient;
-import io.swisschain.sirius.guardianApi.generated.validatorApprovalRequests.ValidatorApprovalRequests;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import io.swisschain.sirius.guardianApi.generated.validation_requests.ValidationRequestsOuterClass;
 
 public class ValidatorRequestApiServiceImp implements ValidatorRequestApiService {
-  private static final Logger logger = LogManager.getLogger();
   private final GuardianApiClient guardianApiClient;
 
   public ValidatorRequestApiServiceImp(GuardianApiClient guardianApiClient) {
     this.guardianApiClient = guardianApiClient;
-  }
-
-  @Override
-  public void confirm(String validatorId, String validationRequestId) {
-    var request =
-        ValidatorApprovalRequests.AcknowledgeResultRequest.newBuilder()
-            .setTransferSigningRequestId(validationRequestId)
-            .setValidatorId(validatorId)
-            .build();
-
-    var response = guardianApiClient.getTransactions().acknowledgeResult(request);
-
-    // TODO: handle response errors
   }
 
   @Override
@@ -33,10 +18,13 @@ public class ValidatorRequestApiServiceImp implements ValidatorRequestApiService
       String validatorId,
       String message,
       String key,
-      String nonce) {
+      String nonce)
+      throws OperationException {
     var request =
-        ValidatorApprovalRequests.CreateApprovalRequestRequest.newBuilder()
-            .setRequestId(String.format("Guardian:Create:%s-%s", validationRequestId, validatorId))
+        ValidationRequestsOuterClass.CreateValidationRequestRequest.newBuilder()
+            .setRequestId(
+                String.format(
+                    "Guardian:CreateValidatorRequest:%s-%s", validationRequestId, validatorId))
             .setTenantId(tenantId)
             .setValidationRequestId(validationRequestId)
             .setValidatorId(validatorId)
@@ -45,12 +33,36 @@ public class ValidatorRequestApiServiceImp implements ValidatorRequestApiService
             .setNonce(nonce)
             .build();
 
-    var response = guardianApiClient.getTransactions().createApprovalRequest(request);
+    var response = guardianApiClient.getValidationRequests().create(request);
 
-    // TODO: handle response errors
+    if (response.getBodyCase()
+        == ValidationRequestsOuterClass.CreateValidationRequestResponse.BodyCase.ERROR) {
+      throw new OperationException(
+          String.format(
+              "Can not get validators. Error: %s %s",
+              response.getError().getErrorCode().name(), response.getError().getErrorMessage()));
+    }
+  }
 
-    logger.info(
-        String.format(
-            "Approval requests sent. Id: %s; Validator: %s", validationRequestId, validatorId));
+  @Override
+  public void confirm(String validatorId, String validationRequestId) throws OperationException {
+    var request =
+        ValidationRequestsOuterClass.ConfirmValidationRequestRequest.newBuilder()
+            .setRequestId(
+                String.format(
+                    "Guardian:ConfirmValidatorRequest:%s-%s", validationRequestId, validatorId))
+            .setValidationRequestId(validationRequestId)
+            .setValidatorId(validatorId)
+            .build();
+
+    var response = guardianApiClient.getValidationRequests().confirm(request);
+
+    if (response.getBodyCase()
+        == ValidationRequestsOuterClass.ConfirmValidationRequestResponse.BodyCase.ERROR) {
+      throw new OperationException(
+          String.format(
+              "Can not get validators. Error: %s %s",
+              response.getError().getErrorCode().name(), response.getError().getErrorMessage()));
+    }
   }
 }
