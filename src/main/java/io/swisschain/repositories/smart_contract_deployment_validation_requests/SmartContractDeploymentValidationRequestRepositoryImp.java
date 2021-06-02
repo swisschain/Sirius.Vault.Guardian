@@ -49,13 +49,43 @@ public class SmartContractDeploymentValidationRequestRepositoryImp
       throws Exception {
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
-            + "id, tenant_id, smart_contract_deployment, status, document, signature, reject_reason_message, created_at, updated_at)\n"
+            + "id, tenant_id, vault_id, smart_contract_deployment, status, document, signature, reject_reason_message, created_at, updated_at)\n"
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 
     try (var connection = this.connectionFactory.create();
         var statement = connection.prepareStatement(sql)) {
       statement.setLong(1, smartContractDeploymentValidationRequest.getId());
       statement.setString(2, smartContractDeploymentValidationRequest.getTenantId());
+      statement.setLong(3, smartContractDeploymentValidationRequest.getVaultId());
+      statement.setString(
+          4,
+          jsonSerializer.serialize(
+              smartContractDeploymentValidationRequest.getSmartContractDeployment()));
+      statement.setString(5, smartContractDeploymentValidationRequest.getStatus().name());
+      statement.setString(6, smartContractDeploymentValidationRequest.getDocument());
+      statement.setString(7, smartContractDeploymentValidationRequest.getSignature());
+      statement.setString(8, smartContractDeploymentValidationRequest.getRejectReasonMessage());
+      statement.setTimestamp(
+          9, Timestamp.from(smartContractDeploymentValidationRequest.getCreatedAt()));
+      statement.setTimestamp(
+          10, Timestamp.from(smartContractDeploymentValidationRequest.getUpdatedAt()));
+
+      statement.execute();
+    }
+  }
+
+  public void update(
+      SmartContractDeploymentValidationRequest smartContractDeploymentValidationRequest)
+      throws Exception {
+    var sql =
+        String.format("UPDATE %s.%s\n", connectionFactory.getSchema(), tableName)
+            + "SET tenant_id = ?, vault_id = ?, smart_contract_deployment = ?, status = ?, document = ?, signature = ?, reject_reason_message = ?, created_at = ?, updated_at = ?\n"
+            + "WHERE id = ?;";
+
+    try (var connection = this.connectionFactory.create();
+        var statement = connection.prepareStatement(sql)) {
+      statement.setString(1, smartContractDeploymentValidationRequest.getTenantId());
+      statement.setLong(2, smartContractDeploymentValidationRequest.getVaultId());
       statement.setString(
           3,
           jsonSerializer.serialize(
@@ -68,35 +98,7 @@ public class SmartContractDeploymentValidationRequestRepositoryImp
           8, Timestamp.from(smartContractDeploymentValidationRequest.getCreatedAt()));
       statement.setTimestamp(
           9, Timestamp.from(smartContractDeploymentValidationRequest.getUpdatedAt()));
-
-      statement.execute();
-    }
-  }
-
-  public void update(
-      SmartContractDeploymentValidationRequest smartContractDeploymentValidationRequest)
-      throws Exception {
-    var sql =
-        String.format("UPDATE %s.%s\n", connectionFactory.getSchema(), tableName)
-            + "SET tenant_id = ?, smart_contract_deployment = ?, status = ?, document = ?, signature = ?, reject_reason_message = ?, created_at = ?, updated_at = ?\n"
-            + "WHERE id = ?;";
-
-    try (var connection = this.connectionFactory.create();
-        var statement = connection.prepareStatement(sql)) {
-      statement.setString(1, smartContractDeploymentValidationRequest.getTenantId());
-      statement.setString(
-          2,
-          jsonSerializer.serialize(
-              smartContractDeploymentValidationRequest.getSmartContractDeployment()));
-      statement.setString(3, smartContractDeploymentValidationRequest.getStatus().name());
-      statement.setString(4, smartContractDeploymentValidationRequest.getDocument());
-      statement.setString(5, smartContractDeploymentValidationRequest.getSignature());
-      statement.setString(6, smartContractDeploymentValidationRequest.getRejectReasonMessage());
-      statement.setTimestamp(
-          7, Timestamp.from(smartContractDeploymentValidationRequest.getCreatedAt()));
-      statement.setTimestamp(
-          8, Timestamp.from(smartContractDeploymentValidationRequest.getUpdatedAt()));
-      statement.setLong(9, smartContractDeploymentValidationRequest.getId());
+      statement.setLong(10, smartContractDeploymentValidationRequest.getId());
 
       statement.execute();
     }
@@ -108,6 +110,7 @@ public class SmartContractDeploymentValidationRequestRepositoryImp
       return new SmartContractDeploymentValidationRequest(
           entity.getId(),
           entity.getTenantId(),
+          entity.getVaultId(),
           jsonSerializer.deserialize(
               entity.getSmartContractDeployment(), SmartContractDeployment.class),
           entity.getStatus(),

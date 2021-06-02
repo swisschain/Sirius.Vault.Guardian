@@ -5196,17 +5196,24 @@ public final class TransferValidationRequestsOuterClass {
     long getId();
 
     /**
-     * <code>string tenant_id = 3;</code>
+     * <code>string tenant_id = 2;</code>
      *
      * @return The tenantId.
      */
     java.lang.String getTenantId();
     /**
-     * <code>string tenant_id = 3;</code>
+     * <code>string tenant_id = 2;</code>
      *
      * @return The bytes for tenantId.
      */
     com.google.protobuf.ByteString getTenantIdBytes();
+
+    /**
+     * <code>int64 vault_id = 3;</code>
+     *
+     * @return The vaultId.
+     */
+    long getVaultId();
 
     /**
      * <code>.swisschain.sirius.vaultApi.transferValidationRequests.Transfer transfer = 4;</code>
@@ -5321,11 +5328,16 @@ public final class TransferValidationRequestsOuterClass {
                 id_ = input.readInt64();
                 break;
               }
-            case 26:
+            case 18:
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
                 tenantId_ = s;
+                break;
+              }
+            case 24:
+              {
+                vaultId_ = input.readInt64();
                 break;
               }
             case 34:
@@ -5451,10 +5463,10 @@ public final class TransferValidationRequestsOuterClass {
       return id_;
     }
 
-    public static final int TENANT_ID_FIELD_NUMBER = 3;
+    public static final int TENANT_ID_FIELD_NUMBER = 2;
     private volatile java.lang.Object tenantId_;
     /**
-     * <code>string tenant_id = 3;</code>
+     * <code>string tenant_id = 2;</code>
      *
      * @return The tenantId.
      */
@@ -5471,7 +5483,7 @@ public final class TransferValidationRequestsOuterClass {
       }
     }
     /**
-     * <code>string tenant_id = 3;</code>
+     * <code>string tenant_id = 2;</code>
      *
      * @return The bytes for tenantId.
      */
@@ -5486,6 +5498,18 @@ public final class TransferValidationRequestsOuterClass {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int VAULT_ID_FIELD_NUMBER = 3;
+    private long vaultId_;
+    /**
+     * <code>int64 vault_id = 3;</code>
+     *
+     * @return The vaultId.
+     */
+    @java.lang.Override
+    public long getVaultId() {
+      return vaultId_;
     }
 
     public static final int TRANSFER_FIELD_NUMBER = 4;
@@ -5610,7 +5634,10 @@ public final class TransferValidationRequestsOuterClass {
         output.writeInt64(1, id_);
       }
       if (!getTenantIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tenantId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tenantId_);
+      }
+      if (vaultId_ != 0L) {
+        output.writeInt64(3, vaultId_);
       }
       if (transfer_ != null) {
         output.writeMessage(4, getTransfer());
@@ -5634,7 +5661,10 @@ public final class TransferValidationRequestsOuterClass {
         size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, id_);
       }
       if (!getTenantIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tenantId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tenantId_);
+      }
+      if (vaultId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(3, vaultId_);
       }
       if (transfer_ != null) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getTransfer());
@@ -5685,6 +5715,7 @@ public final class TransferValidationRequestsOuterClass {
 
       if (getId() != other.getId()) return false;
       if (!getTenantId().equals(other.getTenantId())) return false;
+      if (getVaultId() != other.getVaultId()) return false;
       if (hasTransfer() != other.hasTransfer()) return false;
       if (hasTransfer()) {
         if (!getTransfer().equals(other.getTransfer())) return false;
@@ -5712,6 +5743,8 @@ public final class TransferValidationRequestsOuterClass {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getId());
       hash = (37 * hash) + TENANT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getTenantId().hashCode();
+      hash = (37 * hash) + VAULT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getVaultId());
       if (hasTransfer()) {
         hash = (37 * hash) + TRANSFER_FIELD_NUMBER;
         hash = (53 * hash) + getTransfer().hashCode();
@@ -5984,6 +6017,8 @@ public final class TransferValidationRequestsOuterClass {
 
         tenantId_ = "";
 
+        vaultId_ = 0L;
+
         if (transferBuilder_ == null) {
           transfer_ = null;
         } else {
@@ -6078,6 +6113,7 @@ public final class TransferValidationRequestsOuterClass {
                     .TransferValidationRequest(this);
         result.id_ = id_;
         result.tenantId_ = tenantId_;
+        result.vaultId_ = vaultId_;
         if (transferBuilder_ == null) {
           result.transfer_ = transfer_;
         } else {
@@ -6178,6 +6214,9 @@ public final class TransferValidationRequestsOuterClass {
           tenantId_ = other.tenantId_;
           onChanged();
         }
+        if (other.getVaultId() != 0L) {
+          setVaultId(other.getVaultId());
+        }
         if (other.hasTransfer()) {
           mergeTransfer(other.getTransfer());
         }
@@ -6267,7 +6306,7 @@ public final class TransferValidationRequestsOuterClass {
 
       private java.lang.Object tenantId_ = "";
       /**
-       * <code>string tenant_id = 3;</code>
+       * <code>string tenant_id = 2;</code>
        *
        * @return The tenantId.
        */
@@ -6283,7 +6322,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string tenant_id = 3;</code>
+       * <code>string tenant_id = 2;</code>
        *
        * @return The bytes for tenantId.
        */
@@ -6299,7 +6338,7 @@ public final class TransferValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string tenant_id = 3;</code>
+       * <code>string tenant_id = 2;</code>
        *
        * @param value The tenantId to set.
        * @return This builder for chaining.
@@ -6314,7 +6353,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string tenant_id = 3;</code>
+       * <code>string tenant_id = 2;</code>
        *
        * @return This builder for chaining.
        */
@@ -6325,7 +6364,7 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string tenant_id = 3;</code>
+       * <code>string tenant_id = 2;</code>
        *
        * @param value The bytes for tenantId to set.
        * @return This builder for chaining.
@@ -6337,6 +6376,40 @@ public final class TransferValidationRequestsOuterClass {
         checkByteStringIsUtf8(value);
 
         tenantId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long vaultId_;
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @return The vaultId.
+       */
+      @java.lang.Override
+      public long getVaultId() {
+        return vaultId_;
+      }
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @param value The vaultId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVaultId(long value) {
+
+        vaultId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearVaultId() {
+
+        vaultId_ = 0L;
         onChanged();
         return this;
       }
@@ -14625,17 +14698,17 @@ public final class TransferValidationRequestsOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
-    java.lang.String getRequestId();
+    java.lang.String getIdempotencyId();
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
-    com.google.protobuf.ByteString getRequestIdBytes();
+    com.google.protobuf.ByteString getIdempotencyIdBytes();
 
     /**
      * <code>int64 transfer_validation_request_id = 2;</code>
@@ -14700,7 +14773,7 @@ public final class TransferValidationRequestsOuterClass {
     }
 
     private ConfirmTransferValidationRequestRequest() {
-      requestId_ = "";
+      idempotencyId_ = "";
       document_ = "";
       signature_ = "";
       hostProcessId_ = "";
@@ -14739,7 +14812,7 @@ public final class TransferValidationRequestsOuterClass {
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                requestId_ = s;
+                idempotencyId_ = s;
                 break;
               }
             case 16:
@@ -14823,37 +14896,37 @@ public final class TransferValidationRequestsOuterClass {
                   .class);
     }
 
-    public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    public static final int IDEMPOTENCY_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object idempotencyId_;
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
     @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
+    public java.lang.String getIdempotencyId() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
+        idempotencyId_ = s;
         return s;
       }
     }
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
+    public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        requestId_ = b;
+        idempotencyId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -14997,8 +15070,8 @@ public final class TransferValidationRequestsOuterClass {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idempotencyId_);
       }
       if (transferValidationRequestId_ != 0L) {
         output.writeInt64(2, transferValidationRequestId_);
@@ -15021,8 +15094,8 @@ public final class TransferValidationRequestsOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idempotencyId_);
       }
       if (transferValidationRequestId_ != 0L) {
         size +=
@@ -15075,7 +15148,7 @@ public final class TransferValidationRequestsOuterClass {
                       .ConfirmTransferValidationRequestRequest)
                   obj;
 
-      if (!getRequestId().equals(other.getRequestId())) return false;
+      if (!getIdempotencyId().equals(other.getIdempotencyId())) return false;
       if (getTransferValidationRequestId() != other.getTransferValidationRequestId()) return false;
       if (!getDocument().equals(other.getDocument())) return false;
       if (!getSignature().equals(other.getSignature())) return false;
@@ -15091,8 +15164,8 @@ public final class TransferValidationRequestsOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + IDEMPOTENCY_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyId().hashCode();
       hash = (37 * hash) + TRANSFER_VALIDATION_REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getTransferValidationRequestId());
       hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
@@ -15357,7 +15430,7 @@ public final class TransferValidationRequestsOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        requestId_ = "";
+        idempotencyId_ = "";
 
         transferValidationRequestId_ = 0L;
 
@@ -15442,7 +15515,7 @@ public final class TransferValidationRequestsOuterClass {
                     .transfer_validation_requests
                     .TransferValidationRequestsOuterClass
                     .ConfirmTransferValidationRequestRequest(this);
-        result.requestId_ = requestId_;
+        result.idempotencyId_ = idempotencyId_;
         result.transferValidationRequestId_ = transferValidationRequestId_;
         result.document_ = document_;
         result.signature_ = signature_;
@@ -15525,8 +15598,8 @@ public final class TransferValidationRequestsOuterClass {
             == io.swisschain.sirius.vaultApi.generated.transfer_validation_requests
                 .TransferValidationRequestsOuterClass.ConfirmTransferValidationRequestRequest
                 .getDefaultInstance()) return this;
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
+        if (!other.getIdempotencyId().isEmpty()) {
+          idempotencyId_ = other.idempotencyId_;
           onChanged();
         }
         if (other.getTransferValidationRequestId() != 0L) {
@@ -15588,78 +15661,78 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
 
-      private java.lang.Object requestId_ = "";
+      private java.lang.Object idempotencyId_ = "";
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The requestId.
+       * @return The idempotencyId.
        */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
+      public java.lang.String getIdempotencyId() {
+        java.lang.Object ref = idempotencyId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
+          idempotencyId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The bytes for requestId.
+       * @return The bytes for idempotencyId.
        */
-      public com.google.protobuf.ByteString getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
+      public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+        java.lang.Object ref = idempotencyId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          requestId_ = b;
+          idempotencyId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The requestId to set.
+       * @param value The idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestId(java.lang.String value) {
+      public Builder setIdempotencyId(java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
         }
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
        * @return This builder for chaining.
        */
-      public Builder clearRequestId() {
+      public Builder clearIdempotencyId() {
 
-        requestId_ = getDefaultInstance().getRequestId();
+        idempotencyId_ = getDefaultInstance().getIdempotencyId();
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The bytes for requestId to set.
+       * @param value The bytes for idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestIdBytes(com.google.protobuf.ByteString value) {
+      public Builder setIdempotencyIdBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
         }
         checkByteStringIsUtf8(value);
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
@@ -19769,17 +19842,17 @@ public final class TransferValidationRequestsOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
-    java.lang.String getRequestId();
+    java.lang.String getIdempotencyId();
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
-    com.google.protobuf.ByteString getRequestIdBytes();
+    com.google.protobuf.ByteString getIdempotencyIdBytes();
 
     /**
      * <code>int64 transfer_validation_request_id = 2;</code>
@@ -19882,7 +19955,7 @@ public final class TransferValidationRequestsOuterClass {
     }
 
     private RejectTransferValidationRequestRequest() {
-      requestId_ = "";
+      idempotencyId_ = "";
       rejectionReason_ = 0;
       rejectionReasonMessage_ = "";
       document_ = "";
@@ -19923,7 +19996,7 @@ public final class TransferValidationRequestsOuterClass {
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                requestId_ = s;
+                idempotencyId_ = s;
                 break;
               }
             case 16:
@@ -20131,37 +20204,37 @@ public final class TransferValidationRequestsOuterClass {
       // @@protoc_insertion_point(enum_scope:swisschain.sirius.vaultApi.transferValidationRequests.RejectTransferValidationRequestRequest.RejectionReason)
     }
 
-    public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    public static final int IDEMPOTENCY_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object idempotencyId_;
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
     @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
+    public java.lang.String getIdempotencyId() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
+        idempotencyId_ = s;
         return s;
       }
     }
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
+    public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        requestId_ = b;
+        idempotencyId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -20398,8 +20471,8 @@ public final class TransferValidationRequestsOuterClass {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idempotencyId_);
       }
       if (transferValidationRequestId_ != 0L) {
         output.writeInt64(2, transferValidationRequestId_);
@@ -20431,8 +20504,8 @@ public final class TransferValidationRequestsOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idempotencyId_);
       }
       if (transferValidationRequestId_ != 0L) {
         size +=
@@ -20495,7 +20568,7 @@ public final class TransferValidationRequestsOuterClass {
                       .RejectTransferValidationRequestRequest)
                   obj;
 
-      if (!getRequestId().equals(other.getRequestId())) return false;
+      if (!getIdempotencyId().equals(other.getIdempotencyId())) return false;
       if (getTransferValidationRequestId() != other.getTransferValidationRequestId()) return false;
       if (rejectionReason_ != other.rejectionReason_) return false;
       if (!getRejectionReasonMessage().equals(other.getRejectionReasonMessage())) return false;
@@ -20513,8 +20586,8 @@ public final class TransferValidationRequestsOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + IDEMPOTENCY_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyId().hashCode();
       hash = (37 * hash) + TRANSFER_VALIDATION_REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getTransferValidationRequestId());
       hash = (37 * hash) + REJECTION_REASON_FIELD_NUMBER;
@@ -20783,7 +20856,7 @@ public final class TransferValidationRequestsOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        requestId_ = "";
+        idempotencyId_ = "";
 
         transferValidationRequestId_ = 0L;
 
@@ -20872,7 +20945,7 @@ public final class TransferValidationRequestsOuterClass {
                     .transfer_validation_requests
                     .TransferValidationRequestsOuterClass
                     .RejectTransferValidationRequestRequest(this);
-        result.requestId_ = requestId_;
+        result.idempotencyId_ = idempotencyId_;
         result.transferValidationRequestId_ = transferValidationRequestId_;
         result.rejectionReason_ = rejectionReason_;
         result.rejectionReasonMessage_ = rejectionReasonMessage_;
@@ -20957,8 +21030,8 @@ public final class TransferValidationRequestsOuterClass {
             == io.swisschain.sirius.vaultApi.generated.transfer_validation_requests
                 .TransferValidationRequestsOuterClass.RejectTransferValidationRequestRequest
                 .getDefaultInstance()) return this;
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
+        if (!other.getIdempotencyId().isEmpty()) {
+          idempotencyId_ = other.idempotencyId_;
           onChanged();
         }
         if (other.getTransferValidationRequestId() != 0L) {
@@ -21027,78 +21100,78 @@ public final class TransferValidationRequestsOuterClass {
         return this;
       }
 
-      private java.lang.Object requestId_ = "";
+      private java.lang.Object idempotencyId_ = "";
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The requestId.
+       * @return The idempotencyId.
        */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
+      public java.lang.String getIdempotencyId() {
+        java.lang.Object ref = idempotencyId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
+          idempotencyId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The bytes for requestId.
+       * @return The bytes for idempotencyId.
        */
-      public com.google.protobuf.ByteString getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
+      public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+        java.lang.Object ref = idempotencyId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          requestId_ = b;
+          idempotencyId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The requestId to set.
+       * @param value The idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestId(java.lang.String value) {
+      public Builder setIdempotencyId(java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
         }
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
        * @return This builder for chaining.
        */
-      public Builder clearRequestId() {
+      public Builder clearIdempotencyId() {
 
-        requestId_ = getDefaultInstance().getRequestId();
+        idempotencyId_ = getDefaultInstance().getIdempotencyId();
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The bytes for requestId to set.
+       * @param value The bytes for idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestIdBytes(com.google.protobuf.ByteString value) {
+      public Builder setIdempotencyIdBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
         }
         checkByteStringIsUtf8(value);
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
@@ -25481,110 +25554,111 @@ public final class TransferValidationRequestsOuterClass {
           + "tionRequests.GetTransferValidationReques"
           + "tsErrorResponseBody.ErrorCode\022\025\n\rerror_m"
           + "essage\030\002 \001(\t\"0\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026"
-          + "\n\022INVALID_PARAMETERS\020\001\"\355\001\n\031TransferValid"
-          + "ationRequest\022\n\n\002id\030\001 \001(\003\022\021\n\ttenant_id\030\003 "
-          + "\001(\t\022Q\n\010transfer\030\004 \001(\0132?.swisschain.siriu"
-          + "s.vaultApi.transferValidationRequests.Tr"
-          + "ansfer\022.\n\ncreated_at\030\005 \001(\0132\032.google.prot"
-          + "obuf.Timestamp\022.\n\nupdated_at\030\006 \001(\0132\032.goo"
-          + "gle.protobuf.Timestamp\"\330\003\n\010Transfer\022\n\n\002i"
-          + "d\030\001 \001(\003\022A\n\nblockchain\030\002 \001(\0132-.swisschain"
-          + ".sirius.vaultApi.common.Blockchain\022U\n\006so"
-          + "urce\030\003 \001(\0132E.swisschain.sirius.vaultApi."
-          + "transferValidationRequests.TransferSourc"
-          + "e\022_\n\013destination\030\004 \001(\0132J.swisschain.siri"
-          + "us.vaultApi.transferValidationRequests.T"
-          + "ransferDestination\0226\n\005value\030\005 \001(\0132\'.swis"
-          + "schain.sirius.vaultApi.common.Unit\0224\n\003fe"
-          + "e\030\006 \001(\0132\'.swisschain.sirius.vaultApi.com"
-          + "mon.Unit\022W\n\007context\030\007 \001(\0132F.swisschain.s"
-          + "irius.vaultApi.transferValidationRequest"
-          + "s.TransferContext\"\247\001\n\016TransferSource\022\017\n\007"
-          + "address\030\001 \001(\t\022G\n\rbrokerAccount\030\002 \001(\01320.s"
-          + "wisschain.sirius.vaultApi.common.BrokerA"
-          + "ccount\022;\n\007account\030\003 \001(\0132*.swisschain.sir"
-          + "ius.vaultApi.common.Account\"\235\002\n\023Transfer"
-          + "Destination\022\017\n\007address\030\001 \001(\t\022)\n\003tag\030\002 \001("
-          + "\0132\034.google.protobuf.StringValue\022D\n\010tag_t"
-          + "ype\030\003 \001(\01322.swisschain.sirius.vaultApi.c"
-          + "ommon.NullableTagType\022G\n\rbrokerAccount\030\004"
-          + " \001(\01320.swisschain.sirius.vaultApi.common"
-          + ".BrokerAccount\022;\n\007account\030\005 \001(\0132*.swissc"
-          + "hain.sirius.vaultApi.common.Account\"\340\002\n\017"
-          + "TransferContext\022.\n\010document\030\001 \001(\0132\034.goog"
-          + "le.protobuf.StringValue\0226\n\020document_vers"
-          + "ion\030\002 \001(\0132\034.google.protobuf.StringValue\022"
-          + "/\n\tsignature\030\003 \001(\0132\034.google.protobuf.Str"
-          + "ingValue\022=\n\027withdrawal_reference_id\030\004 \001("
-          + "\0132\034.google.protobuf.StringValue\022\021\n\tcompo"
-          + "nent\030\005 \001(\t\022\026\n\016operation_type\030\006 \001(\t\022J\n\017re"
-          + "quest_context\030\007 \001(\01321.swisschain.sirius."
-          + "vaultApi.common.RequestContext\"\243\001\n\'Confi"
-          + "rmTransferValidationRequestRequest\022\022\n\nre"
-          + "quest_id\030\001 \001(\t\022&\n\036transfer_validation_re"
-          + "quest_id\030\002 \001(\003\022\020\n\010document\030\003 \001(\t\022\021\n\tsign"
-          + "ature\030\004 \001(\t\022\027\n\017host_process_id\030\005 \001(\t\".\n,"
-          + "ConfirmTransferValidationRequestResponse"
-          + "Body\"\230\002\n1ConfirmTransferValidationReques"
-          + "tErrorResponseBody\022\206\001\n\nerror_code\030\001 \001(\0162"
-          + "r.swisschain.sirius.vaultApi.transferVal"
-          + "idationRequests.ConfirmTransferValidatio"
-          + "nRequestErrorResponseBody.ErrorCode\022\025\n\re"
-          + "rror_message\030\002 \001(\t\"C\n\tErrorCode\022\013\n\007UNKNO"
-          + "WN\020\000\022\026\n\022INVALID_PARAMETERS\020\001\022\021\n\rINVALID_"
-          + "STATE\020\002\"\246\002\n(ConfirmTransferValidationReq"
-          + "uestResponse\022w\n\010response\030\001 \001(\0132c.swissch"
-          + "ain.sirius.vaultApi.transferValidationRe"
-          + "quests.ConfirmTransferValidationRequestR"
-          + "esponseBodyH\000\022y\n\005error\030\002 \001(\0132h.swisschai"
+          + "\n\022INVALID_PARAMETERS\020\001\"\377\001\n\031TransferValid"
+          + "ationRequest\022\n\n\002id\030\001 \001(\003\022\021\n\ttenant_id\030\002 "
+          + "\001(\t\022\020\n\010vault_id\030\003 \001(\003\022Q\n\010transfer\030\004 \001(\0132"
+          + "?.swisschain.sirius.vaultApi.transferVal"
+          + "idationRequests.Transfer\022.\n\ncreated_at\030\005"
+          + " \001(\0132\032.google.protobuf.Timestamp\022.\n\nupda"
+          + "ted_at\030\006 \001(\0132\032.google.protobuf.Timestamp"
+          + "\"\330\003\n\010Transfer\022\n\n\002id\030\001 \001(\003\022A\n\nblockchain\030"
+          + "\002 \001(\0132-.swisschain.sirius.vaultApi.commo"
+          + "n.Blockchain\022U\n\006source\030\003 \001(\0132E.swisschai"
           + "n.sirius.vaultApi.transferValidationRequ"
-          + "ests.ConfirmTransferValidationRequestErr"
-          + "orResponseBodyH\000B\006\n\004body\"\204\003\n&RejectTrans"
-          + "ferValidationRequestRequest\022\022\n\nrequest_i"
-          + "d\030\001 \001(\t\022&\n\036transfer_validation_request_i"
-          + "d\030\002 \001(\003\022\207\001\n\020rejection_reason\030\003 \001(\0162m.swi"
-          + "sschain.sirius.vaultApi.transferValidati"
-          + "onRequests.RejectTransferValidationReque"
-          + "stRequest.RejectionReason\022 \n\030rejection_r"
-          + "eason_message\030\004 \001(\t\022\020\n\010document\030\005 \001(\t\022\021\n"
-          + "\tsignature\030\006 \001(\t\022\027\n\017host_process_id\030\007 \001("
-          + "\t\"4\n\017RejectionReason\022\t\n\005OTHER\020\000\022\026\n\022REJEC"
-          + "TED_BY_POLICY\020\001\"\243\002\n\'RejectTransferValida"
-          + "tionRequestResponse\022v\n\010response\030\001 \001(\0132b."
-          + "swisschain.sirius.vaultApi.transferValid"
-          + "ationRequests.RejectTransferValidationRe"
-          + "questResponseBodyH\000\022x\n\005error\030\002 \001(\0132g.swi"
-          + "sschain.sirius.vaultApi.transferValidati"
-          + "onRequests.RejectTransferValidationReque"
-          + "stErrorResponseBodyH\000B\006\n\004body\"-\n+RejectT"
-          + "ransferValidationRequestResponseBody\"\226\002\n"
-          + "0RejectTransferValidationRequestErrorRes"
-          + "ponseBody\022\205\001\n\nerror_code\030\001 \001(\0162q.swissch"
-          + "ain.sirius.vaultApi.transferValidationRe"
-          + "quests.RejectTransferValidationRequestEr"
-          + "rorResponseBody.ErrorCode\022\025\n\rerror_messa"
-          + "ge\030\002 \001(\t\"C\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026\n\022IN"
-          + "VALID_PARAMETERS\020\001\022\021\n\rINVALID_STATE\020\0022\366\004"
-          + "\n\032TransferValidationRequests\022\300\001\n\003Get\022[.s"
-          + "wisschain.sirius.vaultApi.transferValida"
-          + "tionRequests.GetTransferValidationReques"
-          + "tsRequest\032\\.swisschain.sirius.vaultApi.t"
-          + "ransferValidationRequests.GetTransferVal"
-          + "idationRequestsResponse\022\312\001\n\007Confirm\022^.sw"
+          + "ests.TransferSource\022_\n\013destination\030\004 \001(\013"
+          + "2J.swisschain.sirius.vaultApi.transferVa"
+          + "lidationRequests.TransferDestination\0226\n\005"
+          + "value\030\005 \001(\0132\'.swisschain.sirius.vaultApi"
+          + ".common.Unit\0224\n\003fee\030\006 \001(\0132\'.swisschain.s"
+          + "irius.vaultApi.common.Unit\022W\n\007context\030\007 "
+          + "\001(\0132F.swisschain.sirius.vaultApi.transfe"
+          + "rValidationRequests.TransferContext\"\247\001\n\016"
+          + "TransferSource\022\017\n\007address\030\001 \001(\t\022G\n\rbroke"
+          + "rAccount\030\002 \001(\01320.swisschain.sirius.vault"
+          + "Api.common.BrokerAccount\022;\n\007account\030\003 \001("
+          + "\0132*.swisschain.sirius.vaultApi.common.Ac"
+          + "count\"\235\002\n\023TransferDestination\022\017\n\007address"
+          + "\030\001 \001(\t\022)\n\003tag\030\002 \001(\0132\034.google.protobuf.St"
+          + "ringValue\022D\n\010tag_type\030\003 \001(\01322.swisschain"
+          + ".sirius.vaultApi.common.NullableTagType\022"
+          + "G\n\rbrokerAccount\030\004 \001(\01320.swisschain.siri"
+          + "us.vaultApi.common.BrokerAccount\022;\n\007acco"
+          + "unt\030\005 \001(\0132*.swisschain.sirius.vaultApi.c"
+          + "ommon.Account\"\340\002\n\017TransferContext\022.\n\010doc"
+          + "ument\030\001 \001(\0132\034.google.protobuf.StringValu"
+          + "e\0226\n\020document_version\030\002 \001(\0132\034.google.pro"
+          + "tobuf.StringValue\022/\n\tsignature\030\003 \001(\0132\034.g"
+          + "oogle.protobuf.StringValue\022=\n\027withdrawal"
+          + "_reference_id\030\004 \001(\0132\034.google.protobuf.St"
+          + "ringValue\022\021\n\tcomponent\030\005 \001(\t\022\026\n\016operatio"
+          + "n_type\030\006 \001(\t\022J\n\017request_context\030\007 \001(\01321."
+          + "swisschain.sirius.vaultApi.common.Reques"
+          + "tContext\"\247\001\n\'ConfirmTransferValidationRe"
+          + "questRequest\022\026\n\016idempotency_id\030\001 \001(\t\022&\n\036"
+          + "transfer_validation_request_id\030\002 \001(\003\022\020\n\010"
+          + "document\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\022\027\n\017hos"
+          + "t_process_id\030\005 \001(\t\".\n,ConfirmTransferVal"
+          + "idationRequestResponseBody\"\230\002\n1ConfirmTr"
+          + "ansferValidationRequestErrorResponseBody"
+          + "\022\206\001\n\nerror_code\030\001 \001(\0162r.swisschain.siriu"
+          + "s.vaultApi.transferValidationRequests.Co"
+          + "nfirmTransferValidationRequestErrorRespo"
+          + "nseBody.ErrorCode\022\025\n\rerror_message\030\002 \001(\t"
+          + "\"C\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026\n\022INVALID_PA"
+          + "RAMETERS\020\001\022\021\n\rINVALID_STATE\020\002\"\246\002\n(Confir"
+          + "mTransferValidationRequestResponse\022w\n\010re"
+          + "sponse\030\001 \001(\0132c.swisschain.sirius.vaultAp"
+          + "i.transferValidationRequests.ConfirmTran"
+          + "sferValidationRequestResponseBodyH\000\022y\n\005e"
+          + "rror\030\002 \001(\0132h.swisschain.sirius.vaultApi."
+          + "transferValidationRequests.ConfirmTransf"
+          + "erValidationRequestErrorResponseBodyH\000B\006"
+          + "\n\004body\"\210\003\n&RejectTransferValidationReque"
+          + "stRequest\022\026\n\016idempotency_id\030\001 \001(\t\022&\n\036tra"
+          + "nsfer_validation_request_id\030\002 \001(\003\022\207\001\n\020re"
+          + "jection_reason\030\003 \001(\0162m.swisschain.sirius"
+          + ".vaultApi.transferValidationRequests.Rej"
+          + "ectTransferValidationRequestRequest.Reje"
+          + "ctionReason\022 \n\030rejection_reason_message\030"
+          + "\004 \001(\t\022\020\n\010document\030\005 \001(\t\022\021\n\tsignature\030\006 \001"
+          + "(\t\022\027\n\017host_process_id\030\007 \001(\t\"4\n\017Rejection"
+          + "Reason\022\t\n\005OTHER\020\000\022\026\n\022REJECTED_BY_POLICY\020"
+          + "\001\"\243\002\n\'RejectTransferValidationRequestRes"
+          + "ponse\022v\n\010response\030\001 \001(\0132b.swisschain.sir"
+          + "ius.vaultApi.transferValidationRequests."
+          + "RejectTransferValidationRequestResponseB"
+          + "odyH\000\022x\n\005error\030\002 \001(\0132g.swisschain.sirius"
+          + ".vaultApi.transferValidationRequests.Rej"
+          + "ectTransferValidationRequestErrorRespons"
+          + "eBodyH\000B\006\n\004body\"-\n+RejectTransferValidat"
+          + "ionRequestResponseBody\"\226\002\n0RejectTransfe"
+          + "rValidationRequestErrorResponseBody\022\205\001\n\n"
+          + "error_code\030\001 \001(\0162q.swisschain.sirius.vau"
+          + "ltApi.transferValidationRequests.RejectT"
+          + "ransferValidationRequestErrorResponseBod"
+          + "y.ErrorCode\022\025\n\rerror_message\030\002 \001(\t\"C\n\tEr"
+          + "rorCode\022\013\n\007UNKNOWN\020\000\022\026\n\022INVALID_PARAMETE"
+          + "RS\020\001\022\021\n\rINVALID_STATE\020\0022\366\004\n\032TransferVali"
+          + "dationRequests\022\300\001\n\003Get\022[.swisschain.siri"
+          + "us.vaultApi.transferValidationRequests.G"
+          + "etTransferValidationRequestsRequest\032\\.sw"
           + "isschain.sirius.vaultApi.transferValidat"
-          + "ionRequests.ConfirmTransferValidationReq"
-          + "uestRequest\032_.swisschain.sirius.vaultApi"
-          + ".transferValidationRequests.ConfirmTrans"
-          + "ferValidationRequestResponse\022\307\001\n\006Reject\022"
-          + "].swisschain.sirius.vaultApi.transferVal"
-          + "idationRequests.RejectTransferValidation"
-          + "RequestRequest\032^.swisschain.sirius.vault"
-          + "Api.transferValidationRequests.RejectTra"
-          + "nsferValidationRequestResponseB\212\001\nDio.sw"
-          + "isschain.sirius.vaultApi.generated.trans"
-          + "fer_validation_requests\252\002ASwisschain.Sir"
-          + "ius.VaultApi.ApiContract.TransferValidat"
-          + "ionRequestsb\006proto3"
+          + "ionRequests.GetTransferValidationRequest"
+          + "sResponse\022\312\001\n\007Confirm\022^.swisschain.siriu"
+          + "s.vaultApi.transferValidationRequests.Co"
+          + "nfirmTransferValidationRequestRequest\032_."
+          + "swisschain.sirius.vaultApi.transferValid"
+          + "ationRequests.ConfirmTransferValidationR"
+          + "equestResponse\022\307\001\n\006Reject\022].swisschain.s"
+          + "irius.vaultApi.transferValidationRequest"
+          + "s.RejectTransferValidationRequestRequest"
+          + "\032^.swisschain.sirius.vaultApi.transferVa"
+          + "lidationRequests.RejectTransferValidatio"
+          + "nRequestResponseB\212\001\nDio.swisschain.siriu"
+          + "s.vaultApi.generated.transfer_validation"
+          + "_requests\252\002ASwisschain.Sirius.VaultApi.A"
+          + "piContract.TransferValidationRequestsb\006p"
+          + "roto3"
     };
     descriptor =
         com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
@@ -25630,7 +25704,7 @@ public final class TransferValidationRequestsOuterClass {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_vaultApi_transferValidationRequests_TransferValidationRequest_descriptor,
             new java.lang.String[] {
-              "Id", "TenantId", "Transfer", "CreatedAt", "UpdatedAt",
+              "Id", "TenantId", "VaultId", "Transfer", "CreatedAt", "UpdatedAt",
             });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_Transfer_descriptor =
         getDescriptor().getMessageTypes().get(5);
@@ -25676,7 +25750,11 @@ public final class TransferValidationRequestsOuterClass {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ConfirmTransferValidationRequestRequest_descriptor,
             new java.lang.String[] {
-              "RequestId", "TransferValidationRequestId", "Document", "Signature", "HostProcessId",
+              "IdempotencyId",
+              "TransferValidationRequestId",
+              "Document",
+              "Signature",
+              "HostProcessId",
             });
     internal_static_swisschain_sirius_vaultApi_transferValidationRequests_ConfirmTransferValidationRequestResponseBody_descriptor =
         getDescriptor().getMessageTypes().get(10);
@@ -25706,7 +25784,7 @@ public final class TransferValidationRequestsOuterClass {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_vaultApi_transferValidationRequests_RejectTransferValidationRequestRequest_descriptor,
             new java.lang.String[] {
-              "RequestId",
+              "IdempotencyId",
               "TransferValidationRequestId",
               "RejectionReason",
               "RejectionReasonMessage",

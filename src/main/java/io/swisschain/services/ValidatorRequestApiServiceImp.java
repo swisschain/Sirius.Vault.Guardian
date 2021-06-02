@@ -14,6 +14,7 @@ public class ValidatorRequestApiServiceImp implements ValidatorRequestApiService
   @Override
   public void create(
       String tenantId,
+      long vaultId,
       String validationRequestId,
       String validatorId,
       String message,
@@ -22,10 +23,11 @@ public class ValidatorRequestApiServiceImp implements ValidatorRequestApiService
       throws OperationException {
     var request =
         ValidationRequestsOuterClass.CreateValidationRequestRequest.newBuilder()
-            .setRequestId(
+            .setIdempotencyId(
                 String.format(
                     "Guardian:CreateValidatorRequest:%s-%s", validationRequestId, validatorId))
             .setTenantId(tenantId)
+            .setVaultId(vaultId)
             .setValidationRequestId(validationRequestId)
             .setValidatorId(validatorId)
             .setMessage(message)
@@ -48,7 +50,7 @@ public class ValidatorRequestApiServiceImp implements ValidatorRequestApiService
   public void confirm(String validatorId, String validationRequestId) throws OperationException {
     var request =
         ValidationRequestsOuterClass.ConfirmValidationRequestRequest.newBuilder()
-            .setRequestId(
+            .setIdempotencyId(
                 String.format(
                     "Guardian:ConfirmValidatorRequest:%s-%s", validationRequestId, validatorId))
             .setValidationRequestId(validationRequestId)

@@ -5,6 +5,7 @@ import java.time.Instant;
 public abstract class ValidationRequest {
   private long id;
   private String tenantId;
+  private long vaultId;
   private ValidationRequestStatus status;
   private String document;
   private String signature;
@@ -17,6 +18,7 @@ public abstract class ValidationRequest {
   public ValidationRequest(
       long id,
       String tenantId,
+      long vaultId,
       ValidationRequestStatus status,
       String document,
       String signature,
@@ -25,6 +27,7 @@ public abstract class ValidationRequest {
       Instant updatedAt) {
     this.id = id;
     this.tenantId = tenantId;
+    this.vaultId = vaultId;
     this.status = status;
     this.document = document;
     this.signature = signature;
@@ -47,6 +50,14 @@ public abstract class ValidationRequest {
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
+  }
+
+  public long getVaultId() {
+    return vaultId;
+  }
+
+  public void setVaultId(long vaultId) {
+    this.vaultId = vaultId;
   }
 
   public ValidationRequestStatus getStatus() {

@@ -7,6 +7,7 @@ import io.swisschain.domain.exceptions.OperationFailedException;
 public interface ValidatorRequestApiService {
   void create(
       String tenantId,
+      long vaultId,
       String validationRequestId,
       String validatorId,
       String message,

@@ -16,6 +16,7 @@ public class SmartContractDeploymentValidationRequest extends ValidationRequest 
   public SmartContractDeploymentValidationRequest(
       long id,
       String tenantId,
+      long vaultId,
       SmartContractDeployment smartContractDeployment,
       ValidationRequestStatus status,
       String document,
@@ -23,16 +24,26 @@ public class SmartContractDeploymentValidationRequest extends ValidationRequest 
       String rejectReasonMessage,
       Instant createdAt,
       Instant updatedAt) {
-    super(id, tenantId, status, document, signature, rejectReasonMessage, createdAt, updatedAt);
+    super(
+        id,
+        tenantId,
+        vaultId,
+        status,
+        document,
+        signature,
+        rejectReasonMessage,
+        createdAt,
+        updatedAt);
     this.smartContractDeployment = smartContractDeployment;
   }
 
   public static SmartContractDeploymentValidationRequest create(
-      long id, String tenantId, SmartContractDeployment smartContractDeployment) {
+      long id, String tenantId, long vaultId, SmartContractDeployment smartContractDeployment) {
     var createdAt = Instant.now();
     return new SmartContractDeploymentValidationRequest(
         id,
         tenantId,
+        vaultId,
         smartContractDeployment,
         ValidationRequestStatus.New,
         null,

@@ -54,6 +54,7 @@ public class ValidatorRequestApiServiceRetryDecorator implements ValidatorReques
   @Override
   public void create(
       String tenantId,
+      long vaultId,
       String validationRequestId,
       String validatorId,
       String message,
@@ -70,7 +71,7 @@ public class ValidatorRequestApiServiceRetryDecorator implements ValidatorReques
                   o.getLastExceptionThatCausedRetry()),
           () -> {
             validatorRequestApiService.create(
-                tenantId, validationRequestId, validatorId, message, key, nonce);
+                tenantId, vaultId, validationRequestId, validatorId, message, key, nonce);
             return null;
           });
     } catch (RetriesExhaustedException exception) {

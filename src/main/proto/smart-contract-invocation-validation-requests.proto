@@ -46,9 +46,10 @@ message GetSmartContractInvocationValidationRequestsErrorResponseBody {
 message SmartContractInvocationValidationRequest {
   int64 id = 1;
   string tenant_id = 2;
-  SmartContractInvocation smart_contract_invocation = 3;
-  google.protobuf.Timestamp created_at = 4;
-  google.protobuf.Timestamp updated_at = 5;
+  int64 vault_id = 3;
+  SmartContractInvocation smartContractInvocation = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
 }
 
 message SmartContractInvocation {
@@ -83,7 +84,7 @@ message SmartContractInvocationContext {
 // Confirm
 
 message ConfirmSmartContractInvocationValidationRequestRequest {
-  string request_id = 1;
+  string idempotency_id = 1;
   int64 validation_request_id = 2;
   string document = 3;
   string signature = 4;
@@ -121,7 +122,7 @@ message RejectSmartContractInvocationValidationRequestRequest {
     REJECTED_BY_POLICY = 1;
   }
 
-  string request_id = 1;
+  string idempotency_id = 1;
   int64 validation_request_id = 2;
   RejectionReason rejection_reason = 3;
   string rejection_reason_message = 4;
