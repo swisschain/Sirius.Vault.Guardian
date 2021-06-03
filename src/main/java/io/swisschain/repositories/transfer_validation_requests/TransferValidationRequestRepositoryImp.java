@@ -46,7 +46,7 @@ public class TransferValidationRequestRepositoryImp implements TransferValidatio
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
             + "id, tenant_id, vault_id, transfer, status, document, signature, reject_reason_message, created_at, updated_at)\n"
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 
     try (var connection = this.connectionFactory.create();
         var statement = connection.prepareStatement(sql)) {

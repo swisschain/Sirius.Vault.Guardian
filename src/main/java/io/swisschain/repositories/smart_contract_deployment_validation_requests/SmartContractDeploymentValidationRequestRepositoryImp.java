@@ -50,7 +50,7 @@ public class SmartContractDeploymentValidationRequestRepositoryImp
     var sql =
         String.format("INSERT INTO %s.%s(\n", connectionFactory.getSchema(), tableName)
             + "id, tenant_id, vault_id, smart_contract_deployment, status, document, signature, reject_reason_message, created_at, updated_at)\n"
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 
     try (var connection = this.connectionFactory.create();
         var statement = connection.prepareStatement(sql)) {
