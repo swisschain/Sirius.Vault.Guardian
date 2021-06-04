@@ -17,6 +17,7 @@ public class TransferValidationRequest extends ValidationRequest {
   public TransferValidationRequest(
       long id,
       String tenantId,
+      long vaultId,
       Transfer transfer,
       ValidationRequestStatus status,
       String document,
@@ -24,16 +25,27 @@ public class TransferValidationRequest extends ValidationRequest {
       String rejectReasonMessage,
       Instant createdAt,
       Instant updatedAt) {
-    super(id, tenantId, status, document, signature, rejectReasonMessage, createdAt, updatedAt);
+    super(
+        id,
+        tenantId,
+        vaultId,
+        status,
+        document,
+        signature,
+        rejectReasonMessage,
+        createdAt,
+        updatedAt);
     this.transfer = transfer;
   }
 
   @NotNull
-  public static TransferValidationRequest create(long id, String tenantId, Transfer transfer) {
+  public static TransferValidationRequest create(
+      long id, String tenantId, long vaultId, Transfer transfer) {
     var createdAt = Instant.now();
     return new TransferValidationRequest(
         id,
         tenantId,
+        vaultId,
         transfer,
         ValidationRequestStatus.New,
         null,

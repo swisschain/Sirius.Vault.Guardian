@@ -51,7 +51,7 @@ public class TransferApiServiceImp implements TransferApiService {
   public void confirm(TransferValidationRequest validationRequest) {
     var conformationRequest =
         TransferValidationRequestsOuterClass.ConfirmTransferValidationRequestRequest.newBuilder()
-            .setRequestId(
+            .setIdempotencyId(
                 String.format("Guardian:TransferValidationRequest:%d", validationRequest.getId()))
             .setTransferValidationRequestId(validationRequest.getId())
             .setDocument(validationRequest.getDocument())
@@ -87,7 +87,7 @@ public class TransferApiServiceImp implements TransferApiService {
   public void reject(TransferValidationRequest validationRequest) {
     var rejectRequestBuilder =
         TransferValidationRequestsOuterClass.RejectTransferValidationRequestRequest.newBuilder()
-            .setRequestId(
+            .setIdempotencyId(
                 String.format("Guardian:TransferValidationRequest:%d", validationRequest.getId()))
             .setTransferValidationRequestId(validationRequest.getId())
             .setRejectionReason(
@@ -131,6 +131,7 @@ public class TransferApiServiceImp implements TransferApiService {
     return TransferValidationRequest.create(
         validationRequest.getId(),
         validationRequest.getTenantId(),
+        validationRequest.getVaultId(),
         map(validationRequest.getTransfer()));
   }
 

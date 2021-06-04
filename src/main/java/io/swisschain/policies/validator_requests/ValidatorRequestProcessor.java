@@ -45,6 +45,7 @@ public class ValidatorRequestProcessor {
   public void process(
       long validationRequestId,
       String tenantId,
+      long vaultId,
       String message,
       MessageType messageType,
       ValidatorRequestType validatorRequestType,
@@ -55,7 +56,27 @@ public class ValidatorRequestProcessor {
       var key = symmetricEncryptionService.generateKey();
       var nonce = symmetricEncryptionService.generateNonce();
 
-      var validatorRequestMessage = new ValidatorRequestMessage(messageType, message);
+      var validatorRequest =
+          ValidatorRequest.create(
+              validator.getId(),
+              tenantId,
+              message,
+              Base64.getEncoder().encodeToString(key),
+              Base64.getEncoder().encodeToString(nonce),
+              validatorRequestType,
+              validationRequestId);
+
+      var inserted = validatorRequestRepository.insert(validatorRequest);
+
+      if (!inserted) {
+        validatorRequest =
+            validatorRequestRepository.getByValidatorId(validator.getId(), validationRequestId);
+        key = Base64.getDecoder().decode(validatorRequest.getKey());
+        nonce = Base64.getDecoder().decode(validatorRequest.getNonce());
+      }
+
+      var validatorRequestMessage =
+          new ValidatorRequestMessage(messageType, validatorRequest.getMessage());
 
       var encryptedMessage =
           symmetricEncryptionService.encrypt(
@@ -75,25 +96,9 @@ public class ValidatorRequestProcessor {
         continue;
       }
 
-      var validatorRequest =
-          ValidatorRequest.create(
-              validator.getId(),
-              tenantId,
-              message,
-              Base64.getEncoder().encodeToString(key),
-              Base64.getEncoder().encodeToString(nonce),
-              validatorRequestType,
-              validationRequestId);
-
-      var inserted = validatorRequestRepository.insert(validatorRequest);
-
-      if (!inserted) {
-        validatorRequest =
-            validatorRequestRepository.getByValidatorId(validator.getId(), validationRequestId);
-      }
-
       validatorRequestApiService.create(
           tenantId,
+          vaultId,
           validatorRequest.getId(),
           validatorRequest.getValidatorId(),
           Base64.getEncoder().encodeToString(encryptedMessage),

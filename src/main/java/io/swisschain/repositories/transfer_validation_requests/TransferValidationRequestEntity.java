@@ -10,6 +10,7 @@ import java.time.Instant;
 public class TransferValidationRequestEntity extends Entity {
   private long id;
   private String tenantId;
+  private long vaultId;
   private String transfer;
   private ValidationRequestStatus status;
   private String document;
@@ -26,8 +27,8 @@ public class TransferValidationRequestEntity extends Entity {
     return tenantId;
   }
 
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
+  public long getVaultId() {
+    return vaultId;
   }
 
   public String getTransfer() {
@@ -62,6 +63,7 @@ public class TransferValidationRequestEntity extends Entity {
   public void map(ResultSet resultSet) throws SQLException {
     this.id = resultSet.getLong("id");
     this.tenantId = resultSet.getString("tenant_id");
+    this.vaultId = resultSet.getLong("vault_id");
     this.transfer = resultSet.getString("transfer");
     this.status = ValidationRequestStatus.valueOf(resultSet.getString("status"));
     this.document = resultSet.getString("document");

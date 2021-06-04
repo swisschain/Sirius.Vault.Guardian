@@ -65,6 +65,7 @@ public class TransferValidationPolicy implements ValidationPolicy {
       validatorRequestProcessor.process(
           transferValidationRequest.getId(),
           transferValidationRequest.getTenantId(),
+          transferValidationRequest.getVaultId(),
           message,
           MessageType.Transfer,
           ValidatorRequestType.Transfer,

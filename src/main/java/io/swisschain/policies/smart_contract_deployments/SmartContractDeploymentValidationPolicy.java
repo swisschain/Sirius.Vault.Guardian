@@ -76,6 +76,7 @@ public class SmartContractDeploymentValidationPolicy implements ValidationPolicy
       validatorRequestProcessor.process(
           smartContractDeploymentValidationRequest.getId(),
           smartContractDeploymentValidationRequest.getTenantId(),
+          smartContractDeploymentValidationRequest.getVaultId(),
           message,
           MessageType.SmartContractDeployment,
           ValidatorRequestType.SmartContractDeployment,

@@ -91,6 +91,7 @@ public class TransferDocumentBuilderTests {
     return new TransferValidationRequest(
         100002,
         "tenant-identifier",
+        0,
         new Transfer(
             100001,
             new Blockchain("ethereum-ropsten", "ethereum", NetworkType.Test),

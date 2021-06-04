@@ -50,6 +50,7 @@ public class TransferOdmRuleExecutorTests {
         new TransferValidationRequest(
             1,
             "t1",
+            0,
             new Transfer(
                 1,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
@@ -87,6 +88,7 @@ public class TransferOdmRuleExecutorTests {
         new TransferValidationRequest(
             1,
             "t1",
+            0,
             new Transfer(
                 1,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
@@ -129,6 +131,7 @@ public class TransferOdmRuleExecutorTests {
         new TransferValidationRequest(
             1,
             "t1",
+            0,
             new Transfer(
                 1,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
@@ -191,6 +194,7 @@ public class TransferOdmRuleExecutorTests {
         new TransferValidationRequest(
             1,
             "t1",
+            0,
             new Transfer(
                 1,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
@@ -253,6 +257,7 @@ public class TransferOdmRuleExecutorTests {
         new TransferValidationRequest(
             1,
             "t1",
+            0,
             new Transfer(
                 1,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),

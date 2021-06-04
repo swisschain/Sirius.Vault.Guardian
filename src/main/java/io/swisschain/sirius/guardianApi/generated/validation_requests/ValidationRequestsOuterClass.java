@@ -18,17 +18,17 @@ public final class ValidationRequestsOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
-    java.lang.String getRequestId();
+    java.lang.String getIdempotencyId();
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
-    com.google.protobuf.ByteString getRequestIdBytes();
+    com.google.protobuf.ByteString getIdempotencyIdBytes();
 
     /**
      * <code>string tenant_id = 2;</code>
@@ -44,65 +44,72 @@ public final class ValidationRequestsOuterClass {
     com.google.protobuf.ByteString getTenantIdBytes();
 
     /**
-     * <code>string validation_request_id = 3;</code>
+     * <code>int64 vault_id = 3;</code>
+     *
+     * @return The vaultId.
+     */
+    long getVaultId();
+
+    /**
+     * <code>string validation_request_id = 4;</code>
      *
      * @return The validationRequestId.
      */
     java.lang.String getValidationRequestId();
     /**
-     * <code>string validation_request_id = 3;</code>
+     * <code>string validation_request_id = 4;</code>
      *
      * @return The bytes for validationRequestId.
      */
     com.google.protobuf.ByteString getValidationRequestIdBytes();
 
     /**
-     * <code>string validator_id = 4;</code>
+     * <code>string validator_id = 5;</code>
      *
      * @return The validatorId.
      */
     java.lang.String getValidatorId();
     /**
-     * <code>string validator_id = 4;</code>
+     * <code>string validator_id = 5;</code>
      *
      * @return The bytes for validatorId.
      */
     com.google.protobuf.ByteString getValidatorIdBytes();
 
     /**
-     * <code>string message = 5;</code>
+     * <code>string message = 6;</code>
      *
      * @return The message.
      */
     java.lang.String getMessage();
     /**
-     * <code>string message = 5;</code>
+     * <code>string message = 6;</code>
      *
      * @return The bytes for message.
      */
     com.google.protobuf.ByteString getMessageBytes();
 
     /**
-     * <code>string key = 6;</code>
+     * <code>string key = 7;</code>
      *
      * @return The key.
      */
     java.lang.String getKey();
     /**
-     * <code>string key = 6;</code>
+     * <code>string key = 7;</code>
      *
      * @return The bytes for key.
      */
     com.google.protobuf.ByteString getKeyBytes();
 
     /**
-     * <code>string nonce = 7;</code>
+     * <code>string nonce = 8;</code>
      *
      * @return The nonce.
      */
     java.lang.String getNonce();
     /**
-     * <code>string nonce = 7;</code>
+     * <code>string nonce = 8;</code>
      *
      * @return The bytes for nonce.
      */
@@ -122,7 +129,7 @@ public final class ValidationRequestsOuterClass {
     }
 
     private CreateValidationRequestRequest() {
-      requestId_ = "";
+      idempotencyId_ = "";
       tenantId_ = "";
       validationRequestId_ = "";
       validatorId_ = "";
@@ -164,7 +171,7 @@ public final class ValidationRequestsOuterClass {
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                requestId_ = s;
+                idempotencyId_ = s;
                 break;
               }
             case 18:
@@ -174,35 +181,40 @@ public final class ValidationRequestsOuterClass {
                 tenantId_ = s;
                 break;
               }
-            case 26:
+            case 24:
               {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                validationRequestId_ = s;
+                vaultId_ = input.readInt64();
                 break;
               }
             case 34:
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                validatorId_ = s;
+                validationRequestId_ = s;
                 break;
               }
             case 42:
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                message_ = s;
+                validatorId_ = s;
                 break;
               }
             case 50:
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                key_ = s;
+                message_ = s;
                 break;
               }
             case 58:
+              {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                key_ = s;
+                break;
+              }
+            case 66:
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
@@ -264,37 +276,37 @@ public final class ValidationRequestsOuterClass {
                   .class);
     }
 
-    public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    public static final int IDEMPOTENCY_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object idempotencyId_;
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
     @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
+    public java.lang.String getIdempotencyId() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
+        idempotencyId_ = s;
         return s;
       }
     }
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
+    public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        requestId_ = b;
+        idempotencyId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -338,10 +350,22 @@ public final class ValidationRequestsOuterClass {
       }
     }
 
-    public static final int VALIDATION_REQUEST_ID_FIELD_NUMBER = 3;
+    public static final int VAULT_ID_FIELD_NUMBER = 3;
+    private long vaultId_;
+    /**
+     * <code>int64 vault_id = 3;</code>
+     *
+     * @return The vaultId.
+     */
+    @java.lang.Override
+    public long getVaultId() {
+      return vaultId_;
+    }
+
+    public static final int VALIDATION_REQUEST_ID_FIELD_NUMBER = 4;
     private volatile java.lang.Object validationRequestId_;
     /**
-     * <code>string validation_request_id = 3;</code>
+     * <code>string validation_request_id = 4;</code>
      *
      * @return The validationRequestId.
      */
@@ -358,7 +382,7 @@ public final class ValidationRequestsOuterClass {
       }
     }
     /**
-     * <code>string validation_request_id = 3;</code>
+     * <code>string validation_request_id = 4;</code>
      *
      * @return The bytes for validationRequestId.
      */
@@ -375,10 +399,10 @@ public final class ValidationRequestsOuterClass {
       }
     }
 
-    public static final int VALIDATOR_ID_FIELD_NUMBER = 4;
+    public static final int VALIDATOR_ID_FIELD_NUMBER = 5;
     private volatile java.lang.Object validatorId_;
     /**
-     * <code>string validator_id = 4;</code>
+     * <code>string validator_id = 5;</code>
      *
      * @return The validatorId.
      */
@@ -395,7 +419,7 @@ public final class ValidationRequestsOuterClass {
       }
     }
     /**
-     * <code>string validator_id = 4;</code>
+     * <code>string validator_id = 5;</code>
      *
      * @return The bytes for validatorId.
      */
@@ -412,10 +436,10 @@ public final class ValidationRequestsOuterClass {
       }
     }
 
-    public static final int MESSAGE_FIELD_NUMBER = 5;
+    public static final int MESSAGE_FIELD_NUMBER = 6;
     private volatile java.lang.Object message_;
     /**
-     * <code>string message = 5;</code>
+     * <code>string message = 6;</code>
      *
      * @return The message.
      */
@@ -432,7 +456,7 @@ public final class ValidationRequestsOuterClass {
       }
     }
     /**
-     * <code>string message = 5;</code>
+     * <code>string message = 6;</code>
      *
      * @return The bytes for message.
      */
@@ -449,10 +473,10 @@ public final class ValidationRequestsOuterClass {
       }
     }
 
-    public static final int KEY_FIELD_NUMBER = 6;
+    public static final int KEY_FIELD_NUMBER = 7;
     private volatile java.lang.Object key_;
     /**
-     * <code>string key = 6;</code>
+     * <code>string key = 7;</code>
      *
      * @return The key.
      */
@@ -469,7 +493,7 @@ public final class ValidationRequestsOuterClass {
       }
     }
     /**
-     * <code>string key = 6;</code>
+     * <code>string key = 7;</code>
      *
      * @return The bytes for key.
      */
@@ -486,10 +510,10 @@ public final class ValidationRequestsOuterClass {
       }
     }
 
-    public static final int NONCE_FIELD_NUMBER = 7;
+    public static final int NONCE_FIELD_NUMBER = 8;
     private volatile java.lang.Object nonce_;
     /**
-     * <code>string nonce = 7;</code>
+     * <code>string nonce = 8;</code>
      *
      * @return The nonce.
      */
@@ -506,7 +530,7 @@ public final class ValidationRequestsOuterClass {
       }
     }
     /**
-     * <code>string nonce = 7;</code>
+     * <code>string nonce = 8;</code>
      *
      * @return The bytes for nonce.
      */
@@ -537,26 +561,29 @@ public final class ValidationRequestsOuterClass {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idempotencyId_);
       }
       if (!getTenantIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tenantId_);
       }
+      if (vaultId_ != 0L) {
+        output.writeInt64(3, vaultId_);
+      }
       if (!getValidationRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, validationRequestId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, validationRequestId_);
       }
       if (!getValidatorIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, validatorId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, validatorId_);
       }
       if (!getMessageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, message_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, message_);
       }
       if (!getKeyBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, key_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, key_);
       }
       if (!getNonceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, nonce_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, nonce_);
       }
       unknownFields.writeTo(output);
     }
@@ -567,26 +594,29 @@ public final class ValidationRequestsOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idempotencyId_);
       }
       if (!getTenantIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tenantId_);
       }
+      if (vaultId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(3, vaultId_);
+      }
       if (!getValidationRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, validationRequestId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, validationRequestId_);
       }
       if (!getValidatorIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, validatorId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, validatorId_);
       }
       if (!getMessageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, message_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, message_);
       }
       if (!getKeyBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, key_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, key_);
       }
       if (!getNonceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, nonce_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, nonce_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -626,8 +656,9 @@ public final class ValidationRequestsOuterClass {
                       .CreateValidationRequestRequest)
                   obj;
 
-      if (!getRequestId().equals(other.getRequestId())) return false;
+      if (!getIdempotencyId().equals(other.getIdempotencyId())) return false;
       if (!getTenantId().equals(other.getTenantId())) return false;
+      if (getVaultId() != other.getVaultId()) return false;
       if (!getValidationRequestId().equals(other.getValidationRequestId())) return false;
       if (!getValidatorId().equals(other.getValidatorId())) return false;
       if (!getMessage().equals(other.getMessage())) return false;
@@ -644,10 +675,12 @@ public final class ValidationRequestsOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + IDEMPOTENCY_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyId().hashCode();
       hash = (37 * hash) + TENANT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getTenantId().hashCode();
+      hash = (37 * hash) + VAULT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getVaultId());
       hash = (37 * hash) + VALIDATION_REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + getValidationRequestId().hashCode();
       hash = (37 * hash) + VALIDATOR_ID_FIELD_NUMBER;
@@ -911,9 +944,11 @@ public final class ValidationRequestsOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        requestId_ = "";
+        idempotencyId_ = "";
 
         tenantId_ = "";
+
+        vaultId_ = 0L;
 
         validationRequestId_ = "";
 
@@ -999,8 +1034,9 @@ public final class ValidationRequestsOuterClass {
                     .validation_requests
                     .ValidationRequestsOuterClass
                     .CreateValidationRequestRequest(this);
-        result.requestId_ = requestId_;
+        result.idempotencyId_ = idempotencyId_;
         result.tenantId_ = tenantId_;
+        result.vaultId_ = vaultId_;
         result.validationRequestId_ = validationRequestId_;
         result.validatorId_ = validatorId_;
         result.message_ = message_;
@@ -1084,13 +1120,16 @@ public final class ValidationRequestsOuterClass {
             == io.swisschain.sirius.guardianApi.generated.validation_requests
                 .ValidationRequestsOuterClass.CreateValidationRequestRequest.getDefaultInstance())
           return this;
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
+        if (!other.getIdempotencyId().isEmpty()) {
+          idempotencyId_ = other.idempotencyId_;
           onChanged();
         }
         if (!other.getTenantId().isEmpty()) {
           tenantId_ = other.tenantId_;
           onChanged();
+        }
+        if (other.getVaultId() != 0L) {
+          setVaultId(other.getVaultId());
         }
         if (!other.getValidationRequestId().isEmpty()) {
           validationRequestId_ = other.validationRequestId_;
@@ -1156,78 +1195,78 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
 
-      private java.lang.Object requestId_ = "";
+      private java.lang.Object idempotencyId_ = "";
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The requestId.
+       * @return The idempotencyId.
        */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
+      public java.lang.String getIdempotencyId() {
+        java.lang.Object ref = idempotencyId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
+          idempotencyId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The bytes for requestId.
+       * @return The bytes for idempotencyId.
        */
-      public com.google.protobuf.ByteString getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
+      public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+        java.lang.Object ref = idempotencyId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          requestId_ = b;
+          idempotencyId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The requestId to set.
+       * @param value The idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestId(java.lang.String value) {
+      public Builder setIdempotencyId(java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
         }
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
        * @return This builder for chaining.
        */
-      public Builder clearRequestId() {
+      public Builder clearIdempotencyId() {
 
-        requestId_ = getDefaultInstance().getRequestId();
+        idempotencyId_ = getDefaultInstance().getIdempotencyId();
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The bytes for requestId to set.
+       * @param value The bytes for idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestIdBytes(com.google.protobuf.ByteString value) {
+      public Builder setIdempotencyIdBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
         }
         checkByteStringIsUtf8(value);
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
@@ -1308,9 +1347,43 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
 
+      private long vaultId_;
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @return The vaultId.
+       */
+      @java.lang.Override
+      public long getVaultId() {
+        return vaultId_;
+      }
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @param value The vaultId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVaultId(long value) {
+
+        vaultId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearVaultId() {
+
+        vaultId_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object validationRequestId_ = "";
       /**
-       * <code>string validation_request_id = 3;</code>
+       * <code>string validation_request_id = 4;</code>
        *
        * @return The validationRequestId.
        */
@@ -1326,7 +1399,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string validation_request_id = 3;</code>
+       * <code>string validation_request_id = 4;</code>
        *
        * @return The bytes for validationRequestId.
        */
@@ -1342,7 +1415,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string validation_request_id = 3;</code>
+       * <code>string validation_request_id = 4;</code>
        *
        * @param value The validationRequestId to set.
        * @return This builder for chaining.
@@ -1357,7 +1430,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string validation_request_id = 3;</code>
+       * <code>string validation_request_id = 4;</code>
        *
        * @return This builder for chaining.
        */
@@ -1368,7 +1441,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string validation_request_id = 3;</code>
+       * <code>string validation_request_id = 4;</code>
        *
        * @param value The bytes for validationRequestId to set.
        * @return This builder for chaining.
@@ -1386,7 +1459,7 @@ public final class ValidationRequestsOuterClass {
 
       private java.lang.Object validatorId_ = "";
       /**
-       * <code>string validator_id = 4;</code>
+       * <code>string validator_id = 5;</code>
        *
        * @return The validatorId.
        */
@@ -1402,7 +1475,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string validator_id = 4;</code>
+       * <code>string validator_id = 5;</code>
        *
        * @return The bytes for validatorId.
        */
@@ -1418,7 +1491,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string validator_id = 4;</code>
+       * <code>string validator_id = 5;</code>
        *
        * @param value The validatorId to set.
        * @return This builder for chaining.
@@ -1433,7 +1506,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string validator_id = 4;</code>
+       * <code>string validator_id = 5;</code>
        *
        * @return This builder for chaining.
        */
@@ -1444,7 +1517,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string validator_id = 4;</code>
+       * <code>string validator_id = 5;</code>
        *
        * @param value The bytes for validatorId to set.
        * @return This builder for chaining.
@@ -1462,7 +1535,7 @@ public final class ValidationRequestsOuterClass {
 
       private java.lang.Object message_ = "";
       /**
-       * <code>string message = 5;</code>
+       * <code>string message = 6;</code>
        *
        * @return The message.
        */
@@ -1478,7 +1551,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string message = 5;</code>
+       * <code>string message = 6;</code>
        *
        * @return The bytes for message.
        */
@@ -1494,7 +1567,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string message = 5;</code>
+       * <code>string message = 6;</code>
        *
        * @param value The message to set.
        * @return This builder for chaining.
@@ -1509,7 +1582,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string message = 5;</code>
+       * <code>string message = 6;</code>
        *
        * @return This builder for chaining.
        */
@@ -1520,7 +1593,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string message = 5;</code>
+       * <code>string message = 6;</code>
        *
        * @param value The bytes for message to set.
        * @return This builder for chaining.
@@ -1538,7 +1611,7 @@ public final class ValidationRequestsOuterClass {
 
       private java.lang.Object key_ = "";
       /**
-       * <code>string key = 6;</code>
+       * <code>string key = 7;</code>
        *
        * @return The key.
        */
@@ -1554,7 +1627,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string key = 6;</code>
+       * <code>string key = 7;</code>
        *
        * @return The bytes for key.
        */
@@ -1570,7 +1643,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string key = 6;</code>
+       * <code>string key = 7;</code>
        *
        * @param value The key to set.
        * @return This builder for chaining.
@@ -1585,7 +1658,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string key = 6;</code>
+       * <code>string key = 7;</code>
        *
        * @return This builder for chaining.
        */
@@ -1596,7 +1669,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string key = 6;</code>
+       * <code>string key = 7;</code>
        *
        * @param value The bytes for key to set.
        * @return This builder for chaining.
@@ -1614,7 +1687,7 @@ public final class ValidationRequestsOuterClass {
 
       private java.lang.Object nonce_ = "";
       /**
-       * <code>string nonce = 7;</code>
+       * <code>string nonce = 8;</code>
        *
        * @return The nonce.
        */
@@ -1630,7 +1703,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string nonce = 7;</code>
+       * <code>string nonce = 8;</code>
        *
        * @return The bytes for nonce.
        */
@@ -1646,7 +1719,7 @@ public final class ValidationRequestsOuterClass {
         }
       }
       /**
-       * <code>string nonce = 7;</code>
+       * <code>string nonce = 8;</code>
        *
        * @param value The nonce to set.
        * @return This builder for chaining.
@@ -1661,7 +1734,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string nonce = 7;</code>
+       * <code>string nonce = 8;</code>
        *
        * @return This builder for chaining.
        */
@@ -1672,7 +1745,7 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
       /**
-       * <code>string nonce = 7;</code>
+       * <code>string nonce = 8;</code>
        *
        * @param value The bytes for nonce to set.
        * @return This builder for chaining.
@@ -5459,17 +5532,17 @@ public final class ValidationRequestsOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
-    java.lang.String getRequestId();
+    java.lang.String getIdempotencyId();
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
-    com.google.protobuf.ByteString getRequestIdBytes();
+    com.google.protobuf.ByteString getIdempotencyIdBytes();
 
     /**
      * <code>string validation_request_id = 2;</code>
@@ -5511,7 +5584,7 @@ public final class ValidationRequestsOuterClass {
     }
 
     private ConfirmValidationRequestRequest() {
-      requestId_ = "";
+      idempotencyId_ = "";
       validationRequestId_ = "";
       validatorId_ = "";
     }
@@ -5549,7 +5622,7 @@ public final class ValidationRequestsOuterClass {
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                requestId_ = s;
+                idempotencyId_ = s;
                 break;
               }
             case 18:
@@ -5621,37 +5694,37 @@ public final class ValidationRequestsOuterClass {
                   .class);
     }
 
-    public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    public static final int IDEMPOTENCY_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object idempotencyId_;
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
     @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
+    public java.lang.String getIdempotencyId() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
+        idempotencyId_ = s;
         return s;
       }
     }
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
+    public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        requestId_ = b;
+        idempotencyId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5746,8 +5819,8 @@ public final class ValidationRequestsOuterClass {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idempotencyId_);
       }
       if (!getValidationRequestIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, validationRequestId_);
@@ -5764,8 +5837,8 @@ public final class ValidationRequestsOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idempotencyId_);
       }
       if (!getValidationRequestIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, validationRequestId_);
@@ -5811,7 +5884,7 @@ public final class ValidationRequestsOuterClass {
                       .ConfirmValidationRequestRequest)
                   obj;
 
-      if (!getRequestId().equals(other.getRequestId())) return false;
+      if (!getIdempotencyId().equals(other.getIdempotencyId())) return false;
       if (!getValidationRequestId().equals(other.getValidationRequestId())) return false;
       if (!getValidatorId().equals(other.getValidatorId())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -5825,8 +5898,8 @@ public final class ValidationRequestsOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + IDEMPOTENCY_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyId().hashCode();
       hash = (37 * hash) + VALIDATION_REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + getValidationRequestId().hashCode();
       hash = (37 * hash) + VALIDATOR_ID_FIELD_NUMBER;
@@ -6084,7 +6157,7 @@ public final class ValidationRequestsOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        requestId_ = "";
+        idempotencyId_ = "";
 
         validationRequestId_ = "";
 
@@ -6164,7 +6237,7 @@ public final class ValidationRequestsOuterClass {
                     .validation_requests
                     .ValidationRequestsOuterClass
                     .ConfirmValidationRequestRequest(this);
-        result.requestId_ = requestId_;
+        result.idempotencyId_ = idempotencyId_;
         result.validationRequestId_ = validationRequestId_;
         result.validatorId_ = validatorId_;
         onBuilt();
@@ -6245,8 +6318,8 @@ public final class ValidationRequestsOuterClass {
             == io.swisschain.sirius.guardianApi.generated.validation_requests
                 .ValidationRequestsOuterClass.ConfirmValidationRequestRequest.getDefaultInstance())
           return this;
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
+        if (!other.getIdempotencyId().isEmpty()) {
+          idempotencyId_ = other.idempotencyId_;
           onChanged();
         }
         if (!other.getValidationRequestId().isEmpty()) {
@@ -6301,78 +6374,78 @@ public final class ValidationRequestsOuterClass {
         return this;
       }
 
-      private java.lang.Object requestId_ = "";
+      private java.lang.Object idempotencyId_ = "";
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The requestId.
+       * @return The idempotencyId.
        */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
+      public java.lang.String getIdempotencyId() {
+        java.lang.Object ref = idempotencyId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
+          idempotencyId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The bytes for requestId.
+       * @return The bytes for idempotencyId.
        */
-      public com.google.protobuf.ByteString getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
+      public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+        java.lang.Object ref = idempotencyId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          requestId_ = b;
+          idempotencyId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The requestId to set.
+       * @param value The idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestId(java.lang.String value) {
+      public Builder setIdempotencyId(java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
         }
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
        * @return This builder for chaining.
        */
-      public Builder clearRequestId() {
+      public Builder clearIdempotencyId() {
 
-        requestId_ = getDefaultInstance().getRequestId();
+        idempotencyId_ = getDefaultInstance().getIdempotencyId();
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The bytes for requestId to set.
+       * @param value The bytes for idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestIdBytes(com.google.protobuf.ByteString value) {
+      public Builder setIdempotencyIdBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
         }
         checkByteStringIsUtf8(value);
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
@@ -10338,48 +10411,48 @@ public final class ValidationRequestsOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\031validation-requests.proto\022\036swisschain."
-          + "sirius.guardian_api\"\251\001\n\036CreateValidation"
-          + "RequestRequest\022\022\n\nrequest_id\030\001 \001(\t\022\021\n\tte"
-          + "nant_id\030\002 \001(\t\022\035\n\025validation_request_id\030\003"
-          + " \001(\t\022\024\n\014validator_id\030\004 \001(\t\022\017\n\007message\030\005 "
-          + "\001(\t\022\013\n\003key\030\006 \001(\t\022\r\n\005nonce\030\007 \001(\t\"\335\001\n\037Crea"
-          + "teValidationRequestResponse\022W\n\010response\030"
-          + "\001 \001(\0132C.swisschain.sirius.guardian_api.C"
-          + "reateValidationRequestResponseBodyH\000\022Y\n\005"
-          + "error\030\002 \001(\0132H.swisschain.sirius.guardian"
-          + "_api.CreateValidationRequestErrorRespons"
-          + "eBodyH\000B\006\n\004body\"%\n#CreateValidationReque"
-          + "stResponseBody\"\303\001\n(CreateValidationReque"
-          + "stErrorResponseBody\022f\n\nerror_code\030\001 \001(\0162"
-          + "R.swisschain.sirius.guardian_api.CreateV"
-          + "alidationRequestErrorResponseBody.ErrorC"
-          + "ode\022\025\n\rerror_message\030\002 \001(\t\"\030\n\tErrorCode\022"
-          + "\013\n\007UNKNOWN\020\000\"j\n\037ConfirmValidationRequest"
-          + "Request\022\022\n\nrequest_id\030\001 \001(\t\022\035\n\025validatio"
-          + "n_request_id\030\002 \001(\t\022\024\n\014validator_id\030\003 \001(\t"
-          + "\"\340\001\n ConfirmValidationRequestResponse\022X\n"
-          + "\010response\030\001 \001(\0132D.swisschain.sirius.guar"
-          + "dian_api.ConfirmValidationRequestRespons"
-          + "eBodyH\000\022Z\n\005error\030\002 \001(\0132I.swisschain.siri"
-          + "us.guardian_api.ConfirmValidationRequest"
-          + "ErrorResponseBodyH\000B\006\n\004body\"&\n$ConfirmVa"
-          + "lidationRequestResponseBody\"\305\001\n)ConfirmV"
-          + "alidationRequestErrorResponseBody\022g\n\nerr"
-          + "or_code\030\001 \001(\0162S.swisschain.sirius.guardi"
-          + "an_api.ConfirmValidationRequestErrorResp"
-          + "onseBody.ErrorCode\022\025\n\rerror_message\030\002 \001("
-          + "\t\"\030\n\tErrorCode\022\013\n\007UNKNOWN\020\0002\257\002\n\022Validati"
-          + "onRequests\022\211\001\n\006Create\022>.swisschain.siriu"
-          + "s.guardian_api.CreateValidationRequestRe"
-          + "quest\032?.swisschain.sirius.guardian_api.C"
-          + "reateValidationRequestResponse\022\214\001\n\007Confi"
-          + "rm\022?.swisschain.sirius.guardian_api.Conf"
-          + "irmValidationRequestRequest\032@.swisschain"
-          + ".sirius.guardian_api.ConfirmValidationRe"
-          + "questResponseBi\n>io.swisschain.sirius.gu"
-          + "ardianApi.generated.validation_requests\252"
-          + "\002&Swisschain.Sirius.GuardianValidatorApi"
-          + "b\006proto3"
+          + "sirius.guardian_api\"\277\001\n\036CreateValidation"
+          + "RequestRequest\022\026\n\016idempotency_id\030\001 \001(\t\022\021"
+          + "\n\ttenant_id\030\002 \001(\t\022\020\n\010vault_id\030\003 \001(\003\022\035\n\025v"
+          + "alidation_request_id\030\004 \001(\t\022\024\n\014validator_"
+          + "id\030\005 \001(\t\022\017\n\007message\030\006 \001(\t\022\013\n\003key\030\007 \001(\t\022\r"
+          + "\n\005nonce\030\010 \001(\t\"\335\001\n\037CreateValidationReques"
+          + "tResponse\022W\n\010response\030\001 \001(\0132C.swisschain"
+          + ".sirius.guardian_api.CreateValidationReq"
+          + "uestResponseBodyH\000\022Y\n\005error\030\002 \001(\0132H.swis"
+          + "schain.sirius.guardian_api.CreateValidat"
+          + "ionRequestErrorResponseBodyH\000B\006\n\004body\"%\n"
+          + "#CreateValidationRequestResponseBody\"\303\001\n"
+          + "(CreateValidationRequestErrorResponseBod"
+          + "y\022f\n\nerror_code\030\001 \001(\0162R.swisschain.siriu"
+          + "s.guardian_api.CreateValidationRequestEr"
+          + "rorResponseBody.ErrorCode\022\025\n\rerror_messa"
+          + "ge\030\002 \001(\t\"\030\n\tErrorCode\022\013\n\007UNKNOWN\020\000\"n\n\037Co"
+          + "nfirmValidationRequestRequest\022\026\n\016idempot"
+          + "ency_id\030\001 \001(\t\022\035\n\025validation_request_id\030\002"
+          + " \001(\t\022\024\n\014validator_id\030\003 \001(\t\"\340\001\n ConfirmVa"
+          + "lidationRequestResponse\022X\n\010response\030\001 \001("
+          + "\0132D.swisschain.sirius.guardian_api.Confi"
+          + "rmValidationRequestResponseBodyH\000\022Z\n\005err"
+          + "or\030\002 \001(\0132I.swisschain.sirius.guardian_ap"
+          + "i.ConfirmValidationRequestErrorResponseB"
+          + "odyH\000B\006\n\004body\"&\n$ConfirmValidationReques"
+          + "tResponseBody\"\305\001\n)ConfirmValidationReque"
+          + "stErrorResponseBody\022g\n\nerror_code\030\001 \001(\0162"
+          + "S.swisschain.sirius.guardian_api.Confirm"
+          + "ValidationRequestErrorResponseBody.Error"
+          + "Code\022\025\n\rerror_message\030\002 \001(\t\"\030\n\tErrorCode"
+          + "\022\013\n\007UNKNOWN\020\0002\257\002\n\022ValidationRequests\022\211\001\n"
+          + "\006Create\022>.swisschain.sirius.guardian_api"
+          + ".CreateValidationRequestRequest\032?.swissc"
+          + "hain.sirius.guardian_api.CreateValidatio"
+          + "nRequestResponse\022\214\001\n\007Confirm\022?.swisschai"
+          + "n.sirius.guardian_api.ConfirmValidationR"
+          + "equestRequest\032@.swisschain.sirius.guardi"
+          + "an_api.ConfirmValidationRequestResponseB"
+          + "i\n>io.swisschain.sirius.guardianApi.gene"
+          + "rated.validation_requests\252\002&Swisschain.S"
+          + "irius.GuardianValidatorApib\006proto3"
     };
     descriptor =
         com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
@@ -10390,8 +10463,9 @@ public final class ValidationRequestsOuterClass {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_guardian_api_CreateValidationRequestRequest_descriptor,
             new java.lang.String[] {
-              "RequestId",
+              "IdempotencyId",
               "TenantId",
+              "VaultId",
               "ValidationRequestId",
               "ValidatorId",
               "Message",
@@ -10426,7 +10500,7 @@ public final class ValidationRequestsOuterClass {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_guardian_api_ConfirmValidationRequestRequest_descriptor,
             new java.lang.String[] {
-              "RequestId", "ValidationRequestId", "ValidatorId",
+              "IdempotencyId", "ValidationRequestId", "ValidatorId",
             });
     internal_static_swisschain_sirius_guardian_api_ConfirmValidationRequestResponse_descriptor =
         getDescriptor().getMessageTypes().get(5);

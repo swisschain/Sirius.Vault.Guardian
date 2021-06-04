@@ -47,6 +47,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
         new SmartContractInvocationValidationRequest(
             1,
             "t1",
+            0,
             new SmartContractInvocation(
                 10000,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
@@ -100,6 +101,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
         new SmartContractInvocationValidationRequest(
             1,
             "t1",
+            0,
             new SmartContractInvocation(
                 10000,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
@@ -171,6 +173,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
         new SmartContractInvocationValidationRequest(
             1,
             "t1",
+            0,
             new SmartContractInvocation(
                 10000,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),
@@ -237,6 +240,7 @@ public class SmartContractInvocationOdmRuleExecutorTests {
         new SmartContractInvocationValidationRequest(
             1,
             "t1",
+            0,
             new SmartContractInvocation(
                 10000,
                 new Blockchain("ethereum-classic", "ethereum-classic-1", NetworkType.Private),

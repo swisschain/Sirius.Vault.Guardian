@@ -13,13 +13,14 @@ service ValidationRequests {
 // Create
 
 message CreateValidationRequestRequest {
-  string request_id = 1;
+  string idempotency_id = 1;
   string tenant_id = 2;
-  string validation_request_id = 3;
-  string validator_id = 4;
-  string message = 5;
-  string key = 6;
-  string nonce = 7;
+  int64 vault_id = 3;
+  string validation_request_id = 4;
+  string validator_id = 5;
+  string message = 6;
+  string key = 7;
+  string nonce = 8;
 }
 
 message CreateValidationRequestResponse {
@@ -45,7 +46,7 @@ message CreateValidationRequestErrorResponseBody {
 // Confirm
 
 message ConfirmValidationRequestRequest {
-  string request_id = 1;
+  string idempotency_id = 1;
   string validation_request_id = 2;
   string validator_id = 3;
 }

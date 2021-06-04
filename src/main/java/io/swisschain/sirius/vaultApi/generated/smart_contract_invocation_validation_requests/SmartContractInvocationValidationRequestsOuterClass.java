@@ -5256,8 +5256,15 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
     com.google.protobuf.ByteString getTenantIdBytes();
 
     /**
+     * <code>int64 vault_id = 3;</code>
+     *
+     * @return The vaultId.
+     */
+    long getVaultId();
+
+    /**
      * <code>
-     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
      * </code>
      *
      * @return Whether the smartContractInvocation field is set.
@@ -5265,7 +5272,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
     boolean hasSmartContractInvocation();
     /**
      * <code>
-     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
      * </code>
      *
      * @return The smartContractInvocation.
@@ -5280,7 +5287,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         getSmartContractInvocation();
     /**
      * <code>
-     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
      * </code>
      */
     io.swisschain
@@ -5293,33 +5300,33 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         getSmartContractInvocationOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp created_at = 4;</code>
+     * <code>.google.protobuf.Timestamp created_at = 5;</code>
      *
      * @return Whether the createdAt field is set.
      */
     boolean hasCreatedAt();
     /**
-     * <code>.google.protobuf.Timestamp created_at = 4;</code>
+     * <code>.google.protobuf.Timestamp created_at = 5;</code>
      *
      * @return The createdAt.
      */
     com.google.protobuf.Timestamp getCreatedAt();
-    /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+    /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
     com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 5;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
      *
      * @return Whether the updatedAt field is set.
      */
     boolean hasUpdatedAt();
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 5;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
      *
      * @return The updatedAt.
      */
     com.google.protobuf.Timestamp getUpdatedAt();
-    /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+    /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
     com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
   }
   /**
@@ -5383,7 +5390,12 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                 tenantId_ = s;
                 break;
               }
-            case 26:
+            case 24:
+              {
+                vaultId_ = input.readInt64();
+                break;
+              }
+            case 34:
               {
                 io.swisschain
                         .sirius
@@ -5411,7 +5423,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
                 break;
               }
-            case 34:
+            case 42:
               {
                 com.google.protobuf.Timestamp.Builder subBuilder = null;
                 if (createdAt_ != null) {
@@ -5426,7 +5438,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
                 break;
               }
-            case 42:
+            case 50:
               {
                 com.google.protobuf.Timestamp.Builder subBuilder = null;
                 if (updatedAt_ != null) {
@@ -5545,7 +5557,19 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
     }
 
-    public static final int SMART_CONTRACT_INVOCATION_FIELD_NUMBER = 3;
+    public static final int VAULT_ID_FIELD_NUMBER = 3;
+    private long vaultId_;
+    /**
+     * <code>int64 vault_id = 3;</code>
+     *
+     * @return The vaultId.
+     */
+    @java.lang.Override
+    public long getVaultId() {
+      return vaultId_;
+    }
+
+    public static final int SMARTCONTRACTINVOCATION_FIELD_NUMBER = 4;
     private io.swisschain
             .sirius
             .vaultApi
@@ -5556,7 +5580,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         smartContractInvocation_;
     /**
      * <code>
-     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
      * </code>
      *
      * @return Whether the smartContractInvocation field is set.
@@ -5567,7 +5591,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
     }
     /**
      * <code>
-     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
      * </code>
      *
      * @return The smartContractInvocation.
@@ -5589,7 +5613,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
     }
     /**
      * <code>
-     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+     * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
      * </code>
      */
     @java.lang.Override
@@ -5604,10 +5628,10 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       return getSmartContractInvocation();
     }
 
-    public static final int CREATED_AT_FIELD_NUMBER = 4;
+    public static final int CREATED_AT_FIELD_NUMBER = 5;
     private com.google.protobuf.Timestamp createdAt_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 4;</code>
+     * <code>.google.protobuf.Timestamp created_at = 5;</code>
      *
      * @return Whether the createdAt field is set.
      */
@@ -5616,7 +5640,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       return createdAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 4;</code>
+     * <code>.google.protobuf.Timestamp created_at = 5;</code>
      *
      * @return The createdAt.
      */
@@ -5624,16 +5648,16 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
     public com.google.protobuf.Timestamp getCreatedAt() {
       return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
     }
-    /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+    /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       return getCreatedAt();
     }
 
-    public static final int UPDATED_AT_FIELD_NUMBER = 5;
+    public static final int UPDATED_AT_FIELD_NUMBER = 6;
     private com.google.protobuf.Timestamp updatedAt_;
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 5;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
      *
      * @return Whether the updatedAt field is set.
      */
@@ -5642,7 +5666,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       return updatedAt_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 5;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 6;</code>
      *
      * @return The updatedAt.
      */
@@ -5650,7 +5674,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
     public com.google.protobuf.Timestamp getUpdatedAt() {
       return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
     }
-    /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+    /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       return getUpdatedAt();
@@ -5676,14 +5700,17 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       if (!getTenantIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tenantId_);
       }
+      if (vaultId_ != 0L) {
+        output.writeInt64(3, vaultId_);
+      }
       if (smartContractInvocation_ != null) {
-        output.writeMessage(3, getSmartContractInvocation());
+        output.writeMessage(4, getSmartContractInvocation());
       }
       if (createdAt_ != null) {
-        output.writeMessage(4, getCreatedAt());
+        output.writeMessage(5, getCreatedAt());
       }
       if (updatedAt_ != null) {
-        output.writeMessage(5, getUpdatedAt());
+        output.writeMessage(6, getUpdatedAt());
       }
       unknownFields.writeTo(output);
     }
@@ -5700,16 +5727,19 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       if (!getTenantIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tenantId_);
       }
+      if (vaultId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(3, vaultId_);
+      }
       if (smartContractInvocation_ != null) {
         size +=
             com.google.protobuf.CodedOutputStream.computeMessageSize(
-                3, getSmartContractInvocation());
+                4, getSmartContractInvocation());
       }
       if (createdAt_ != null) {
-        size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getCreatedAt());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getCreatedAt());
       }
       if (updatedAt_ != null) {
-        size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getUpdatedAt());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(6, getUpdatedAt());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5751,6 +5781,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
       if (getId() != other.getId()) return false;
       if (!getTenantId().equals(other.getTenantId())) return false;
+      if (getVaultId() != other.getVaultId()) return false;
       if (hasSmartContractInvocation() != other.hasSmartContractInvocation()) return false;
       if (hasSmartContractInvocation()) {
         if (!getSmartContractInvocation().equals(other.getSmartContractInvocation())) return false;
@@ -5778,8 +5809,10 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getId());
       hash = (37 * hash) + TENANT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getTenantId().hashCode();
+      hash = (37 * hash) + VAULT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getVaultId());
       if (hasSmartContractInvocation()) {
-        hash = (37 * hash) + SMART_CONTRACT_INVOCATION_FIELD_NUMBER;
+        hash = (37 * hash) + SMARTCONTRACTINVOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getSmartContractInvocation().hashCode();
       }
       if (hasCreatedAt()) {
@@ -6050,6 +6083,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         tenantId_ = "";
 
+        vaultId_ = 0L;
+
         if (smartContractInvocationBuilder_ == null) {
           smartContractInvocation_ = null;
         } else {
@@ -6145,6 +6180,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                     .SmartContractInvocationValidationRequest(this);
         result.id_ = id_;
         result.tenantId_ = tenantId_;
+        result.vaultId_ = vaultId_;
         if (smartContractInvocationBuilder_ == null) {
           result.smartContractInvocation_ = smartContractInvocation_;
         } else {
@@ -6244,6 +6280,9 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         if (!other.getTenantId().isEmpty()) {
           tenantId_ = other.tenantId_;
           onChanged();
+        }
+        if (other.getVaultId() != 0L) {
+          setVaultId(other.getVaultId());
         }
         if (other.hasSmartContractInvocation()) {
           mergeSmartContractInvocation(other.getSmartContractInvocation());
@@ -6408,6 +6447,40 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         return this;
       }
 
+      private long vaultId_;
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @return The vaultId.
+       */
+      @java.lang.Override
+      public long getVaultId() {
+        return vaultId_;
+      }
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @param value The vaultId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVaultId(long value) {
+
+        vaultId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 vault_id = 3;</code>
+       *
+       * @return This builder for chaining.
+       */
+      public Builder clearVaultId() {
+
+        vaultId_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private io.swisschain
               .sirius
               .vaultApi
@@ -6442,7 +6515,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
           smartContractInvocationBuilder_;
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        *
        * @return Whether the smartContractInvocation field is set.
@@ -6452,7 +6525,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        *
        * @return The smartContractInvocation.
@@ -6478,7 +6551,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        */
       public Builder setSmartContractInvocation(
@@ -6504,7 +6577,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        */
       public Builder setSmartContractInvocation(
@@ -6528,7 +6601,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        */
       public Builder mergeSmartContractInvocation(
@@ -6565,7 +6638,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        */
       public Builder clearSmartContractInvocation() {
@@ -6581,7 +6654,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        */
       public io.swisschain
@@ -6599,7 +6672,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        */
       public io.swisschain
@@ -6623,7 +6696,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       /**
        * <code>
-       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smart_contract_invocation = 3;
+       * .swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.SmartContractInvocation smartContractInvocation = 4;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6688,7 +6761,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
               com.google.protobuf.TimestampOrBuilder>
           createdAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp created_at = 4;</code>
+       * <code>.google.protobuf.Timestamp created_at = 5;</code>
        *
        * @return Whether the createdAt field is set.
        */
@@ -6696,7 +6769,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         return createdAtBuilder_ != null || createdAt_ != null;
       }
       /**
-       * <code>.google.protobuf.Timestamp created_at = 4;</code>
+       * <code>.google.protobuf.Timestamp created_at = 5;</code>
        *
        * @return The createdAt.
        */
@@ -6709,7 +6782,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
           return createdAtBuilder_.getMessage();
         }
       }
-      /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+      /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
       public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
         if (createdAtBuilder_ == null) {
           if (value == null) {
@@ -6723,7 +6796,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         return this;
       }
-      /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+      /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
       public Builder setCreatedAt(com.google.protobuf.Timestamp.Builder builderForValue) {
         if (createdAtBuilder_ == null) {
           createdAt_ = builderForValue.build();
@@ -6734,7 +6807,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         return this;
       }
-      /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+      /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
       public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
         if (createdAtBuilder_ == null) {
           if (createdAt_ != null) {
@@ -6752,7 +6825,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         return this;
       }
-      /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+      /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
       public Builder clearCreatedAt() {
         if (createdAtBuilder_ == null) {
           createdAt_ = null;
@@ -6764,13 +6837,13 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         return this;
       }
-      /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+      /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
       public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
 
         onChanged();
         return getCreatedAtFieldBuilder().getBuilder();
       }
-      /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+      /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
       public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
         if (createdAtBuilder_ != null) {
           return createdAtBuilder_.getMessageOrBuilder();
@@ -6780,7 +6853,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
               : createdAt_;
         }
       }
-      /** <code>.google.protobuf.Timestamp created_at = 4;</code> */
+      /** <code>.google.protobuf.Timestamp created_at = 5;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
               com.google.protobuf.Timestamp,
               com.google.protobuf.Timestamp.Builder,
@@ -6805,7 +6878,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
               com.google.protobuf.TimestampOrBuilder>
           updatedAtBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 5;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
        *
        * @return Whether the updatedAt field is set.
        */
@@ -6813,7 +6886,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         return updatedAtBuilder_ != null || updatedAt_ != null;
       }
       /**
-       * <code>.google.protobuf.Timestamp updated_at = 5;</code>
+       * <code>.google.protobuf.Timestamp updated_at = 6;</code>
        *
        * @return The updatedAt.
        */
@@ -6826,7 +6899,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
           return updatedAtBuilder_.getMessage();
         }
       }
-      /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+      /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
       public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
         if (updatedAtBuilder_ == null) {
           if (value == null) {
@@ -6840,7 +6913,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         return this;
       }
-      /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+      /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
       public Builder setUpdatedAt(com.google.protobuf.Timestamp.Builder builderForValue) {
         if (updatedAtBuilder_ == null) {
           updatedAt_ = builderForValue.build();
@@ -6851,7 +6924,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         return this;
       }
-      /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+      /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
       public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
         if (updatedAtBuilder_ == null) {
           if (updatedAt_ != null) {
@@ -6869,7 +6942,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         return this;
       }
-      /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+      /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
       public Builder clearUpdatedAt() {
         if (updatedAtBuilder_ == null) {
           updatedAt_ = null;
@@ -6881,13 +6954,13 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
         return this;
       }
-      /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+      /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
       public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
 
         onChanged();
         return getUpdatedAtFieldBuilder().getBuilder();
       }
-      /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+      /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
       public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
         if (updatedAtBuilder_ != null) {
           return updatedAtBuilder_.getMessageOrBuilder();
@@ -6897,7 +6970,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
               : updatedAt_;
         }
       }
-      /** <code>.google.protobuf.Timestamp updated_at = 5;</code> */
+      /** <code>.google.protobuf.Timestamp updated_at = 6;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
               com.google.protobuf.Timestamp,
               com.google.protobuf.Timestamp.Builder,
@@ -13701,17 +13774,17 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
-    java.lang.String getRequestId();
+    java.lang.String getIdempotencyId();
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
-    com.google.protobuf.ByteString getRequestIdBytes();
+    com.google.protobuf.ByteString getIdempotencyIdBytes();
 
     /**
      * <code>int64 validation_request_id = 2;</code>
@@ -13776,7 +13849,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
     }
 
     private ConfirmSmartContractInvocationValidationRequestRequest() {
-      requestId_ = "";
+      idempotencyId_ = "";
       document_ = "";
       signature_ = "";
       hostProcessId_ = "";
@@ -13815,7 +13888,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                requestId_ = s;
+                idempotencyId_ = s;
                 break;
               }
             case 16:
@@ -13899,37 +13972,37 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                   .class);
     }
 
-    public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    public static final int IDEMPOTENCY_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object idempotencyId_;
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
     @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
+    public java.lang.String getIdempotencyId() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
+        idempotencyId_ = s;
         return s;
       }
     }
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
+    public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        requestId_ = b;
+        idempotencyId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -14073,8 +14146,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idempotencyId_);
       }
       if (validationRequestId_ != 0L) {
         output.writeInt64(2, validationRequestId_);
@@ -14097,8 +14170,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idempotencyId_);
       }
       if (validationRequestId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, validationRequestId_);
@@ -14150,7 +14223,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                       .ConfirmSmartContractInvocationValidationRequestRequest)
                   obj;
 
-      if (!getRequestId().equals(other.getRequestId())) return false;
+      if (!getIdempotencyId().equals(other.getIdempotencyId())) return false;
       if (getValidationRequestId() != other.getValidationRequestId()) return false;
       if (!getDocument().equals(other.getDocument())) return false;
       if (!getSignature().equals(other.getSignature())) return false;
@@ -14166,8 +14239,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + IDEMPOTENCY_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyId().hashCode();
       hash = (37 * hash) + VALIDATION_REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getValidationRequestId());
       hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
@@ -14432,7 +14505,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        requestId_ = "";
+        idempotencyId_ = "";
 
         validationRequestId_ = 0L;
 
@@ -14517,7 +14590,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                     .smart_contract_invocation_validation_requests
                     .SmartContractInvocationValidationRequestsOuterClass
                     .ConfirmSmartContractInvocationValidationRequestRequest(this);
-        result.requestId_ = requestId_;
+        result.idempotencyId_ = idempotencyId_;
         result.validationRequestId_ = validationRequestId_;
         result.document_ = document_;
         result.signature_ = signature_;
@@ -14601,8 +14674,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                 .SmartContractInvocationValidationRequestsOuterClass
                 .ConfirmSmartContractInvocationValidationRequestRequest.getDefaultInstance())
           return this;
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
+        if (!other.getIdempotencyId().isEmpty()) {
+          idempotencyId_ = other.idempotencyId_;
           onChanged();
         }
         if (other.getValidationRequestId() != 0L) {
@@ -14664,78 +14737,78 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         return this;
       }
 
-      private java.lang.Object requestId_ = "";
+      private java.lang.Object idempotencyId_ = "";
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The requestId.
+       * @return The idempotencyId.
        */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
+      public java.lang.String getIdempotencyId() {
+        java.lang.Object ref = idempotencyId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
+          idempotencyId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The bytes for requestId.
+       * @return The bytes for idempotencyId.
        */
-      public com.google.protobuf.ByteString getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
+      public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+        java.lang.Object ref = idempotencyId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          requestId_ = b;
+          idempotencyId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The requestId to set.
+       * @param value The idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestId(java.lang.String value) {
+      public Builder setIdempotencyId(java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
         }
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
        * @return This builder for chaining.
        */
-      public Builder clearRequestId() {
+      public Builder clearIdempotencyId() {
 
-        requestId_ = getDefaultInstance().getRequestId();
+        idempotencyId_ = getDefaultInstance().getIdempotencyId();
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The bytes for requestId to set.
+       * @param value The bytes for idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestIdBytes(com.google.protobuf.ByteString value) {
+      public Builder setIdempotencyIdBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
         }
         checkByteStringIsUtf8(value);
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
@@ -18890,17 +18963,17 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
-    java.lang.String getRequestId();
+    java.lang.String getIdempotencyId();
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
-    com.google.protobuf.ByteString getRequestIdBytes();
+    com.google.protobuf.ByteString getIdempotencyIdBytes();
 
     /**
      * <code>int64 validation_request_id = 2;</code>
@@ -19003,7 +19076,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
     }
 
     private RejectSmartContractInvocationValidationRequestRequest() {
-      requestId_ = "";
+      idempotencyId_ = "";
       rejectionReason_ = 0;
       rejectionReasonMessage_ = "";
       document_ = "";
@@ -19044,7 +19117,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
               {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                requestId_ = s;
+                idempotencyId_ = s;
                 break;
               }
             case 16:
@@ -19252,37 +19325,37 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       // @@protoc_insertion_point(enum_scope:swisschain.sirius.vaultApi.smartContractInvocationValidationRequests.RejectSmartContractInvocationValidationRequestRequest.RejectionReason)
     }
 
-    public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    public static final int IDEMPOTENCY_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object idempotencyId_;
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The requestId.
+     * @return The idempotencyId.
      */
     @java.lang.Override
-    public java.lang.String getRequestId() {
-      java.lang.Object ref = requestId_;
+    public java.lang.String getIdempotencyId() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        requestId_ = s;
+        idempotencyId_ = s;
         return s;
       }
     }
     /**
-     * <code>string request_id = 1;</code>
+     * <code>string idempotency_id = 1;</code>
      *
-     * @return The bytes for requestId.
+     * @return The bytes for idempotencyId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getRequestIdBytes() {
-      java.lang.Object ref = requestId_;
+    public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+      java.lang.Object ref = idempotencyId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        requestId_ = b;
+        idempotencyId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -19520,8 +19593,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (!getRequestIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idempotencyId_);
       }
       if (validationRequestId_ != 0L) {
         output.writeInt64(2, validationRequestId_);
@@ -19554,8 +19627,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRequestIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, requestId_);
+      if (!getIdempotencyIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idempotencyId_);
       }
       if (validationRequestId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, validationRequestId_);
@@ -19618,7 +19691,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                       .RejectSmartContractInvocationValidationRequestRequest)
                   obj;
 
-      if (!getRequestId().equals(other.getRequestId())) return false;
+      if (!getIdempotencyId().equals(other.getIdempotencyId())) return false;
       if (getValidationRequestId() != other.getValidationRequestId()) return false;
       if (rejectionReason_ != other.rejectionReason_) return false;
       if (!getRejectionReasonMessage().equals(other.getRejectionReasonMessage())) return false;
@@ -19636,8 +19709,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getRequestId().hashCode();
+      hash = (37 * hash) + IDEMPOTENCY_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyId().hashCode();
       hash = (37 * hash) + VALIDATION_REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getValidationRequestId());
       hash = (37 * hash) + REJECTION_REASON_FIELD_NUMBER;
@@ -19906,7 +19979,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        requestId_ = "";
+        idempotencyId_ = "";
 
         validationRequestId_ = 0L;
 
@@ -19995,7 +20068,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                     .smart_contract_invocation_validation_requests
                     .SmartContractInvocationValidationRequestsOuterClass
                     .RejectSmartContractInvocationValidationRequestRequest(this);
-        result.requestId_ = requestId_;
+        result.idempotencyId_ = idempotencyId_;
         result.validationRequestId_ = validationRequestId_;
         result.rejectionReason_ = rejectionReason_;
         result.rejectionReasonMessage_ = rejectionReasonMessage_;
@@ -20081,8 +20154,8 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
                 .SmartContractInvocationValidationRequestsOuterClass
                 .RejectSmartContractInvocationValidationRequestRequest.getDefaultInstance())
           return this;
-        if (!other.getRequestId().isEmpty()) {
-          requestId_ = other.requestId_;
+        if (!other.getIdempotencyId().isEmpty()) {
+          idempotencyId_ = other.idempotencyId_;
           onChanged();
         }
         if (other.getValidationRequestId() != 0L) {
@@ -20151,78 +20224,78 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         return this;
       }
 
-      private java.lang.Object requestId_ = "";
+      private java.lang.Object idempotencyId_ = "";
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The requestId.
+       * @return The idempotencyId.
        */
-      public java.lang.String getRequestId() {
-        java.lang.Object ref = requestId_;
+      public java.lang.String getIdempotencyId() {
+        java.lang.Object ref = idempotencyId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          requestId_ = s;
+          idempotencyId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @return The bytes for requestId.
+       * @return The bytes for idempotencyId.
        */
-      public com.google.protobuf.ByteString getRequestIdBytes() {
-        java.lang.Object ref = requestId_;
+      public com.google.protobuf.ByteString getIdempotencyIdBytes() {
+        java.lang.Object ref = idempotencyId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          requestId_ = b;
+          idempotencyId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The requestId to set.
+       * @param value The idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestId(java.lang.String value) {
+      public Builder setIdempotencyId(java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
         }
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
        * @return This builder for chaining.
        */
-      public Builder clearRequestId() {
+      public Builder clearIdempotencyId() {
 
-        requestId_ = getDefaultInstance().getRequestId();
+        idempotencyId_ = getDefaultInstance().getIdempotencyId();
         onChanged();
         return this;
       }
       /**
-       * <code>string request_id = 1;</code>
+       * <code>string idempotency_id = 1;</code>
        *
-       * @param value The bytes for requestId to set.
+       * @param value The bytes for idempotencyId to set.
        * @return This builder for chaining.
        */
-      public Builder setRequestIdBytes(com.google.protobuf.ByteString value) {
+      public Builder setIdempotencyIdBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
         }
         checkByteStringIsUtf8(value);
 
-        requestId_ = value;
+        idempotencyId_ = value;
         onChanged();
         return this;
       }
@@ -24654,121 +24727,122 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
           + "tSmartContractInvocationValidationReques"
           + "tsErrorResponseBody.ErrorCode\022\025\n\rerror_m"
           + "essage\030\002 \001(\t\"0\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026"
-          + "\n\022INVALID_PARAMETERS\020\001\"\254\002\n(SmartContract"
+          + "\n\022INVALID_PARAMETERS\020\001\"\273\002\n(SmartContract"
           + "InvocationValidationRequest\022\n\n\002id\030\001 \001(\003\022"
-          + "\021\n\ttenant_id\030\002 \001(\t\022\200\001\n\031smart_contract_in"
-          + "vocation\030\003 \001(\0132].swisschain.sirius.vault"
-          + "Api.smartContractInvocationValidationReq"
-          + "uests.SmartContractInvocation\022.\n\ncreated"
-          + "_at\030\004 \001(\0132\032.google.protobuf.Timestamp\022.\n"
-          + "\nupdated_at\030\005 \001(\0132\032.google.protobuf.Time"
-          + "stamp\"\367\004\n\027SmartContractInvocation\022\n\n\002id\030"
-          + "\001 \001(\003\022A\n\nblockchain\030\002 \001(\0132-.swisschain.s"
-          + "irius.vaultApi.common.Blockchain\022k\n\007invo"
-          + "ker\030\003 \001(\0132Z.swisschain.sirius.vaultApi.s"
-          + "martContractInvocationValidationRequests"
-          + ".SmartContractInvoker\022N\n\targuments\030\004 \003(\013"
-          + "2;.swisschain.sirius.vaultApi.smartContr"
-          + "acts.FunctionArgument\0228\n\007payment\030\005 \001(\0132\'"
-          + ".swisschain.sirius.vaultApi.common.Unit\022"
-          + "4\n\003fee\030\006 \001(\0132\'.swisschain.sirius.vaultAp"
-          + "i.common.Unit\022u\n\007context\030\007 \001(\0132d.swissch"
-          + "ain.sirius.vaultApi.smartContractInvocat"
-          + "ionValidationRequests.SmartContractInvoc"
-          + "ationContext\022\023\n\013method_name\030\010 \001(\t\0224\n\016met"
-          + "hod_address\030\t \001(\0132\034.google.protobuf.Stri"
-          + "ngValue\022\036\n\026smart_contract_address\030\n \001(\t\""
-          + "q\n\024SmartContractInvoker\022\017\n\007address\030\001 \001(\t"
-          + "\022H\n\016broker_account\030\002 \001(\01320.swisschain.si"
-          + "rius.vaultApi.common.BrokerAccount\"\374\002\n\036S"
-          + "martContractInvocationContext\022.\n\010documen"
-          + "t\030\001 \001(\0132\034.google.protobuf.StringValue\0226\n"
-          + "\020document_version\030\002 \001(\0132\034.google.protobu"
-          + "f.StringValue\022/\n\tsignature\030\003 \001(\0132\034.googl"
-          + "e.protobuf.StringValue\022\033\n\023smart_contract"
-          + "_name\030\004 \001(\t\022\021\n\tcode_hash\030\005 \001(\t\022\021\n\tcompon"
-          + "ent\030\006 \001(\t\0222\n\014reference_id\030\007 \001(\0132\034.google"
-          + ".protobuf.StringValue\022J\n\017request_context"
-          + "\030\010 \001(\01321.swisschain.sirius.vaultApi.comm"
-          + "on.RequestContext\"\251\001\n6ConfirmSmartContra"
-          + "ctInvocationValidationRequestRequest\022\022\n\n"
-          + "request_id\030\001 \001(\t\022\035\n\025validation_request_i"
-          + "d\030\002 \001(\003\022\020\n\010document\030\003 \001(\t\022\021\n\tsignature\030\004"
-          + " \001(\t\022\027\n\017host_process_id\030\005 \001(\t\"\365\002\n7Confir"
-          + "mSmartContractInvocationValidationReques"
-          + "tResponse\022\226\001\n\010response\030\001 \001(\0132\201\001.swisscha"
+          + "\021\n\ttenant_id\030\002 \001(\t\022\020\n\010vault_id\030\003 \001(\003\022~\n\027"
+          + "smartContractInvocation\030\004 \001(\0132].swisscha"
           + "in.sirius.vaultApi.smartContractInvocati"
-          + "onValidationRequests.ConfirmSmartContrac"
-          + "tInvocationValidationRequestResponseBody"
-          + "H\000\022\230\001\n\005error\030\002 \001(\0132\206\001.swisschain.sirius."
-          + "vaultApi.smartContractInvocationValidati"
-          + "onRequests.ConfirmSmartContractInvocatio"
-          + "nValidationRequestErrorResponseBodyH\000B\006\n"
-          + "\004body\"=\n;ConfirmSmartContractInvocationV"
-          + "alidationRequestResponseBody\"\306\002\n@Confirm"
-          + "SmartContractInvocationValidationRequest"
-          + "ErrorResponseBody\022\245\001\n\nerror_code\030\001 \001(\0162\220"
-          + "\001.swisschain.sirius.vaultApi.smartContra"
-          + "ctInvocationValidationRequests.ConfirmSm"
-          + "artContractInvocationValidationRequestEr"
-          + "rorResponseBody.ErrorCode\022\025\n\rerror_messa"
-          + "ge\030\002 \001(\t\"C\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026\n\022IN"
-          + "VALID_PARAMETERS\020\001\022\021\n\rINVALID_STATE\020\002\"\251\003"
-          + "\n5RejectSmartContractInvocationValidatio"
-          + "nRequestRequest\022\022\n\nrequest_id\030\001 \001(\t\022\035\n\025v"
-          + "alidation_request_id\030\002 \001(\003\022\246\001\n\020rejection"
-          + "_reason\030\003 \001(\0162\213\001.swisschain.sirius.vault"
-          + "Api.smartContractInvocationValidationReq"
-          + "uests.RejectSmartContractInvocationValid"
-          + "ationRequestRequest.RejectionReason\022 \n\030r"
-          + "ejection_reason_message\030\004 \001(\t\022\020\n\010documen"
-          + "t\030\005 \001(\t\022\021\n\tsignature\030\006 \001(\t\022\027\n\017host_proce"
-          + "ss_id\030\007 \001(\t\"4\n\017RejectionReason\022\t\n\005OTHER\020"
-          + "\000\022\026\n\022REJECTED_BY_POLICY\020\001\"\362\002\n6RejectSmar"
-          + "tContractInvocationValidationRequestResp"
-          + "onse\022\225\001\n\010response\030\001 \001(\0132\200\001.swisschain.si"
+          + "onValidationRequests.SmartContractInvoca"
+          + "tion\022.\n\ncreated_at\030\005 \001(\0132\032.google.protob"
+          + "uf.Timestamp\022.\n\nupdated_at\030\006 \001(\0132\032.googl"
+          + "e.protobuf.Timestamp\"\367\004\n\027SmartContractIn"
+          + "vocation\022\n\n\002id\030\001 \001(\003\022A\n\nblockchain\030\002 \001(\013"
+          + "2-.swisschain.sirius.vaultApi.common.Blo"
+          + "ckchain\022k\n\007invoker\030\003 \001(\0132Z.swisschain.si"
           + "rius.vaultApi.smartContractInvocationVal"
-          + "idationRequests.RejectSmartContractInvoc"
-          + "ationValidationRequestResponseBodyH\000\022\227\001\n"
-          + "\005error\030\002 \001(\0132\205\001.swisschain.sirius.vaultA"
+          + "idationRequests.SmartContractInvoker\022N\n\t"
+          + "arguments\030\004 \003(\0132;.swisschain.sirius.vaul"
+          + "tApi.smartContracts.FunctionArgument\0228\n\007"
+          + "payment\030\005 \001(\0132\'.swisschain.sirius.vaultA"
+          + "pi.common.Unit\0224\n\003fee\030\006 \001(\0132\'.swisschain"
+          + ".sirius.vaultApi.common.Unit\022u\n\007context\030"
+          + "\007 \001(\0132d.swisschain.sirius.vaultApi.smart"
+          + "ContractInvocationValidationRequests.Sma"
+          + "rtContractInvocationContext\022\023\n\013method_na"
+          + "me\030\010 \001(\t\0224\n\016method_address\030\t \001(\0132\034.googl"
+          + "e.protobuf.StringValue\022\036\n\026smart_contract"
+          + "_address\030\n \001(\t\"q\n\024SmartContractInvoker\022\017"
+          + "\n\007address\030\001 \001(\t\022H\n\016broker_account\030\002 \001(\0132"
+          + "0.swisschain.sirius.vaultApi.common.Brok"
+          + "erAccount\"\374\002\n\036SmartContractInvocationCon"
+          + "text\022.\n\010document\030\001 \001(\0132\034.google.protobuf"
+          + ".StringValue\0226\n\020document_version\030\002 \001(\0132\034"
+          + ".google.protobuf.StringValue\022/\n\tsignatur"
+          + "e\030\003 \001(\0132\034.google.protobuf.StringValue\022\033\n"
+          + "\023smart_contract_name\030\004 \001(\t\022\021\n\tcode_hash\030"
+          + "\005 \001(\t\022\021\n\tcomponent\030\006 \001(\t\0222\n\014reference_id"
+          + "\030\007 \001(\0132\034.google.protobuf.StringValue\022J\n\017"
+          + "request_context\030\010 \001(\01321.swisschain.siriu"
+          + "s.vaultApi.common.RequestContext\"\255\001\n6Con"
+          + "firmSmartContractInvocationValidationReq"
+          + "uestRequest\022\026\n\016idempotency_id\030\001 \001(\t\022\035\n\025v"
+          + "alidation_request_id\030\002 \001(\003\022\020\n\010document\030\003"
+          + " \001(\t\022\021\n\tsignature\030\004 \001(\t\022\027\n\017host_process_"
+          + "id\030\005 \001(\t\"\365\002\n7ConfirmSmartContractInvocat"
+          + "ionValidationRequestResponse\022\226\001\n\010respons"
+          + "e\030\001 \001(\0132\201\001.swisschain.sirius.vaultApi.sm"
+          + "artContractInvocationValidationRequests."
+          + "ConfirmSmartContractInvocationValidation"
+          + "RequestResponseBodyH\000\022\230\001\n\005error\030\002 \001(\0132\206\001"
+          + ".swisschain.sirius.vaultApi.smartContrac"
+          + "tInvocationValidationRequests.ConfirmSma"
+          + "rtContractInvocationValidationRequestErr"
+          + "orResponseBodyH\000B\006\n\004body\"=\n;ConfirmSmart"
+          + "ContractInvocationValidationRequestRespo"
+          + "nseBody\"\306\002\n@ConfirmSmartContractInvocati"
+          + "onValidationRequestErrorResponseBody\022\245\001\n"
+          + "\nerror_code\030\001 \001(\0162\220\001.swisschain.sirius.v"
+          + "aultApi.smartContractInvocationValidatio"
+          + "nRequests.ConfirmSmartContractInvocation"
+          + "ValidationRequestErrorResponseBody.Error"
+          + "Code\022\025\n\rerror_message\030\002 \001(\t\"C\n\tErrorCode"
+          + "\022\013\n\007UNKNOWN\020\000\022\026\n\022INVALID_PARAMETERS\020\001\022\021\n"
+          + "\rINVALID_STATE\020\002\"\255\003\n5RejectSmartContract"
+          + "InvocationValidationRequestRequest\022\026\n\016id"
+          + "empotency_id\030\001 \001(\t\022\035\n\025validation_request"
+          + "_id\030\002 \001(\003\022\246\001\n\020rejection_reason\030\003 \001(\0162\213\001."
+          + "swisschain.sirius.vaultApi.smartContract"
+          + "InvocationValidationRequests.RejectSmart"
+          + "ContractInvocationValidationRequestReque"
+          + "st.RejectionReason\022 \n\030rejection_reason_m"
+          + "essage\030\004 \001(\t\022\020\n\010document\030\005 \001(\t\022\021\n\tsignat"
+          + "ure\030\006 \001(\t\022\027\n\017host_process_id\030\007 \001(\t\"4\n\017Re"
+          + "jectionReason\022\t\n\005OTHER\020\000\022\026\n\022REJECTED_BY_"
+          + "POLICY\020\001\"\362\002\n6RejectSmartContractInvocati"
+          + "onValidationRequestResponse\022\225\001\n\010response"
+          + "\030\001 \001(\0132\200\001.swisschain.sirius.vaultApi.sma"
+          + "rtContractInvocationValidationRequests.R"
+          + "ejectSmartContractInvocationValidationRe"
+          + "questResponseBodyH\000\022\227\001\n\005error\030\002 \001(\0132\205\001.s"
+          + "wisschain.sirius.vaultApi.smartContractI"
+          + "nvocationValidationRequests.RejectSmartC"
+          + "ontractInvocationValidationRequestErrorR"
+          + "esponseBodyH\000B\006\n\004body\"<\n:RejectSmartCont"
+          + "ractInvocationValidationRequestResponseB"
+          + "ody\"\304\002\n?RejectSmartContractInvocationVal"
+          + "idationRequestErrorResponseBody\022\244\001\n\nerro"
+          + "r_code\030\001 \001(\0162\217\001.swisschain.sirius.vaultA"
           + "pi.smartContractInvocationValidationRequ"
           + "ests.RejectSmartContractInvocationValida"
-          + "tionRequestErrorResponseBodyH\000B\006\n\004body\"<"
-          + "\n:RejectSmartContractInvocationValidatio"
-          + "nRequestResponseBody\"\304\002\n?RejectSmartCont"
-          + "ractInvocationValidationRequestErrorResp"
-          + "onseBody\022\244\001\n\nerror_code\030\001 \001(\0162\217\001.swissch"
-          + "ain.sirius.vaultApi.smartContractInvocat"
-          + "ionValidationRequests.RejectSmartContrac"
-          + "tInvocationValidationRequestErrorRespons"
-          + "eBody.ErrorCode\022\025\n\rerror_message\030\002 \001(\t\"C"
-          + "\n\tErrorCode\022\013\n\007UNKNOWN\020\000\022\026\n\022INVALID_PARA"
-          + "METERS\020\001\022\021\n\rINVALID_STATE\020\0022\271\006\n)SmartCon"
-          + "tractInvocationValidationRequests\022\374\001\n\003Ge"
-          + "t\022y.swisschain.sirius.vaultApi.smartCont"
-          + "ractInvocationValidationRequests.GetSmar"
-          + "tContractInvocationValidationRequestsReq"
-          + "uest\032z.swisschain.sirius.vaultApi.smartC"
-          + "ontractInvocationValidationRequests.GetS"
+          + "tionRequestErrorResponseBody.ErrorCode\022\025"
+          + "\n\rerror_message\030\002 \001(\t\"C\n\tErrorCode\022\013\n\007UN"
+          + "KNOWN\020\000\022\026\n\022INVALID_PARAMETERS\020\001\022\021\n\rINVAL"
+          + "ID_STATE\020\0022\271\006\n)SmartContractInvocationVa"
+          + "lidationRequests\022\374\001\n\003Get\022y.swisschain.si"
+          + "rius.vaultApi.smartContractInvocationVal"
+          + "idationRequests.GetSmartContractInvocati"
+          + "onValidationRequestsRequest\032z.swisschain"
+          + ".sirius.vaultApi.smartContractInvocation"
+          + "ValidationRequests.GetSmartContractInvoc"
+          + "ationValidationRequestsResponse\022\206\002\n\007Conf"
+          + "irm\022|.swisschain.sirius.vaultApi.smartCo"
+          + "ntractInvocationValidationRequests.Confi"
+          + "rmSmartContractInvocationValidationReque"
+          + "stRequest\032}.swisschain.sirius.vaultApi.s"
           + "martContractInvocationValidationRequests"
-          + "Response\022\206\002\n\007Confirm\022|.swisschain.sirius"
-          + ".vaultApi.smartContractInvocationValidat"
-          + "ionRequests.ConfirmSmartContractInvocati"
-          + "onValidationRequestRequest\032}.swisschain."
-          + "sirius.vaultApi.smartContractInvocationV"
-          + "alidationRequests.ConfirmSmartContractIn"
-          + "vocationValidationRequestResponse\022\203\002\n\006Re"
-          + "ject\022{.swisschain.sirius.vaultApi.smartC"
-          + "ontractInvocationValidationRequests.Reje"
-          + "ctSmartContractInvocationValidationReque"
-          + "stRequest\032|.swisschain.sirius.vaultApi.s"
-          + "martContractInvocationValidationRequests"
-          + ".RejectSmartContractInvocationValidation"
-          + "RequestResponseB\252\001\nUio.swisschain.sirius"
-          + ".vaultApi.generated.smart_contract_invoc"
-          + "ation_validation_requests\252\002PSwisschain.S"
-          + "irius.VaultApi.ApiContract.SmartContract"
-          + "InvocationValidationRequestsb\006proto3"
+          + ".ConfirmSmartContractInvocationValidatio"
+          + "nRequestResponse\022\203\002\n\006Reject\022{.swisschain"
+          + ".sirius.vaultApi.smartContractInvocation"
+          + "ValidationRequests.RejectSmartContractIn"
+          + "vocationValidationRequestRequest\032|.swiss"
+          + "chain.sirius.vaultApi.smartContractInvoc"
+          + "ationValidationRequests.RejectSmartContr"
+          + "actInvocationValidationRequestResponseB\252"
+          + "\001\nUio.swisschain.sirius.vaultApi.generat"
+          + "ed.smart_contract_invocation_validation_"
+          + "requests\252\002PSwisschain.Sirius.VaultApi.Ap"
+          + "iContract.SmartContractInvocationValidat"
+          + "ionRequestsb\006proto3"
     };
     descriptor =
         com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
@@ -24816,7 +24890,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_vaultApi_smartContractInvocationValidationRequests_SmartContractInvocationValidationRequest_descriptor,
             new java.lang.String[] {
-              "Id", "TenantId", "SmartContractInvocation", "CreatedAt", "UpdatedAt",
+              "Id", "TenantId", "VaultId", "SmartContractInvocation", "CreatedAt", "UpdatedAt",
             });
     internal_static_swisschain_sirius_vaultApi_smartContractInvocationValidationRequests_SmartContractInvocation_descriptor =
         getDescriptor().getMessageTypes().get(5);
@@ -24864,7 +24938,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_vaultApi_smartContractInvocationValidationRequests_ConfirmSmartContractInvocationValidationRequestRequest_descriptor,
             new java.lang.String[] {
-              "RequestId", "ValidationRequestId", "Document", "Signature", "HostProcessId",
+              "IdempotencyId", "ValidationRequestId", "Document", "Signature", "HostProcessId",
             });
     internal_static_swisschain_sirius_vaultApi_smartContractInvocationValidationRequests_ConfirmSmartContractInvocationValidationRequestResponse_descriptor =
         getDescriptor().getMessageTypes().get(9);
@@ -24894,7 +24968,7 @@ public final class SmartContractInvocationValidationRequestsOuterClass {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_swisschain_sirius_vaultApi_smartContractInvocationValidationRequests_RejectSmartContractInvocationValidationRequestRequest_descriptor,
             new java.lang.String[] {
-              "RequestId",
+              "IdempotencyId",
               "ValidationRequestId",
               "RejectionReason",
               "RejectionReasonMessage",

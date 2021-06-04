@@ -51,7 +51,7 @@ public class SmartContractDeploymentApiServiceImp implements SmartContractDeploy
     var conformationRequest =
         SmartContractDeploymentValidationRequestsOuterClass
             .ConfirmSmartContractDeploymentValidationRequestRequest.newBuilder()
-            .setRequestId(
+            .setIdempotencyId(
                 String.format(
                     "Guardian:SmartContractDeploymentValidationRequest:%d",
                     validationRequest.getId()))
@@ -94,7 +94,7 @@ public class SmartContractDeploymentApiServiceImp implements SmartContractDeploy
     var rejectRequestBuilder =
         SmartContractDeploymentValidationRequestsOuterClass
             .RejectSmartContractDeploymentValidationRequestRequest.newBuilder()
-            .setRequestId(
+            .setIdempotencyId(
                 String.format(
                     "Guardian:SmartContractDeploymentValidationRequest:%d",
                     validationRequest.getId()))
@@ -146,6 +146,7 @@ public class SmartContractDeploymentApiServiceImp implements SmartContractDeploy
     return SmartContractDeploymentValidationRequest.create(
         validationRequest.getId(),
         validationRequest.getTenantId(),
+        validationRequest.getVaultId(),
         map(validationRequest.getSmartContractDeployment()));
   }
 
