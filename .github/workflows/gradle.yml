@@ -44,3 +44,9 @@ jobs:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
           NAMESPACE: sirius
           POD: vault-guardian
+      - name: Restart Sirius.Vault.Guardian Shared
+        uses: swisschain/kube-restart-pods@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+          NAMESPACE: sirius
+          POD: vault-guardian-shared
