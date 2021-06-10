@@ -33,8 +33,8 @@ public class ValidatorRequestRepositoryRetryDecorator implements ValidatorReques
               o ->
                   logger.warn(
                       String.format(
-                          "Failed to get validator request by id %s.", validatorRequestId),
-                      o.getLastExceptionThatCausedRetry()),
+                          "Failed to get validator request by id %s: %s",
+                          validatorRequestId, o.getLastExceptionThatCausedRetry().getMessage())),
               () -> validatorRequestRepository.getById(validatorRequestId));
       return status.getResult();
     } catch (RetriesExhaustedException exception) {
@@ -65,9 +65,10 @@ public class ValidatorRequestRepositoryRetryDecorator implements ValidatorReques
               o ->
                   logger.warn(
                       String.format(
-                          "Failed to get validator requests by validation request %d type %s.",
-                          validationRequestId, requestType.name()),
-                      o.getLastExceptionThatCausedRetry()),
+                          "Failed to get validator requests by validation request %d type %s: %s",
+                          validationRequestId,
+                          requestType.name(),
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               () ->
                   validatorRequestRepository.getByValidationRequestId(
                       validationRequestId, requestType));
@@ -100,9 +101,10 @@ public class ValidatorRequestRepositoryRetryDecorator implements ValidatorReques
               o ->
                   logger.warn(
                       String.format(
-                          "Failed to get validator request by validation request %d by validator id %s.",
-                          validationRequestId, validatorId),
-                      o.getLastExceptionThatCausedRetry()),
+                          "Failed to get validator request by validation request %d by validator id %s: %s",
+                          validationRequestId,
+                          validatorId,
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               () -> validatorRequestRepository.getByValidatorId(validatorId, validationRequestId));
       return status.getResult();
     } catch (RetriesExhaustedException exception) {
@@ -133,10 +135,10 @@ public class ValidatorRequestRepositoryRetryDecorator implements ValidatorReques
               o ->
                   logger.warn(
                       String.format(
-                          "Failed to insert validator request with validator id %s and transfer validation request %d.",
+                          "Failed to insert validator request with validator id %s and transfer validation request %d: %s",
                           validatorRequest.getValidatorId(),
-                          validatorRequest.getValidationRequestId()),
-                      o.getLastExceptionThatCausedRetry()),
+                          validatorRequest.getValidationRequestId(),
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               () -> validatorRequestRepository.insert(validatorRequest));
       return status.getResult();
     } catch (RetriesExhaustedException exception) {
@@ -174,9 +176,10 @@ public class ValidatorRequestRepositoryRetryDecorator implements ValidatorReques
           o ->
               logger.warn(
                   String.format(
-                      "Failed to update validator request with validator id %s and validation request %d.",
-                      validatorRequest.getValidatorId(), validatorRequest.getValidationRequestId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to update validator request with validator id %s and validation request %d: %s",
+                      validatorRequest.getValidatorId(),
+                      validatorRequest.getValidationRequestId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             validatorRequestRepository.update(validatorRequest);
             return null;

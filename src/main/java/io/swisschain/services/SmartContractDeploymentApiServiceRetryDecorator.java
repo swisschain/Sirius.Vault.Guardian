@@ -29,8 +29,9 @@ public class SmartContractDeploymentApiServiceRetryDecorator
           RetryPolicies.ExecuteWithDefaultGrpcConfig(
               o ->
                   logger.warn(
-                      "Failed to get smart contract deployment validation requests.",
-                      o.getLastExceptionThatCausedRetry()),
+                      String.format(
+                          "Failed to get smart contract deployment validation requests: %s",
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               smartContractDeploymentApiService::get);
       return status.getResult();
     } catch (RetriesExhaustedException exception) {
@@ -56,9 +57,8 @@ public class SmartContractDeploymentApiServiceRetryDecorator
           o ->
               logger.warn(
                   String.format(
-                      "Failed to confirm smart contract deployment validation request %d.",
-                      validationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to confirm smart contract deployment validation request %d: %s",
+                      validationRequest.getId(), o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             smartContractDeploymentApiService.confirm(validationRequest);
             return null;
@@ -89,9 +89,8 @@ public class SmartContractDeploymentApiServiceRetryDecorator
           o ->
               logger.warn(
                   String.format(
-                      "Failed to reject smart contract deployment validation request %d.",
-                      validationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to reject smart contract deployment validation request %d: %s",
+                      validationRequest.getId(), o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             smartContractDeploymentApiService.reject(validationRequest);
             return null;

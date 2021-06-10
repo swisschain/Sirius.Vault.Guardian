@@ -34,7 +34,7 @@ public class ValidatorResponseTask implements Runnable {
         }
       }
     } catch (OperationExhaustedException exception) {
-      logger.error("Operation exhausted while processing approval results.", exception);
+      // ignore
     } catch (OperationFailedException exception) {
       logger.error("Operation failed while processing approval results.", exception);
     } catch (Exception exception) {

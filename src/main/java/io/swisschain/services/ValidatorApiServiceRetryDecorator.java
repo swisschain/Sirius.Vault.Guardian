@@ -27,8 +27,9 @@ public class ValidatorApiServiceRetryDecorator implements ValidatorApiService {
           RetryPolicies.ExecuteWithDefaultGrpcConfig(
               o ->
                   logger.warn(
-                      String.format("Failed to get validators by tenant %s.", tenantId),
-                      o.getLastExceptionThatCausedRetry()),
+                      String.format(
+                          "Failed to get validators by tenant %s: %s",
+                          tenantId, o.getLastExceptionThatCausedRetry().getMessage())),
               () -> validatorApiService.get(tenantId));
       return status.getResult();
     } catch (RetriesExhaustedException exception) {
@@ -57,8 +58,8 @@ public class ValidatorApiServiceRetryDecorator implements ValidatorApiService {
               o ->
                   logger.warn(
                       String.format(
-                          "Failed to get validator by id %s by tenant %s.", validatorId, tenantId),
-                      o.getLastExceptionThatCausedRetry()),
+                          "Failed to get validator by id %s by tenant %s: %s",
+                          validatorId, tenantId, o.getLastExceptionThatCausedRetry().getMessage())),
               () -> validatorApiService.getById(tenantId, validatorId));
       return status.getResult();
     } catch (RetriesExhaustedException exception) {

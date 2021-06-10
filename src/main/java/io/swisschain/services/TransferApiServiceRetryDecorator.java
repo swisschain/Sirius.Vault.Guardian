@@ -27,8 +27,9 @@ public class TransferApiServiceRetryDecorator implements TransferApiService {
           RetryPolicies.ExecuteWithDefaultGrpcConfig(
               o ->
                   logger.warn(
-                      "Failed to get transfer validation requests.",
-                      o.getLastExceptionThatCausedRetry()),
+                      String.format(
+                          "Failed to get transfer validation requests: %s",
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               transferApiService::get);
       return status.getResult();
     } catch (RetriesExhaustedException exception) {
@@ -53,9 +54,9 @@ public class TransferApiServiceRetryDecorator implements TransferApiService {
           o ->
               logger.warn(
                   String.format(
-                      "Failed to confirm transfer validation request %d.",
-                      transferValidationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to confirm transfer validation request %d: %s",
+                      transferValidationRequest.getId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             transferApiService.confirm(transferValidationRequest);
             return null;
@@ -86,9 +87,9 @@ public class TransferApiServiceRetryDecorator implements TransferApiService {
           o ->
               logger.warn(
                   String.format(
-                      "Failed to reject transfer validation request %d.",
-                      transferValidationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to reject transfer validation request %d: %s",
+                      transferValidationRequest.getId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             transferApiService.reject(transferValidationRequest);
             return null;

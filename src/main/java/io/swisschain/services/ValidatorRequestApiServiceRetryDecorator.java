@@ -25,9 +25,10 @@ public class ValidatorRequestApiServiceRetryDecorator implements ValidatorReques
           o ->
               logger.warn(
                   String.format(
-                      "Failed to confirm validator approval %s of validation request %s.",
-                      validatorId, validationRequestId),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to confirm validator approval %s of validation request %s: %s",
+                      validatorId,
+                      validationRequestId,
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             validatorRequestApiService.confirm(validatorId, validationRequestId);
             return null;
@@ -66,9 +67,10 @@ public class ValidatorRequestApiServiceRetryDecorator implements ValidatorReques
           o ->
               logger.warn(
                   String.format(
-                      "Failed to create approval request for validator %s of validation request %s.",
-                      validatorId, validationRequestId),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to create approval request for validator %s of validation request %s: %s",
+                      validatorId,
+                      validationRequestId,
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             validatorRequestApiService.create(
                 tenantId, vaultId, validationRequestId, validatorId, message, key, nonce);

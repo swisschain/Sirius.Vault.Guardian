@@ -36,9 +36,9 @@ public class SmartContractDeploymentValidationRequestRepositoryRetryDecorator
               o ->
                   logger.warn(
                       String.format(
-                          "Failed to get smart contract deployment validation request by id %d.",
-                          smartContractDeploymentValidationRequestId),
-                      o.getLastExceptionThatCausedRetry()),
+                          "Failed to get smart contract deployment validation request by id %d: %s",
+                          smartContractDeploymentValidationRequestId,
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               () ->
                   smartContractDeploymentValidationRequestRepository.getById(
                       smartContractDeploymentValidationRequestId));
@@ -70,9 +70,9 @@ public class SmartContractDeploymentValidationRequestRepositoryRetryDecorator
           o ->
               logger.warn(
                   String.format(
-                      "Failed to insert smart contract deployment validation request %d.",
-                      smartContractDeploymentValidationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to insert smart contract deployment validation request %d: %s",
+                      smartContractDeploymentValidationRequest.getId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             smartContractDeploymentValidationRequestRepository.insert(
                 smartContractDeploymentValidationRequest);
@@ -113,9 +113,9 @@ public class SmartContractDeploymentValidationRequestRepositoryRetryDecorator
           o ->
               logger.warn(
                   String.format(
-                      "Failed to update smart contract deployment validation request %d.",
-                      smartContractDeploymentValidationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to update smart contract deployment validation request %d: %s",
+                      smartContractDeploymentValidationRequest.getId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             smartContractDeploymentValidationRequestRepository.update(
                 smartContractDeploymentValidationRequest);

@@ -36,9 +36,9 @@ public class SmartContractInvocationValidationRequestRepositoryRetryDecorator
               o ->
                   logger.warn(
                       String.format(
-                          "Failed to get smart contract invocation validation request by id %d.",
-                          smartContractInvocationValidationRequestId),
-                      o.getLastExceptionThatCausedRetry()),
+                          "Failed to get smart contract invocation validation request by id %d: %s",
+                          smartContractInvocationValidationRequestId,
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               () ->
                   smartContractInvocationValidationRequestRepository.getById(
                       smartContractInvocationValidationRequestId));
@@ -70,9 +70,9 @@ public class SmartContractInvocationValidationRequestRepositoryRetryDecorator
           o ->
               logger.warn(
                   String.format(
-                      "Failed to insert smart contract invocation validation request %d.",
-                      smartContractInvocationValidationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to insert smart contract invocation validation request %d: %s",
+                      smartContractInvocationValidationRequest.getId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             smartContractInvocationValidationRequestRepository.insert(
                 smartContractInvocationValidationRequest);
@@ -113,9 +113,9 @@ public class SmartContractInvocationValidationRequestRepositoryRetryDecorator
           o ->
               logger.warn(
                   String.format(
-                      "Failed to update smart contract invocation validation request %d.",
-                      smartContractInvocationValidationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to update smart contract invocation validation request %d: %s",
+                      smartContractInvocationValidationRequest.getId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             smartContractInvocationValidationRequestRepository.update(
                 smartContractInvocationValidationRequest);
