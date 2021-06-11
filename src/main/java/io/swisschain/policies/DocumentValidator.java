@@ -7,7 +7,6 @@ import io.swisschain.domain.document.TenantKey;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
@@ -61,19 +60,25 @@ public class DocumentValidator {
 
   public SignatureValidationResult validateWithPublicKey(
       String document, String signature, String publicKey) {
+    byte[] signatureData;
     try {
-      var isValid =
+      signatureData = Base64.getDecoder().decode(signature);
+    } catch (IllegalArgumentException exception) {
+      logger.warn("Invalid signature format", exception);
+      return SignatureValidationResult.CreateInvalid("Invalid signature format");
+    }
+    boolean isValid;
+    try {
+      isValid =
           asymmetricEncryptionService.verifySignature(
-              document.getBytes(StandardCharsets.UTF_8),
-              Base64.getDecoder().decode(signature),
-              publicKey);
-      if (isValid) {
-        return SignatureValidationResult.CreateValid();
-      }
-      return SignatureValidationResult.CreateInvalid("Wrong document signature");
-    } catch (IOException exception) {
-      logger.error("An error occurred while verifying document signature.", exception);
+              document.getBytes(StandardCharsets.UTF_8), signatureData, publicKey);
+    } catch (Exception exception) {
+      logger.error("An error occurred while verifying document signature", exception);
       return SignatureValidationResult.CreateInvalid("Unknown error");
     }
+    if (!isValid) {
+      return SignatureValidationResult.CreateInvalid("Wrong document signature");
+    }
+    return SignatureValidationResult.CreateValid();
   }
 }

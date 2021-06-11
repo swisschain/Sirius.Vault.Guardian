@@ -28,7 +28,9 @@ public class ValidatorResponseApiServiceRetryDecorator implements ValidatorRespo
           RetryPolicies.ExecuteWithDefaultGrpcConfig(
               o ->
                   logger.warn(
-                      "Failed to get validators approvals.", o.getLastExceptionThatCausedRetry()),
+                      String.format(
+                          "Failed to get validators approvals: %s",
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               validatorResponseApiService::get);
       return status.getResult();
     } catch (RetriesExhaustedException exception) {

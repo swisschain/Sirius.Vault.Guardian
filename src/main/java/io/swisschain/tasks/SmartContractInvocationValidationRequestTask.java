@@ -35,9 +35,7 @@ public class SmartContractInvocationValidationRequestTask implements Runnable {
         }
       }
     } catch (OperationExhaustedException exception) {
-      logger.error(
-          "Operation exhausted while processing smart contract invocation validation requests.",
-          exception);
+      // ignore
     } catch (OperationFailedException exception) {
       logger.error(
           "Operation failed while processing smart contract invocation validation requests.",

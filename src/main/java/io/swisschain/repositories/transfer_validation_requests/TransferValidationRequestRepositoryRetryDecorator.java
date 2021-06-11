@@ -32,9 +32,9 @@ public class TransferValidationRequestRepositoryRetryDecorator
               o ->
                   logger.warn(
                       String.format(
-                          "Failed to get transfer validation request by id %d.",
-                          transferValidationRequestId),
-                      o.getLastExceptionThatCausedRetry()),
+                          "Failed to get transfer validation request by id %d: %s",
+                          transferValidationRequestId,
+                          o.getLastExceptionThatCausedRetry().getMessage())),
               () -> transferValidationRequestRepository.getById(transferValidationRequestId));
       return status.getResult();
     } catch (RetriesExhaustedException exception) {
@@ -63,9 +63,9 @@ public class TransferValidationRequestRepositoryRetryDecorator
           o ->
               logger.warn(
                   String.format(
-                      "Failed to insert transfer validation request %d.",
-                      transferValidationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to insert transfer validation request %d: %s",
+                      transferValidationRequest.getId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             transferValidationRequestRepository.insert(transferValidationRequest);
             return null;
@@ -104,9 +104,9 @@ public class TransferValidationRequestRepositoryRetryDecorator
           o ->
               logger.warn(
                   String.format(
-                      "Failed to update transfer validation request %d.",
-                      transferValidationRequest.getId()),
-                  o.getLastExceptionThatCausedRetry()),
+                      "Failed to update transfer validation request %d: %s",
+                      transferValidationRequest.getId(),
+                      o.getLastExceptionThatCausedRetry().getMessage())),
           () -> {
             transferValidationRequestRepository.update(transferValidationRequest);
             return null;

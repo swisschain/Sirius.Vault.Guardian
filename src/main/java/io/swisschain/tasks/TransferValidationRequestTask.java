@@ -35,7 +35,7 @@ public class TransferValidationRequestTask implements Runnable {
         }
       }
     } catch (OperationExhaustedException exception) {
-      logger.error("Operation exhausted while processing transfer validation requests.", exception);
+      // ignore
     } catch (OperationFailedException exception) {
       logger.error("Operation failed while processing transfer validation requests.", exception);
     } catch (Exception exception) {
