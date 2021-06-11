@@ -65,7 +65,7 @@ public class DocumentValidator {
       signatureData = Base64.getDecoder().decode(signature);
     } catch (IllegalArgumentException exception) {
       logger.warn("Invalid signature format", exception);
-      return SignatureValidationResult.CreateInvalid("Invalid signature");
+      return SignatureValidationResult.CreateInvalid("Invalid signature format");
     }
     boolean isValid;
     try {
