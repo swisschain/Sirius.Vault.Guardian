@@ -1,18 +1,22 @@
-package io.swisschain.isAlive;
+package io.swisschain.http_handlers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.net.HttpHeaders;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import io.swisschain.common.AppVersion;
+import io.swisschain.http_handlers.responses.is_alive.IsAliveResponse;
+import io.swisschain.services.JsonSerializer;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
-public class IsAliveHandler implements HttpHandler {
+public class IsAliveHttpHandler implements HttpHandler {
 
-  private final ObjectMapper mapper = new ObjectMapper();
+  private final JsonSerializer jsonSerializer;
+
+  public IsAliveHttpHandler(JsonSerializer jsonSerializer) {
+    this.jsonSerializer = jsonSerializer;
+  }
 
   @Override
   public void handle(HttpExchange exchange) throws IOException {
@@ -30,9 +34,9 @@ public class IsAliveHandler implements HttpHandler {
     response.setStartedAt(AppVersion.STARTED_AT);
     String result;
     try {
-      result = mapper.writeValueAsString(response);
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
+      result = jsonSerializer.serialize(response);
+    } catch (Exception exception) {
+      exception.printStackTrace();
       result = "";
     }
     return result;

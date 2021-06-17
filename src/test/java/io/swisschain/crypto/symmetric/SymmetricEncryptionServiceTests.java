@@ -9,7 +9,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class SymmetricEncryptionServiceTests {
   private SymmetricEncryptionService service;
@@ -32,7 +31,6 @@ public class SymmetricEncryptionServiceTests {
     var encryptedData = service.encrypt(data.getBytes(StandardCharsets.UTF_8), key, nonce);
     var decryptedData = service.decrypt(encryptedData, key, nonce);
 
-    var originString = new String(data.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
     var actualValue = new String(decryptedData, StandardCharsets.UTF_8);
     // assert
 
@@ -82,5 +80,31 @@ public class SymmetricEncryptionServiceTests {
     // assert
 
     assertEquals(originValue, actualValue);
+  }
+
+  @Test
+  public void decrypt_external_2() {
+    // arrange
+
+    var key = Base64.getDecoder().decode("8HNWdlJmzeGlPbGDsmC0nppscMcm3uC0fdZFywWAMEU=");
+    var nonce = Base64.getDecoder().decode("uphBIuXed6wj3bqP6Ezq7Q==");
+
+    var expectedMessage =
+        "{\"amount\":\"3.9812\",\"asset\":{\"assetAddress\":\"0x3A9BC420a42D4386D1A84CC560e7324779D86734\",\"assetId\":\"100001\",\"symbol\":\"ETH\"},\"blockchainId\":\"ethereum-ropsten\",\"blockchainProtocolId\":\"ethereum\",\"clientContext\":{\"userId\":\"1000045\",\"apiKeyId\":\"4000762\",\"accountReferenceId\":\"Mr. White\",\"withdrawalReferenceId\":\"Mr. Red\",\"ip\":\"10.0.25.179\",\"timestamp\":\"2020-09-30T13:41:12.209060300Z\"},\"destination\":{\"address\":\"0x1A9BC420a42D4386D1A84CC560e7324779D86734\",\"name\":\"No name\",\"group\":\"1000457\",\"tag\":\"this is a text tag value\",\"tagType\":\"text\"},\"feeLimit\":\"0.657\",\"networkType\":\"test\",\"operationId\":\"D2B5B7E5-15CF-44C8-8C3E-361B421DE671\",\"source\":{\"address\":\"0x4A9BC420a42D4386D1A84CC560e7324779D86734\",\"name\":null,\"group\":\"1000458\"}}";
+
+    var encryptedMessage =
+        Base64.getDecoder()
+            .decode(
+                "z3klKkdVbhQpcCVb5dly60MEQcOSGxchGcI5VqTUNwlZhIVZQmmvavRX8OC0FLsEQx+zvTK9J5zg0DV4e28orRqxjFT5PlyJWaW0+OY0H9Qr6BQXlu1UGWAjFBuKOrnFeDn6mD5dHmhCES944jJGDUsXnOCTpPdGayYIS8IglmQaDmn+KfEh6IMpe19FV2ZQgChP6i4H/lSTzVJRZhr9nTXQQr4EAsTNPltpzeZjmJ1NT1gUWaPzqyv1pRv8dMgsCneL5jhGigfxmmlRb7LgYRA5XsflkA3HGyoMeNk/wGm1J0Umki0SSHgPla09llaXJMVjoKAWdfQSbF+H/0m/Li6YAPi85ffzRPJYJrGtwrPGp9B9urHqsChfBRXrcHK6MBNw9Ayyr0yujP6k+v5zCpQho9+exGwi16MIS3qQwp/IXVCR7eddMXJAllJ2j8SMJlH16IpWSwrwX+6zcsJSIvRowRnTPF4ZPusC0Y/9gaZElhv+Cq7LrDuK+kJi64QOr7D5GJxfXsWpnjs7rvZYUutW6Nad7MgbyVBnrYBf3a+vzSdbfw3z/X766QfRyjDIt1xz6I71S4e1gVYspdHFKNcBMUCpgNSAwWb+cKK1HDiVy44PwM+LoTuSfGE9LIGUoIuMUQDI6q2wx1VfAMTgRNKlFcfLVMuhHFWnlE444ZESrHh2vI5R9VLvnn7/RAq8RzjpdgdLs3XXCpzz7N27Pw5GVcLVQsvc3mQ+EcvFjaf6xcq4vr7EP8qa0JZgbnL+ZuleWVmiTcOMokfqgMpsggvpUJXQPV6rMbo40LU4q/0a2bOLWPRa9iP5rKbnj3+NfZQj93t8VP7jUEv7aBCiEj4ZCoFzH4oC5uY6huohauj7ZtseNFuBxFWfdL8iFkS6d2q0a7YbceZVKR7kRSO+bpbSF9uYQBrtdacJbowPr1k9iiq4pn1+9Q0uIrlywSWnV4O7zopw1J2KD523GBAHsw==");
+
+    // act
+
+    var decryptedMessage = service.decrypt(encryptedMessage, key, nonce);
+
+    var actualMessage = new String(decryptedMessage, StandardCharsets.UTF_8);
+
+    // assert
+
+    assertEquals(expectedMessage, actualMessage);
   }
 }
