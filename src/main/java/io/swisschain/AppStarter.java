@@ -1,13 +1,13 @@
 package io.swisschain;
 
+import com.sun.net.httpserver.HttpServer;
 import io.swisschain.common.AppVersion;
-import io.swisschain.config.AppConfig;
-import io.swisschain.config.loaders.ConfigLoader;
 import io.swisschain.crypto.asymmetric.AsymmetricEncryptionService;
 import io.swisschain.crypto.symmetric.SymmetricEncryptionService;
 import io.swisschain.domain.document.CustomerKey;
 import io.swisschain.domain.document.TenantKey;
-import io.swisschain.isAlive.IsAliveService;
+import io.swisschain.http_handlers.IsAliveHttpHandler;
+import io.swisschain.http_handlers.SettingsHttpHandler;
 import io.swisschain.odm.OdmClientRetryDecorator;
 import io.swisschain.odm.SmartContractDeploymentOdmClientImp;
 import io.swisschain.odm.SmartContractInvocationOdmClientImp;
@@ -42,6 +42,8 @@ import io.swisschain.tasks.ValidatorResponseTask;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -49,11 +51,61 @@ import java.util.concurrent.TimeUnit;
 public class AppStarter {
   private static final Logger logger = LogManager.getLogger();
 
-  public static void main(String[] args) throws InterruptedException {
-    AppConfig appConfig = ConfigLoader.loadConfig();
+  public static void main(String[] args) throws Exception {
+    int httpPort = 5000;
+    var httpPortValue = System.getenv("HTTP_PORT");
+    var settingsUrl = System.getenv("SETTINGS_URL");
+
+    if (httpPortValue != null && !httpPortValue.isEmpty()) {
+      try {
+        httpPort = Integer.parseInt(httpPortValue);
+      } catch (NumberFormatException exception) {
+        logger.error(String.format("Invalid http port value: %s", httpPortValue));
+      }
+    }
+
+    logger.info(String.format("HTTP PORT: %d", httpPort));
+    logger.info(String.format("Settings URL: %s", settingsUrl));
+
+    var jsonSerializer = new JsonSerializer();
+    var asymmetricEncryptionService = new AsymmetricEncryptionService();
+    var symmetricEncryptionService = new SymmetricEncryptionService();
+    var settingsKeyService = new SettingsKeysService(asymmetricEncryptionService, jsonSerializer);
+
+    settingsKeyService.init();
+
+    logger.info(String.format("Settings Public Key: %s", settingsKeyService.getPublic()));
+
+    var settingsService =
+        new SettingsService(
+            asymmetricEncryptionService,
+            symmetricEncryptionService,
+            settingsKeyService,
+            jsonSerializer,
+            settingsUrl);
+
+    logger.info("HTTP server starting...");
+
+    try {
+      final var server = HttpServer.create();
+      server.bind(new InetSocketAddress(httpPort), 0);
+      server.createContext("/api/isalive", new IsAliveHttpHandler(jsonSerializer));
+      server.createContext(
+          "/api/settings", new SettingsHttpHandler(settingsService, settingsKeyService, jsonSerializer));
+      server.start();
+    } catch (IOException exception) {
+      logger.info("Unable to start HTTP server.", exception);
+      return;
+    }
+
+    logger.info("HTTP server started...");
+
+    logger.info("Settings loading...");
+
+    var appConfig = settingsService.load();
 
     if (appConfig == null) {
-      logger.error("Can not load config");
+      logger.error("Can not load configuration");
       return;
     }
 
@@ -63,8 +115,6 @@ public class AppStarter {
     }
 
     var hostProcessId = String.format("%s-%d", AppVersion.HOSTNAME, ProcessHandle.current().pid());
-
-    var jsonSerializer = new JsonSerializer();
 
     // API clients
 
@@ -109,9 +159,6 @@ public class AppStarter {
             new ValidatorRequestRepositoryImp(connectionFactory));
 
     // Services
-
-    var asymmetricEncryptionService = new AsymmetricEncryptionService();
-    var symmetricEncryptionService = new SymmetricEncryptionService();
 
     var transferApiService =
         new TransferApiServiceRetryDecorator(
@@ -310,8 +357,6 @@ public class AppStarter {
         TimeUnit.SECONDS);
 
     initShutdownHook();
-
-    new IsAliveService(5000).start();
 
     while (true) {
       Thread.sleep(10000);

@@ -1,4 +1,4 @@
-package io.swisschain.isAlive;
+package io.swisschain.http_handlers.responses.is_alive;
 
 import java.util.Date;
 
