@@ -60,7 +60,7 @@ public class AppStarter {
       try {
         httpPort = Integer.parseInt(httpPortValue);
       } catch (NumberFormatException exception) {
-        logger.error("Invalid http port value");
+        logger.error(String.format("Invalid http port value: %s", httpPortValue));
       }
     }
 
